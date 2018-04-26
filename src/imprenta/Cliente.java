@@ -12,5 +12,23 @@ package imprenta;
 public class Cliente {
     private String nombre;
     private String telefono;
+
+    public Cliente() {
+    }
+
+    public Cliente(String nombre, String telefono) {
+        this.nombre = nombre;
+        this.telefono = telefono;
+    }
+    
+    public Cliente(Cliente c) {
+        this.nombre = c.nombre;
+        this.telefono = c.telefono;
+    }
+
+    @Override
+    public String toString() {
+        return "Cliente{" + "nombre=" + nombre + ", telefono=" + telefono + '}';
+    }
     
 }
