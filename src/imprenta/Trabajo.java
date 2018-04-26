@@ -29,6 +29,11 @@ public class Trabajo {
         this.fechaImpresion = fechaImpresion;
         this.fechaRecogida = fechaRecogida;
     }
+    
+    public Trabajo(Trabajo trabajo) {
+        
+    }
+
 
     @Override
     public String toString() {
