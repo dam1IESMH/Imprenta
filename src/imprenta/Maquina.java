@@ -5,10 +5,19 @@
  */
 package imprenta;
 
+import java.util.Calendar;
+
 /**
  *
  * @author usuario
  */
 public class Maquina {
+    private int id,
+            volumen,
+            capacidadMax;
+    private String ubicacion,
+            tipoImpresion,
+            modoImpresion;
+    private Calendar fechaCompra;
     
 }

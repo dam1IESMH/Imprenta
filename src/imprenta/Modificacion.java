@@ -5,10 +5,16 @@
  */
 package imprenta;
 
+import java.util.Calendar;
+
 /**
  *
  * @author usuario
  */
 public class Modificacion {
-    
+    private int id;
+    private Calendar fecha;
+    private String descripcion;
+    private boolean aprobadoCliente;
+    private Calendar fechaAprobacion;
 }
