@@ -5,12 +5,10 @@
  */
 package imprenta;
 
-
 /**
  *
  * @author usuario
  */
-public class Trabajo {
+public class Reparacion {
     
-
 }
