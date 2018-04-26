@@ -7,13 +7,12 @@ package imprenta;
 
 import java.util.Date;
 
-
 /**
  *
  * @author usuario
  */
-public class Poster extends Trabajo{
-    
+public class Poster extends Trabajo {
+
     private int alto;
     private int ancho;
     private int numeroCopias;
@@ -28,8 +27,11 @@ public class Poster extends Trabajo{
         this.numeroCopias = numeroCopias;
     }
 
-    public Poster(Poster poster) {
-
+    public Poster(Poster p) {
+        super(p);
+        this.alto = p.alto;
+        this.ancho = p.ancho;
+        this.numeroCopias = p.numeroCopias;
     }
 
     @Override

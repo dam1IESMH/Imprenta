@@ -23,8 +23,9 @@ public class Rotulo extends Trabajo{
         this.centroComercial = centroComercial;
     }
 
-    public Rotulo(Rotulo rotulo){
-        
+    public Rotulo(Rotulo r){
+        super(r);
+        this.centroComercial = r.centroComercial;
     }
 
     @Override

@@ -31,8 +31,12 @@ protected int id;
         this.fechaRecogida = fechaRecogida;
     }
     
-    public Trabajo(Trabajo trabajo) {
-        
+    public Trabajo(Trabajo t) {
+        this.id = t.id;
+        this.fechaSolicitud = t.fechaSolicitud;
+        this.tipoRelieve = t.tipoRelieve;
+        this.fechaImpresion = t.fechaImpresion;
+        this.fechaRecogida = t.fechaRecogida;
     }
 
 

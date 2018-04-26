@@ -26,8 +26,10 @@ public class Libro extends Trabajo{
         this.colorTapas = colorTapas;
     }
     
-    public Libro(Libro libro){
-        
+    public Libro(Libro l){
+        super(l);
+        this.numeroPaginas = l.numeroPaginas;
+        this.colorTapas = l.colorTapas;
     }
 
     @Override
