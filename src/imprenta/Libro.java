@@ -5,6 +5,8 @@
  */
 package imprenta;
 
+import java.util.Date;
+
 
 /**
  *
@@ -12,5 +14,25 @@ package imprenta;
  */
 public class Libro extends Trabajo{
     
+    private int numeroPaginas;
+    private String colorTapas;
+
+    public Libro() {
+    }
+
+    public Libro(int numeroPaginas, String colorTapas, int id, Date fechaSolicitud, String tipoRelieve, Date fechaImpresion, Date fechaRecogida) {
+        super(id, fechaSolicitud, tipoRelieve, fechaImpresion, fechaRecogida);
+        this.numeroPaginas = numeroPaginas;
+        this.colorTapas = colorTapas;
+    }
     
+    public Libro(Libro libro){
+        
+    }
+
+    @Override
+    public String toString() {
+        return "Libro{" + "numeroPaginas=" + numeroPaginas + ", colorTapas=" + colorTapas + '}';
+    }
+
 }
