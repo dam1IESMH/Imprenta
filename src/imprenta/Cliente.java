@@ -6,11 +6,14 @@
 package imprenta;
 
 /**
- * La clase {@code Cliente} representa a un cliente cuya actividad es registrada 
- * en una imprenta. El cliente se define por su {@code nombre} y {@code telefono}.
+ * La clase {@code Cliente} representa a un cliente cuya actividad es registrada
+ * en una imprenta. El cliente se define por su {@code nombre} y
+ * {@code telefono}.
+ *
  * @author SirLoveWalter
  */
 public class Cliente {
+
     private String nombre;
     private String telefono;
 
@@ -21,8 +24,9 @@ public class Cliente {
     }
 
     /**
-     * Inicializa un objeto {@code Cliente} que inicializa sus variables 
-     * con los parámetros pasados como argumento.
+     * Inicializa un objeto {@code Cliente} que inicializa sus variables con los
+     * parámetros pasados como argumento.
+     *
      * @param nombre {@code String}
      * @param telefono {@code String}
      */
@@ -30,10 +34,11 @@ public class Cliente {
         this.nombre = nombre;
         this.telefono = telefono;
     }
-    
+
     /**
-     * Inicializa un objeto {@code Cliente} cuyas variables copia de otro objeto Cliente
-     * pasado como argumento.
+     * Inicializa un objeto {@code Cliente} cuyas variables copia de otro objeto
+     * Cliente pasado como argumento.
+     *
      * @param c {@code Cliente}
      */
     public Cliente(Cliente c) {
@@ -45,5 +50,5 @@ public class Cliente {
     public String toString() {
         return "Cliente{" + "nombre=" + nombre + ", telefono=" + telefono + '}';
     }
-    
+
 }
