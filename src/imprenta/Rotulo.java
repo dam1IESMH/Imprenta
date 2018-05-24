@@ -5,6 +5,7 @@
  */
 package imprenta;
 
+import java.util.Calendar;
 import java.util.Date;
 
 /**
@@ -24,7 +25,7 @@ public class Rotulo extends Trabajo{
 
     //Constructor para la clase Trabajo con todos los parámetros
     
-    public Rotulo(String centroComercial, int id, Date fechaSolicitud, String tipoRelieve, Date fechaImpresion, Date fechaRecogida) {
+    public Rotulo(String centroComercial, int id, Calendar fechaSolicitud, enum tipoRelieve, Date fechaImpresion, Date fechaRecogida) {
         super(id, fechaSolicitud, tipoRelieve, fechaImpresion, fechaRecogida);
         this.centroComercial = centroComercial;
     }//Cierre del constructor
@@ -36,7 +37,7 @@ public class Rotulo extends Trabajo{
 
     @Override
     public String toString() {
-        return "Rotulo{" + "centroComercial=" + centroComercial + '}';
+        return super.toString()+"Rotulo{" + "centroComercial=" + centroComercial + '}';
     }
     
 }//Cierre de la clase

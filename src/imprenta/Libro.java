@@ -5,6 +5,7 @@
  */
 package imprenta;
 
+import java.util.Calendar;
 import java.util.Date;
 
 
@@ -26,7 +27,7 @@ public class Libro extends Trabajo{
 
     //Constructor para la clase Trabajo con todos los parámetros
     
-    public Libro(int numeroPaginas, String colorTapas, int id, Date fechaSolicitud, String tipoRelieve, Date fechaImpresion, Date fechaRecogida) {
+    public Libro(int numeroPaginas, String colorTapas, int id, Calendar fechaSolicitud, String tipoRelieve, Calendar fechaImpresion, Calendar fechaRecogida) {
         super(id, fechaSolicitud, tipoRelieve, fechaImpresion, fechaRecogida);
         this.numeroPaginas = numeroPaginas;
         this.colorTapas = colorTapas;
@@ -40,7 +41,7 @@ public class Libro extends Trabajo{
 
     @Override
     public String toString() {
-        return "Libro{" + "numeroPaginas=" + numeroPaginas + ", colorTapas=" + colorTapas + '}';
+        return super.toString()+"Libro{" + "numeroPaginas=" + numeroPaginas + ", colorTapas=" + colorTapas + '}';
     }
 
 }//Cierre de la clase

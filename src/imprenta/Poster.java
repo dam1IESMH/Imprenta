@@ -5,6 +5,7 @@
  */
 package imprenta;
 
+import java.util.Calendar;
 import java.util.Date;
 
 /**
@@ -26,7 +27,7 @@ public class Poster extends Trabajo {
 
     //Constructor para la clase Trabajo con todos los parámetros
     
-    public Poster(int alto, int ancho, int numeroCopias, int id, Date fechaSolicitud, String tipoRelieve, Date fechaImpresion, Date fechaRecogida) {
+    public Poster(int alto, int ancho, int numeroCopias, int id, Calendar fechaSolicitud, enum tipoRelieve, Calendar fechaImpresion, Calendar fechaRecogida) {
         super(id, fechaSolicitud, tipoRelieve, fechaImpresion, fechaRecogida);
         this.alto = alto;
         this.ancho = ancho;
@@ -42,7 +43,7 @@ public class Poster extends Trabajo {
 
     @Override
     public String toString() {
-        return "Poster{" + "alto=" + alto + ", ancho=" + ancho + ", numeroCopias=" + numeroCopias + '}';
+        return super.toString()+"Poster{" + "alto=" + alto + ", ancho=" + ancho + ", numeroCopias=" + numeroCopias + '}';
     }
     
 }//Cierre de la clase
