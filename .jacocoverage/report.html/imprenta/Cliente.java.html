@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="es"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../.resources/report.css" type="text/css"/><link rel="shortcut icon" href="../.resources/report.gif" type="image/gif"/><title>Cliente.java</title><link rel="stylesheet" href="../.resources/prettify.css" type="text/css"/><script type="text/javascript" src="../.resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../.sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">JaCoCoverage analysis of project &quot;Imprenta&quot; (powered by JaCoCo from EclEmma)</a> &gt; <a href="index.source.html" class="el_package">imprenta</a> &gt; <span class="el_source">Cliente.java</span></div><h1>Cliente.java</h1><pre class="source lang-java linenums">/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package imprenta;
+
+/**
+ * La clase {@code Cliente} representa a un cliente cuya actividad es registrada
+ * en una imprenta. El cliente se define por su {@code nombre} y
+ * {@code telefono}.
+ *
+ * @author SirLoveWalter
+ */
+public class Cliente {
+
+    private String nombre;
+    private String telefono;
+
+    /**
+     * Inicializa un objeto {@code Cliente} con sus variables sin inicializar.
+     */
+<span class="fc" id="L23">    public Cliente() {</span>
+<span class="fc" id="L24">    }</span>
+
+    /**
+     * Inicializa un objeto {@code Cliente} que inicializa sus variables con los
+     * parámetros pasados como argumento.
+     *
+     * @param nombre {@code String}
+     * @param telefono {@code String}
+     */
+<span class="nc" id="L33">    public Cliente(String nombre, String telefono) {</span>
+<span class="nc" id="L34">        this.nombre = nombre;</span>
+<span class="nc" id="L35">        this.telefono = telefono;</span>
+<span class="nc" id="L36">    }</span>
+
+    /**
+     * Inicializa un objeto {@code Cliente} cuyas variables copia de otro objeto
+     * Cliente pasado como argumento.
+     *
+     * @param c {@code Cliente}
+     */
+<span class="nc" id="L44">    public Cliente(Cliente c) {</span>
+<span class="nc" id="L45">        this.nombre = c.nombre;</span>
+<span class="nc" id="L46">        this.telefono = c.telefono;</span>
+<span class="nc" id="L47">    }</span>
+
+    @Override
+    public String toString() {
+<span class="fc" id="L51">        return &quot;Cliente{&quot; + &quot;nombre=&quot; + nombre + &quot;, telefono=&quot; + telefono + '}';</span>
+    }
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.6.201602180812</span></div></body></html>

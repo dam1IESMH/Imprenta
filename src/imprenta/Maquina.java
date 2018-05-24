@@ -25,7 +25,7 @@ public class Maquina {
             tipoImpresion,
             modoImpresion;
     private Calendar fechaCompra;
-
+    //array de reparaciones!!!
     /**
      * Inicializa un objeto {@code Maquina} con sus variables sin inicializar.
      */
@@ -70,6 +70,10 @@ public class Maquina {
         this.fechaCompra = m.fechaCompra;
     }
 
+    public int getVolumen() {
+        return volumen;
+    }
+    
     @Override
     public String toString() {
         return "Maquina{" + "id=" + id + ", volumen=" + volumen + ", capacidadMax=" + capacidadMax + ", ubicacion=" + ubicacion + ", tipoImpresion=" + tipoImpresion + ", modoImpresion=" + modoImpresion + ", fechaCompra=" + fechaCompra + '}';
