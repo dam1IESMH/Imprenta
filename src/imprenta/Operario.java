@@ -10,6 +10,9 @@ package imprenta;
  * @author usuario
  */
 public class Operario {
+    
+//    Atributos de Operario
+    
     protected String NIF;
     protected String nombre;
     protected String apellidos;
@@ -17,9 +20,14 @@ public class Operario {
     protected String direccion;
     protected boolean senior;
 
+//    Abertura del constructor vacio
+    
     public Operario() {
     }
 
+//    Cierre del constructor vacio
+//    Abertura del constructor de parametros
+    
     public Operario(String NIF, String nombre, String apellidos, String telefono, String direccion, boolean senior) {
         this.NIF = NIF;
         this.nombre = nombre;
@@ -29,6 +37,9 @@ public class Operario {
         this.senior = senior;
     }
     
+//    Cierre del constructor de parametros
+//    Abertura del constructor de Objeto Operario
+    
     public Operario(Operario o) {
         this.NIF = o.NIF;
         this.nombre = o.nombre;
@@ -37,12 +48,11 @@ public class Operario {
         this.direccion = o.direccion;
         this.senior = o.senior;
     }
-
+//    Cierre del constructor de Objeto Operario
+//    Inicio del to String
     @Override
     public String toString() {
         return "Operario{" + "NIF=" + NIF + ", nombre=" + nombre + ", apellidos=" + apellidos + ", telefono=" + telefono + ", direccion=" + direccion + ", senior=" + senior + '}';
     }
-    
-    
     
 }
