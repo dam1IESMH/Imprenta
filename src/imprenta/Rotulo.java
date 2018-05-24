@@ -9,19 +9,25 @@ import java.util.Date;
 
 /**
  *
- * @author usuario
+ * @author Jose Daniel Buenaga
  */
 public class Rotulo extends Trabajo{
     
+    //Campos de la clase 
+    
     private String centroComercial;
 
+    //Constructor vacio
+    
     public Rotulo() {
-    }
+    }//Cierre del constructor
 
+    //Constructor para la clase Trabajo con todos los parámetros
+    
     public Rotulo(String centroComercial, int id, Date fechaSolicitud, String tipoRelieve, Date fechaImpresion, Date fechaRecogida) {
         super(id, fechaSolicitud, tipoRelieve, fechaImpresion, fechaRecogida);
         this.centroComercial = centroComercial;
-    }
+    }//Cierre del constructor
 
     public Rotulo(Rotulo r){
         super(r);
@@ -32,4 +38,5 @@ public class Rotulo extends Trabajo{
     public String toString() {
         return "Rotulo{" + "centroComercial=" + centroComercial + '}';
     }
-}
+    
+}//Cierre de la clase

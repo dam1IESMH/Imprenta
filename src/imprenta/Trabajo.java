@@ -7,30 +7,35 @@ package imprenta;
 
 import java.util.Date;
 
-
 /**
  *
- * @author usuario
+ * @author Jose Daniel Buenaga
  */
 public class Trabajo {
+
+    //Campos de la clase 
     
-protected int id;
+    protected int id;
     protected Date fechaSolicitud;
     protected String tipoRelieve;
     protected Date fechaImpresion;
     protected Date fechaRecogida;
 
+    //Constructor vacio
+    
     public Trabajo() {
     }
 
+    //Constructor para la clase Trabajo con todos los parámetros
+    
     public Trabajo(int id, Date fechaSolicitud, String tipoRelieve, Date fechaImpresion, Date fechaRecogida) {
         this.id = id;
         this.fechaSolicitud = fechaSolicitud;
         this.tipoRelieve = tipoRelieve;
         this.fechaImpresion = fechaImpresion;
         this.fechaRecogida = fechaRecogida;
-    }
-    
+    }//Cierre del constructor
+
     public Trabajo(Trabajo t) {
         this.id = t.id;
         this.fechaSolicitud = t.fechaSolicitud;
@@ -39,9 +44,9 @@ protected int id;
         this.fechaRecogida = t.fechaRecogida;
     }
 
-
     @Override
     public String toString() {
         return "Trabajo{" + "id=" + id + ", fechaSolicitud=" + fechaSolicitud + ", tipoRelieve=" + tipoRelieve + ", fechaImpresion=" + fechaImpresion + ", fechaRecogida=" + fechaRecogida + '}';
     }
-}
+    
+}//Cierre de la clase

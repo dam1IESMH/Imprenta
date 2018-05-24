@@ -10,21 +10,27 @@ import java.util.Date;
 
 /**
  *
- * @author usuario
+ * @author Jose Daniel Buenaga
  */
 public class Libro extends Trabajo{
+    
+    //Campos de la clase 
     
     private int numeroPaginas;
     private String colorTapas;
 
+    //Constructor vacio
+    
     public Libro() {
-    }
+    }//Cierre del constructor
 
+    //Constructor para la clase Trabajo con todos los parámetros
+    
     public Libro(int numeroPaginas, String colorTapas, int id, Date fechaSolicitud, String tipoRelieve, Date fechaImpresion, Date fechaRecogida) {
         super(id, fechaSolicitud, tipoRelieve, fechaImpresion, fechaRecogida);
         this.numeroPaginas = numeroPaginas;
         this.colorTapas = colorTapas;
-    }
+    }//Cierre del constructor
     
     public Libro(Libro l){
         super(l);
@@ -37,4 +43,4 @@ public class Libro extends Trabajo{
         return "Libro{" + "numeroPaginas=" + numeroPaginas + ", colorTapas=" + colorTapas + '}';
     }
 
-}
+}//Cierre de la clase
