@@ -25,6 +25,12 @@ public class Trabajo {
     protected Calendar fechaRecogida;
     protected boolean valido;
     protected boolean impreso;
+    
+    protected static int auto_incrementado=0;
+    
+    {
+        auto_incrementado++;
+    }
 
     {
         fechaSolicitud.setLenient(false);
@@ -47,7 +53,7 @@ public class Trabajo {
      */
     public Trabajo(int id, Calendar fechaSolicitud, String tipoRelieve, Calendar fechaImpresion, Calendar fechaRecogida) {
         try {
-            this.id = id;
+            this.id = auto_incrementado;
             this.fechaSolicitud = fechaSolicitud;
             this.Relieve = validarTipoRelieve(tipoRelieve);
             this.fechaImpresion = fechaImpresion;
