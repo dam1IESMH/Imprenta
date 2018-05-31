@@ -15,7 +15,7 @@ import java.util.Date;
 public class Libro extends Trabajo {
 
     private int numeroPaginas;
-    private String colorTapas;
+    private String colorTapas; //enum?
 
     /**Constructor vacio
      * 

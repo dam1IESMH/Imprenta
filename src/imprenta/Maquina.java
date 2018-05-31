@@ -22,10 +22,10 @@ import java.util.GregorianCalendar;
 public class Maquina {
 
     private int id,
-            volumen,
-            capacidadMax;
+            volumen, //validar
+            capacidadMax; //validar
     private String ubicacion,
-            tipoImpresion,
+            tipoImpresion, //enum?
             modoImpresion;
     private Calendar fechaCompra;
 

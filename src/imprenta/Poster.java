@@ -14,9 +14,10 @@ import java.util.Date;
  */
 public class Poster extends Trabajo {
 
-    private int alto;
+    private int alto; 
     private int ancho;
     private int numeroCopias;
+    //validar los 3
 
     /**
      * Constructor vacio

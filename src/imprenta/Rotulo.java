@@ -14,7 +14,7 @@ import java.util.Date;
  */
 public class Rotulo extends Trabajo {
 
-    private String centroComercial;
+    private String centroComercial; //validar = nombre
 
     /**
      * Constructor vacio

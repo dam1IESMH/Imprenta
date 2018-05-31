@@ -14,8 +14,8 @@ package imprenta;
  */
 public class Cliente {
 
-    private String nombre;
-    private String telefono;
+    private String nombre; //validar
+    private String telefono; //validar
 
     /**
      * Inicializa un objeto {@code Cliente} con sus variables sin inicializar.

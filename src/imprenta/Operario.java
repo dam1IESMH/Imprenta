@@ -15,11 +15,11 @@ public class Operario {
  * Atributos de Operario
  */    
     
-    protected String NIF;
-    protected String nombre;
-    protected String apellidos;
-    protected String telefono;
-    protected String direccion;
+    protected String NIF; //validar
+    protected String nombre; //validar
+    protected String apellidos; //validar
+    protected String telefono; //validar
+    protected String direccion; //validar
     protected boolean senior;
 
 /**

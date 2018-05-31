@@ -28,6 +28,8 @@ public class SignIn extends javax.swing.JFrame {
         pnlCliente.setVisible(false);
         pnlOperario.setVisible(false);
         lblNifIncorrecto.setVisible(false);
+        lblHuella.setIcon(new ImageIcon("assets/icons/fingerprint_black_36x36.png"));
+        lblHuella.setEnabled(false);
         lblPistaHuella.setVisible(false);
         setLocationRelativeTo(null);
     }
