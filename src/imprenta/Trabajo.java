@@ -69,6 +69,7 @@ public class Trabajo {
      * 
      * @param t {@code Trabajo} 
      */
+    
     public Trabajo(Trabajo t) {
         this.id = t.id;
         this.fechaSolicitud = t.fechaSolicitud;
