@@ -50,13 +50,13 @@ public class OMaquina extends Operario{
  * @return 
  */  
     
-    public static boolean rellenarMaquina(Maquina m){
-        boolean rellenar;  //Atributo auxiliar
-        if(m.getVolumen=0){  //if que realiza la pregunta del volumen de tinta
-            rellenar=true;
-        }else{
-            rellenar=false;
-        }
-        return rellenar;  //Devuelve si es necesario o no rellenar la tinta
-    }
+//    public static boolean rellenarMaquina(Maquina m){
+//        boolean rellenar;  //Atributo auxiliar
+//       if(m.getVolumen=0){  //if que realiza la pregunta del volumen de tinta
+//            rellenar=true;
+//        }else{
+//            rellenar=false;
+//        }
+//        return rellenar;  //Devuelve si es necesario o no rellenar la tinta
+//    }
 }
