@@ -7,16 +7,11 @@ package imprenta;
 
 /**
  *
- * @author usuario
+ * @author DAM104
  */
-public class Imprenta {
+public class InvalidSurfaceException extends Exception{
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String[] args) {
-        // TODO code application logic here
-        
+    public InvalidSurfaceException() {
     }
     
 }
