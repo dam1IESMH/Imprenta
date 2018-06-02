@@ -55,7 +55,7 @@ public class Trabajo {
         try {
             this.id = auto_incrementado;
             this.fechaSolicitud = fechaSolicitud;
-            this.Relieve = validarTipoRelieve(tipoRelieve);
+            this.Relieve = Validaciones.validarTipoRelieve(tipoRelieve);
             this.fechaImpresion = fechaImpresion;
             this.fechaRecogida = fechaRecogida;
         } catch (InvalidSurfaceException ex) {
@@ -90,23 +90,6 @@ public class Trabajo {
     public String toString() {
         return "Trabajo{" + "id=" + id + ", fechaSolicitud=" + fechaSolicitud + ", tipoRelieve=" + Relieve + ", fechaImpresion=" + fechaImpresion + ", fechaRecogida=" + fechaRecogida + '}';
     }
-
-    /**
-     * Método para validar el tipo de relieve de impresión
-     * 
-     * @param relieve
-     * @return
-     * @throws InvalidSurfaceException 
-     */
-    public static tipoRelieve validarTipoRelieve(String relieve) throws InvalidSurfaceException {
-
-        for (tipoRelieve tr : tipoRelieve.values()) {
-            if (relieve.equals(tipoRelieve.values().toString())) {
-                return tipoRelieve.valueOf(relieve.toUpperCase());
-            }
-        }
-        throw new InvalidSurfaceException();
-    }//Cierre del método
 
 }//Cierre de la clase
 

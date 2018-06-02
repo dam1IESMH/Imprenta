@@ -6,7 +6,6 @@
 package imprenta;
 
 import java.util.Calendar;
-import java.util.Date;
 
 /**
  *
@@ -14,7 +13,7 @@ import java.util.Date;
  */
 public class Rotulo extends Trabajo {
 
-    private String centroComercial; //validar = nombre
+    private String centroComercial;
 
     /**
      * Constructor vacio
@@ -34,7 +33,7 @@ public class Rotulo extends Trabajo {
      */
     public Rotulo(String centroComercial, int id, Calendar fechaSolicitud, String tipoRelieve, Calendar fechaImpresion, Calendar fechaRecogida) {
         super(id, fechaSolicitud, tipoRelieve, fechaImpresion, fechaRecogida);
-        this.centroComercial = centroComercial;
+        this.centroComercial = Validaciones.validarNombre(centroComercial);
     }//Cierre del constructor
     
     /**

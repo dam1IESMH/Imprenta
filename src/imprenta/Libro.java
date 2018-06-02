@@ -6,7 +6,6 @@
 package imprenta;
 
 import java.util.Calendar;
-import java.util.Date;
 
 /**
  *
@@ -36,7 +35,7 @@ public class Libro extends Trabajo {
      */
     public Libro(int numeroPaginas, String colorTapas, int id, Calendar fechaSolicitud, String tipoRelieve, Calendar fechaImpresion, Calendar fechaRecogida) {
         super(id, fechaSolicitud, tipoRelieve, fechaImpresion, fechaRecogida);
-        this.numeroPaginas = numeroPaginas;
+        this.numeroPaginas = Validaciones.validarEntero(numeroPaginas);
         this.colorTapas = colorTapas;
     }//Cierre del constructor
 
