@@ -5,11 +5,13 @@
  */
 package imprenta;
 
+import java.io.Serializable;
+
 /**
  *
  * @author usuario
  */
-public class Operario {
+public class Operario implements Serializable{
     
 /**
  * Atributos de Operario

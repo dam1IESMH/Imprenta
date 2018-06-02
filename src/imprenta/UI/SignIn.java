@@ -31,6 +31,7 @@ public class SignIn extends javax.swing.JFrame {
         lblHuella.setEnabled(false);
         lblPistaHuella.setVisible(false);
         setLocationRelativeTo(null);
+        Datos.cargarOperarios();
     }
 
     /**
