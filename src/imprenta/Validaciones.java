@@ -87,4 +87,21 @@ public class Validaciones {
         return direc.matches("C/[a-zA-ZñÑáéíóúÁÉÍÓÚäëïöüÄËÏÖÜçÇ\\s]{2,15} ?([nN][?º][0-9]{1,4})"
                 + " [a-zA-ZñÑáéíóúÁÉÍÓÚäëïöüÄËÏÖÜçÇ\\s]{2,15}, [a-zA-ZñÑáéíóúÁÉÍÓÚäëïöüÄËÏÖÜçÇ\\s]{2,15}");
     }
+    
+    /**
+     * Método para validar el color de las tapas de los libros
+     *
+     * @param colorTapas 
+     * @return
+     * @throws InvalidSurfaceException
+     */
+    public static Libro.Tapas validarColorTapas(String colorTapas) throws InvalidSurfaceException {
+
+        for (Libro.Tapas t : Libro.Tapas.values()) {
+            if (colorTapas.equals(Libro.Tapas.values().toString())) {
+                return Libro.Tapas.valueOf(colorTapas.toUpperCase());
+            }
+        }
+        throw new InvalidSurfaceException();
+    }//Cierre del método
 }
