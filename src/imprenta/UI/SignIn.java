@@ -444,9 +444,9 @@ public class SignIn extends javax.swing.JFrame {
     }
 
     private int tipoOperario() {
-        /*String nif = txtOperaNif.getText();
+        String nif = txtOperaNif.getText();
         for (Operario o : Datos.operarios) {
-            if(nif.equalsIgnoreCase(o.getNif())) {
+            if(nif.equalsIgnoreCase(o.getNIF())) {
                 if(o instanceof OMaquina) {
                     return 0;
                 } else if (o instanceof OImpresion) {
@@ -455,7 +455,7 @@ public class SignIn extends javax.swing.JFrame {
                     return 2;
                 }
             }
-        }*/
+        }
         return -1;
     } //Necesita revisión
 

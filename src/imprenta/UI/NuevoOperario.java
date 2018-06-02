@@ -182,9 +182,9 @@ public class NuevoOperario extends javax.swing.JDialog {
                 false
         ); //necesita validacion
         if (cbPuesto.getSelectedIndex()==0) {
-            Datos.operarios.add(new OImpresion((OImpresion) o));
+            Datos.operarios.add(new OImpresion(o));
         } else {
-            Datos.operarios.add(new OMaquina((OMaquina) o));
+            Datos.operarios.add(new OMaquina(o));
         }
         dispose();
     }//GEN-LAST:event_btnRegistrarActionPerformed
