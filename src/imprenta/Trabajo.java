@@ -5,6 +5,7 @@
  */
 package imprenta;
 
+import java.io.Serializable;
 import java.util.Calendar;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -13,7 +14,7 @@ import java.util.logging.Logger;
  *
  * @author Jose Daniel Buenaga
  */
-public class Trabajo {
+public class Trabajo implements Serializable{
 
     enum tipoRelieve {
         FLEXOGRAFIA, TIPOGRAFIA, LITOGRAFIA

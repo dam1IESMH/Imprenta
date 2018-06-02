@@ -61,6 +61,81 @@ public class Datos {
             }
         }
     }
+    
+    static void cargarClientes() {
+        ObjectInputStream ois = null;
+        try {
+            ois = new ObjectInputStream(new FileInputStream(storedClientes));
+            clientes.clear();
+            while (true) {
+                clientes.add((Cliente) ois.readObject());
+            }
+        } catch (EOFException eof) {
+            
+        } catch (FileNotFoundException ex) {
+            Logger.getLogger(Datos.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (IOException | ClassNotFoundException ex) {
+            Logger.getLogger(Datos.class.getName()).log(Level.SEVERE, null, ex);
+        } finally {
+            try {
+                if (ois != null) {
+                    ois.close();
+                }
+            } catch (IOException ex) {
+                Logger.getLogger(Datos.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+    }
+    
+    static void cargarTrabajos() {
+        ObjectInputStream ois = null;
+        try {
+            ois = new ObjectInputStream(new FileInputStream(storedTrabajos));
+            trabajos.clear();
+            while (true) {
+                trabajos.add((Trabajo) ois.readObject());
+            }
+        } catch (EOFException eof) {
+            
+        } catch (FileNotFoundException ex) {
+            Logger.getLogger(Datos.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (IOException | ClassNotFoundException ex) {
+            Logger.getLogger(Datos.class.getName()).log(Level.SEVERE, null, ex);
+        } finally {
+            try {
+                if (ois != null) {
+                    ois.close();
+                }
+            } catch (IOException ex) {
+                Logger.getLogger(Datos.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+    }
+    
+    static void cargarMaquinas() {
+        ObjectInputStream ois = null;
+        try {
+            ois = new ObjectInputStream(new FileInputStream(storedMaquinas));
+            maquinas.clear();
+            while (true) {
+                maquinas.add((Maquina) ois.readObject());
+            }
+        } catch (EOFException eof) {
+            
+        } catch (FileNotFoundException ex) {
+            Logger.getLogger(Datos.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (IOException | ClassNotFoundException ex) {
+            Logger.getLogger(Datos.class.getName()).log(Level.SEVERE, null, ex);
+        } finally {
+            try {
+                if (ois != null) {
+                    ois.close();
+                }
+            } catch (IOException ex) {
+                Logger.getLogger(Datos.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+    }
 
     static void guardarOperarios() {
         ObjectOutputStream oos = null;
@@ -68,6 +143,72 @@ public class Datos {
             oos = new ObjectOutputStream(new FileOutputStream(storedOperarios));
             for (Operario o : operarios) {
                 oos.writeObject(o);
+            }
+        } catch (FileNotFoundException ex) {
+            Logger.getLogger(Datos.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (IOException ex) {
+            Logger.getLogger(Datos.class.getName()).log(Level.SEVERE, null, ex);
+        } finally {
+            try {
+                if (oos != null) {
+                    oos.close();
+                }
+            } catch (IOException ex) {
+                Logger.getLogger(Datos.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+    }
+    
+    static void guardarClientes() {
+        ObjectOutputStream oos = null;
+        try {
+            oos = new ObjectOutputStream(new FileOutputStream(storedClientes));
+            for (Cliente c : clientes) {
+                oos.writeObject(c);
+            }
+        } catch (FileNotFoundException ex) {
+            Logger.getLogger(Datos.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (IOException ex) {
+            Logger.getLogger(Datos.class.getName()).log(Level.SEVERE, null, ex);
+        } finally {
+            try {
+                if (oos != null) {
+                    oos.close();
+                }
+            } catch (IOException ex) {
+                Logger.getLogger(Datos.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+    }
+    
+    static void guardarTrabajos() {
+        ObjectOutputStream oos = null;
+        try {
+            oos = new ObjectOutputStream(new FileOutputStream(storedTrabajos));
+            for (Trabajo t : trabajos) {
+                oos.writeObject(t);
+            }
+        } catch (FileNotFoundException ex) {
+            Logger.getLogger(Datos.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (IOException ex) {
+            Logger.getLogger(Datos.class.getName()).log(Level.SEVERE, null, ex);
+        } finally {
+            try {
+                if (oos != null) {
+                    oos.close();
+                }
+            } catch (IOException ex) {
+                Logger.getLogger(Datos.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+    }
+    
+    static void guardarMaquinas() {
+        ObjectOutputStream oos = null;
+        try {
+            oos = new ObjectOutputStream(new FileOutputStream(storedMaquinas));
+            for (Maquina m: maquinas) {
+                oos.writeObject(m);
             }
         } catch (FileNotFoundException ex) {
             Logger.getLogger(Datos.class.getName()).log(Level.SEVERE, null, ex);
