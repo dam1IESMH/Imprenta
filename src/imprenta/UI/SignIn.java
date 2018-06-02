@@ -5,14 +5,10 @@
  */
 package imprenta.UI;
 
-import imprenta.OImpresion;
-import imprenta.OMaquina;
-import imprenta.Operario;
+import imprenta.*;
 import java.awt.Color;
 import java.awt.Cursor;
 import java.awt.event.KeyEvent;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 
@@ -207,11 +203,6 @@ public class SignIn extends javax.swing.JFrame {
 
         jLabel7.setText("NIF:");
 
-        txtOperaNif.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtOperaNifActionPerformed(evt);
-            }
-        });
         txtOperaNif.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 txtOperaNifKeyPressed(evt);
@@ -315,10 +306,6 @@ public class SignIn extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void txtOperaNifActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtOperaNifActionPerformed
-
-    }//GEN-LAST:event_txtOperaNifActionPerformed
-
     private void btnOperaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnOperaActionPerformed
         pnlHome.setVisible(false);
         pnlOperario.setVisible(true);
@@ -380,7 +367,7 @@ public class SignIn extends javax.swing.JFrame {
     }//GEN-LAST:event_txtOperaNifKeyPressed
 
     private void txtOperaNifKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtOperaNifKeyReleased
-        if (!validarNIF(txtOperaNif.getText()) && !txtOperaNif.getText().equals("")) {
+        if (!Validaciones.validarNIF(txtOperaNif.getText()) && !txtOperaNif.getText().equals("")) {
             lblNifIncorrecto.setVisible(true);
             lblHuella.setEnabled(false);
             lblPistaHuella.setVisible(false);
@@ -418,27 +405,6 @@ public class SignIn extends javax.swing.JFrame {
         setCursor(Cursor.getDefaultCursor());
     }//GEN-LAST:event_lblNuevoOperarioMouseExited
 
-    private boolean validarNIF(String nif) {
-        boolean correcto = false;
-        Pattern pattern = Pattern.compile("(\\d{1,8})([TRWAGMYFPDXBNJZSQVHLCKEtrwagmyfpdxbnjzsqvhlcke])");
-        Matcher matcher = pattern.matcher(nif);
-        if (matcher.matches()) {
-            String letra = matcher.group(2);
-            String letras = "TRWAGMYFPDXBNJZSQVHLCKE";
-            int index = Integer.parseInt(matcher.group(1));
-            index = index % 23;
-            String reference = letras.substring(index, index + 1);
-            if (reference.equalsIgnoreCase(letra)) {
-                correcto = true;
-            } else {
-                correcto = false;
-            }
-        } else {
-            correcto = false;
-        }
-        return correcto;
-    }
-
     private boolean simulacionHuellaDetectada() {
         return Math.random() > 0.15;
     }
@@ -447,6 +413,7 @@ public class SignIn extends javax.swing.JFrame {
         String nif = txtOperaNif.getText();
         for (Operario o : Datos.operarios) {
             if(nif.equalsIgnoreCase(o.getNIF())) {
+                Datos.opActual = o;
                 if(o instanceof OMaquina) {
                     return 0;
                 } else if (o instanceof OImpresion) {

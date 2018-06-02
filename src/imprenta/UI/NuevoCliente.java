@@ -5,7 +5,7 @@
  */
 package imprenta.UI;
 
-import imprenta.Cliente;
+import imprenta.*;
 
 /**
  *
@@ -20,6 +20,7 @@ public class NuevoCliente extends javax.swing.JDialog {
         super(parent, modal);
         initComponents();
         setVisible(true);
+        setLocationRelativeTo(null);
         lblNombreIncorrecto.setVisible(false);
         lblTelfIncorrecto.setVisible(false);
     }
@@ -49,7 +50,19 @@ public class NuevoCliente extends javax.swing.JDialog {
 
         jLabel2.setText("Nombre:");
 
+        txtNombre.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                txtNombreMouseReleased(evt);
+            }
+        });
+
         jLabel3.setText("Teléfono:");
+
+        txtTelf.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txtTelfKeyReleased(evt);
+            }
+        });
 
         lblNombreIncorrecto.setForeground(new java.awt.Color(255, 0, 0));
         lblNombreIncorrecto.setText("No es un nombre válido.");
@@ -111,7 +124,34 @@ public class NuevoCliente extends javax.swing.JDialog {
         Datos.clientes.add(new Cliente(txtNombre.getText(), txtTelf.getText()));
         dispose();
     }//GEN-LAST:event_btnRegistrarActionPerformed
-   
+
+    private void txtNombreMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtNombreMouseReleased
+        if (!Validaciones.validarNombre(txtNombre.getText()) && !txtNombre.getText().equals("")) {
+            lblNombreIncorrecto.setVisible(true);
+        } else {
+            lblNombreIncorrecto.setVisible(false);
+        }
+        posibleRegistro();
+    }//GEN-LAST:event_txtNombreMouseReleased
+
+    private void txtTelfKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtTelfKeyReleased
+        if (!Validaciones.validarTlf(txtTelf.getText()) && !txtTelf.getText().equals("")) {
+            lblTelfIncorrecto.setVisible(true);
+        } else {
+            lblTelfIncorrecto.setVisible(false);
+        }
+        posibleRegistro();
+    }//GEN-LAST:event_txtTelfKeyReleased
+
+    private void posibleRegistro() {
+        if (!(lblNombreIncorrecto.isVisible()
+                || lblTelfIncorrecto.isVisible())) {
+            btnRegistrar.setEnabled(true);
+        } else {
+            btnRegistrar.setEnabled(false);
+        }
+    }
+
     /**
      * @param args the command line arguments
      */

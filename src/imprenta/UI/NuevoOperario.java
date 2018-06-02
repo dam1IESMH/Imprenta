@@ -5,9 +5,7 @@
  */
 package imprenta.UI;
 
-import imprenta.OImpresion;
-import imprenta.OMaquina;
-import imprenta.Operario;
+import imprenta.*;
 
 /**
  *
@@ -22,11 +20,8 @@ public class NuevoOperario extends javax.swing.JDialog {
         super(parent, modal);
         initComponents();
         setVisible(true);
-        lblNombreIncorrecto.setVisible(false);
-        lblTelfIncorrecto.setVisible(false);
-        lblNifIncorrecto.setVisible(false);
-        lblApellidosIncorrectos.setVisible(false);
-        lblDireccionIncorrecta.setVisible(false);
+        setLocationRelativeTo(null);
+        ocultarErroresIntroduccion();
     }
 
     /**
@@ -64,13 +59,38 @@ public class NuevoOperario extends javax.swing.JDialog {
 
         jLabel2.setText("NIF:");
 
+        txtNif.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txtNifKeyReleased(evt);
+            }
+        });
+
         jLabel3.setText("Nombre:");
+
+        txtNombre.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txtNombreKeyReleased(evt);
+            }
+        });
 
         jLabel4.setText("Apellidos:");
 
+        txtApellidos.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txtApellidosKeyReleased(evt);
+            }
+        });
+
         jLabel5.setText("Teléfono:");
 
+        txtTelf.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txtTelfKeyReleased(evt);
+            }
+        });
+
         btnRegistrar.setText("Registrarse");
+        btnRegistrar.setEnabled(false);
         btnRegistrar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnRegistrarActionPerformed(evt);
@@ -88,8 +108,16 @@ public class NuevoOperario extends javax.swing.JDialog {
 
         lblDireccionIncorrecta.setForeground(new java.awt.Color(255, 0, 0));
         lblDireccionIncorrecta.setText("La dirección no es correcta.");
+        lblDireccionIncorrecta.setToolTipText("");
 
         jLabel6.setText("Dirección:");
+
+        txtDireccion.setToolTipText("");
+        txtDireccion.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txtDireccionKeyReleased(evt);
+            }
+        });
 
         lblTelfIncorrecto.setForeground(new java.awt.Color(255, 0, 0));
         lblTelfIncorrecto.setText("El teléfono no es válido.");
@@ -181,13 +209,79 @@ public class NuevoOperario extends javax.swing.JDialog {
                 txtDireccion.getText(),
                 false
         ); //necesita validacion
-        if (cbPuesto.getSelectedIndex()==0) {
+        if (cbPuesto.getSelectedIndex() == 0) {
             Datos.operarios.add(new OImpresion(o));
         } else {
             Datos.operarios.add(new OMaquina(o));
         }
         dispose();
     }//GEN-LAST:event_btnRegistrarActionPerformed
+
+    private void txtNifKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtNifKeyReleased
+        if (!Validaciones.validarNIF(txtNif.getText()) && !txtNif.getText().equals("")) {
+            lblNifIncorrecto.setVisible(true);
+        } else {
+            lblNifIncorrecto.setVisible(false);
+        }
+        posibleRegistro();
+    }//GEN-LAST:event_txtNifKeyReleased
+
+    private void txtNombreKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtNombreKeyReleased
+        if (!Validaciones.validarNombre(txtNombre.getText()) && !txtNombre.getText().equals("")) {
+            lblNombreIncorrecto.setVisible(true);
+        } else {
+            lblNombreIncorrecto.setVisible(false);
+        }
+        posibleRegistro();
+    }//GEN-LAST:event_txtNombreKeyReleased
+
+    private void txtApellidosKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtApellidosKeyReleased
+        if (!Validaciones.validarNombre(txtApellidos.getText()) && !txtApellidos.getText().equals("")) {
+            lblApellidosIncorrectos.setVisible(true);
+        } else {
+            lblApellidosIncorrectos.setVisible(false);
+        }
+        posibleRegistro();
+    }//GEN-LAST:event_txtApellidosKeyReleased
+
+    private void txtTelfKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtTelfKeyReleased
+        if (!Validaciones.validarTlf(txtTelf.getText()) && !txtTelf.getText().equals("")) {
+            lblTelfIncorrecto.setVisible(true);
+        } else {
+            lblTelfIncorrecto.setVisible(false);
+        }
+        posibleRegistro();
+    }//GEN-LAST:event_txtTelfKeyReleased
+
+    private void txtDireccionKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtDireccionKeyReleased
+        if (!Validaciones.validarDireccion(txtDireccion.getText()) && !txtDireccion.getText().equals("")) {
+            lblDireccionIncorrecta.setVisible(true);
+            lblDireccionIncorrecta.setToolTipText("Ejemplo: C/La Asunción Nº102, Pincurrín, Cantabria");
+        } else {
+            lblDireccionIncorrecta.setVisible(false);
+        }
+        posibleRegistro();
+    }//GEN-LAST:event_txtDireccionKeyReleased
+
+    private void ocultarErroresIntroduccion() {
+        lblNombreIncorrecto.setVisible(false);
+        lblTelfIncorrecto.setVisible(false);
+        lblNifIncorrecto.setVisible(false);
+        lblApellidosIncorrectos.setVisible(false);
+        lblDireccionIncorrecta.setVisible(false);
+    }
+
+    private void posibleRegistro() {
+        if (!(lblNombreIncorrecto.isVisible()
+                || lblApellidosIncorrectos.isVisible()
+                || lblNifIncorrecto.isVisible()
+                || lblTelfIncorrecto.isVisible()
+                || lblDireccionIncorrecta.isVisible())) {
+            btnRegistrar.setEnabled(true);
+        } else {
+            btnRegistrar.setEnabled(false);
+        }
+    }
 
     /**
      * @param args the command line arguments

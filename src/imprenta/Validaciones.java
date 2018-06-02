@@ -5,6 +5,9 @@
  */
 package imprenta;
 
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
 
 /**
  *
@@ -35,14 +38,8 @@ public class Validaciones {
      * @param nombre
      * @return 
      */
-    public static String validarNombre(String nombre) {
-
-        if (nombre.matches("[a-zA-ZnÑ\\s]{2,25}")) {
-
-        } else {
-            System.out.println("El nombre introducido no es correcto");
-        }
-        return nombre;
+    public static boolean validarNombre(String nombre) {
+        return nombre.matches("[a-zA-ZñÑáéíóúÁÉÍÓÚäëïöüÄËÏÖÜçÇ\\s]{2,25}");
     }
 
     public static int validarEntero(int numero) {
@@ -59,5 +56,35 @@ public class Validaciones {
 
         }
         return numero;
+    }
+    
+    public static boolean validarNIF(String nif) {
+        boolean correcto = false;
+        Pattern pattern = Pattern.compile("(\\d{1,8})([TRWAGMYFPDXBNJZSQVHLCKEtrwagmyfpdxbnjzsqvhlcke])");
+        Matcher matcher = pattern.matcher(nif);
+        if (matcher.matches()) {
+            String letra = matcher.group(2);
+            String letras = "TRWAGMYFPDXBNJZSQVHLCKE";
+            int index = Integer.parseInt(matcher.group(1));
+            index = index % 23;
+            String reference = letras.substring(index, index + 1);
+            if (reference.equalsIgnoreCase(letra)) {
+                correcto = true;
+            } else {
+                correcto = false;
+            }
+        } else {
+            correcto = false;
+        }
+        return correcto;
+    }
+    
+    public static boolean validarTlf(String tlf) {
+        return tlf.matches("[679][0-9]{8,8}");
+    }
+    
+    public static boolean validarDireccion(String direc) {
+        return direc.matches("C/[a-zA-ZñÑáéíóúÁÉÍÓÚäëïöüÄËÏÖÜçÇ\\s]{2,15} ?([nN][?º][0-9]{1,4})"
+                + " [a-zA-ZñÑáéíóúÁÉÍÓÚäëïöüÄËÏÖÜçÇ\\s]{2,15}, [a-zA-ZñÑáéíóúÁÉÍÓÚäëïöüÄËÏÖÜçÇ\\s]{2,15}");
     }
 }

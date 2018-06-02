@@ -33,7 +33,7 @@ public class Rotulo extends Trabajo {
      */
     public Rotulo(String centroComercial, int id, Calendar fechaSolicitud, String tipoRelieve, Calendar fechaImpresion, Calendar fechaRecogida) {
         super(id, fechaSolicitud, tipoRelieve, fechaImpresion, fechaRecogida);
-        this.centroComercial = Validaciones.validarNombre(centroComercial);
+        this.centroComercial = centroComercial;
     }//Cierre del constructor
     
     /**

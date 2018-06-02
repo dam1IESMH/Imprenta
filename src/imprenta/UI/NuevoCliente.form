@@ -80,6 +80,9 @@
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="txtNombre">
+      <Events>
+        <EventHandler event="mouseReleased" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="txtNombreMouseReleased"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel3">
       <Properties>
@@ -87,6 +90,9 @@
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="txtTelf">
+      <Events>
+        <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txtTelfKeyReleased"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="lblNombreIncorrecto">
       <Properties>

@@ -19,5 +19,6 @@ public class Datos {
     static ArrayList<Trabajo> trabajos = new ArrayList<>();
     static ArrayList<Modificacion> modificaciones = new ArrayList<>();
     static ArrayList<Maquina> maquinas = new ArrayList<>();
-    
+    static Operario opActual;
+    static Cliente cliActual;
 }
