@@ -26,6 +26,7 @@ public class MainOperario extends javax.swing.JFrame {
             tabOperaciones.removeTabAt(tipoOperario);
         }
         setLocationRelativeTo(null);
+        setTitle("Rodillo - " + Datos.opActual.getNombre() + " " + Datos.opActual.getApellidos());
     }
 
     /**

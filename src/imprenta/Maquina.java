@@ -8,7 +8,6 @@ package imprenta;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
-import java.util.GregorianCalendar;
 
 /**
  * La clase {@code Maquina} representa a una maquina, como impresoras o cintas,

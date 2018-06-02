@@ -64,12 +64,37 @@ public class Operario {
         this.direccion = o.direccion;
         this.senior = o.senior;
     }
+    /**
+     * Cierre del constructor de Objeto Operario
+     */
+ 
+    public String getNIF() {
+        return NIF;
+    }
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public String getApellidos() {
+        return apellidos;
+    }
+
+    public String getTelefono() {
+        return telefono;
+    }
+
+    public String getDireccion() {
+        return direccion;
+    }
+
+    public boolean isSenior() {
+        return senior;
+    }
+
 /**
- * Cierre del constructor de Objeto Operario
- */
-/**
- * Inicio del to String
- */ 
+     * Inicio del to String
+     */ 
     @Override
     public String toString() {
         return "Operario{" + "NIF=" + NIF + ", nombre=" + nombre + ", apellidos=" + apellidos + ", telefono=" + telefono + ", direccion=" + direccion + ", senior=" + senior + '}';
