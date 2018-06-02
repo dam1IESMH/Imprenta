@@ -5,7 +5,6 @@
  */
 package imprenta;
 
-import java.util.Scanner;
 
 /**
  *
@@ -23,7 +22,7 @@ public class Validaciones {
     public static Trabajo.tipoRelieve validarTipoRelieve(String relieve) throws InvalidSurfaceException {
 
         for (Trabajo.tipoRelieve tr : Trabajo.tipoRelieve.values()) {
-            if (relieve.equals(Trabajo.tipoRelieve.values().toString())) {
+            if (relieve.equals(tr.toString())) {
                 return Trabajo.tipoRelieve.valueOf(relieve.toUpperCase());
             }
         }
