@@ -5,8 +5,11 @@
  */
 package imprenta.UI;
 
+import imprenta.OImpresion;
+import imprenta.OMaquina;
 import imprenta.Operario;
 import java.awt.Color;
+import java.awt.Cursor;
 import java.awt.event.KeyEvent;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -52,11 +55,10 @@ public class SignIn extends javax.swing.JFrame {
         pnlCliente = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
-        txtClienteUser = new javax.swing.JTextField();
-        pssClientePassword = new javax.swing.JPasswordField();
+        txtClienteNombre = new javax.swing.JTextField();
         btnClienteAtras = new javax.swing.JButton();
-        btnClienteEntrar = new javax.swing.JButton();
+        jLabel5 = new javax.swing.JLabel();
+        lblNuevoCliente = new javax.swing.JLabel();
         pnlOperario = new javax.swing.JPanel();
         btnOperaAtras = new javax.swing.JButton();
         jLabel6 = new javax.swing.JLabel();
@@ -66,6 +68,7 @@ public class SignIn extends javax.swing.JFrame {
         lblPistaHuella = new javax.swing.JLabel();
         lblNifIncorrecto = new javax.swing.JLabel();
         jToggleButton1 = new javax.swing.JToggleButton();
+        lblNuevoOperario = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Iniciar sesión");
@@ -83,7 +86,6 @@ public class SignIn extends javax.swing.JFrame {
 
         btnCliente.setText("Cliente");
         btnCliente.setToolTipText("En desarrollo...");
-        btnCliente.setEnabled(false);
         btnCliente.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnClienteActionPerformed(evt);
@@ -126,9 +128,7 @@ public class SignIn extends javax.swing.JFrame {
 
         jLabel3.setText("Cliente");
 
-        jLabel4.setText("Usuario");
-
-        jLabel5.setText("Contraseña");
+        jLabel4.setText("Nombre:");
 
         btnClienteAtras.setText("Atrás");
         btnClienteAtras.addActionListener(new java.awt.event.ActionListener() {
@@ -137,7 +137,23 @@ public class SignIn extends javax.swing.JFrame {
             }
         });
 
-        btnClienteEntrar.setText("Entrar");
+        jLabel5.setForeground(new java.awt.Color(255, 153, 0));
+        jLabel5.setText("En el futuro requerirá verificación para acceder.");
+
+        lblNuevoCliente.setFont(lblNuevoCliente.getFont());
+        lblNuevoCliente.setForeground(new java.awt.Color(0, 102, 102));
+        lblNuevoCliente.setText("Soy un nuevo cliente");
+        lblNuevoCliente.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lblNuevoClienteMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                lblNuevoClienteMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                lblNuevoClienteMouseExited(evt);
+            }
+        });
 
         javax.swing.GroupLayout pnlClienteLayout = new javax.swing.GroupLayout(pnlCliente);
         pnlCliente.setLayout(pnlClienteLayout);
@@ -150,37 +166,32 @@ public class SignIn extends javax.swing.JFrame {
                         .addComponent(btnClienteAtras))
                     .addGroup(pnlClienteLayout.createSequentialGroup()
                         .addGap(57, 57, 57)
-                        .addGroup(pnlClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(jLabel4))
+                    .addGroup(pnlClienteLayout.createSequentialGroup()
+                        .addGap(40, 40, 40)
+                        .addGroup(pnlClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
                             .addComponent(jLabel5)
-                            .addComponent(jLabel4)
-                            .addComponent(txtClienteUser, javax.swing.GroupLayout.DEFAULT_SIZE, 198, Short.MAX_VALUE)
-                            .addComponent(pssClientePassword)))
-                    .addGroup(pnlClienteLayout.createSequentialGroup()
-                        .addGap(121, 121, 121)
-                        .addComponent(btnClienteEntrar))
-                    .addGroup(pnlClienteLayout.createSequentialGroup()
-                        .addGap(136, 136, 136)
-                        .addComponent(jLabel3)))
-                .addContainerGap(58, Short.MAX_VALUE))
+                            .addComponent(txtClienteNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 198, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel3)
+                            .addComponent(lblNuevoCliente))))
+                .addContainerGap(41, Short.MAX_VALUE))
         );
         pnlClienteLayout.setVerticalGroup(
             pnlClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnlClienteLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(btnClienteAtras)
-                .addGap(9, 9, 9)
+                .addGap(30, 30, 30)
                 .addComponent(jLabel3)
-                .addGap(63, 63, 63)
+                .addGap(42, 42, 42)
                 .addComponent(jLabel4)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(txtClienteUser, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(37, 37, 37)
+                .addComponent(txtClienteNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(85, 85, 85)
                 .addComponent(jLabel5)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(pssClientePassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(41, 41, 41)
-                .addComponent(btnClienteEntrar)
-                .addContainerGap(42, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addComponent(lblNuevoCliente)
+                .addContainerGap(52, Short.MAX_VALUE))
         );
 
         getContentPane().add(pnlCliente, "card3");
@@ -210,7 +221,6 @@ public class SignIn extends javax.swing.JFrame {
             }
         });
 
-        lblHuella.setIcon(new javax.swing.ImageIcon("C:\\Users\\Sergio\\OneDrive\\DAM1\\Entornos de desarrollo\\Proyecto\\Imprenta\\assests\\icons\\fingerprint_black_36x36.png")); // NOI18N
         lblHuella.setEnabled(false);
 
         lblPistaHuella.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -224,6 +234,21 @@ public class SignIn extends javax.swing.JFrame {
         jToggleButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jToggleButton1ActionPerformed(evt);
+            }
+        });
+
+        lblNuevoOperario.setFont(lblNuevoOperario.getFont());
+        lblNuevoOperario.setForeground(new java.awt.Color(0, 102, 102));
+        lblNuevoOperario.setText("Soy un nuevo operario");
+        lblNuevoOperario.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lblNuevoOperarioMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                lblNuevoOperarioMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                lblNuevoOperarioMouseExited(evt);
             }
         });
 
@@ -256,6 +281,10 @@ public class SignIn extends javax.swing.JFrame {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(jToggleButton1)))))
                 .addContainerGap())
+            .addGroup(pnlOperarioLayout.createSequentialGroup()
+                .addGap(105, 105, 105)
+                .addComponent(lblNuevoOperario)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         pnlOperarioLayout.setVerticalGroup(
             pnlOperarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -276,7 +305,9 @@ public class SignIn extends javax.swing.JFrame {
                 .addComponent(lblHuella, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(lblPistaHuella)
-                .addGap(57, 57, 57))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(lblNuevoOperario)
+                .addGap(30, 30, 30))
         );
 
         getContentPane().add(pnlOperario, "card4");
@@ -363,6 +394,30 @@ public class SignIn extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_txtOperaNifKeyReleased
 
+    private void lblNuevoClienteMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblNuevoClienteMouseEntered
+        setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+    }//GEN-LAST:event_lblNuevoClienteMouseEntered
+
+    private void lblNuevoClienteMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblNuevoClienteMouseExited
+        setCursor(Cursor.getDefaultCursor());
+    }//GEN-LAST:event_lblNuevoClienteMouseExited
+
+    private void lblNuevoClienteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblNuevoClienteMouseClicked
+        new NuevoCliente(this, true);
+    }//GEN-LAST:event_lblNuevoClienteMouseClicked
+
+    private void lblNuevoOperarioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblNuevoOperarioMouseClicked
+        new NuevoOperario(this, true);
+    }//GEN-LAST:event_lblNuevoOperarioMouseClicked
+
+    private void lblNuevoOperarioMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblNuevoOperarioMouseEntered
+        setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+    }//GEN-LAST:event_lblNuevoOperarioMouseEntered
+
+    private void lblNuevoOperarioMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblNuevoOperarioMouseExited
+        setCursor(Cursor.getDefaultCursor());
+    }//GEN-LAST:event_lblNuevoOperarioMouseExited
+
     private boolean validarNIF(String nif) {
         boolean correcto = false;
         Pattern pattern = Pattern.compile("(\\d{1,8})([TRWAGMYFPDXBNJZSQVHLCKEtrwagmyfpdxbnjzsqvhlcke])");
@@ -383,37 +438,27 @@ public class SignIn extends javax.swing.JFrame {
         }
         return correcto;
     }
-    
+
     private boolean simulacionHuellaDetectada() {
         return Math.random() > 0.15;
     }
 
     private int tipoOperario() {
-//        String nif = txtOperaNif.getText();
-        Operario o = new Operario(); //Creado a partir del nif
-        if (estaOpMaquinaria(o)) {
-            return 0;
-        } else if (estaOpImpresion(o)) {
-            return 1;
-        } else if (estaSuper(o)) {
-            return 2;
-        } else {
-            return -1;
-        }
+        /*String nif = txtOperaNif.getText();
+        for (Operario o : Datos.operarios) {
+            if(nif.equalsIgnoreCase(o.getNif())) {
+                if(o instanceof OMaquina) {
+                    return 0;
+                } else if (o instanceof OImpresion) {
+                    return 1;
+                } else {
+                    return 2;
+                }
+            }
+        }*/
+        return -1;
     } //Necesita revisión
 
-    private boolean estaOpImpresion(Operario o) {
-        return false;
-    } //No terminado
-
-    private boolean estaOpMaquinaria(Operario o) {
-        return false;
-    } //No teminado
-
-    private boolean estaSuper(Operario o) {
-        return false;
-    } //No terminado
-    
     private void huellaCorrecta() {
         String nomOp = ""; //usuario.getNombre();
         lblHuella.setIcon(new ImageIcon("assets/icons/fingerprint_green_36x36.png"));
@@ -432,7 +477,7 @@ public class SignIn extends javax.swing.JFrame {
                 "Entrar"
         );
     }
-    
+
     private void entrar(int tipo) {
         new MainOperario(tipo).setVisible(true);
         this.dispose();
@@ -476,7 +521,6 @@ public class SignIn extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCliente;
     private javax.swing.JButton btnClienteAtras;
-    private javax.swing.JButton btnClienteEntrar;
     private javax.swing.JButton btnOpera;
     private javax.swing.JButton btnOperaAtras;
     private javax.swing.JLabel jLabel1;
@@ -490,12 +534,13 @@ public class SignIn extends javax.swing.JFrame {
     private javax.swing.JToggleButton jToggleButton1;
     private javax.swing.JLabel lblHuella;
     private javax.swing.JLabel lblNifIncorrecto;
+    private javax.swing.JLabel lblNuevoCliente;
+    private javax.swing.JLabel lblNuevoOperario;
     private javax.swing.JLabel lblPistaHuella;
     private javax.swing.JPanel pnlCliente;
     private javax.swing.JPanel pnlHome;
     private javax.swing.JPanel pnlOperario;
-    private javax.swing.JPasswordField pssClientePassword;
-    private javax.swing.JTextField txtClienteUser;
+    private javax.swing.JTextField txtClienteNombre;
     private javax.swing.JTextField txtOperaNif;
     // End of variables declaration//GEN-END:variables
 
