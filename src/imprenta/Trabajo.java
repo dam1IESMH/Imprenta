@@ -46,13 +46,12 @@ public class Trabajo implements Serializable{
     /**
      * Constructor para la clase Trabajo con todos los parámetros
      * 
-     * @param id
      * @param fechaSolicitud
      * @param tipoRelieve
      * @param fechaImpresion
      * @param fechaRecogida 
      */
-    public Trabajo(int id, Calendar fechaSolicitud, String tipoRelieve, Calendar fechaImpresion, Calendar fechaRecogida) {
+    public Trabajo(Calendar fechaSolicitud, String tipoRelieve, Calendar fechaImpresion, Calendar fechaRecogida) {
         try {
             this.id = auto_incrementado;
             this.fechaSolicitud = fechaSolicitud;

@@ -25,14 +25,13 @@ public class Rotulo extends Trabajo {
      * Constructor para la clase Trabajo con todos los parámetros
      * 
      * @param centroComercial
-     * @param id
      * @param fechaSolicitud
      * @param tipoRelieve
      * @param fechaImpresion
      * @param fechaRecogida 
      */
-    public Rotulo(String centroComercial, int id, Calendar fechaSolicitud, String tipoRelieve, Calendar fechaImpresion, Calendar fechaRecogida) {
-        super(id, fechaSolicitud, tipoRelieve, fechaImpresion, fechaRecogida);
+    public Rotulo(String centroComercial, Calendar fechaSolicitud, String tipoRelieve, Calendar fechaImpresion, Calendar fechaRecogida) {
+        super(fechaSolicitud, tipoRelieve, fechaImpresion, fechaRecogida);
         this.centroComercial = centroComercial;
     }//Cierre del constructor
     
