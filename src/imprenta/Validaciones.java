@@ -61,4 +61,21 @@ public class Validaciones {
         }
         return numero;
     }
+    
+    /**
+     * Método para validar el color de las tapas de los libros
+     *
+     * @param colorTapas 
+     * @return
+     * @throws InvalidSurfaceException
+     */
+    public static Libro.Tapas validarColorTapas(String colorTapas) throws InvalidSurfaceException {
+
+        for (Libro.Tapas t : Libro.Tapas.values()) {
+            if (colorTapas.equals(Libro.Tapas.values().toString())) {
+                return Libro.Tapas.valueOf(colorTapas.toUpperCase());
+            }
+        }
+        throw new InvalidSurfaceException();
+    }//Cierre del método
 }
