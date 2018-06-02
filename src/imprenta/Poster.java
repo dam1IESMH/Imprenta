@@ -6,7 +6,6 @@
 package imprenta;
 
 import java.util.Calendar;
-import java.util.Date;
 
 /**
  *
@@ -17,7 +16,6 @@ public class Poster extends Trabajo {
     private int alto; 
     private int ancho;
     private int numeroCopias;
-    //validar los 3
 
     /**
      * Constructor vacio
@@ -39,9 +37,9 @@ public class Poster extends Trabajo {
      */
     public Poster(int alto, int ancho, int numeroCopias, int id, Calendar fechaSolicitud, String tipoRelieve, Calendar fechaImpresion, Calendar fechaRecogida) {
         super(id, fechaSolicitud, tipoRelieve, fechaImpresion, fechaRecogida);
-        this.alto = alto;
-        this.ancho = ancho;
-        this.numeroCopias = numeroCopias;
+        this.alto = Validaciones.validarDimensiones(alto);
+        this.ancho = Validaciones.validarDimensiones(ancho);
+        this.numeroCopias = Validaciones.validarEntero(numeroCopias);
     }//Cierre del constructor
     
     /**
