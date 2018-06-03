@@ -407,10 +407,15 @@ public class MainOperario extends javax.swing.JFrame {
 
     private void cargarTablaTrabajos() {
         Datos.cargarTrabajos();
-        DefaultTableModel tm = (DefaultTableModel) tblTrabajos.getModel();
-        for (int i = 0; i < tm.getRowCount(); i++) {
-            tm.removeRow(i);
-        }
+        DefaultTableModel tm = new DefaultTableModel();
+        tm.setColumnIdentifiers(new String[] {
+            "ID",
+            "Tipo relieve",
+            "Fecha solicitud",
+            "Fecha impresión",
+            "Fecha recogida",
+            "Listo"
+        });
         for (Trabajo t : Datos.trabajos) {
             tm.addRow(new Object[]{
                 t.getId(),
@@ -426,10 +431,16 @@ public class MainOperario extends javax.swing.JFrame {
 
     private void cargarTablaMaquinas() {
         Datos.cargarMaquinas();
-        DefaultTableModel tm = (DefaultTableModel) tblMaquinas.getModel();
-        for (int i = 0; i < tm.getRowCount(); i++) {
-            tm.removeRow(i);
-        }
+        DefaultTableModel tm = new DefaultTableModel();
+        tm.setColumnIdentifiers(new String[] {
+            "ID",
+            "Ubicación",
+            "Compra",
+            "Tipo impresión",
+            "Modo impresión",
+            "Volumen",
+            "Capacidad"
+        });
         for (Maquina m : Datos.maquinas) {
             tm.addRow(new Object[]{
                 m.getId(),

@@ -58,7 +58,8 @@ public class NuevoTrabajo extends javax.swing.JDialog {
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Nuevo trabajo");
 
-        cbTipoTrabajo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Póster", "Rótulo", "Libro" }));
+        cbTipoTrabajo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Rótulo", "Póster", "Libro" }));
+        cbTipoTrabajo.setSelectedIndex(1);
         cbTipoTrabajo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cbTipoTrabajoActionPerformed(evt);
