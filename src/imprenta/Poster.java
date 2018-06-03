@@ -29,7 +29,6 @@ public class Poster extends Trabajo {
      * @param alto
      * @param ancho
      * @param numeroCopias
-     * @param id
      * @param fechaSolicitud
      * @param tipoRelieve
      * @param fechaImpresion
