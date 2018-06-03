@@ -14,7 +14,7 @@ import static org.junit.Assert.*;
 
 /**
  *
- * @author Sergio
+ * @author Sergio Amor Gutiérrez
  */
 public class ValidacionesTest {
     
@@ -43,12 +43,31 @@ public class ValidacionesTest {
     @Test
     public void testValidarTipoRelieve() {
         System.out.println("validarTipoRelieve");
-        String relieve = "";
-        boolean expResult = false;
+        
+        String relieve = "FLEXOGRAFIA";
+        boolean expResult = true;
         boolean result = Validaciones.validarTipoRelieve(relieve);
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        
+        relieve = "TIPOGRAFIA";
+        expResult = true;
+        result = Validaciones.validarTipoRelieve(relieve);
+        assertEquals(expResult, result);
+        
+        relieve = "LITOGRAFIA";
+        expResult = true;
+        result = Validaciones.validarTipoRelieve(relieve);
+        assertEquals(expResult, result);
+        
+        relieve = "sdf1g56";
+        expResult = false;
+        result = Validaciones.validarTipoRelieve(relieve);
+        assertEquals(expResult, result);
+        
+        relieve = "";
+        expResult = false;
+        result = Validaciones.validarTipoRelieve(relieve);
+        assertEquals(expResult, result);
     }
 
     /**
@@ -57,6 +76,7 @@ public class ValidacionesTest {
     @Test
     public void testValidarNombre() {
         System.out.println("validarNombre");
+        
         String nombre = "f235";
         boolean expResult = false;
         boolean result = Validaciones.validarNombre(nombre);
@@ -79,12 +99,16 @@ public class ValidacionesTest {
     @Test
     public void testValidarDescripcion() {
         System.out.println("validarDescripcion");
-        String nombre = "";
+        
+        String nombre = "m nbd234v43 '?  ed";
         boolean expResult = false;
         boolean result = Validaciones.validarDescripcion(nombre);
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        
+        nombre = "Esto es una descripción normal y breve";
+        expResult = true;
+        result = Validaciones.validarDescripcion(nombre);
+        assertEquals(expResult, result);
     }
 
     /**
@@ -93,12 +117,31 @@ public class ValidacionesTest {
     @Test
     public void testValidarEntero() {
         System.out.println("validarEntero");
+        
         int numero = 0;
-        boolean expResult = false;
+        boolean expResult = true;
         boolean result = Validaciones.validarEntero(numero);
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        
+        numero = -6;
+        expResult = false;
+        result = Validaciones.validarEntero(numero);
+        assertEquals(expResult, result);
+
+        numero = 1024;
+        expResult = false;
+        result = Validaciones.validarEntero(numero);
+        assertEquals(expResult, result);
+        
+        numero = 17;
+        expResult = true;
+        result = Validaciones.validarEntero(numero);
+        assertEquals(expResult, result);
+        
+        numero = 1000;
+        expResult = true;
+        result = Validaciones.validarEntero(numero);
+        assertEquals(expResult, result);
     }
 
     /**
@@ -107,12 +150,26 @@ public class ValidacionesTest {
     @Test
     public void testValidarDimensiones() {
         System.out.println("validarDimensiones");
+        
         int numero = 0;
-        boolean expResult = false;
+        boolean expResult = true;
         boolean result = Validaciones.validarDimensiones(numero);
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        
+        numero = 100;
+        expResult = true;
+        result = Validaciones.validarDimensiones(numero);
+        assertEquals(expResult, result);
+        
+        numero = -51;
+        expResult = false;
+        result = Validaciones.validarDimensiones(numero);
+        assertEquals(expResult, result);
+        
+        numero = 102;
+        expResult = false;
+        result = Validaciones.validarDimensiones(numero);
+        assertEquals(expResult, result);
     }
 
     /**
@@ -121,12 +178,31 @@ public class ValidacionesTest {
     @Test
     public void testValidarVolumen() {
         System.out.println("validarVolumen");
+        
         int numero = 0;
-        boolean expResult = false;
+        boolean expResult = true;
         boolean result = Validaciones.validarVolumen(numero);
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        
+        numero = 400;
+        expResult = true;
+        result = Validaciones.validarVolumen(numero);
+        assertEquals(expResult, result);
+        
+        numero = 265;
+        expResult = true;
+        result = Validaciones.validarVolumen(numero);
+        assertEquals(expResult, result);
+        
+        numero = 650;
+        expResult = false;
+        result = Validaciones.validarVolumen(numero);
+        assertEquals(expResult, result);
+        
+        numero = -8;
+        expResult = false;
+        result = Validaciones.validarVolumen(numero);
+        assertEquals(expResult, result);
     }
 
     /**
@@ -134,13 +210,7 @@ public class ValidacionesTest {
      */
     @Test
     public void testValidarCapacidadMaxima() {
-        System.out.println("validarCapacidadMaxima");
-        int numero = 0;
-        boolean expResult = false;
-        boolean result = Validaciones.validarCapacidadMaxima(numero);
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        testValidarVolumen();
     }
 
     /**
@@ -149,12 +219,31 @@ public class ValidacionesTest {
     @Test
     public void testValidarNIF() {
         System.out.println("validarNIF");
-        String nif = "";
+        
+        String nif = "48562D";
         boolean expResult = false;
         boolean result = Validaciones.validarNIF(nif);
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        
+        nif = "sgsgsfd54";
+        expResult = false;
+        result = Validaciones.validarNIF(nif);
+        assertEquals(expResult, result);
+        
+        nif = "78164953";
+        expResult = false;
+        result = Validaciones.validarNIF(nif);
+        assertEquals(expResult, result);
+        
+        nif = "72149548C";
+        expResult = true;
+        result = Validaciones.validarNIF(nif);
+        assertEquals(expResult, result);
+        
+        nif = "72149548A";
+        expResult = false;
+        result = Validaciones.validarNIF(nif);
+        assertEquals(expResult, result);
     }
 
     /**
@@ -163,12 +252,51 @@ public class ValidacionesTest {
     @Test
     public void testValidarTlf() {
         System.out.println("validarTlf");
-        String tlf = "";
+        
+        String tlf = "464168768";
         boolean expResult = false;
         boolean result = Validaciones.validarTlf(tlf);
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        
+        tlf = "9428565413545";
+        expResult = false;
+        result = Validaciones.validarTlf(tlf);
+        assertEquals(expResult, result);
+        
+        tlf = "+34659761248";
+        expResult = false;
+        result = Validaciones.validarTlf(tlf);
+        assertEquals(expResult, result);
+        
+        tlf = "485";
+        expResult = false;
+        result = Validaciones.validarTlf(tlf);
+        assertEquals(expResult, result);
+        
+        tlf = "gsdver";
+        expResult = false;
+        result = Validaciones.validarTlf(tlf);
+        assertEquals(expResult, result);
+        
+        tlf = "f54g1";
+        expResult = false;
+        result = Validaciones.validarTlf(tlf);
+        assertEquals(expResult, result);
+        
+        tlf = "942680367";
+        expResult = true;
+        result = Validaciones.validarTlf(tlf);
+        assertEquals(expResult, result);
+        
+        tlf = "648064097";
+        expResult = true;
+        result = Validaciones.validarTlf(tlf);
+        assertEquals(expResult, result);
+        
+        tlf = "764320195";
+        expResult = true;
+        result = Validaciones.validarTlf(tlf);
+        assertEquals(expResult, result);
     }
 
     /**
@@ -177,12 +305,31 @@ public class ValidacionesTest {
     @Test
     public void testValidarDireccion() {
         System.out.println("validarDireccion");
-        String direc = "";
-        boolean expResult = false;
+        
+        String direc = "C/La Asunción Nº102 Pincurrín, Cantabria";
+        boolean expResult = true;
         boolean result = Validaciones.validarDireccion(direc);
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        
+        direc = "C\\La Asunción Nº102 Pincurrín, Cantabria";
+        expResult = false;
+        result = Validaciones.validarDireccion(direc);
+        assertEquals(expResult, result);
+        
+        direc = "C/La Asunción Nº102555 Pincurrín, Cantabria";
+        expResult = false;
+        result = Validaciones.validarDireccion(direc);
+        assertEquals(expResult, result);
+        
+        direc = "C/3254 4 Nºsiunb GD,sdaf5";
+        expResult = false;
+        result = Validaciones.validarDireccion(direc);
+        assertEquals(expResult, result);
+        
+        direc = "g45f4cbv53gf  gfhh";
+        expResult = false;
+        result = Validaciones.validarDireccion(direc);
+        assertEquals(expResult, result);
     }
 
     /**
@@ -191,12 +338,47 @@ public class ValidacionesTest {
     @Test
     public void testValidarColorTapas() {
         System.out.println("validarColorTapas");
-        String colorTapas = "";
-        boolean expResult = false;
+        
+        String colorTapas = "ROJO";
+        boolean expResult = true;
         boolean result = Validaciones.validarColorTapas(colorTapas);
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        
+        colorTapas = "VERDE";
+        expResult = true;
+        result = Validaciones.validarColorTapas(colorTapas);
+        assertEquals(expResult, result);
+        
+        colorTapas = "AZUL";
+        expResult = true;
+        result = Validaciones.validarColorTapas(colorTapas);
+        assertEquals(expResult, result);
+        
+        colorTapas = "BLANCO";
+        expResult = true;
+        result = Validaciones.validarColorTapas(colorTapas);
+        assertEquals(expResult, result);
+        
+        colorTapas = "NEGRO";
+        expResult = true;
+        result = Validaciones.validarColorTapas(colorTapas);
+        assertEquals(expResult, result);
+        
+        colorTapas = "MARRON";
+        expResult = true;
+        result = Validaciones.validarColorTapas(colorTapas);
+        assertEquals(expResult, result);
+        
+        colorTapas = "sdf1g56";
+        expResult = false;
+        result = Validaciones.validarColorTapas(colorTapas);
+        assertEquals(expResult, result);
+        
+        colorTapas = "";
+        expResult = false;
+        result = Validaciones.validarColorTapas(colorTapas);
+        assertEquals(expResult, result);
+        
     }
     
 }

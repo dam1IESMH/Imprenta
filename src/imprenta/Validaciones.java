@@ -114,7 +114,7 @@ public class Validaciones {
      */
     public static boolean validarNIF(String nif) {
         boolean correcto;
-        Pattern pattern = Pattern.compile("(\\d{1,8})([TRWAGMYFPDXBNJZSQVHLCKEtrwagmyfpdxbnjzsqvhlcke])");
+        Pattern pattern = Pattern.compile("(\\d{8,8})([TRWAGMYFPDXBNJZSQVHLCKEtrwagmyfpdxbnjzsqvhlcke])");
         Matcher matcher = pattern.matcher(nif);
         if (matcher.matches()) {
             String letra = matcher.group(2);
@@ -154,7 +154,7 @@ public class Validaciones {
      * Método para validar el color de las tapas de los libros
      *
      * @param colorTapas
-     * @return
+     * @return 
      */
     public static boolean validarColorTapas(String colorTapas) {
 
