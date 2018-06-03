@@ -8,8 +8,13 @@ package imprenta;
 import java.io.Serializable;
 
 /**
- *
- * @author usuario
+ * La clase {@code Operario} representa a los operarios de impresion o maquina,
+ * en una imprenta. Las reparaciones tiene los atributos String {@code NIF}, 
+ * {@code nombre}, {@code apellidos}, {@code telefono}, {@code direccion}; 
+ * y el boolean
+ * {@code senior}.
+ * 
+ * @author  Mario Perez Urbaneja
  */
 public class Operario implements Serializable {
 

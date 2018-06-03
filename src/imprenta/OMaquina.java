@@ -6,8 +6,10 @@
 package imprenta;
 
 /**
- *
- * @author usuario
+ * La clase {@code OMaquina} es una clase que hereda de (@code Operario). 
+ * El OMaquina tiene los atributos heredados de Operario
+ * 
+ * @author Mario Perez Urbaneja
  */
 public class OMaquina extends Operario{
 /**
