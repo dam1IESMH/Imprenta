@@ -26,17 +26,11 @@ public class Reparacion {
     {
         auto_incrementado++;
     }
-/**
- * Abertura de constructor vacio  
- * 
- */   
-    
+
     public Reparacion() {
         
     }
-/**
- * Cierre del constructor vacio
- */  
+    
     
 /**
  * Abertura del constructor de parametros
@@ -50,9 +44,9 @@ public class Reparacion {
         this.descripcion = descripcion;
     }
 /**
- * Cierre del constructor de parametros
- *
- */    
+ * Cierre del constructor vacio
+ */  
+  
 /**
  * Abertura de constructor de Objeto Reparacion
  * @param r 

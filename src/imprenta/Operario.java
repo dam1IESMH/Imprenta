@@ -41,11 +41,11 @@ public class Operario {
  * @param senior 
  */   
     public Operario(String NIF, String nombre, String apellidos, String telefono, String direccion, boolean senior) {
-        this.NIF = Validaciones.validarNIF;
-        this.nombre = Validaciones.validarNombre;
-        this.apellidos = Validaciones.validarNombre;
-        this.telefono = Validaciones.validarTlf;
-        this.direccion = Validaciones.validarDireccion;
+        this.NIF = NIF;
+        this.nombre = nombre;
+        this.apellidos = apellidos;
+        this.telefono = telefono;
+        this.direccion = direccion;
         this.senior = senior;
     }
 /**
