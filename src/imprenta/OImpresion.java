@@ -6,8 +6,10 @@
 package imprenta;
 
 /**
- *
- * @author usuario
+ * La clase {@code OImpresion} es una clase que hereda de (@code Operario). 
+ * El OImpresion tiene los atributos heredados de Operario
+ * 
+ * @author  Mario Perez Urbaneja
  */
 public class OImpresion extends Operario{
 /**
