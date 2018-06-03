@@ -31,14 +31,13 @@ public class Libro extends Trabajo {
      * 
      * @param numeroPaginas
      * @param colorTapas
-     * @param id
      * @param fechaSolicitud
      * @param tipoRelieve
      * @param fechaImpresion
      * @param fechaRecogida 
      */
-    public Libro(int numeroPaginas, String colorTapas, int id, Calendar fechaSolicitud, String tipoRelieve, Calendar fechaImpresion, Calendar fechaRecogida) {
-        super(id, fechaSolicitud, tipoRelieve, fechaImpresion, fechaRecogida);
+    public Libro(int numeroPaginas, String colorTapas, Calendar fechaSolicitud, String tipoRelieve, Calendar fechaImpresion, Calendar fechaRecogida) {
+        super(fechaSolicitud, tipoRelieve, fechaImpresion, fechaRecogida);
         try{
         this.numeroPaginas = Validaciones.validarEntero(numeroPaginas);
         this.colorTapas = Validaciones.validarColorTapas(colorTapas);

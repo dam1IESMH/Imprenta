@@ -5,6 +5,7 @@
  */
 package imprenta;
 
+import java.io.Serializable;
 import java.util.Calendar;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -13,7 +14,7 @@ import java.util.logging.Logger;
  *
  * @author Jose Daniel Buenaga
  */
-public class Trabajo {
+public class Trabajo implements Serializable{
 
     enum tipoRelieve {
         FLEXOGRAFIA, TIPOGRAFIA, LITOGRAFIA
@@ -45,13 +46,12 @@ public class Trabajo {
     /**
      * Constructor para la clase Trabajo con todos los parámetros
      * 
-     * @param id
      * @param fechaSolicitud
      * @param tipoRelieve
      * @param fechaImpresion
      * @param fechaRecogida 
      */
-    public Trabajo(int id, Calendar fechaSolicitud, String tipoRelieve, Calendar fechaImpresion, Calendar fechaRecogida) {
+    public Trabajo(Calendar fechaSolicitud, String tipoRelieve, Calendar fechaImpresion, Calendar fechaRecogida) {
         try {
             this.id = auto_incrementado;
             this.fechaSolicitud = fechaSolicitud;

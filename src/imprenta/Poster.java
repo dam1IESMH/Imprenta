@@ -35,8 +35,8 @@ public class Poster extends Trabajo {
      * @param fechaImpresion
      * @param fechaRecogida 
      */
-    public Poster(int alto, int ancho, int numeroCopias, int id, Calendar fechaSolicitud, String tipoRelieve, Calendar fechaImpresion, Calendar fechaRecogida) {
-        super(id, fechaSolicitud, tipoRelieve, fechaImpresion, fechaRecogida);
+    public Poster(int alto, int ancho, int numeroCopias, Calendar fechaSolicitud, String tipoRelieve, Calendar fechaImpresion, Calendar fechaRecogida) {
+        super(fechaSolicitud, tipoRelieve, fechaImpresion, fechaRecogida);
         this.alto = Validaciones.validarDimensiones(alto);
         this.ancho = Validaciones.validarDimensiones(ancho);
         this.numeroCopias = Validaciones.validarEntero(numeroCopias);

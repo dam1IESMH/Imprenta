@@ -5,6 +5,7 @@
  */
 package imprenta;
 
+import java.io.Serializable;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -18,7 +19,7 @@ import java.util.Calendar;
  *
  * @author SirLoveWalter
  */
-public class Maquina {
+public class Maquina implements Serializable {
 
     private int id,
             volumen, //validar

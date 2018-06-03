@@ -214,6 +214,7 @@ public class NuevoOperario extends javax.swing.JDialog {
         } else {
             Datos.operarios.add(new OMaquina(o));
         }
+        Datos.guardarOperarios();
         dispose();
     }//GEN-LAST:event_btnRegistrarActionPerformed
 

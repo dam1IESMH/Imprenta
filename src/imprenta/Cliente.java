@@ -5,6 +5,8 @@
  */
 package imprenta;
 
+import java.io.Serializable;
+
 /**
  * La clase {@code Cliente} representa a un cliente cuya actividad es registrada
  * en una imprenta. El cliente se define por su {@code nombre} y
@@ -12,7 +14,7 @@ package imprenta;
  *
  * @author SirLoveWalter
  */
-public class Cliente {
+public class Cliente implements Serializable {
 
     private String nombre; 
     private String telefono; 
