@@ -114,7 +114,7 @@ public class Validaciones {
      * @return
      */
     public static boolean validarNIF(String nif) {
-        boolean correcto = false;
+        boolean correcto;
         Pattern pattern = Pattern.compile("(\\d{1,8})([TRWAGMYFPDXBNJZSQVHLCKEtrwagmyfpdxbnjzsqvhlcke])");
         Matcher matcher = pattern.matcher(nif);
         if (matcher.matches()) {
@@ -123,11 +123,7 @@ public class Validaciones {
             int index = Integer.parseInt(matcher.group(1));
             index = index % 23;
             String reference = letras.substring(index, index + 1);
-            if (reference.equalsIgnoreCase(letra)) {
-                correcto = true;
-            } else {
-                correcto = false;
-            }
+            correcto = reference.equalsIgnoreCase(letra);
         } else {
             correcto = false;
         }

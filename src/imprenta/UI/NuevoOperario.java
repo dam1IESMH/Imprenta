@@ -257,7 +257,7 @@ public class NuevoOperario extends javax.swing.JDialog {
     private void txtDireccionKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtDireccionKeyReleased
         if (!Validaciones.validarDireccion(txtDireccion.getText()) && !txtDireccion.getText().equals("")) {
             lblDireccionIncorrecta.setVisible(true);
-            lblDireccionIncorrecta.setToolTipText("Ejemplo: C/La Asunción Nº102, Pincurrín, Cantabria");
+            lblDireccionIncorrecta.setToolTipText("Ejemplo: C/La Asunción Nº102 Pincurrín, Cantabria");
         } else {
             lblDireccionIncorrecta.setVisible(false);
         }

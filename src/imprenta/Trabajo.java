@@ -6,6 +6,7 @@
 package imprenta;
 
 import java.io.Serializable;
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -73,7 +74,50 @@ public class Trabajo implements Serializable {
         this.fechaRecogida = t.fechaRecogida;
     }//Cierre del constructor
 
-    public void valido() {
+    public int getId() {
+        return id;
+    }
+
+    public String getFechaSolicitud() {
+        SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+        return sdf.format(fechaSolicitud.getTime());
+    }
+
+    public String getRelieve() {
+        if (Relieve != null) {
+            return Relieve.toString();
+        } else {
+            return null;
+        }
+    }
+
+    public String getFechaImpresion() {
+        if (fechaImpresion != null) {
+            SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+            return sdf.format(fechaImpresion.getTime());
+        } else {
+            return null;
+        }
+    }
+
+    public String getFechaRecogida() {
+        if (fechaRecogida != null) {
+            SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+            return sdf.format(fechaRecogida.getTime());
+        } else {
+            return null;
+        }
+    }
+
+    public boolean isValido() {
+        return valido;
+    }
+
+    public boolean isImpreso() {
+        return impreso;
+    }
+
+    public void validar() {
         this.valido = true;
     }
 

@@ -50,9 +50,9 @@ public class NuevoCliente extends javax.swing.JDialog {
 
         jLabel2.setText("Nombre:");
 
-        txtNombre.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseReleased(java.awt.event.MouseEvent evt) {
-                txtNombreMouseReleased(evt);
+        txtNombre.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txtNombreKeyReleased(evt);
             }
         });
 
@@ -125,15 +125,6 @@ public class NuevoCliente extends javax.swing.JDialog {
         dispose();
     }//GEN-LAST:event_btnRegistrarActionPerformed
 
-    private void txtNombreMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtNombreMouseReleased
-        if (!Validaciones.validarNombre(txtNombre.getText()) && !txtNombre.getText().equals("")) {
-            lblNombreIncorrecto.setVisible(true);
-        } else {
-            lblNombreIncorrecto.setVisible(false);
-        }
-        posibleRegistro();
-    }//GEN-LAST:event_txtNombreMouseReleased
-
     private void txtTelfKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtTelfKeyReleased
         if (!Validaciones.validarTlf(txtTelf.getText()) && !txtTelf.getText().equals("")) {
             lblTelfIncorrecto.setVisible(true);
@@ -142,6 +133,15 @@ public class NuevoCliente extends javax.swing.JDialog {
         }
         posibleRegistro();
     }//GEN-LAST:event_txtTelfKeyReleased
+
+    private void txtNombreKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtNombreKeyReleased
+        if (!Validaciones.validarNombre(txtNombre.getText()) && !txtNombre.getText().equals("")) {
+            lblNombreIncorrecto.setVisible(true);
+        } else {
+            lblNombreIncorrecto.setVisible(false);
+        }
+        posibleRegistro();
+    }//GEN-LAST:event_txtNombreKeyReleased
 
     private void posibleRegistro() {
         if (!(lblNombreIncorrecto.isVisible()

@@ -105,8 +105,9 @@ public class Maquina implements Serializable {
         return modoImpresion;
     }
 
-    public Calendar getFechaCompra() {
-        return fechaCompra;
+    public String getFechaCompra() {
+        SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+        return sdf.format(fechaCompra.getTime());
     }
 
     public ArrayList<Reparacion> getArreglos() {

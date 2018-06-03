@@ -59,6 +59,11 @@ public class NuevoTrabajo extends javax.swing.JDialog {
         setTitle("Nuevo trabajo");
 
         cbTipoTrabajo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Rótulo", "Póster", "Libro" }));
+        cbTipoTrabajo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cbTipoTrabajoActionPerformed(evt);
+            }
+        });
 
         cbRelieve.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Flexografía", "Litografía", "Tipografía" }));
 
@@ -257,6 +262,26 @@ public class NuevoTrabajo extends javax.swing.JDialog {
         Datos.guardarTrabajos();
         dispose();
     }//GEN-LAST:event_btnRegistrarActionPerformed
+
+    private void cbTipoTrabajoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbTipoTrabajoActionPerformed
+        switch (cbTipoTrabajo.getSelectedIndex()) {
+            case 0:
+                pnlLibro.setVisible(false);
+                pnlPoster.setVisible(false);
+                pnlRotulo.setVisible(true);
+                break;
+            case 1:
+                pnlLibro.setVisible(false);
+                pnlPoster.setVisible(true);
+                pnlRotulo.setVisible(false);
+                break;
+            default:
+                pnlLibro.setVisible(true);
+                pnlPoster.setVisible(false);
+                pnlRotulo.setVisible(false);
+                break;
+        }
+    }//GEN-LAST:event_cbTipoTrabajoActionPerformed
 
     /**
      * @param args the command line arguments
