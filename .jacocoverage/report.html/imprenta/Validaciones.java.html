@@ -19,16 +19,15 @@ import java.util.regex.Pattern;
      *
      * @param relieve
      * @return
-     * @throws InvalidSurfaceException
      */
-    public static Trabajo.tipoRelieve validarTipoRelieve(String relieve) throws InvalidSurfaceException {
-<span class="nc" id="L25">        boolean correcto = false;</span>
-<span class="nc bnc" id="L26" title="All 2 branches missed.">        for (Trabajo.tipoRelieve tr : Trabajo.tipoRelieve.values()) {</span>
-<span class="nc bnc" id="L27" title="All 2 branches missed.">            if (relieve.equals(tr.toString())) {</span>
-<span class="nc" id="L28">                return Trabajo.tipoRelieve.valueOf(relieve.toUpperCase());</span>
+    public static boolean validarTipoRelieve(String relieve) {
+<span class="nc" id="L24">        boolean correcto = false;</span>
+<span class="nc bnc" id="L25" title="All 2 branches missed.">        for (Trabajo.tipoRelieve tr : Trabajo.tipoRelieve.values()) {</span>
+<span class="nc bnc" id="L26" title="All 2 branches missed.">            if (relieve.equals(tr.toString())) {</span>
+<span class="nc" id="L27">                return true;</span>
             }
         }
-<span class="nc" id="L31">        throw new InvalidSurfaceException();</span>
+<span class="nc" id="L30">        return false;</span>
     }//Cierre del método
 
     /**
@@ -38,7 +37,7 @@ import java.util.regex.Pattern;
      * @return
      */
     public static boolean validarNombre(String nombre) {
-<span class="fc" id="L41">        return nombre.matches(&quot;[a-zA-ZñÑáéíóúÁÉÍÓÚäëïöüÄËÏÖÜçÇ\\s]{2,25}&quot;);</span>
+<span class="fc" id="L40">        return nombre.matches(&quot;[a-zA-ZñÑáéíóúÁÉÍÓÚäëïöüÄËÏÖÜçÇ\\s]{2,25}&quot;);</span>
     }
     
     /**
@@ -48,7 +47,7 @@ import java.util.regex.Pattern;
      * @return
      */
     public static boolean validarDescripcion(String nombre) {
-<span class="nc" id="L51">        return nombre.matches(&quot;[a-zA-ZñÑáéíóúÁÉÍÓÚäëïöüÄËÏÖÜçÇ\\s]{2,150}&quot;);</span>
+<span class="nc" id="L50">        return nombre.matches(&quot;[a-zA-ZñÑáéíóúÁÉÍÓÚäëïöüÄËÏÖÜçÇ\\s]{2,150}&quot;);</span>
     }
 
     /**
@@ -58,11 +57,11 @@ import java.util.regex.Pattern;
      * @return
      */
     public static boolean validarEntero(int numero) {
-<span class="nc" id="L61">        boolean correcto = false;</span>
-<span class="nc bnc" id="L62" title="All 4 branches missed.">        if ((numero &lt;= 1000) &amp;&amp; (numero &gt;= 0)) {</span>
-<span class="nc" id="L63">            correcto = true;</span>
+<span class="fc" id="L60">        boolean correcto = false;</span>
+<span class="pc bpc" id="L61" title="2 of 4 branches missed.">        if ((numero &lt;= 1000) &amp;&amp; (numero &gt;= 0)) {</span>
+<span class="fc" id="L62">            correcto = true;</span>
         }
-<span class="nc" id="L65">        return correcto;</span>
+<span class="fc" id="L64">        return correcto;</span>
     }
 
     /**
@@ -72,11 +71,11 @@ import java.util.regex.Pattern;
      * @return
      */
     public static boolean validarDimensiones(int numero) {
-<span class="nc" id="L75">        boolean correcto = false;</span>
-<span class="nc bnc" id="L76" title="All 4 branches missed.">        if ((numero &lt;= 100) &amp;&amp; (numero &gt;= 0)) {</span>
-<span class="nc" id="L77">            correcto = true;</span>
+<span class="nc" id="L74">        boolean correcto = false;</span>
+<span class="nc bnc" id="L75" title="All 4 branches missed.">        if ((numero &lt;= 100) &amp;&amp; (numero &gt;= 0)) {</span>
+<span class="nc" id="L76">            correcto = true;</span>
         }
-<span class="nc" id="L79">        return correcto;</span>
+<span class="nc" id="L78">        return correcto;</span>
     }
 
     /**
@@ -86,11 +85,11 @@ import java.util.regex.Pattern;
      * @return
      */
     public static boolean validarVolumen(int numero) {
-<span class="nc" id="L89">        boolean correcto = false;</span>
-<span class="nc bnc" id="L90" title="All 4 branches missed.">        if ((numero &lt;= 100) &amp;&amp; (numero &gt;= 0)) {</span>
-<span class="nc" id="L91">            correcto = true;</span>
+<span class="nc" id="L88">        boolean correcto = false;</span>
+<span class="nc bnc" id="L89" title="All 4 branches missed.">        if ((numero &lt;= 400) &amp;&amp; (numero &gt;= 0)) {</span>
+<span class="nc" id="L90">            correcto = true;</span>
         }
-<span class="nc" id="L93">        return correcto;</span>
+<span class="nc" id="L92">        return correcto;</span>
     }
 
     /**
@@ -100,11 +99,11 @@ import java.util.regex.Pattern;
      * @return
      */
     public static boolean validarCapacidadMaxima(int numero) {
-<span class="nc" id="L103">        boolean correcto = false;</span>
-<span class="nc bnc" id="L104" title="All 4 branches missed.">        if ((numero &lt;= 400) &amp;&amp; (numero &gt;= 0)) {</span>
-<span class="nc" id="L105">            correcto = true;</span>
+<span class="nc" id="L102">        boolean correcto = false;</span>
+<span class="nc bnc" id="L103" title="All 4 branches missed.">        if ((numero &lt;= 400) &amp;&amp; (numero &gt;= 0)) {</span>
+<span class="nc" id="L104">            correcto = true;</span>
         }
-<span class="nc" id="L107">        return correcto;</span>
+<span class="nc" id="L106">        return correcto;</span>
     }
 
     /**
@@ -114,24 +113,20 @@ import java.util.regex.Pattern;
      * @return
      */
     public static boolean validarNIF(String nif) {
-<span class="fc" id="L117">        boolean correcto = false;</span>
-<span class="fc" id="L118">        Pattern pattern = Pattern.compile(&quot;(\\d{1,8})([TRWAGMYFPDXBNJZSQVHLCKEtrwagmyfpdxbnjzsqvhlcke])&quot;);</span>
-<span class="fc" id="L119">        Matcher matcher = pattern.matcher(nif);</span>
-<span class="fc bfc" id="L120" title="All 2 branches covered.">        if (matcher.matches()) {</span>
-<span class="fc" id="L121">            String letra = matcher.group(2);</span>
-<span class="fc" id="L122">            String letras = &quot;TRWAGMYFPDXBNJZSQVHLCKE&quot;;</span>
-<span class="fc" id="L123">            int index = Integer.parseInt(matcher.group(1));</span>
-<span class="fc" id="L124">            index = index % 23;</span>
-<span class="fc" id="L125">            String reference = letras.substring(index, index + 1);</span>
-<span class="pc bpc" id="L126" title="1 of 2 branches missed.">            if (reference.equalsIgnoreCase(letra)) {</span>
-<span class="fc" id="L127">                correcto = true;</span>
-            } else {
-<span class="nc" id="L129">                correcto = false;</span>
-            }
-<span class="fc" id="L131">        } else {</span>
-<span class="fc" id="L132">            correcto = false;</span>
+        boolean correcto;
+<span class="fc" id="L117">        Pattern pattern = Pattern.compile(&quot;(\\d{1,8})([TRWAGMYFPDXBNJZSQVHLCKEtrwagmyfpdxbnjzsqvhlcke])&quot;);</span>
+<span class="fc" id="L118">        Matcher matcher = pattern.matcher(nif);</span>
+<span class="fc bfc" id="L119" title="All 2 branches covered.">        if (matcher.matches()) {</span>
+<span class="fc" id="L120">            String letra = matcher.group(2);</span>
+<span class="fc" id="L121">            String letras = &quot;TRWAGMYFPDXBNJZSQVHLCKE&quot;;</span>
+<span class="fc" id="L122">            int index = Integer.parseInt(matcher.group(1));</span>
+<span class="fc" id="L123">            index = index % 23;</span>
+<span class="fc" id="L124">            String reference = letras.substring(index, index + 1);</span>
+<span class="fc" id="L125">            correcto = reference.equalsIgnoreCase(letra);</span>
+<span class="fc" id="L126">        } else {</span>
+<span class="fc" id="L127">            correcto = false;</span>
         }
-<span class="fc" id="L134">        return correcto;</span>
+<span class="fc" id="L129">        return correcto;</span>
     }
 
     /**
@@ -141,7 +136,7 @@ import java.util.regex.Pattern;
      * @return
      */
     public static boolean validarTlf(String tlf) {
-<span class="fc" id="L144">        return tlf.matches(&quot;[679][0-9]{8,8}&quot;);</span>
+<span class="fc" id="L139">        return tlf.matches(&quot;[679][0-9]{8,8}&quot;);</span>
     }
 
     /**
@@ -151,7 +146,7 @@ import java.util.regex.Pattern;
      * @return
      */
     public static boolean validarDireccion(String direc) {
-<span class="fc" id="L154">        return direc.matches(&quot;C/[a-zA-ZñÑáéíóúÁÉÍÓÚäëïöüÄËÏÖÜçÇ\\s]{2,15} ?([nN][?º][0-9]{1,4})&quot;</span>
+<span class="nc" id="L149">        return direc.matches(&quot;C/[a-zA-ZñÑáéíóúÁÉÍÓÚäëïöüÄËÏÖÜçÇ\\s]{2,15} ?([nN][?º][0-9]{1,4})&quot;</span>
                 + &quot; [a-zA-ZñÑáéíóúÁÉÍÓÚäëïöüÄËÏÖÜçÇ\\s]{2,15}, [a-zA-ZñÑáéíóúÁÉÍÓÚäëïöüÄËÏÖÜçÇ\\s]{2,15}&quot;);
     }
 
@@ -160,16 +155,15 @@ import java.util.regex.Pattern;
      *
      * @param colorTapas
      * @return
-     * @throws InvalidSurfaceException
      */
-    public static Libro.Tapas validarColorTapas(String colorTapas) throws InvalidSurfaceException {
+    public static boolean validarColorTapas(String colorTapas) {
 
-<span class="nc bnc" id="L167" title="All 2 branches missed.">        for (Libro.Tapas t : Libro.Tapas.values()) {</span>
-<span class="nc bnc" id="L168" title="All 2 branches missed.">            if (colorTapas.equals(Libro.Tapas.values().toString())) {</span>
-<span class="nc" id="L169">                return Libro.Tapas.valueOf(colorTapas.toUpperCase());</span>
+<span class="nc bnc" id="L161" title="All 2 branches missed.">        for (Libro.Tapas t : Libro.Tapas.values()) {</span>
+<span class="nc bnc" id="L162" title="All 2 branches missed.">            if (colorTapas.equals(t.toString())) {</span>
+<span class="nc" id="L163">                return true;</span>
             }
         }
-<span class="nc" id="L172">        throw new InvalidSurfaceException();</span>
+<span class="nc" id="L166">        return false;</span>
     }//Cierre del método
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.6.201602180812</span></div></body></html>

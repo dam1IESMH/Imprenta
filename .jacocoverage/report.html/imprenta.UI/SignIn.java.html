@@ -14,7 +14,7 @@ import javax.swing.JOptionPane;
 
 /**
  *
- * @author DAM101
+ * @author Sergio Amor Gutiérrez
  */
 public class SignIn extends javax.swing.JFrame {
 
@@ -32,7 +32,8 @@ public class SignIn extends javax.swing.JFrame {
 <span class="fc" id="L32">        lblPistaHuella.setVisible(false);</span>
 <span class="fc" id="L33">        setLocationRelativeTo(null);</span>
 <span class="fc" id="L34">        Datos.cargarOperarios();</span>
-<span class="fc" id="L35">    }</span>
+<span class="fc" id="L35">        Datos.cargarClientes();</span>
+<span class="fc" id="L36">    }</span>
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -43,28 +44,27 @@ public class SignIn extends javax.swing.JFrame {
     // &lt;editor-fold defaultstate=&quot;collapsed&quot; desc=&quot;Generated Code&quot;&gt;//GEN-BEGIN:initComponents
     private void initComponents() {
 
-<span class="fc" id="L46">        pnlHome = new javax.swing.JPanel();</span>
-<span class="fc" id="L47">        jLabel1 = new javax.swing.JLabel();</span>
-<span class="fc" id="L48">        btnOpera = new javax.swing.JButton();</span>
-<span class="fc" id="L49">        btnCliente = new javax.swing.JButton();</span>
-<span class="fc" id="L50">        jLabel2 = new javax.swing.JLabel();</span>
-<span class="fc" id="L51">        jSeparator1 = new javax.swing.JSeparator();</span>
-<span class="fc" id="L52">        pnlCliente = new javax.swing.JPanel();</span>
-<span class="fc" id="L53">        jLabel3 = new javax.swing.JLabel();</span>
-<span class="fc" id="L54">        jLabel4 = new javax.swing.JLabel();</span>
-<span class="fc" id="L55">        txtClienteNombre = new javax.swing.JTextField();</span>
-<span class="fc" id="L56">        btnClienteAtras = new javax.swing.JButton();</span>
-<span class="fc" id="L57">        jLabel5 = new javax.swing.JLabel();</span>
-<span class="fc" id="L58">        lblNuevoCliente = new javax.swing.JLabel();</span>
-<span class="fc" id="L59">        pnlOperario = new javax.swing.JPanel();</span>
-<span class="fc" id="L60">        btnOperaAtras = new javax.swing.JButton();</span>
-<span class="fc" id="L61">        jLabel6 = new javax.swing.JLabel();</span>
-<span class="fc" id="L62">        jLabel7 = new javax.swing.JLabel();</span>
-<span class="fc" id="L63">        txtOperaNif = new javax.swing.JTextField();</span>
-<span class="fc" id="L64">        lblHuella = new javax.swing.JLabel();</span>
-<span class="fc" id="L65">        lblPistaHuella = new javax.swing.JLabel();</span>
-<span class="fc" id="L66">        lblNifIncorrecto = new javax.swing.JLabel();</span>
-<span class="fc" id="L67">        jToggleButton1 = new javax.swing.JToggleButton();</span>
+<span class="fc" id="L47">        pnlHome = new javax.swing.JPanel();</span>
+<span class="fc" id="L48">        jLabel1 = new javax.swing.JLabel();</span>
+<span class="fc" id="L49">        btnOpera = new javax.swing.JButton();</span>
+<span class="fc" id="L50">        btnCliente = new javax.swing.JButton();</span>
+<span class="fc" id="L51">        jLabel2 = new javax.swing.JLabel();</span>
+<span class="fc" id="L52">        jSeparator1 = new javax.swing.JSeparator();</span>
+<span class="fc" id="L53">        pnlCliente = new javax.swing.JPanel();</span>
+<span class="fc" id="L54">        jLabel3 = new javax.swing.JLabel();</span>
+<span class="fc" id="L55">        jLabel4 = new javax.swing.JLabel();</span>
+<span class="fc" id="L56">        txtClienteNombre = new javax.swing.JTextField();</span>
+<span class="fc" id="L57">        btnClienteAtras = new javax.swing.JButton();</span>
+<span class="fc" id="L58">        jLabel5 = new javax.swing.JLabel();</span>
+<span class="fc" id="L59">        lblNuevoCliente = new javax.swing.JLabel();</span>
+<span class="fc" id="L60">        pnlOperario = new javax.swing.JPanel();</span>
+<span class="fc" id="L61">        btnOperaAtras = new javax.swing.JButton();</span>
+<span class="fc" id="L62">        jLabel6 = new javax.swing.JLabel();</span>
+<span class="fc" id="L63">        jLabel7 = new javax.swing.JLabel();</span>
+<span class="fc" id="L64">        txtOperaNif = new javax.swing.JTextField();</span>
+<span class="fc" id="L65">        lblHuella = new javax.swing.JLabel();</span>
+<span class="fc" id="L66">        lblPistaHuella = new javax.swing.JLabel();</span>
+<span class="fc" id="L67">        lblNifIncorrecto = new javax.swing.JLabel();</span>
 <span class="fc" id="L68">        lblNuevoOperario = new javax.swing.JLabel();</span>
 
 <span class="fc" id="L70">        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);</span>
@@ -222,217 +222,203 @@ public class SignIn extends javax.swing.JFrame {
 <span class="fc" id="L222">        lblNifIncorrecto.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);</span>
 <span class="fc" id="L223">        lblNifIncorrecto.setText(&quot;El NIF introducido no es válido.&quot;);</span>
 
-<span class="fc" id="L225">        jToggleButton1.setText(&quot;entrar&quot;);</span>
-<span class="fc" id="L226">        jToggleButton1.addActionListener(new java.awt.event.ActionListener() {</span>
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-<span class="nc" id="L228">                jToggleButton1ActionPerformed(evt);</span>
-<span class="nc" id="L229">            }</span>
-        });
-
-<span class="fc" id="L232">        lblNuevoOperario.setFont(lblNuevoOperario.getFont());</span>
-<span class="fc" id="L233">        lblNuevoOperario.setForeground(new java.awt.Color(0, 102, 102));</span>
-<span class="fc" id="L234">        lblNuevoOperario.setText(&quot;Soy un nuevo operario&quot;);</span>
-<span class="fc" id="L235">        lblNuevoOperario.addMouseListener(new java.awt.event.MouseAdapter() {</span>
+<span class="fc" id="L225">        lblNuevoOperario.setFont(lblNuevoOperario.getFont());</span>
+<span class="fc" id="L226">        lblNuevoOperario.setForeground(new java.awt.Color(0, 102, 102));</span>
+<span class="fc" id="L227">        lblNuevoOperario.setText(&quot;Soy un nuevo operario&quot;);</span>
+<span class="fc" id="L228">        lblNuevoOperario.addMouseListener(new java.awt.event.MouseAdapter() {</span>
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-<span class="fc" id="L237">                lblNuevoOperarioMouseClicked(evt);</span>
-<span class="fc" id="L238">            }</span>
+<span class="nc" id="L230">                lblNuevoOperarioMouseClicked(evt);</span>
+<span class="nc" id="L231">            }</span>
             public void mouseEntered(java.awt.event.MouseEvent evt) {
-<span class="fc" id="L240">                lblNuevoOperarioMouseEntered(evt);</span>
-<span class="fc" id="L241">            }</span>
+<span class="nc" id="L233">                lblNuevoOperarioMouseEntered(evt);</span>
+<span class="nc" id="L234">            }</span>
             public void mouseExited(java.awt.event.MouseEvent evt) {
-<span class="fc" id="L243">                lblNuevoOperarioMouseExited(evt);</span>
-<span class="fc" id="L244">            }</span>
+<span class="nc" id="L236">                lblNuevoOperarioMouseExited(evt);</span>
+<span class="nc" id="L237">            }</span>
         });
 
-<span class="fc" id="L247">        javax.swing.GroupLayout pnlOperarioLayout = new javax.swing.GroupLayout(pnlOperario);</span>
-<span class="fc" id="L248">        pnlOperario.setLayout(pnlOperarioLayout);</span>
-<span class="fc" id="L249">        pnlOperarioLayout.setHorizontalGroup(</span>
-<span class="fc" id="L250">            pnlOperarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)</span>
-<span class="fc" id="L251">            .addGroup(pnlOperarioLayout.createSequentialGroup()</span>
-<span class="fc" id="L252">                .addGroup(pnlOperarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)</span>
-<span class="fc" id="L253">                    .addGroup(pnlOperarioLayout.createSequentialGroup()</span>
-<span class="fc" id="L254">                        .addGroup(pnlOperarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)</span>
-<span class="fc" id="L255">                            .addGroup(pnlOperarioLayout.createSequentialGroup()</span>
-<span class="fc" id="L256">                                .addGap(134, 134, 134)</span>
-<span class="fc" id="L257">                                .addGroup(pnlOperarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)</span>
-<span class="fc" id="L258">                                    .addComponent(lblHuella)</span>
-<span class="fc" id="L259">                                    .addComponent(jLabel6)))</span>
-<span class="fc" id="L260">                            .addGroup(pnlOperarioLayout.createSequentialGroup()</span>
-<span class="fc" id="L261">                                .addGap(57, 57, 57)</span>
-<span class="fc" id="L262">                                .addGroup(pnlOperarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)</span>
-<span class="fc" id="L263">                                    .addComponent(jLabel7)</span>
-<span class="fc" id="L264">                                    .addComponent(txtOperaNif, javax.swing.GroupLayout.PREFERRED_SIZE, 197, javax.swing.GroupLayout.PREFERRED_SIZE)</span>
-<span class="fc" id="L265">                                    .addComponent(lblNifIncorrecto, javax.swing.GroupLayout.PREFERRED_SIZE, 197, javax.swing.GroupLayout.PREFERRED_SIZE))))</span>
-<span class="fc" id="L266">                        .addGap(0, 47, Short.MAX_VALUE))</span>
-<span class="fc" id="L267">                    .addGroup(pnlOperarioLayout.createSequentialGroup()</span>
-<span class="fc" id="L268">                        .addContainerGap()</span>
-<span class="fc" id="L269">                        .addGroup(pnlOperarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)</span>
-<span class="fc" id="L270">                            .addComponent(lblPistaHuella, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)</span>
-<span class="fc" id="L271">                            .addGroup(pnlOperarioLayout.createSequentialGroup()</span>
-<span class="fc" id="L272">                                .addComponent(btnOperaAtras)</span>
-<span class="fc" id="L273">                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)</span>
-<span class="fc" id="L274">                                .addComponent(jToggleButton1)))))</span>
-<span class="fc" id="L275">                .addContainerGap())</span>
-<span class="fc" id="L276">            .addGroup(pnlOperarioLayout.createSequentialGroup()</span>
-<span class="fc" id="L277">                .addGap(105, 105, 105)</span>
-<span class="fc" id="L278">                .addComponent(lblNuevoOperario)</span>
-<span class="fc" id="L279">                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))</span>
+<span class="fc" id="L240">        javax.swing.GroupLayout pnlOperarioLayout = new javax.swing.GroupLayout(pnlOperario);</span>
+<span class="fc" id="L241">        pnlOperario.setLayout(pnlOperarioLayout);</span>
+<span class="fc" id="L242">        pnlOperarioLayout.setHorizontalGroup(</span>
+<span class="fc" id="L243">            pnlOperarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)</span>
+<span class="fc" id="L244">            .addGroup(pnlOperarioLayout.createSequentialGroup()</span>
+<span class="fc" id="L245">                .addGroup(pnlOperarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)</span>
+<span class="fc" id="L246">                    .addGroup(pnlOperarioLayout.createSequentialGroup()</span>
+<span class="fc" id="L247">                        .addGroup(pnlOperarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)</span>
+<span class="fc" id="L248">                            .addGroup(pnlOperarioLayout.createSequentialGroup()</span>
+<span class="fc" id="L249">                                .addGap(134, 134, 134)</span>
+<span class="fc" id="L250">                                .addGroup(pnlOperarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)</span>
+<span class="fc" id="L251">                                    .addComponent(lblHuella)</span>
+<span class="fc" id="L252">                                    .addComponent(jLabel6)))</span>
+<span class="fc" id="L253">                            .addGroup(pnlOperarioLayout.createSequentialGroup()</span>
+<span class="fc" id="L254">                                .addGap(57, 57, 57)</span>
+<span class="fc" id="L255">                                .addGroup(pnlOperarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)</span>
+<span class="fc" id="L256">                                    .addComponent(jLabel7)</span>
+<span class="fc" id="L257">                                    .addComponent(txtOperaNif, javax.swing.GroupLayout.PREFERRED_SIZE, 197, javax.swing.GroupLayout.PREFERRED_SIZE)</span>
+<span class="fc" id="L258">                                    .addComponent(lblNifIncorrecto, javax.swing.GroupLayout.PREFERRED_SIZE, 197, javax.swing.GroupLayout.PREFERRED_SIZE))))</span>
+<span class="fc" id="L259">                        .addGap(0, 47, Short.MAX_VALUE))</span>
+<span class="fc" id="L260">                    .addGroup(pnlOperarioLayout.createSequentialGroup()</span>
+<span class="fc" id="L261">                        .addContainerGap()</span>
+<span class="fc" id="L262">                        .addGroup(pnlOperarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)</span>
+<span class="fc" id="L263">                            .addComponent(lblPistaHuella, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)</span>
+<span class="fc" id="L264">                            .addGroup(pnlOperarioLayout.createSequentialGroup()</span>
+<span class="fc" id="L265">                                .addComponent(btnOperaAtras)</span>
+<span class="fc" id="L266">                                .addGap(0, 0, Short.MAX_VALUE)))))</span>
+<span class="fc" id="L267">                .addContainerGap())</span>
+<span class="fc" id="L268">            .addGroup(pnlOperarioLayout.createSequentialGroup()</span>
+<span class="fc" id="L269">                .addGap(105, 105, 105)</span>
+<span class="fc" id="L270">                .addComponent(lblNuevoOperario)</span>
+<span class="fc" id="L271">                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))</span>
         );
-<span class="fc" id="L281">        pnlOperarioLayout.setVerticalGroup(</span>
-<span class="fc" id="L282">            pnlOperarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)</span>
-<span class="fc" id="L283">            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlOperarioLayout.createSequentialGroup()</span>
-<span class="fc" id="L284">                .addContainerGap()</span>
-<span class="fc" id="L285">                .addGroup(pnlOperarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)</span>
-<span class="fc" id="L286">                    .addComponent(btnOperaAtras)</span>
-<span class="fc" id="L287">                    .addComponent(jToggleButton1))</span>
-<span class="fc" id="L288">                .addGap(19, 19, 19)</span>
-<span class="fc" id="L289">                .addComponent(jLabel6)</span>
-<span class="fc" id="L290">                .addGap(42, 42, 42)</span>
-<span class="fc" id="L291">                .addComponent(jLabel7)</span>
-<span class="fc" id="L292">                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)</span>
-<span class="fc" id="L293">                .addComponent(txtOperaNif, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)</span>
-<span class="fc" id="L294">                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)</span>
-<span class="fc" id="L295">                .addComponent(lblNifIncorrecto)</span>
-<span class="fc" id="L296">                .addGap(47, 47, 47)</span>
-<span class="fc" id="L297">                .addComponent(lblHuella, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)</span>
-<span class="fc" id="L298">                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)</span>
-<span class="fc" id="L299">                .addComponent(lblPistaHuella)</span>
-<span class="fc" id="L300">                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)</span>
-<span class="fc" id="L301">                .addComponent(lblNuevoOperario)</span>
-<span class="fc" id="L302">                .addGap(30, 30, 30))</span>
+<span class="fc" id="L273">        pnlOperarioLayout.setVerticalGroup(</span>
+<span class="fc" id="L274">            pnlOperarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)</span>
+<span class="fc" id="L275">            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlOperarioLayout.createSequentialGroup()</span>
+<span class="fc" id="L276">                .addContainerGap()</span>
+<span class="fc" id="L277">                .addComponent(btnOperaAtras)</span>
+<span class="fc" id="L278">                .addGap(19, 19, 19)</span>
+<span class="fc" id="L279">                .addComponent(jLabel6)</span>
+<span class="fc" id="L280">                .addGap(42, 42, 42)</span>
+<span class="fc" id="L281">                .addComponent(jLabel7)</span>
+<span class="fc" id="L282">                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)</span>
+<span class="fc" id="L283">                .addComponent(txtOperaNif, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)</span>
+<span class="fc" id="L284">                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)</span>
+<span class="fc" id="L285">                .addComponent(lblNifIncorrecto)</span>
+<span class="fc" id="L286">                .addGap(47, 47, 47)</span>
+<span class="fc" id="L287">                .addComponent(lblHuella, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)</span>
+<span class="fc" id="L288">                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)</span>
+<span class="fc" id="L289">                .addComponent(lblPistaHuella)</span>
+<span class="fc" id="L290">                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)</span>
+<span class="fc" id="L291">                .addComponent(lblNuevoOperario)</span>
+<span class="fc" id="L292">                .addGap(30, 30, 30))</span>
         );
 
-<span class="fc" id="L305">        getContentPane().add(pnlOperario, &quot;card4&quot;);</span>
+<span class="fc" id="L295">        getContentPane().add(pnlOperario, &quot;card4&quot;);</span>
 
-<span class="fc" id="L307">        pack();</span>
-<span class="fc" id="L308">    }// &lt;/editor-fold&gt;//GEN-END:initComponents</span>
+<span class="fc" id="L297">        pack();</span>
+<span class="fc" id="L298">    }// &lt;/editor-fold&gt;//GEN-END:initComponents</span>
 
     private void btnOperaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnOperaActionPerformed
-<span class="fc" id="L311">        pnlHome.setVisible(false);</span>
-<span class="fc" id="L312">        pnlOperario.setVisible(true);</span>
-<span class="fc" id="L313">    }//GEN-LAST:event_btnOperaActionPerformed</span>
+<span class="fc" id="L301">        pnlHome.setVisible(false);</span>
+<span class="fc" id="L302">        pnlOperario.setVisible(true);</span>
+<span class="fc" id="L303">    }//GEN-LAST:event_btnOperaActionPerformed</span>
 
     private void btnClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnClienteActionPerformed
-<span class="fc" id="L316">        pnlHome.setVisible(false);</span>
-<span class="fc" id="L317">        pnlCliente.setVisible(true);</span>
-<span class="fc" id="L318">    }//GEN-LAST:event_btnClienteActionPerformed</span>
+<span class="fc" id="L306">        pnlHome.setVisible(false);</span>
+<span class="fc" id="L307">        pnlCliente.setVisible(true);</span>
+<span class="fc" id="L308">    }//GEN-LAST:event_btnClienteActionPerformed</span>
 
     private void btnClienteAtrasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnClienteAtrasActionPerformed
-<span class="fc" id="L321">        pnlCliente.setVisible(false);</span>
-<span class="fc" id="L322">        pnlHome.setVisible(true);</span>
-<span class="fc" id="L323">    }//GEN-LAST:event_btnClienteAtrasActionPerformed</span>
+<span class="fc" id="L311">        pnlCliente.setVisible(false);</span>
+<span class="fc" id="L312">        pnlHome.setVisible(true);</span>
+<span class="fc" id="L313">    }//GEN-LAST:event_btnClienteAtrasActionPerformed</span>
 
     private void btnOperaAtrasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnOperaAtrasActionPerformed
-<span class="fc" id="L326">        pnlOperario.setVisible(false);</span>
-<span class="fc" id="L327">        lblHuella.setIcon(new ImageIcon(&quot;assets/icons/fingerprint_black_36x36.png&quot;));</span>
-<span class="fc" id="L328">        lblPistaHuella.setText(&quot;Presiona el escáner de huellas situado en la tecla Entrar&quot;);</span>
-<span class="fc" id="L329">        lblPistaHuella.setForeground(Color.black);</span>
-<span class="fc" id="L330">        pnlHome.setVisible(true);</span>
-<span class="fc" id="L331">    }//GEN-LAST:event_btnOperaAtrasActionPerformed</span>
-
-    private void jToggleButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton1ActionPerformed
-<span class="nc" id="L334">        entrar(2);</span>
-<span class="nc" id="L335">    }//GEN-LAST:event_jToggleButton1ActionPerformed</span>
+<span class="fc" id="L316">        pnlOperario.setVisible(false);</span>
+<span class="fc" id="L317">        lblHuella.setIcon(new ImageIcon(&quot;assets/icons/fingerprint_black_36x36.png&quot;));</span>
+<span class="fc" id="L318">        lblPistaHuella.setText(&quot;Presiona el escáner de huellas situado en la tecla Entrar&quot;);</span>
+<span class="fc" id="L319">        lblPistaHuella.setForeground(Color.black);</span>
+<span class="fc" id="L320">        pnlHome.setVisible(true);</span>
+<span class="fc" id="L321">    }//GEN-LAST:event_btnOperaAtrasActionPerformed</span>
 
     private void txtOperaNifKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtOperaNifKeyPressed
-<span class="fc bfc" id="L338" title="All 2 branches covered.">        if (lblHuella.isEnabled()) {</span>
-<span class="fc bfc" id="L339" title="All 2 branches covered.">            if (evt.getKeyCode() == KeyEvent.VK_ENTER) {</span>
-<span class="fc bfc" id="L340" title="All 2 branches covered.">                if (simulacionHuellaDetectada()) {</span>
-<span class="fc" id="L341">                    int tipo = tipoOperario();</span>
-<span class="pc bpc" id="L342" title="1 of 4 branches missed.">                    if (tipo &gt;= 0 &amp;&amp; tipo &lt;= 2) {</span>
-<span class="fc" id="L343">                        huellaCorrecta();</span>
-<span class="fc" id="L344">                        entrar(tipo);</span>
+<span class="fc bfc" id="L324" title="All 2 branches covered.">        if (lblHuella.isEnabled()) {</span>
+<span class="pc bpc" id="L325" title="1 of 2 branches missed.">            if (evt.getKeyCode() == KeyEvent.VK_ENTER) {</span>
+<span class="pc bpc" id="L326" title="1 of 2 branches missed.">                if (simulacionHuellaDetectada()) {</span>
+<span class="fc" id="L327">                    int tipo = tipoOperario();</span>
+<span class="pc bpc" id="L328" title="2 of 4 branches missed.">                    if (tipo &gt;= 0 &amp;&amp; tipo &lt;= 2) {</span>
+<span class="fc" id="L329">                        huellaCorrecta();</span>
+<span class="fc" id="L330">                        entrar(tipo);</span>
                     } else {
-<span class="fc" id="L346">                        JOptionPane.showMessageDialog(</span>
+<span class="nc" id="L332">                        JOptionPane.showMessageDialog(</span>
                                 rootPane,
                                 &quot;&lt;html&gt;&quot;
-<span class="fc" id="L349">                                + &quot;&lt;p&gt;El operario con NIF: &quot; + txtOperaNif.getText() + &quot;&lt;/p&gt;&quot;</span>
+<span class="nc" id="L335">                                + &quot;&lt;p&gt;El operario con NIF: &quot; + txtOperaNif.getText() + &quot;&lt;/p&gt;&quot;</span>
                                 + &quot;&lt;p&gt;no existe o no tiene permisos para usar esta herramienta.&lt;/p&gt;&quot;
                                 + &quot;&lt;/html&gt;&quot;,
                                 &quot;Operario no válido&quot;,
                                 JOptionPane.ERROR_MESSAGE
                         );
                     }
-<span class="fc" id="L356">                } else {</span>
-<span class="fc" id="L357">                    lblHuella.setIcon(new ImageIcon(&quot;assets/icons/fingerprint_red_36x36.png&quot;));</span>
-<span class="fc" id="L358">                    lblPistaHuella.setText(</span>
+<span class="fc" id="L342">                } else {</span>
+<span class="nc" id="L343">                    lblHuella.setIcon(new ImageIcon(&quot;assets/icons/fingerprint_red_36x36.png&quot;));</span>
+<span class="nc" id="L344">                    lblPistaHuella.setText(</span>
                             &quot;&lt;html&gt;&quot;
                             + &quot;&lt;p&gt;Huella no reconocida.&lt;/p&gt;&quot;
                             + &quot;&lt;p&gt;Limpia el sensor y vuelve a intentarlo.&lt;/p&gt;&quot;
                             + &quot;&lt;/html&gt;&quot;
                     );
-<span class="fc" id="L364">                    lblPistaHuella.setForeground(Color.red);</span>
+<span class="nc" id="L350">                    lblPistaHuella.setForeground(Color.red);</span>
                 }
             }
         }
-<span class="fc" id="L368">    }//GEN-LAST:event_txtOperaNifKeyPressed</span>
+<span class="fc" id="L354">    }//GEN-LAST:event_txtOperaNifKeyPressed</span>
 
     private void txtOperaNifKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtOperaNifKeyReleased
-<span class="pc bpc" id="L371" title="1 of 4 branches missed.">        if (!Validaciones.validarNIF(txtOperaNif.getText()) &amp;&amp; !txtOperaNif.getText().equals(&quot;&quot;)) {</span>
-<span class="fc" id="L372">            lblNifIncorrecto.setVisible(true);</span>
-<span class="fc" id="L373">            lblHuella.setEnabled(false);</span>
-<span class="fc" id="L374">            lblPistaHuella.setVisible(false);</span>
+<span class="pc bpc" id="L357" title="1 of 4 branches missed.">        if (!Validaciones.validarNIF(txtOperaNif.getText()) &amp;&amp; !txtOperaNif.getText().equals(&quot;&quot;)) {</span>
+<span class="fc" id="L358">            lblNifIncorrecto.setVisible(true);</span>
+<span class="fc" id="L359">            lblHuella.setEnabled(false);</span>
+<span class="fc" id="L360">            lblPistaHuella.setVisible(false);</span>
         } else {
-<span class="pc bpc" id="L376" title="1 of 2 branches missed.">            if (!txtOperaNif.getText().equals(&quot;&quot;)) {</span>
-<span class="fc" id="L377">                lblHuella.setEnabled(true);</span>
-<span class="fc" id="L378">                lblPistaHuella.setVisible(true);</span>
+<span class="pc bpc" id="L362" title="1 of 2 branches missed.">            if (!txtOperaNif.getText().equals(&quot;&quot;)) {</span>
+<span class="fc" id="L363">                lblHuella.setEnabled(true);</span>
+<span class="fc" id="L364">                lblPistaHuella.setVisible(true);</span>
 
             }
-<span class="fc" id="L381">            lblNifIncorrecto.setVisible(false);</span>
+<span class="fc" id="L367">            lblNifIncorrecto.setVisible(false);</span>
         }
-<span class="fc" id="L383">    }//GEN-LAST:event_txtOperaNifKeyReleased</span>
+<span class="fc" id="L369">    }//GEN-LAST:event_txtOperaNifKeyReleased</span>
 
     private void lblNuevoClienteMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblNuevoClienteMouseEntered
-<span class="fc" id="L386">        setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));</span>
-<span class="fc" id="L387">    }//GEN-LAST:event_lblNuevoClienteMouseEntered</span>
+<span class="fc" id="L372">        setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));</span>
+<span class="fc" id="L373">    }//GEN-LAST:event_lblNuevoClienteMouseEntered</span>
 
     private void lblNuevoClienteMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblNuevoClienteMouseExited
-<span class="fc" id="L390">        setCursor(Cursor.getDefaultCursor());</span>
-<span class="fc" id="L391">    }//GEN-LAST:event_lblNuevoClienteMouseExited</span>
+<span class="fc" id="L376">        setCursor(Cursor.getDefaultCursor());</span>
+<span class="fc" id="L377">    }//GEN-LAST:event_lblNuevoClienteMouseExited</span>
 
     private void lblNuevoClienteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblNuevoClienteMouseClicked
-<span class="fc" id="L394">        new NuevoCliente(this, true);</span>
-<span class="fc" id="L395">    }//GEN-LAST:event_lblNuevoClienteMouseClicked</span>
+<span class="fc" id="L380">        new NuevoCliente(this, true);</span>
+<span class="fc" id="L381">    }//GEN-LAST:event_lblNuevoClienteMouseClicked</span>
 
     private void lblNuevoOperarioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblNuevoOperarioMouseClicked
-<span class="fc" id="L398">        new NuevoOperario(this, true);</span>
-<span class="fc" id="L399">    }//GEN-LAST:event_lblNuevoOperarioMouseClicked</span>
+<span class="nc" id="L384">        new NuevoOperario(this, true);</span>
+<span class="nc" id="L385">    }//GEN-LAST:event_lblNuevoOperarioMouseClicked</span>
 
     private void lblNuevoOperarioMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblNuevoOperarioMouseEntered
-<span class="fc" id="L402">        setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));</span>
-<span class="fc" id="L403">    }//GEN-LAST:event_lblNuevoOperarioMouseEntered</span>
+<span class="nc" id="L388">        setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));</span>
+<span class="nc" id="L389">    }//GEN-LAST:event_lblNuevoOperarioMouseEntered</span>
 
     private void lblNuevoOperarioMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblNuevoOperarioMouseExited
-<span class="fc" id="L406">        setCursor(Cursor.getDefaultCursor());</span>
-<span class="fc" id="L407">    }//GEN-LAST:event_lblNuevoOperarioMouseExited</span>
+<span class="nc" id="L392">        setCursor(Cursor.getDefaultCursor());</span>
+<span class="nc" id="L393">    }//GEN-LAST:event_lblNuevoOperarioMouseExited</span>
 
     private boolean simulacionHuellaDetectada() {
-<span class="fc bfc" id="L410" title="All 2 branches covered.">        return Math.random() &gt; 0.15;</span>
+<span class="pc bpc" id="L396" title="1 of 2 branches missed.">        return Math.random() &gt; 0.15;</span>
     }
 
     private int tipoOperario() {
-<span class="fc" id="L414">        String nif = txtOperaNif.getText();</span>
-<span class="fc bfc" id="L415" title="All 2 branches covered.">        for (Operario o : Datos.operarios) {</span>
-<span class="fc bfc" id="L416" title="All 2 branches covered.">            if(nif.equalsIgnoreCase(o.getNIF())) {</span>
-<span class="fc" id="L417">                Datos.opActual = o;</span>
-<span class="pc bpc" id="L418" title="1 of 2 branches missed.">                if(o instanceof OMaquina) {</span>
-<span class="nc" id="L419">                    return 0;</span>
-<span class="pc bpc" id="L420" title="1 of 2 branches missed.">                } else if (o instanceof OImpresion) {</span>
-<span class="fc" id="L421">                    return 1;</span>
+<span class="fc" id="L400">        String nif = txtOperaNif.getText();</span>
+<span class="pc bpc" id="L401" title="1 of 2 branches missed.">        for (Operario o : Datos.operarios) {</span>
+<span class="pc bpc" id="L402" title="1 of 2 branches missed.">            if(nif.equalsIgnoreCase(o.getNIF())) {</span>
+<span class="fc" id="L403">                Datos.opActual = o;</span>
+<span class="pc bpc" id="L404" title="1 of 2 branches missed.">                if(o instanceof OMaquina) {</span>
+<span class="nc" id="L405">                    return 0;</span>
+<span class="pc bpc" id="L406" title="1 of 2 branches missed.">                } else if (o instanceof OImpresion) {</span>
+<span class="fc" id="L407">                    return 1;</span>
                 } else {
-<span class="nc" id="L423">                    return 2;</span>
+<span class="nc" id="L409">                    return 2;</span>
                 }
             }
-<span class="fc" id="L426">        }</span>
-<span class="fc" id="L427">        return -1;</span>
+<span class="nc" id="L412">        }</span>
+<span class="nc" id="L413">        return -1;</span>
     } //Necesita revisión
 
     private void huellaCorrecta() {
-<span class="fc" id="L431">        String nomOp = &quot;&quot;; //usuario.getNombre();</span>
-<span class="fc" id="L432">        lblHuella.setIcon(new ImageIcon(&quot;assets/icons/fingerprint_green_36x36.png&quot;));</span>
-<span class="fc" id="L433">        lblPistaHuella.setText(&quot;Bienvenido &quot; + nomOp);</span>
-<span class="fc" id="L434">        lblPistaHuella.setForeground(Color.green);</span>
-<span class="fc" id="L435">        JOptionPane.showInternalOptionDialog(</span>
+<span class="fc" id="L417">        String nomOp = &quot;&quot;; //usuario.getNombre();</span>
+<span class="fc" id="L418">        lblHuella.setIcon(new ImageIcon(&quot;assets/icons/fingerprint_green_36x36.png&quot;));</span>
+<span class="fc" id="L419">        lblPistaHuella.setText(&quot;Bienvenido &quot; + nomOp);</span>
+<span class="fc" id="L420">        lblPistaHuella.setForeground(Color.green);</span>
+<span class="fc" id="L421">        JOptionPane.showInternalOptionDialog(</span>
                 rootPane,
                 &quot;Autenticación correcta&quot;,
                 null,
@@ -444,12 +430,12 @@ public class SignIn extends javax.swing.JFrame {
                 },
                 &quot;Entrar&quot;
         );
-<span class="fc" id="L447">    }</span>
+<span class="fc" id="L433">    }</span>
 
     private void entrar(int tipo) {
-<span class="fc" id="L450">        new MainOperario(tipo).setVisible(true);</span>
-<span class="fc" id="L451">        this.dispose();</span>
-<span class="fc" id="L452">    }</span>
+<span class="fc" id="L436">        new MainOperario(tipo);</span>
+<span class="fc" id="L437">        this.dispose();</span>
+<span class="fc" id="L438">    }</span>
 
     /**
      * @param args the command line arguments
@@ -461,30 +447,30 @@ public class SignIn extends javax.swing.JFrame {
          * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
          */
         try {
-<span class="pc bpc" id="L464" title="1 of 2 branches missed.">            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {</span>
-<span class="fc bfc" id="L465" title="All 2 branches covered.">                if (&quot;Windows&quot;.equals(info.getName())) {</span>
-<span class="fc" id="L466">                    javax.swing.UIManager.setLookAndFeel(info.getClassName());</span>
-<span class="fc" id="L467">                    break;</span>
+<span class="pc bpc" id="L450" title="1 of 2 branches missed.">            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {</span>
+<span class="fc bfc" id="L451" title="All 2 branches covered.">                if (&quot;Windows&quot;.equals(info.getName())) {</span>
+<span class="fc" id="L452">                    javax.swing.UIManager.setLookAndFeel(info.getClassName());</span>
+<span class="fc" id="L453">                    break;</span>
                 }
             }
-<span class="nc" id="L470">        } catch (ClassNotFoundException ex) {</span>
-<span class="nc" id="L471">            java.util.logging.Logger.getLogger(SignIn.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);</span>
-<span class="nc" id="L472">        } catch (InstantiationException ex) {</span>
-<span class="nc" id="L473">            java.util.logging.Logger.getLogger(SignIn.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);</span>
-<span class="nc" id="L474">        } catch (IllegalAccessException ex) {</span>
-<span class="nc" id="L475">            java.util.logging.Logger.getLogger(SignIn.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);</span>
-<span class="nc" id="L476">        } catch (javax.swing.UnsupportedLookAndFeelException ex) {</span>
-<span class="nc" id="L477">            java.util.logging.Logger.getLogger(SignIn.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);</span>
-<span class="pc" id="L478">        }</span>
+<span class="nc" id="L456">        } catch (ClassNotFoundException ex) {</span>
+<span class="nc" id="L457">            java.util.logging.Logger.getLogger(SignIn.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);</span>
+<span class="nc" id="L458">        } catch (InstantiationException ex) {</span>
+<span class="nc" id="L459">            java.util.logging.Logger.getLogger(SignIn.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);</span>
+<span class="nc" id="L460">        } catch (IllegalAccessException ex) {</span>
+<span class="nc" id="L461">            java.util.logging.Logger.getLogger(SignIn.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);</span>
+<span class="nc" id="L462">        } catch (javax.swing.UnsupportedLookAndFeelException ex) {</span>
+<span class="nc" id="L463">            java.util.logging.Logger.getLogger(SignIn.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);</span>
+<span class="pc" id="L464">        }</span>
         //&lt;/editor-fold&gt;
 
         /* Create and display the form */
-<span class="fc" id="L482">        java.awt.EventQueue.invokeLater(new Runnable() {</span>
+<span class="fc" id="L468">        java.awt.EventQueue.invokeLater(new Runnable() {</span>
             public void run() {
-<span class="fc" id="L484">                new SignIn().setVisible(true);</span>
-<span class="fc" id="L485">            }</span>
+<span class="fc" id="L470">                new SignIn().setVisible(true);</span>
+<span class="fc" id="L471">            }</span>
         });
-<span class="fc" id="L487">    }</span>
+<span class="fc" id="L473">    }</span>
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCliente;
@@ -494,12 +480,11 @@ public class SignIn extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
+<span class="nc" id="L483">    private javax.swing.JLabel jLabel4;</span>
     private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
+<span class="nc" id="L485">    private javax.swing.JLabel jLabel6;</span>
+<span class="nc" id="L486">    private javax.swing.JLabel jLabel7;</span>
     private javax.swing.JSeparator jSeparator1;
-    private javax.swing.JToggleButton jToggleButton1;
     private javax.swing.JLabel lblHuella;
     private javax.swing.JLabel lblNifIncorrecto;
     private javax.swing.JLabel lblNuevoCliente;

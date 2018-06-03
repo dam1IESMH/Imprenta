@@ -9,7 +9,7 @@ import imprenta.*;
 
 /**
  *
- * @author Sergio
+ * @author Sergio Amor Gutiérrez
  */
 public class NuevoCliente extends javax.swing.JDialog {
 
@@ -50,9 +50,9 @@ public class NuevoCliente extends javax.swing.JDialog {
 
 <span class="fc" id="L51">        jLabel2.setText(&quot;Nombre:&quot;);</span>
 
-<span class="fc" id="L53">        txtNombre.addMouseListener(new java.awt.event.MouseAdapter() {</span>
-            public void mouseReleased(java.awt.event.MouseEvent evt) {
-<span class="fc" id="L55">                txtNombreMouseReleased(evt);</span>
+<span class="fc" id="L53">        txtNombre.addKeyListener(new java.awt.event.KeyAdapter() {</span>
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+<span class="fc" id="L55">                txtNombreKeyReleased(evt);</span>
 <span class="fc" id="L56">            }</span>
         });
 
@@ -122,35 +122,36 @@ public class NuevoCliente extends javax.swing.JDialog {
 
     private void btnRegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrarActionPerformed
 <span class="fc" id="L124">        Datos.clientes.add(new Cliente(txtNombre.getText(), txtTelf.getText()));</span>
-<span class="fc" id="L125">        dispose();</span>
-<span class="fc" id="L126">    }//GEN-LAST:event_btnRegistrarActionPerformed</span>
-
-    private void txtNombreMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtNombreMouseReleased
-<span class="pc bpc" id="L129" title="3 of 4 branches missed.">        if (!Validaciones.validarNombre(txtNombre.getText()) &amp;&amp; !txtNombre.getText().equals(&quot;&quot;)) {</span>
-<span class="nc" id="L130">            lblNombreIncorrecto.setVisible(true);</span>
-        } else {
-<span class="fc" id="L132">            lblNombreIncorrecto.setVisible(false);</span>
-        }
-<span class="fc" id="L134">        posibleRegistro();</span>
-<span class="fc" id="L135">    }//GEN-LAST:event_txtNombreMouseReleased</span>
+<span class="fc" id="L125">        Datos.guardarClientes();</span>
+<span class="fc" id="L126">        dispose();</span>
+<span class="fc" id="L127">    }//GEN-LAST:event_btnRegistrarActionPerformed</span>
 
     private void txtTelfKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtTelfKeyReleased
-<span class="pc bpc" id="L138" title="1 of 4 branches missed.">        if (!Validaciones.validarTlf(txtTelf.getText()) &amp;&amp; !txtTelf.getText().equals(&quot;&quot;)) {</span>
-<span class="fc" id="L139">            lblTelfIncorrecto.setVisible(true);</span>
+<span class="pc bpc" id="L130" title="1 of 4 branches missed.">        if (!Validaciones.validarTlf(txtTelf.getText()) &amp;&amp; !txtTelf.getText().equals(&quot;&quot;)) {</span>
+<span class="pc" id="L131">            lblTelfIncorrecto.setVisible(true);</span>
         } else {
-<span class="fc" id="L141">            lblTelfIncorrecto.setVisible(false);</span>
-        }
-<span class="fc" id="L143">        posibleRegistro();</span>
-<span class="fc" id="L144">    }//GEN-LAST:event_txtTelfKeyReleased</span>
+<span class="fc" id="L133">            lblTelfIncorrecto.setVisible(false);</span>
+<span class="nc" id="L134">        }</span>
+<span class="pc" id="L135">        posibleRegistro();</span>
+<span class="fc" id="L136">    }//GEN-LAST:event_txtTelfKeyReleased</span>
 
-    private void posibleRegistro() {
-<span class="fc bfc" id="L147" title="All 2 branches covered.">        if (!(lblNombreIncorrecto.isVisible()</span>
-<span class="pc bpc" id="L148" title="1 of 2 branches missed.">                || lblTelfIncorrecto.isVisible())) {</span>
-<span class="fc" id="L149">            btnRegistrar.setEnabled(true);</span>
+    private void txtNombreKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtNombreKeyReleased
+<span class="pc bpc" id="L139" title="1 of 4 branches missed.">        if (!Validaciones.validarNombre(txtNombre.getText()) &amp;&amp; !txtNombre.getText().equals(&quot;&quot;)) {</span>
+<span class="fc" id="L140">            lblNombreIncorrecto.setVisible(true);</span>
         } else {
-<span class="fc" id="L151">            btnRegistrar.setEnabled(false);</span>
+<span class="fc" id="L142">            lblNombreIncorrecto.setVisible(false);</span>
         }
-<span class="fc" id="L153">    }</span>
+<span class="fc" id="L144">        posibleRegistro();</span>
+<span class="fc" id="L145">    }//GEN-LAST:event_txtNombreKeyReleased</span>
+
+<span class="nc" id="L147">    private void posibleRegistro() {</span>
+<span class="fc bfc" id="L148" title="All 2 branches covered.">        if (!(lblNombreIncorrecto.isVisible()</span>
+<span class="fc bfc" id="L149" title="All 2 branches covered.">                || lblTelfIncorrecto.isVisible())) {</span>
+<span class="pc" id="L150">            btnRegistrar.setEnabled(true);</span>
+<span class="nc" id="L151">        } else {</span>
+<span class="fc" id="L152">            btnRegistrar.setEnabled(false);</span>
+        }
+<span class="fc" id="L154">    }</span>
 
     /**
      * @param args the command line arguments
@@ -162,37 +163,37 @@ public class NuevoCliente extends javax.swing.JDialog {
          * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
          */
         try {
-<span class="nc bnc" id="L165" title="All 2 branches missed.">            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {</span>
-<span class="nc bnc" id="L166" title="All 2 branches missed.">                if (&quot;Nimbus&quot;.equals(info.getName())) {</span>
-<span class="nc" id="L167">                    javax.swing.UIManager.setLookAndFeel(info.getClassName());</span>
-<span class="nc" id="L168">                    break;</span>
+<span class="nc bnc" id="L166" title="All 2 branches missed.">            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {</span>
+<span class="nc bnc" id="L167" title="All 2 branches missed.">                if (&quot;Nimbus&quot;.equals(info.getName())) {</span>
+<span class="nc" id="L168">                    javax.swing.UIManager.setLookAndFeel(info.getClassName());</span>
+<span class="nc" id="L169">                    break;</span>
                 }
             }
-<span class="nc" id="L171">        } catch (ClassNotFoundException ex) {</span>
-<span class="nc" id="L172">            java.util.logging.Logger.getLogger(NuevoCliente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);</span>
-<span class="nc" id="L173">        } catch (InstantiationException ex) {</span>
-<span class="nc" id="L174">            java.util.logging.Logger.getLogger(NuevoCliente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);</span>
-<span class="nc" id="L175">        } catch (IllegalAccessException ex) {</span>
-<span class="nc" id="L176">            java.util.logging.Logger.getLogger(NuevoCliente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);</span>
-<span class="nc" id="L177">        } catch (javax.swing.UnsupportedLookAndFeelException ex) {</span>
-<span class="nc" id="L178">            java.util.logging.Logger.getLogger(NuevoCliente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);</span>
-<span class="nc" id="L179">        }</span>
+<span class="nc" id="L172">        } catch (ClassNotFoundException ex) {</span>
+<span class="nc" id="L173">            java.util.logging.Logger.getLogger(NuevoCliente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);</span>
+<span class="nc" id="L174">        } catch (InstantiationException ex) {</span>
+<span class="nc" id="L175">            java.util.logging.Logger.getLogger(NuevoCliente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);</span>
+<span class="nc" id="L176">        } catch (IllegalAccessException ex) {</span>
+<span class="nc" id="L177">            java.util.logging.Logger.getLogger(NuevoCliente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);</span>
+<span class="nc" id="L178">        } catch (javax.swing.UnsupportedLookAndFeelException ex) {</span>
+<span class="nc" id="L179">            java.util.logging.Logger.getLogger(NuevoCliente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);</span>
+<span class="nc" id="L180">        }</span>
         //&lt;/editor-fold&gt;
 
         /* Create and display the dialog */
-<span class="nc" id="L183">        java.awt.EventQueue.invokeLater(new Runnable() {</span>
+<span class="nc" id="L184">        java.awt.EventQueue.invokeLater(new Runnable() {</span>
             public void run() {
-<span class="nc" id="L185">                NuevoCliente dialog = new NuevoCliente(new javax.swing.JFrame(), true);</span>
-<span class="nc" id="L186">                dialog.addWindowListener(new java.awt.event.WindowAdapter() {</span>
+<span class="nc" id="L186">                NuevoCliente dialog = new NuevoCliente(new javax.swing.JFrame(), true);</span>
+<span class="nc" id="L187">                dialog.addWindowListener(new java.awt.event.WindowAdapter() {</span>
                     @Override
                     public void windowClosing(java.awt.event.WindowEvent e) {
-<span class="nc" id="L189">                        System.exit(0);</span>
-<span class="nc" id="L190">                    }</span>
+<span class="nc" id="L190">                        System.exit(0);</span>
+<span class="nc" id="L191">                    }</span>
                 });
-<span class="nc" id="L192">                dialog.setVisible(true);</span>
-<span class="nc" id="L193">            }</span>
+<span class="nc" id="L193">                dialog.setVisible(true);</span>
+<span class="nc" id="L194">            }</span>
         });
-<span class="nc" id="L195">    }</span>
+<span class="nc" id="L196">    }</span>
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnRegistrar;

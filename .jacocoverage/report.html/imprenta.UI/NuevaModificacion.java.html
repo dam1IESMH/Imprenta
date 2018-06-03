@@ -5,11 +5,13 @@
  */
 package imprenta.UI;
 
-import javax.swing.ImageIcon;
+import imprenta.Modificacion;
+import imprenta.OImpresion;
+import java.util.GregorianCalendar;
 
 /**
  *
- * @author Sergio
+ * @author Sergio Amor Gutiérrez
  */
 public class NuevaModificacion extends javax.swing.JDialog {
 
@@ -17,10 +19,10 @@ public class NuevaModificacion extends javax.swing.JDialog {
      * Creates new form NewMod
      */
     public NuevaModificacion(java.awt.Frame parent, boolean modal) {
-<span class="nc" id="L20">        super(parent, modal);</span>
-<span class="nc" id="L21">        initComponents();</span>
-<span class="nc" id="L22">        setLocationRelativeTo(null);</span>
-<span class="nc" id="L23">    }</span>
+<span class="fc" id="L22">        super(parent, modal);</span>
+<span class="fc" id="L23">        initComponents();</span>
+<span class="fc" id="L24">        setLocationRelativeTo(null);</span>
+<span class="fc" id="L25">    }</span>
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -31,68 +33,85 @@ public class NuevaModificacion extends javax.swing.JDialog {
     // &lt;editor-fold defaultstate=&quot;collapsed&quot; desc=&quot;Generated Code&quot;&gt;//GEN-BEGIN:initComponents
     private void initComponents() {
 
-<span class="nc" id="L34">        jLabel1 = new javax.swing.JLabel();</span>
-<span class="nc" id="L35">        jScrollPane1 = new javax.swing.JScrollPane();</span>
-<span class="nc" id="L36">        jTextArea1 = new javax.swing.JTextArea();</span>
-<span class="nc" id="L37">        jButton1 = new javax.swing.JButton();</span>
-<span class="nc" id="L38">        jButton2 = new javax.swing.JButton();</span>
+<span class="fc" id="L36">        jLabel1 = new javax.swing.JLabel();</span>
+<span class="fc" id="L37">        jScrollPane1 = new javax.swing.JScrollPane();</span>
+<span class="fc" id="L38">        txtarDescripcion = new javax.swing.JTextArea();</span>
+<span class="fc" id="L39">        btnAnadirMod = new javax.swing.JButton();</span>
+<span class="fc" id="L40">        btnCancelar = new javax.swing.JButton();</span>
 
-<span class="nc" id="L40">        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);</span>
-<span class="nc" id="L41">        setTitle(&quot;Modificación N&quot;);</span>
+<span class="fc" id="L42">        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);</span>
+<span class="fc" id="L43">        setTitle(&quot;Modificación N&quot;);</span>
 
-<span class="nc" id="L43">        jLabel1.setText(&quot;Descripción de los cambios:&quot;);</span>
+<span class="fc" id="L45">        jLabel1.setText(&quot;Descripción de los cambios:&quot;);</span>
 
-<span class="nc" id="L45">        jTextArea1.setColumns(20);</span>
-<span class="nc" id="L46">        jTextArea1.setRows(5);</span>
-<span class="nc" id="L47">        jScrollPane1.setViewportView(jTextArea1);</span>
+<span class="fc" id="L47">        txtarDescripcion.setColumns(20);</span>
+<span class="fc" id="L48">        txtarDescripcion.setRows(5);</span>
+<span class="fc" id="L49">        jScrollPane1.setViewportView(txtarDescripcion);</span>
 
-<span class="nc" id="L49">        jButton1.setText(&quot;Añadir modificación&quot;);</span>
-
-<span class="nc" id="L51">        jButton2.setText(&quot;Cancelar&quot;);</span>
-<span class="nc" id="L52">        jButton2.addActionListener(new java.awt.event.ActionListener() {</span>
+<span class="fc" id="L51">        btnAnadirMod.setText(&quot;Añadir modificación&quot;);</span>
+<span class="fc" id="L52">        btnAnadirMod.addActionListener(new java.awt.event.ActionListener() {</span>
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-<span class="nc" id="L54">                jButton2ActionPerformed(evt);</span>
+<span class="nc" id="L54">                btnAnadirModActionPerformed(evt);</span>
 <span class="nc" id="L55">            }</span>
         });
 
-<span class="nc" id="L58">        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());</span>
-<span class="nc" id="L59">        getContentPane().setLayout(layout);</span>
-<span class="nc" id="L60">        layout.setHorizontalGroup(</span>
-<span class="nc" id="L61">            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)</span>
-<span class="nc" id="L62">            .addGroup(layout.createSequentialGroup()</span>
-<span class="nc" id="L63">                .addContainerGap()</span>
-<span class="nc" id="L64">                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)</span>
-<span class="nc" id="L65">                    .addComponent(jScrollPane1)</span>
-<span class="nc" id="L66">                    .addGroup(layout.createSequentialGroup()</span>
-<span class="nc" id="L67">                        .addComponent(jLabel1)</span>
-<span class="nc" id="L68">                        .addGap(0, 0, Short.MAX_VALUE))</span>
-<span class="nc" id="L69">                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()</span>
-<span class="nc" id="L70">                        .addGap(0, 178, Short.MAX_VALUE)</span>
-<span class="nc" id="L71">                        .addComponent(jButton2)</span>
-<span class="nc" id="L72">                        .addGap(18, 18, 18)</span>
-<span class="nc" id="L73">                        .addComponent(jButton1)))</span>
-<span class="nc" id="L74">                .addContainerGap())</span>
+<span class="fc" id="L58">        btnCancelar.setText(&quot;Cancelar&quot;);</span>
+<span class="fc" id="L59">        btnCancelar.addActionListener(new java.awt.event.ActionListener() {</span>
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+<span class="fc" id="L61">                btnCancelarActionPerformed(evt);</span>
+<span class="fc" id="L62">            }</span>
+        });
+
+<span class="fc" id="L65">        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());</span>
+<span class="fc" id="L66">        getContentPane().setLayout(layout);</span>
+<span class="fc" id="L67">        layout.setHorizontalGroup(</span>
+<span class="fc" id="L68">            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)</span>
+<span class="fc" id="L69">            .addGroup(layout.createSequentialGroup()</span>
+<span class="fc" id="L70">                .addContainerGap()</span>
+<span class="fc" id="L71">                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)</span>
+<span class="fc" id="L72">                    .addComponent(jScrollPane1)</span>
+<span class="fc" id="L73">                    .addGroup(layout.createSequentialGroup()</span>
+<span class="fc" id="L74">                        .addComponent(jLabel1)</span>
+<span class="fc" id="L75">                        .addGap(0, 0, Short.MAX_VALUE))</span>
+<span class="fc" id="L76">                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()</span>
+<span class="fc" id="L77">                        .addGap(0, 178, Short.MAX_VALUE)</span>
+<span class="fc" id="L78">                        .addComponent(btnCancelar)</span>
+<span class="fc" id="L79">                        .addGap(18, 18, 18)</span>
+<span class="fc" id="L80">                        .addComponent(btnAnadirMod)))</span>
+<span class="fc" id="L81">                .addContainerGap())</span>
         );
-<span class="nc" id="L76">        layout.setVerticalGroup(</span>
-<span class="nc" id="L77">            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)</span>
-<span class="nc" id="L78">            .addGroup(layout.createSequentialGroup()</span>
-<span class="nc" id="L79">                .addContainerGap()</span>
-<span class="nc" id="L80">                .addComponent(jLabel1)</span>
-<span class="nc" id="L81">                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)</span>
-<span class="nc" id="L82">                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)</span>
-<span class="nc" id="L83">                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 14, Short.MAX_VALUE)</span>
-<span class="nc" id="L84">                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)</span>
-<span class="nc" id="L85">                    .addComponent(jButton1)</span>
-<span class="nc" id="L86">                    .addComponent(jButton2))</span>
-<span class="nc" id="L87">                .addContainerGap())</span>
+<span class="fc" id="L83">        layout.setVerticalGroup(</span>
+<span class="fc" id="L84">            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)</span>
+<span class="fc" id="L85">            .addGroup(layout.createSequentialGroup()</span>
+<span class="fc" id="L86">                .addContainerGap()</span>
+<span class="fc" id="L87">                .addComponent(jLabel1)</span>
+<span class="fc" id="L88">                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)</span>
+<span class="fc" id="L89">                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)</span>
+<span class="fc" id="L90">                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 14, Short.MAX_VALUE)</span>
+<span class="fc" id="L91">                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)</span>
+<span class="fc" id="L92">                    .addComponent(btnAnadirMod)</span>
+<span class="fc" id="L93">                    .addComponent(btnCancelar))</span>
+<span class="fc" id="L94">                .addContainerGap())</span>
         );
 
-<span class="nc" id="L90">        pack();</span>
-<span class="nc" id="L91">    }// &lt;/editor-fold&gt;//GEN-END:initComponents</span>
+<span class="fc" id="L97">        pack();</span>
+<span class="fc" id="L98">    }// &lt;/editor-fold&gt;//GEN-END:initComponents</span>
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-<span class="nc" id="L94">        dispose();</span>
-<span class="nc" id="L95">    }//GEN-LAST:event_jButton2ActionPerformed</span>
+    private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarActionPerformed
+<span class="fc" id="L101">        dispose();</span>
+<span class="fc" id="L102">    }//GEN-LAST:event_btnCancelarActionPerformed</span>
+
+    private void btnAnadirModActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAnadirModActionPerformed
+<span class="pc" id="L105">        ModificacionesTrabajo.mods.add(new Modificacion(</span>
+                new GregorianCalendar(),
+<span class="fc" id="L107">                txtarDescripcion.getText(),</span>
+                false,
+                null,
+                (OImpresion) Datos.opActual
+        ));
+<span class="nc" id="L112">        ModificacionesTrabajo.t.setMods(ModificacionesTrabajo.mods);</span>
+<span class="nc" id="L113">        dispose();</span>
+<span class="nc" id="L114">    }//GEN-LAST:event_btnAnadirModActionPerformed</span>
 
     /**
      * @param args the command line arguments
@@ -104,45 +123,45 @@ public class NuevaModificacion extends javax.swing.JDialog {
          * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
          */
         try {
-<span class="nc bnc" id="L107" title="All 2 branches missed.">            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {</span>
-<span class="nc bnc" id="L108" title="All 2 branches missed.">                if (&quot;Nimbus&quot;.equals(info.getName())) {</span>
-<span class="nc" id="L109">                    javax.swing.UIManager.setLookAndFeel(info.getClassName());</span>
-<span class="nc" id="L110">                    break;</span>
+<span class="nc bnc" id="L126" title="All 2 branches missed.">            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {</span>
+<span class="nc bnc" id="L127" title="All 2 branches missed.">                if (&quot;Nimbus&quot;.equals(info.getName())) {</span>
+<span class="nc" id="L128">                    javax.swing.UIManager.setLookAndFeel(info.getClassName());</span>
+<span class="nc" id="L129">                    break;</span>
                 }
             }
-<span class="nc" id="L113">        } catch (ClassNotFoundException ex) {</span>
-<span class="nc" id="L114">            java.util.logging.Logger.getLogger(NuevaModificacion.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);</span>
-<span class="nc" id="L115">        } catch (InstantiationException ex) {</span>
-<span class="nc" id="L116">            java.util.logging.Logger.getLogger(NuevaModificacion.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);</span>
-<span class="nc" id="L117">        } catch (IllegalAccessException ex) {</span>
-<span class="nc" id="L118">            java.util.logging.Logger.getLogger(NuevaModificacion.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);</span>
-<span class="nc" id="L119">        } catch (javax.swing.UnsupportedLookAndFeelException ex) {</span>
-<span class="nc" id="L120">            java.util.logging.Logger.getLogger(NuevaModificacion.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);</span>
-<span class="nc" id="L121">        }</span>
+<span class="nc" id="L132">        } catch (ClassNotFoundException ex) {</span>
+<span class="nc" id="L133">            java.util.logging.Logger.getLogger(NuevaModificacion.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);</span>
+<span class="nc" id="L134">        } catch (InstantiationException ex) {</span>
+<span class="nc" id="L135">            java.util.logging.Logger.getLogger(NuevaModificacion.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);</span>
+<span class="nc" id="L136">        } catch (IllegalAccessException ex) {</span>
+<span class="nc" id="L137">            java.util.logging.Logger.getLogger(NuevaModificacion.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);</span>
+<span class="nc" id="L138">        } catch (javax.swing.UnsupportedLookAndFeelException ex) {</span>
+<span class="nc" id="L139">            java.util.logging.Logger.getLogger(NuevaModificacion.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);</span>
+<span class="nc" id="L140">        }</span>
         //&lt;/editor-fold&gt;
         //&lt;/editor-fold&gt;
 
         /* Create and display the dialog */
-<span class="nc" id="L126">        java.awt.EventQueue.invokeLater(new Runnable() {</span>
+<span class="nc" id="L145">        java.awt.EventQueue.invokeLater(new Runnable() {</span>
             public void run() {
-<span class="nc" id="L128">                NuevaModificacion dialog = new NuevaModificacion(new javax.swing.JFrame(), true);</span>
-<span class="nc" id="L129">                dialog.addWindowListener(new java.awt.event.WindowAdapter() {</span>
+<span class="nc" id="L147">                NuevaModificacion dialog = new NuevaModificacion(new javax.swing.JFrame(), true);</span>
+<span class="nc" id="L148">                dialog.addWindowListener(new java.awt.event.WindowAdapter() {</span>
                     @Override
                     public void windowClosing(java.awt.event.WindowEvent e) {
-<span class="nc" id="L132">                        System.exit(0);</span>
-<span class="nc" id="L133">                    }</span>
+<span class="nc" id="L151">                        System.exit(0);</span>
+<span class="nc" id="L152">                    }</span>
                 });
-<span class="nc" id="L135">                dialog.setVisible(true);</span>
-<span class="nc" id="L136">            }</span>
+<span class="nc" id="L154">                dialog.setVisible(true);</span>
+<span class="nc" id="L155">            }</span>
         });
-<span class="nc" id="L138">    }</span>
+<span class="nc" id="L157">    }</span>
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
+    private javax.swing.JButton btnAnadirMod;
+    private javax.swing.JButton btnCancelar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextArea jTextArea1;
+    private javax.swing.JTextArea txtarDescripcion;
     // End of variables declaration//GEN-END:variables
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.6.201602180812</span></div></body></html>

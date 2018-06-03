@@ -6,23 +6,21 @@
 package imprenta;
 
 import java.io.Serializable;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.GregorianCalendar;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
 /**
-  * La clase {@code Trabajo} es una clase padre de la que heredan (Rotulo,
-  * Poster y Libro). El trabajo tiene el atributo enum {@code tipoRelieve};
- * el atributo entero (@code id); los Calendar {@code fechaSolicitud},
- * {@code fechaImpresion}, {@code fechaRecogida}; y un boolean
- * {@code valido}.
- * 
+ *
  * @author Jose Daniel Buenaga
  */
 public class Trabajo implements Serializable {
 
-<span class="nc" id="L24">    enum tipoRelieve {</span>
-<span class="nc" id="L25">        FLEXOGRAFIA, TIPOGRAFIA, LITOGRAFIA</span>
+<span class="pc" id="L22">    protected enum tipoRelieve {</span>
+<span class="fc" id="L23">        FLEXOGRAFIA, TIPOGRAFIA, LITOGRAFIA</span>
     }
     protected int id;
     protected Calendar fechaSolicitud;
@@ -32,42 +30,41 @@ public class Trabajo implements Serializable {
     protected boolean valido;
     protected boolean impreso;
 
-<span class="nc" id="L35">    protected static int auto_incrementado = 0;</span>
+    ArrayList&lt;Modificacion&gt; mods;
+<span class="fc" id="L34">    protected static int auto_incrementado = 0;</span>
 
     {
-<span class="nc" id="L38">        auto_incrementado++;</span>
-    }
-
-    {
-<span class="nc" id="L42">        fechaSolicitud.setLenient(false);</span>
+<span class="pc" id="L37">        auto_incrementado++;</span>
     }
 
     /**
-     * Inicializa un objeto {@code Trabajo} con sus variables sin inicializar.
+     * Constructor vacio
      */
-<span class="nc" id="L48">    public Trabajo() {</span>
-<span class="nc" id="L49">    }</span>
+<span class="nc" id="L43">    public Trabajo() {</span>
+<span class="nc" id="L44">    }</span>
 
     /**
-     * Inicializa un objeto {@code Trabajo} que inicializa sus variables con los
-     * parámetros pasados como argumento.
+     * Constructor para la clase Trabajo con todos los parámetros
      *
-     * @param fechaSolicitud (@code Calendar)
-     * @param tipoRelieve (@code enum)
-     * @param fechaImpresion (@code Calendar)
-     * @param fechaRecogida (@code Calendar)
+     * @param fechaSolicitud
+     * @param tipoRelieve
+     * @param fechaImpresion
+     * @param fechaRecogida
      */
-<span class="nc" id="L60">    public Trabajo(Calendar fechaSolicitud, String tipoRelieve, Calendar fechaImpresion, Calendar fechaRecogida) {</span>
-        try {
-<span class="nc" id="L62">            this.id = auto_incrementado;</span>
-<span class="nc" id="L63">            this.fechaSolicitud = fechaSolicitud;</span>
-<span class="nc" id="L64">            this.Relieve = Validaciones.validarTipoRelieve(tipoRelieve);</span>
-<span class="nc" id="L65">            this.fechaImpresion = fechaImpresion;</span>
-<span class="nc" id="L66">            this.fechaRecogida = fechaRecogida;</span>
-<span class="nc" id="L67">        } catch (InvalidSurfaceException ex) {</span>
-<span class="nc" id="L68">            Logger.getLogger(Trabajo.class.getName()).log(Level.SEVERE, null, ex);</span>
-<span class="nc" id="L69">        }</span>
-<span class="nc" id="L70">    }</span>
+<span class="fc" id="L54">    public Trabajo(Calendar fechaSolicitud, String tipoRelieve, Calendar fechaImpresion, Calendar fechaRecogida) {</span>
+<span class="fc" id="L55">        this.id = auto_incrementado;</span>
+<span class="fc" id="L56">        this.fechaSolicitud = fechaSolicitud;</span>
+<span class="pc bpc" id="L57" title="1 of 2 branches missed.">        if (tipoRelieve.equalsIgnoreCase(&quot;FLEXOGRAFIA&quot;)) {</span>
+<span class="nc" id="L58">            Relieve = Relieve.FLEXOGRAFIA;</span>
+<span class="pc bpc" id="L59" title="1 of 2 branches missed.">        } else if (tipoRelieve.equalsIgnoreCase(&quot;TIPOGRAFIA&quot;)) {</span>
+<span class="fc" id="L60">            Relieve = Relieve.TIPOGRAFIA;</span>
+<span class="nc bnc" id="L61" title="All 2 branches missed.">        } else if (tipoRelieve.equalsIgnoreCase(&quot;LITOGRAFIA&quot;)) {</span>
+<span class="nc" id="L62">            Relieve = Relieve.LITOGRAFIA;</span>
+        }
+<span class="fc" id="L64">        this.fechaImpresion = fechaImpresion;</span>
+<span class="fc" id="L65">        this.fechaRecogida = fechaRecogida;</span>
+<span class="fc" id="L66">        mods = new ArrayList&lt;&gt;();</span>
+<span class="fc" id="L67">    }//Cierre del constructor</span>
 
     /**
      * Inicializa un objeto {@code Trabajo} cuyas variables copia de otro objeto
@@ -75,35 +72,99 @@ public class Trabajo implements Serializable {
      *
      * @param t {@code Trabajo}
      */
-<span class="nc" id="L78">    public Trabajo(Trabajo t) {</span>
-<span class="nc" id="L79">        this.id = t.id;</span>
-<span class="nc" id="L80">        this.fechaSolicitud = t.fechaSolicitud;</span>
-<span class="nc" id="L81">        this.Relieve = t.Relieve;</span>
-<span class="nc" id="L82">        this.fechaImpresion = t.fechaImpresion;</span>
-<span class="nc" id="L83">        this.fechaRecogida = t.fechaRecogida;</span>
-<span class="nc" id="L84">    }</span>
+<span class="nc" id="L75">    public Trabajo(Trabajo t) {</span>
+<span class="nc" id="L76">        this.id = t.id;</span>
+<span class="nc" id="L77">        this.fechaSolicitud = t.fechaSolicitud;</span>
+<span class="nc" id="L78">        this.Relieve = t.Relieve;</span>
+<span class="nc" id="L79">        this.fechaImpresion = t.fechaImpresion;</span>
+<span class="nc" id="L80">        this.fechaRecogida = t.fechaRecogida;</span>
+<span class="nc" id="L81">    }//Cierre del constructor</span>
 
-    /**
-     * Este método se utiliza para cambiar a apto un trabajo.
-     *
-     */
-    public void valido() {
-<span class="nc" id="L91">        this.valido = true;</span>
-<span class="nc" id="L92">    }</span>
+    public int getId() {
+<span class="fc" id="L84">        return id;</span>
+    }
 
-    /**
-     * Este método se utiliza para poner que una impresión se ha llevado a cabo.
-     *
-     */
+    public String getFechaSolicitud() {
+<span class="fc" id="L88">        SimpleDateFormat sdf = new SimpleDateFormat(&quot;dd/MM/yyyy&quot;);</span>
+<span class="fc" id="L89">        return sdf.format(fechaSolicitud.getTime());</span>
+    }
+
+    public String getRelieve() {
+<span class="pc bpc" id="L93" title="1 of 2 branches missed.">        if (Relieve != null) {</span>
+<span class="fc" id="L94">            return Relieve.toString();</span>
+        } else {
+<span class="nc" id="L96">            return null;</span>
+        }
+    }
+
+    public String getFechaImpresion() {
+<span class="fc bfc" id="L101" title="All 2 branches covered.">        if (fechaImpresion != null) {</span>
+<span class="fc" id="L102">            SimpleDateFormat sdf = new SimpleDateFormat(&quot;dd/MM/yyyy&quot;);</span>
+<span class="fc" id="L103">            return sdf.format(fechaImpresion.getTime());</span>
+        } else {
+<span class="fc" id="L105">            return null;</span>
+        }
+    }
+
+    public String getFechaRecogida() {
+<span class="pc bpc" id="L110" title="1 of 2 branches missed.">        if (fechaRecogida != null) {</span>
+<span class="nc" id="L111">            SimpleDateFormat sdf = new SimpleDateFormat(&quot;dd/MM/yyyy&quot;);</span>
+<span class="nc" id="L112">            return sdf.format(fechaRecogida.getTime());</span>
+        } else {
+<span class="fc" id="L114">            return null;</span>
+        }
+    }
+
+    public boolean isValido() {
+<span class="fc" id="L119">        return valido;</span>
+    }
+
+    public boolean isImpreso() {
+<span class="nc" id="L123">        return impreso;</span>
+    }
+
+    public ArrayList&lt;Modificacion&gt; getMods() {
+<span class="nc" id="L127">        return mods;</span>
+    }
+
+    public void setMods(ArrayList&lt;Modificacion&gt; mods) {
+<span class="nc" id="L131">        this.mods = mods;</span>
+<span class="nc" id="L132">    }</span>
+
+    public void setFechaImpresion(Calendar fechaImpresion) {
+<span class="nc" id="L135">        this.fechaImpresion = fechaImpresion;</span>
+<span class="nc" id="L136">    }</span>
+
+    public void setFechaRecogida(Calendar fechaRecogida) {
+<span class="nc" id="L139">        this.fechaRecogida = fechaRecogida;</span>
+<span class="nc" id="L140">    }</span>
+
+    public void setValido(boolean valido) {
+<span class="fc" id="L143">        this.valido = valido;</span>
+<span class="fc" id="L144">    }</span>
+
+    public void setImpreso(boolean impreso) {
+<span class="nc" id="L147">        this.impreso = impreso;</span>
+<span class="nc" id="L148">    }</span>
+
+    public static void setAuto_incrementado(int auto_incrementado) {
+<span class="fc" id="L151">        Trabajo.auto_incrementado = auto_incrementado;</span>
+<span class="fc" id="L152">    }</span>
+
+    public void validar() {
+<span class="nc" id="L155">        this.valido = true;</span>
+<span class="nc" id="L156">    }</span>
+
     public void imprimir() {
-<span class="nc" id="L99">        this.impreso = true;</span>
-<span class="nc" id="L100">    }</span>
+<span class="fc" id="L159">        this.impreso = true;</span>
+<span class="fc" id="L160">        this.fechaImpresion = new GregorianCalendar();</span>
+<span class="fc" id="L161">    }</span>
 
     @Override
     public String toString() {
-<span class="nc" id="L104">        return &quot;Trabajo{&quot; + &quot;id=&quot; + id + &quot;, fechaSolicitud=&quot; + fechaSolicitud + &quot;, tipoRelieve=&quot; + Relieve + &quot;, fechaImpresion=&quot; + fechaImpresion + &quot;, fechaRecogida=&quot; + fechaRecogida + '}';</span>
+<span class="nc" id="L165">        return &quot;Trabajo{&quot; + &quot;id=&quot; + id + &quot;, fechaSolicitud=&quot; + fechaSolicitud + &quot;, tipoRelieve=&quot; + Relieve + &quot;, fechaImpresion=&quot; + fechaImpresion + &quot;, fechaRecogida=&quot; + fechaRecogida + '}';</span>
     }
 
-}
+}//Cierre de la clase
 
 </pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.6.201602180812</span></div></body></html>

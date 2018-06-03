@@ -8,12 +8,11 @@ package imprenta.UI;
 import imprenta.Libro;
 import imprenta.Poster;
 import imprenta.Rotulo;
-import imprenta.Trabajo;
 import java.util.GregorianCalendar;
 
 /**
  *
- * @author Sergio
+ * @author Sergio Amor Gutiérrez
  */
 public class NuevoTrabajo extends javax.swing.JDialog {
 
@@ -21,9 +20,10 @@ public class NuevoTrabajo extends javax.swing.JDialog {
      * Creates new form NuevoTrabajo
      */
     public NuevoTrabajo(java.awt.Frame parent, boolean modal) {
-<span class="nc" id="L24">        super(parent, modal);</span>
-<span class="nc" id="L25">        initComponents();</span>
-<span class="nc" id="L26">    }</span>
+<span class="fc" id="L23">        super(parent, modal);</span>
+<span class="fc" id="L24">        initComponents();</span>
+<span class="fc" id="L25">        setVisible(true);</span>
+<span class="fc" id="L26">    }</span>
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -34,271 +34,297 @@ public class NuevoTrabajo extends javax.swing.JDialog {
     // &lt;editor-fold defaultstate=&quot;collapsed&quot; desc=&quot;Generated Code&quot;&gt;//GEN-BEGIN:initComponents
     private void initComponents() {
 
-<span class="nc" id="L37">        cbTipoTrabajo = new javax.swing.JComboBox&lt;&gt;();</span>
-<span class="nc" id="L38">        cbRelieve = new javax.swing.JComboBox&lt;&gt;();</span>
-<span class="nc" id="L39">        jSeparator1 = new javax.swing.JSeparator();</span>
-<span class="nc" id="L40">        btnRegistrar = new javax.swing.JButton();</span>
-<span class="nc" id="L41">        pnlParametros = new javax.swing.JPanel();</span>
-<span class="nc" id="L42">        pnlPoster = new javax.swing.JPanel();</span>
-<span class="nc" id="L43">        jLabel2 = new javax.swing.JLabel();</span>
-<span class="nc" id="L44">        txtAlto = new javax.swing.JTextField();</span>
-<span class="nc" id="L45">        jLabel3 = new javax.swing.JLabel();</span>
-<span class="nc" id="L46">        txtAncho = new javax.swing.JTextField();</span>
-<span class="nc" id="L47">        jLabel4 = new javax.swing.JLabel();</span>
-<span class="nc" id="L48">        txtCopias = new javax.swing.JTextField();</span>
-<span class="nc" id="L49">        pnlRotulo = new javax.swing.JPanel();</span>
-<span class="nc" id="L50">        txtCentro = new javax.swing.JTextField();</span>
-<span class="nc" id="L51">        jLabel1 = new javax.swing.JLabel();</span>
-<span class="nc" id="L52">        pnlLibro = new javax.swing.JPanel();</span>
-<span class="nc" id="L53">        cbColor = new javax.swing.JComboBox&lt;&gt;();</span>
-<span class="nc" id="L54">        jLabel5 = new javax.swing.JLabel();</span>
-<span class="nc" id="L55">        jLabel6 = new javax.swing.JLabel();</span>
-<span class="nc" id="L56">        spNumPaginas = new javax.swing.JSpinner();</span>
+<span class="fc" id="L37">        cbTipoTrabajo = new javax.swing.JComboBox&lt;&gt;();</span>
+<span class="fc" id="L38">        cbRelieve = new javax.swing.JComboBox&lt;&gt;();</span>
+<span class="fc" id="L39">        jSeparator1 = new javax.swing.JSeparator();</span>
+<span class="fc" id="L40">        btnRegistrar = new javax.swing.JButton();</span>
+<span class="fc" id="L41">        pnlParametros = new javax.swing.JPanel();</span>
+<span class="fc" id="L42">        pnlPoster = new javax.swing.JPanel();</span>
+<span class="fc" id="L43">        jLabel2 = new javax.swing.JLabel();</span>
+<span class="fc" id="L44">        txtAlto = new javax.swing.JTextField();</span>
+<span class="fc" id="L45">        jLabel3 = new javax.swing.JLabel();</span>
+<span class="fc" id="L46">        txtAncho = new javax.swing.JTextField();</span>
+<span class="fc" id="L47">        jLabel4 = new javax.swing.JLabel();</span>
+<span class="fc" id="L48">        txtCopias = new javax.swing.JTextField();</span>
+<span class="fc" id="L49">        pnlRotulo = new javax.swing.JPanel();</span>
+<span class="fc" id="L50">        txtCentro = new javax.swing.JTextField();</span>
+<span class="fc" id="L51">        jLabel1 = new javax.swing.JLabel();</span>
+<span class="fc" id="L52">        pnlLibro = new javax.swing.JPanel();</span>
+<span class="fc" id="L53">        cbColor = new javax.swing.JComboBox&lt;&gt;();</span>
+<span class="fc" id="L54">        jLabel5 = new javax.swing.JLabel();</span>
+<span class="fc" id="L55">        jLabel6 = new javax.swing.JLabel();</span>
+<span class="fc" id="L56">        spNumPaginas = new javax.swing.JSpinner();</span>
 
-<span class="nc" id="L58">        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);</span>
-<span class="nc" id="L59">        setTitle(&quot;Nuevo trabajo&quot;);</span>
+<span class="fc" id="L58">        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);</span>
+<span class="fc" id="L59">        setTitle(&quot;Nuevo trabajo&quot;);</span>
 
-<span class="nc" id="L61">        cbTipoTrabajo.setModel(new javax.swing.DefaultComboBoxModel&lt;&gt;(new String[] { &quot;Rótulo&quot;, &quot;Póster&quot;, &quot;Libro&quot; }));</span>
-
-<span class="nc" id="L63">        cbRelieve.setModel(new javax.swing.DefaultComboBoxModel&lt;&gt;(new String[] { &quot;Flexografía&quot;, &quot;Litografía&quot;, &quot;Tipografía&quot; }));</span>
-
-<span class="nc" id="L65">        jSeparator1.setOrientation(javax.swing.SwingConstants.VERTICAL);</span>
-
-<span class="nc" id="L67">        btnRegistrar.setText(&quot;Registrar&quot;);</span>
-<span class="nc" id="L68">        btnRegistrar.addActionListener(new java.awt.event.ActionListener() {</span>
+<span class="fc" id="L61">        cbTipoTrabajo.setModel(new javax.swing.DefaultComboBoxModel&lt;&gt;(new String[] { &quot;Rótulo&quot;, &quot;Póster&quot;, &quot;Libro&quot; }));</span>
+<span class="fc" id="L62">        cbTipoTrabajo.setSelectedIndex(1);</span>
+<span class="fc" id="L63">        cbTipoTrabajo.addActionListener(new java.awt.event.ActionListener() {</span>
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-<span class="nc" id="L70">                btnRegistrarActionPerformed(evt);</span>
-<span class="nc" id="L71">            }</span>
+<span class="fc" id="L65">                cbTipoTrabajoActionPerformed(evt);</span>
+<span class="fc" id="L66">            }</span>
         });
 
-<span class="nc" id="L74">        pnlParametros.setLayout(new java.awt.CardLayout());</span>
+<span class="fc" id="L69">        cbRelieve.setModel(new javax.swing.DefaultComboBoxModel&lt;&gt;(new String[] { &quot;Flexografia&quot;, &quot;Litografia&quot;, &quot;Tipografia&quot; }));</span>
 
-<span class="nc" id="L76">        jLabel2.setText(&quot;Alto:&quot;);</span>
+<span class="fc" id="L71">        jSeparator1.setOrientation(javax.swing.SwingConstants.VERTICAL);</span>
 
-<span class="nc" id="L78">        jLabel3.setText(&quot;Ancho:&quot;);</span>
+<span class="fc" id="L73">        btnRegistrar.setText(&quot;Registrar&quot;);</span>
+<span class="fc" id="L74">        btnRegistrar.addActionListener(new java.awt.event.ActionListener() {</span>
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+<span class="fc" id="L76">                btnRegistrarActionPerformed(evt);</span>
+<span class="fc" id="L77">            }</span>
+        });
 
-<span class="nc" id="L80">        jLabel4.setText(&quot;Nº Copias:&quot;);</span>
+<span class="fc" id="L80">        pnlParametros.setLayout(new java.awt.CardLayout());</span>
 
-<span class="nc" id="L82">        javax.swing.GroupLayout pnlPosterLayout = new javax.swing.GroupLayout(pnlPoster);</span>
-<span class="nc" id="L83">        pnlPoster.setLayout(pnlPosterLayout);</span>
-<span class="nc" id="L84">        pnlPosterLayout.setHorizontalGroup(</span>
-<span class="nc" id="L85">            pnlPosterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)</span>
-<span class="nc" id="L86">            .addGroup(pnlPosterLayout.createSequentialGroup()</span>
-<span class="nc" id="L87">                .addGap(20, 20, 20)</span>
-<span class="nc" id="L88">                .addGroup(pnlPosterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)</span>
-<span class="nc" id="L89">                    .addComponent(jLabel4)</span>
-<span class="nc" id="L90">                    .addComponent(jLabel3)</span>
-<span class="nc" id="L91">                    .addComponent(jLabel2))</span>
-<span class="nc" id="L92">                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)</span>
-<span class="nc" id="L93">                .addGroup(pnlPosterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)</span>
-<span class="nc" id="L94">                    .addComponent(txtAlto)</span>
-<span class="nc" id="L95">                    .addComponent(txtAncho)</span>
-<span class="nc" id="L96">                    .addComponent(txtCopias, javax.swing.GroupLayout.DEFAULT_SIZE, 106, Short.MAX_VALUE))</span>
-<span class="nc" id="L97">                .addContainerGap(29, Short.MAX_VALUE))</span>
+<span class="fc" id="L82">        jLabel2.setText(&quot;Alto:&quot;);</span>
+
+<span class="fc" id="L84">        jLabel3.setText(&quot;Ancho:&quot;);</span>
+
+<span class="fc" id="L86">        jLabel4.setText(&quot;Nº Copias:&quot;);</span>
+
+<span class="fc" id="L88">        javax.swing.GroupLayout pnlPosterLayout = new javax.swing.GroupLayout(pnlPoster);</span>
+<span class="fc" id="L89">        pnlPoster.setLayout(pnlPosterLayout);</span>
+<span class="fc" id="L90">        pnlPosterLayout.setHorizontalGroup(</span>
+<span class="fc" id="L91">            pnlPosterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)</span>
+<span class="fc" id="L92">            .addGroup(pnlPosterLayout.createSequentialGroup()</span>
+<span class="fc" id="L93">                .addGap(20, 20, 20)</span>
+<span class="fc" id="L94">                .addGroup(pnlPosterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)</span>
+<span class="fc" id="L95">                    .addComponent(jLabel4)</span>
+<span class="fc" id="L96">                    .addComponent(jLabel3)</span>
+<span class="fc" id="L97">                    .addComponent(jLabel2))</span>
+<span class="fc" id="L98">                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)</span>
+<span class="fc" id="L99">                .addGroup(pnlPosterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)</span>
+<span class="fc" id="L100">                    .addComponent(txtAlto)</span>
+<span class="fc" id="L101">                    .addComponent(txtAncho)</span>
+<span class="fc" id="L102">                    .addComponent(txtCopias, javax.swing.GroupLayout.DEFAULT_SIZE, 106, Short.MAX_VALUE))</span>
+<span class="fc" id="L103">                .addContainerGap(29, Short.MAX_VALUE))</span>
         );
-<span class="nc" id="L99">        pnlPosterLayout.setVerticalGroup(</span>
-<span class="nc" id="L100">            pnlPosterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)</span>
-<span class="nc" id="L101">            .addGroup(pnlPosterLayout.createSequentialGroup()</span>
-<span class="nc" id="L102">                .addGap(23, 23, 23)</span>
-<span class="nc" id="L103">                .addGroup(pnlPosterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)</span>
-<span class="nc" id="L104">                    .addComponent(jLabel2)</span>
-<span class="nc" id="L105">                    .addComponent(txtAlto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))</span>
-<span class="nc" id="L106">                .addGap(18, 18, 18)</span>
-<span class="nc" id="L107">                .addGroup(pnlPosterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)</span>
-<span class="nc" id="L108">                    .addComponent(jLabel3)</span>
-<span class="nc" id="L109">                    .addComponent(txtAncho, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))</span>
-<span class="nc" id="L110">                .addGap(70, 70, 70)</span>
-<span class="nc" id="L111">                .addGroup(pnlPosterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)</span>
-<span class="nc" id="L112">                    .addComponent(jLabel4)</span>
-<span class="nc" id="L113">                    .addComponent(txtCopias, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))</span>
-<span class="nc" id="L114">                .addContainerGap(183, Short.MAX_VALUE))</span>
-        );
-
-<span class="nc" id="L117">        pnlParametros.add(pnlPoster, &quot;card3&quot;);</span>
-
-<span class="nc" id="L119">        jLabel1.setText(&quot;Centro comercial:&quot;);</span>
-
-<span class="nc" id="L121">        javax.swing.GroupLayout pnlRotuloLayout = new javax.swing.GroupLayout(pnlRotulo);</span>
-<span class="nc" id="L122">        pnlRotulo.setLayout(pnlRotuloLayout);</span>
-<span class="nc" id="L123">        pnlRotuloLayout.setHorizontalGroup(</span>
-<span class="nc" id="L124">            pnlRotuloLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)</span>
-<span class="nc" id="L125">            .addGroup(pnlRotuloLayout.createSequentialGroup()</span>
-<span class="nc" id="L126">                .addContainerGap()</span>
-<span class="nc" id="L127">                .addGroup(pnlRotuloLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)</span>
-<span class="nc" id="L128">                    .addGroup(pnlRotuloLayout.createSequentialGroup()</span>
-<span class="nc" id="L129">                        .addComponent(jLabel1)</span>
-<span class="nc" id="L130">                        .addGap(0, 116, Short.MAX_VALUE))</span>
-<span class="nc" id="L131">                    .addComponent(txtCentro))</span>
-<span class="nc" id="L132">                .addContainerGap())</span>
-        );
-<span class="nc" id="L134">        pnlRotuloLayout.setVerticalGroup(</span>
-<span class="nc" id="L135">            pnlRotuloLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)</span>
-<span class="nc" id="L136">            .addGroup(pnlRotuloLayout.createSequentialGroup()</span>
-<span class="nc" id="L137">                .addGap(27, 27, 27)</span>
-<span class="nc" id="L138">                .addComponent(jLabel1)</span>
-<span class="nc" id="L139">                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)</span>
-<span class="nc" id="L140">                .addComponent(txtCentro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)</span>
-<span class="nc" id="L141">                .addContainerGap(278, Short.MAX_VALUE))</span>
+<span class="fc" id="L105">        pnlPosterLayout.setVerticalGroup(</span>
+<span class="fc" id="L106">            pnlPosterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)</span>
+<span class="fc" id="L107">            .addGroup(pnlPosterLayout.createSequentialGroup()</span>
+<span class="fc" id="L108">                .addGap(23, 23, 23)</span>
+<span class="fc" id="L109">                .addGroup(pnlPosterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)</span>
+<span class="fc" id="L110">                    .addComponent(jLabel2)</span>
+<span class="fc" id="L111">                    .addComponent(txtAlto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))</span>
+<span class="fc" id="L112">                .addGap(18, 18, 18)</span>
+<span class="fc" id="L113">                .addGroup(pnlPosterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)</span>
+<span class="fc" id="L114">                    .addComponent(jLabel3)</span>
+<span class="fc" id="L115">                    .addComponent(txtAncho, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))</span>
+<span class="fc" id="L116">                .addGap(70, 70, 70)</span>
+<span class="fc" id="L117">                .addGroup(pnlPosterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)</span>
+<span class="fc" id="L118">                    .addComponent(jLabel4)</span>
+<span class="fc" id="L119">                    .addComponent(txtCopias, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))</span>
+<span class="fc" id="L120">                .addContainerGap(183, Short.MAX_VALUE))</span>
         );
 
-<span class="nc" id="L144">        pnlParametros.add(pnlRotulo, &quot;card4&quot;);</span>
+<span class="fc" id="L123">        pnlParametros.add(pnlPoster, &quot;card3&quot;);</span>
 
-<span class="nc" id="L146">        cbColor.setModel(new javax.swing.DefaultComboBoxModel&lt;&gt;(new String[] { &quot;Rojo&quot; }));</span>
+<span class="fc" id="L125">        jLabel1.setText(&quot;Centro comercial:&quot;);</span>
 
-<span class="nc" id="L148">        jLabel5.setText(&quot;Color de las tapas:&quot;);</span>
-
-<span class="nc" id="L150">        jLabel6.setText(&quot;Nº de páginas:&quot;);</span>
-
-<span class="nc" id="L152">        javax.swing.GroupLayout pnlLibroLayout = new javax.swing.GroupLayout(pnlLibro);</span>
-<span class="nc" id="L153">        pnlLibro.setLayout(pnlLibroLayout);</span>
-<span class="nc" id="L154">        pnlLibroLayout.setHorizontalGroup(</span>
-<span class="nc" id="L155">            pnlLibroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)</span>
-<span class="nc" id="L156">            .addGroup(pnlLibroLayout.createSequentialGroup()</span>
-<span class="nc" id="L157">                .addGap(27, 27, 27)</span>
-<span class="nc" id="L158">                .addGroup(pnlLibroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)</span>
-<span class="nc" id="L159">                    .addComponent(jLabel5)</span>
-<span class="nc" id="L160">                    .addGroup(pnlLibroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)</span>
-<span class="nc" id="L161">                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, pnlLibroLayout.createSequentialGroup()</span>
-<span class="nc" id="L162">                            .addComponent(jLabel6)</span>
-<span class="nc" id="L163">                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)</span>
-<span class="nc" id="L164">                            .addComponent(spNumPaginas, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))</span>
-<span class="nc" id="L165">                        .addComponent(cbColor, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE)))</span>
-<span class="nc" id="L166">                .addContainerGap(43, Short.MAX_VALUE))</span>
+<span class="fc" id="L127">        javax.swing.GroupLayout pnlRotuloLayout = new javax.swing.GroupLayout(pnlRotulo);</span>
+<span class="fc" id="L128">        pnlRotulo.setLayout(pnlRotuloLayout);</span>
+<span class="fc" id="L129">        pnlRotuloLayout.setHorizontalGroup(</span>
+<span class="fc" id="L130">            pnlRotuloLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)</span>
+<span class="fc" id="L131">            .addGroup(pnlRotuloLayout.createSequentialGroup()</span>
+<span class="fc" id="L132">                .addContainerGap()</span>
+<span class="fc" id="L133">                .addGroup(pnlRotuloLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)</span>
+<span class="fc" id="L134">                    .addGroup(pnlRotuloLayout.createSequentialGroup()</span>
+<span class="fc" id="L135">                        .addComponent(jLabel1)</span>
+<span class="fc" id="L136">                        .addGap(0, 116, Short.MAX_VALUE))</span>
+<span class="fc" id="L137">                    .addComponent(txtCentro))</span>
+<span class="fc" id="L138">                .addContainerGap())</span>
         );
-<span class="nc" id="L168">        pnlLibroLayout.setVerticalGroup(</span>
-<span class="nc" id="L169">            pnlLibroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)</span>
-<span class="nc" id="L170">            .addGroup(pnlLibroLayout.createSequentialGroup()</span>
-<span class="nc" id="L171">                .addGap(48, 48, 48)</span>
-<span class="nc" id="L172">                .addComponent(jLabel5)</span>
-<span class="nc" id="L173">                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)</span>
-<span class="nc" id="L174">                .addComponent(cbColor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)</span>
-<span class="nc" id="L175">                .addGap(61, 61, 61)</span>
-<span class="nc" id="L176">                .addGroup(pnlLibroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)</span>
-<span class="nc" id="L177">                    .addComponent(jLabel6)</span>
-<span class="nc" id="L178">                    .addComponent(spNumPaginas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))</span>
-<span class="nc" id="L179">                .addContainerGap(171, Short.MAX_VALUE))</span>
+<span class="fc" id="L140">        pnlRotuloLayout.setVerticalGroup(</span>
+<span class="fc" id="L141">            pnlRotuloLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)</span>
+<span class="fc" id="L142">            .addGroup(pnlRotuloLayout.createSequentialGroup()</span>
+<span class="fc" id="L143">                .addGap(27, 27, 27)</span>
+<span class="fc" id="L144">                .addComponent(jLabel1)</span>
+<span class="fc" id="L145">                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)</span>
+<span class="fc" id="L146">                .addComponent(txtCentro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)</span>
+<span class="fc" id="L147">                .addContainerGap(278, Short.MAX_VALUE))</span>
         );
 
-<span class="nc" id="L182">        pnlParametros.add(pnlLibro, &quot;card2&quot;);</span>
+<span class="fc" id="L150">        pnlParametros.add(pnlRotulo, &quot;card4&quot;);</span>
 
-<span class="nc" id="L184">        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());</span>
-<span class="nc" id="L185">        getContentPane().setLayout(layout);</span>
-<span class="nc" id="L186">        layout.setHorizontalGroup(</span>
-<span class="nc" id="L187">            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)</span>
-<span class="nc" id="L188">            .addGroup(layout.createSequentialGroup()</span>
-<span class="nc" id="L189">                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)</span>
-<span class="nc" id="L190">                    .addGroup(layout.createSequentialGroup()</span>
-<span class="nc" id="L191">                        .addGap(30, 30, 30)</span>
-<span class="nc" id="L192">                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)</span>
-<span class="nc" id="L193">                            .addComponent(cbRelieve, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)</span>
-<span class="nc" id="L194">                            .addComponent(cbTipoTrabajo, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))</span>
-<span class="nc" id="L195">                    .addGroup(layout.createSequentialGroup()</span>
-<span class="nc" id="L196">                        .addGap(21, 21, 21)</span>
-<span class="nc" id="L197">                        .addComponent(btnRegistrar, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)))</span>
-<span class="nc" id="L198">                .addGap(18, 18, 18)</span>
-<span class="nc" id="L199">                .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)</span>
-<span class="nc" id="L200">                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)</span>
-<span class="nc" id="L201">                .addComponent(pnlParametros, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)</span>
-<span class="nc" id="L202">                .addContainerGap())</span>
+<span class="fc" id="L152">        cbColor.setModel(new javax.swing.DefaultComboBoxModel&lt;&gt;(new String[] { &quot;Rojo&quot; }));</span>
+
+<span class="fc" id="L154">        jLabel5.setText(&quot;Color de las tapas:&quot;);</span>
+
+<span class="fc" id="L156">        jLabel6.setText(&quot;Nº de páginas:&quot;);</span>
+
+<span class="fc" id="L158">        javax.swing.GroupLayout pnlLibroLayout = new javax.swing.GroupLayout(pnlLibro);</span>
+<span class="fc" id="L159">        pnlLibro.setLayout(pnlLibroLayout);</span>
+<span class="fc" id="L160">        pnlLibroLayout.setHorizontalGroup(</span>
+<span class="fc" id="L161">            pnlLibroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)</span>
+<span class="fc" id="L162">            .addGroup(pnlLibroLayout.createSequentialGroup()</span>
+<span class="fc" id="L163">                .addGap(27, 27, 27)</span>
+<span class="fc" id="L164">                .addGroup(pnlLibroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)</span>
+<span class="fc" id="L165">                    .addComponent(jLabel5)</span>
+<span class="fc" id="L166">                    .addGroup(pnlLibroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)</span>
+<span class="fc" id="L167">                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, pnlLibroLayout.createSequentialGroup()</span>
+<span class="fc" id="L168">                            .addComponent(jLabel6)</span>
+<span class="fc" id="L169">                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)</span>
+<span class="fc" id="L170">                            .addComponent(spNumPaginas, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))</span>
+<span class="fc" id="L171">                        .addComponent(cbColor, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE)))</span>
+<span class="fc" id="L172">                .addContainerGap(43, Short.MAX_VALUE))</span>
         );
-<span class="nc" id="L204">        layout.setVerticalGroup(</span>
-<span class="nc" id="L205">            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)</span>
-<span class="nc" id="L206">            .addGroup(layout.createSequentialGroup()</span>
-<span class="nc" id="L207">                .addGap(32, 32, 32)</span>
-<span class="nc" id="L208">                .addComponent(cbTipoTrabajo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)</span>
-<span class="nc" id="L209">                .addGap(37, 37, 37)</span>
-<span class="nc" id="L210">                .addComponent(cbRelieve, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)</span>
-<span class="nc" id="L211">                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)</span>
-<span class="nc" id="L212">                .addComponent(btnRegistrar, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)</span>
-<span class="nc" id="L213">                .addGap(20, 20, 20))</span>
-<span class="nc" id="L214">            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()</span>
-<span class="nc" id="L215">                .addContainerGap()</span>
-<span class="nc" id="L216">                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)</span>
-<span class="nc" id="L217">                    .addComponent(pnlParametros, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)</span>
-<span class="nc" id="L218">                    .addComponent(jSeparator1))</span>
-<span class="nc" id="L219">                .addContainerGap())</span>
+<span class="fc" id="L174">        pnlLibroLayout.setVerticalGroup(</span>
+<span class="fc" id="L175">            pnlLibroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)</span>
+<span class="fc" id="L176">            .addGroup(pnlLibroLayout.createSequentialGroup()</span>
+<span class="fc" id="L177">                .addGap(48, 48, 48)</span>
+<span class="fc" id="L178">                .addComponent(jLabel5)</span>
+<span class="fc" id="L179">                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)</span>
+<span class="fc" id="L180">                .addComponent(cbColor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)</span>
+<span class="fc" id="L181">                .addGap(61, 61, 61)</span>
+<span class="fc" id="L182">                .addGroup(pnlLibroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)</span>
+<span class="fc" id="L183">                    .addComponent(jLabel6)</span>
+<span class="fc" id="L184">                    .addComponent(spNumPaginas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))</span>
+<span class="fc" id="L185">                .addContainerGap(171, Short.MAX_VALUE))</span>
         );
 
-<span class="nc" id="L222">        pack();</span>
-<span class="nc" id="L223">    }// &lt;/editor-fold&gt;//GEN-END:initComponents</span>
+<span class="pc" id="L188">        pnlParametros.add(pnlLibro, &quot;card2&quot;);</span>
+
+<span class="fc" id="L190">        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());</span>
+<span class="pc" id="L191">        getContentPane().setLayout(layout);</span>
+<span class="pc" id="L192">        layout.setHorizontalGroup(</span>
+<span class="fc" id="L193">            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)</span>
+<span class="fc" id="L194">            .addGroup(layout.createSequentialGroup()</span>
+<span class="fc" id="L195">                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)</span>
+<span class="fc" id="L196">                    .addGroup(layout.createSequentialGroup()</span>
+<span class="fc" id="L197">                        .addGap(30, 30, 30)</span>
+<span class="fc" id="L198">                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)</span>
+<span class="fc" id="L199">                            .addComponent(cbRelieve, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)</span>
+<span class="fc" id="L200">                            .addComponent(cbTipoTrabajo, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))</span>
+<span class="fc" id="L201">                    .addGroup(layout.createSequentialGroup()</span>
+<span class="fc" id="L202">                        .addGap(21, 21, 21)</span>
+<span class="fc" id="L203">                        .addComponent(btnRegistrar, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)))</span>
+<span class="fc" id="L204">                .addGap(18, 18, 18)</span>
+<span class="fc" id="L205">                .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)</span>
+<span class="fc" id="L206">                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)</span>
+<span class="fc" id="L207">                .addComponent(pnlParametros, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)</span>
+<span class="fc" id="L208">                .addContainerGap())</span>
+        );
+<span class="fc" id="L210">        layout.setVerticalGroup(</span>
+<span class="fc" id="L211">            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)</span>
+<span class="fc" id="L212">            .addGroup(layout.createSequentialGroup()</span>
+<span class="fc" id="L213">                .addGap(32, 32, 32)</span>
+<span class="fc" id="L214">                .addComponent(cbTipoTrabajo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)</span>
+<span class="fc" id="L215">                .addGap(37, 37, 37)</span>
+<span class="fc" id="L216">                .addComponent(cbRelieve, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)</span>
+<span class="fc" id="L217">                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)</span>
+<span class="fc" id="L218">                .addComponent(btnRegistrar, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)</span>
+<span class="fc" id="L219">                .addGap(20, 20, 20))</span>
+<span class="fc" id="L220">            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()</span>
+<span class="fc" id="L221">                .addContainerGap()</span>
+<span class="fc" id="L222">                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)</span>
+<span class="fc" id="L223">                    .addComponent(pnlParametros, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)</span>
+<span class="fc" id="L224">                    .addComponent(jSeparator1))</span>
+<span class="fc" id="L225">                .addContainerGap())</span>
+        );
+
+<span class="fc" id="L228">        pack();</span>
+<span class="fc" id="L229">    }// &lt;/editor-fold&gt;//GEN-END:initComponents</span>
 
     private void btnRegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrarActionPerformed
-<span class="nc bnc" id="L226" title="All 3 branches missed.">        switch (cbTipoTrabajo.getSelectedIndex()) {</span>
+<span class="pc bpc" id="L232" title="2 of 3 branches missed.">        switch (cbTipoTrabajo.getSelectedIndex()) {</span>
             case 0:
-<span class="nc" id="L228">                Datos.trabajos.add(new Rotulo(</span>
-<span class="nc" id="L229">                        txtCentro.getText(),</span>
+<span class="nc" id="L234">                Datos.trabajos.add(new Rotulo(</span>
+<span class="nc" id="L235">                        txtCentro.getText(),</span>
                         new GregorianCalendar(),
-<span class="nc" id="L231">                        (String) cbRelieve.getSelectedItem(),</span>
+<span class="nc" id="L237">                        (String) cbRelieve.getSelectedItem(),</span>
                         null,
                         null
                 )); 
-<span class="nc" id="L235">                break;</span>
+<span class="nc" id="L241">                break;</span>
             case 1:
-<span class="nc" id="L237">                Datos.trabajos.add(new Poster(</span>
-<span class="nc" id="L238">                        Integer.parseInt(txtAlto.getText()),</span>
-<span class="nc" id="L239">                        Integer.parseInt(txtAncho.getText()),</span>
-<span class="nc" id="L240">                        Integer.parseInt(txtCopias.getText()),</span>
+<span class="nc" id="L243">                Datos.trabajos.add(new Poster(</span>
+<span class="nc" id="L244">                        Integer.parseInt(txtAlto.getText()),</span>
+<span class="nc" id="L245">                        Integer.parseInt(txtAncho.getText()),</span>
+<span class="nc" id="L246">                        Integer.parseInt(txtCopias.getText()),</span>
                         new GregorianCalendar(),
-<span class="nc" id="L242">                        (String) cbRelieve.getSelectedItem(),</span>
+<span class="nc" id="L248">                        (String) cbRelieve.getSelectedItem(),</span>
                         null,
                         null
                 )); 
-<span class="nc" id="L246">                break;</span>
+<span class="nc" id="L252">                break;</span>
             default:
-<span class="nc" id="L248">                Datos.trabajos.add(new Libro(</span>
-<span class="nc" id="L249">                        (int) spNumPaginas.getValue(),</span>
-<span class="nc" id="L250">                        (String) cbColor.getSelectedItem(),</span>
+<span class="fc" id="L254">                Datos.trabajos.add(new Libro(</span>
+<span class="fc" id="L255">                        (int) spNumPaginas.getValue(),</span>
+<span class="fc" id="L256">                        (String) cbColor.getSelectedItem(),</span>
                         new GregorianCalendar(),
-<span class="nc" id="L252">                        (String) cbRelieve.getSelectedItem(),</span>
+<span class="fc" id="L258">                        (String) cbRelieve.getSelectedItem(),</span>
                         null,
                         null
                 ));
         }
-<span class="nc" id="L257">        Datos.guardarTrabajos();</span>
-<span class="nc" id="L258">        dispose();</span>
-<span class="nc" id="L259">    }//GEN-LAST:event_btnRegistrarActionPerformed</span>
+<span class="fc" id="L263">        Datos.guardarTrabajos();</span>
+<span class="fc" id="L264">        dispose();</span>
+<span class="fc" id="L265">    }//GEN-LAST:event_btnRegistrarActionPerformed</span>
+
+    private void cbTipoTrabajoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbTipoTrabajoActionPerformed
+<span class="pc bpc" id="L268" title="1 of 3 branches missed.">        switch (cbTipoTrabajo.getSelectedIndex()) {</span>
+            case 0:
+<span class="fc" id="L270">                pnlLibro.setVisible(false);</span>
+<span class="fc" id="L271">                pnlPoster.setVisible(false);</span>
+<span class="fc" id="L272">                pnlRotulo.setVisible(true);</span>
+<span class="fc" id="L273">                break;</span>
+            case 1:
+<span class="nc" id="L275">                pnlLibro.setVisible(false);</span>
+<span class="nc" id="L276">                pnlPoster.setVisible(true);</span>
+<span class="nc" id="L277">                pnlRotulo.setVisible(false);</span>
+<span class="nc" id="L278">                break;</span>
+            default:
+<span class="fc" id="L280">                pnlLibro.setVisible(true);</span>
+<span class="fc" id="L281">                pnlPoster.setVisible(false);</span>
+<span class="fc" id="L282">                pnlRotulo.setVisible(false);</span>
+                break;
+        }
+<span class="fc" id="L285">    }//GEN-LAST:event_cbTipoTrabajoActionPerformed</span>
 
     /**
      * @param args the command line arguments
      */
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
-        //&lt;editor-fold defaultstate=&quot;collapsed&quot; desc=&quot; Look and feel setting code (optional) &quot;&gt;
+<span class="nc" id="L292">        //&lt;editor-fold defaultstate=&quot;collapsed&quot; desc=&quot; Look and feel setting code (optional) &quot;&gt;</span>
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
          * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-<span class="nc bnc" id="L271" title="All 2 branches missed.">            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {</span>
-<span class="nc bnc" id="L272" title="All 2 branches missed.">                if (&quot;Nimbus&quot;.equals(info.getName())) {</span>
-<span class="nc" id="L273">                    javax.swing.UIManager.setLookAndFeel(info.getClassName());</span>
-<span class="nc" id="L274">                    break;</span>
+<span class="nc" id="L295">         */</span>
+<span class="nc" id="L296">        try {</span>
+<span class="nc bnc" id="L297" title="All 2 branches missed.">            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {</span>
+<span class="nc bnc" id="L298" title="All 2 branches missed.">                if (&quot;Nimbus&quot;.equals(info.getName())) {</span>
+<span class="nc" id="L299">                    javax.swing.UIManager.setLookAndFeel(info.getClassName());</span>
+<span class="nc" id="L300">                    break;</span>
                 }
             }
-<span class="nc" id="L277">        } catch (ClassNotFoundException ex) {</span>
-<span class="nc" id="L278">            java.util.logging.Logger.getLogger(NuevoTrabajo.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);</span>
-<span class="nc" id="L279">        } catch (InstantiationException ex) {</span>
-<span class="nc" id="L280">            java.util.logging.Logger.getLogger(NuevoTrabajo.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);</span>
-<span class="nc" id="L281">        } catch (IllegalAccessException ex) {</span>
-<span class="nc" id="L282">            java.util.logging.Logger.getLogger(NuevoTrabajo.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);</span>
-<span class="nc" id="L283">        } catch (javax.swing.UnsupportedLookAndFeelException ex) {</span>
-<span class="nc" id="L284">            java.util.logging.Logger.getLogger(NuevoTrabajo.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);</span>
-<span class="nc" id="L285">        }</span>
+<span class="nc" id="L303">        } catch (ClassNotFoundException ex) {</span>
+<span class="nc" id="L304">            java.util.logging.Logger.getLogger(NuevoTrabajo.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);</span>
+<span class="nc" id="L305">        } catch (InstantiationException ex) {</span>
+<span class="nc" id="L306">            java.util.logging.Logger.getLogger(NuevoTrabajo.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);</span>
+<span class="nc" id="L307">        } catch (IllegalAccessException ex) {</span>
+<span class="nc" id="L308">            java.util.logging.Logger.getLogger(NuevoTrabajo.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);</span>
+<span class="nc" id="L309">        } catch (javax.swing.UnsupportedLookAndFeelException ex) {</span>
+<span class="nc" id="L310">            java.util.logging.Logger.getLogger(NuevoTrabajo.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);</span>
+<span class="nc" id="L311">        }</span>
         //&lt;/editor-fold&gt;
 
         /* Create and display the dialog */
-<span class="nc" id="L289">        java.awt.EventQueue.invokeLater(new Runnable() {</span>
+<span class="nc" id="L315">        java.awt.EventQueue.invokeLater(new Runnable() {</span>
             public void run() {
-<span class="nc" id="L291">                NuevoTrabajo dialog = new NuevoTrabajo(new javax.swing.JFrame(), true);</span>
-<span class="nc" id="L292">                dialog.addWindowListener(new java.awt.event.WindowAdapter() {</span>
+<span class="nc" id="L317">                NuevoTrabajo dialog = new NuevoTrabajo(new javax.swing.JFrame(), true);</span>
+<span class="nc" id="L318">                dialog.addWindowListener(new java.awt.event.WindowAdapter() {</span>
                     @Override
                     public void windowClosing(java.awt.event.WindowEvent e) {
-<span class="nc" id="L295">                        System.exit(0);</span>
-<span class="nc" id="L296">                    }</span>
+<span class="nc" id="L321">                        System.exit(0);</span>
+<span class="nc" id="L322">                    }</span>
                 });
-<span class="nc" id="L298">                dialog.setVisible(true);</span>
-<span class="nc" id="L299">            }</span>
+<span class="nc" id="L324">                dialog.setVisible(true);</span>
+<span class="nc" id="L325">            }</span>
         });
-<span class="nc" id="L301">    }</span>
+<span class="nc" id="L327">    }</span>
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnRegistrar;

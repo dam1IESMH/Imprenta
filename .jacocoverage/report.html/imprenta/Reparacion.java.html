@@ -8,8 +8,13 @@ package imprenta;
 import java.util.Calendar;
 
 /**
- *
- * @author usuario
+ * La clase {@code Reparacion} representa a las reparaciones realizadas a las maquinas,
+ * en una imprenta. Las reparaciones tiene el atributos enteros {@code id}; 
+ * el String {@code direccion}; 
+ * y el Calendar
+ * {@code fecha}.
+ * 
+ * @author Mario Perez Urbaneja
  */
 public class Reparacion {
     
@@ -21,15 +26,15 @@ public class Reparacion {
     private Calendar fecha;
     private String descripcion;
     
-<span class="nc" id="L24">    private static int auto_incrementado=0;</span>
+<span class="nc" id="L29">    private static int auto_incrementado=0;</span>
     
     {
-<span class="nc" id="L27">        auto_incrementado++;</span>
+<span class="nc" id="L32">        auto_incrementado++;</span>
     }
 
-<span class="nc" id="L30">    public Reparacion() {</span>
+<span class="nc" id="L35">    public Reparacion() {</span>
         
-<span class="nc" id="L32">    }</span>
+<span class="nc" id="L37">    }</span>
     
     
 /**
@@ -38,13 +43,13 @@ public class Reparacion {
  * @param fecha
  * @param descripcion
  */ 
-<span class="nc" id="L41">    public Reparacion(int id, Calendar fecha, String descripcion) {</span>
-<span class="nc" id="L42">        this.id = auto_incrementado;</span>
-<span class="nc" id="L43">        this.fecha = fecha;</span>
-<span class="nc bnc" id="L44" title="All 2 branches missed.">        if(Validaciones.validarDescripcion(descripcion)){</span>
-<span class="nc" id="L45">        this.descripcion = descripcion;</span>
+<span class="nc" id="L46">    public Reparacion(int id, Calendar fecha, String descripcion) {</span>
+<span class="nc" id="L47">        this.id = auto_incrementado;</span>
+<span class="nc" id="L48">        this.fecha = fecha;</span>
+<span class="nc bnc" id="L49" title="All 2 branches missed.">        if(Validaciones.validarDescripcion(descripcion)){</span>
+<span class="nc" id="L50">        this.descripcion = descripcion;</span>
         }
-<span class="nc" id="L47">    }</span>
+<span class="nc" id="L52">    }</span>
 /**
  * Cierre del constructor vacio
  */  
@@ -53,11 +58,11 @@ public class Reparacion {
  * Abertura de constructor de Objeto Reparacion
  * @param r 
  */    
-<span class="nc" id="L56">    public Reparacion(Reparacion r) {</span>
-<span class="nc" id="L57">        this.id = r.id;</span>
-<span class="nc" id="L58">        this.fecha = r.fecha;</span>
-<span class="nc" id="L59">        this.descripcion = r.descripcion;</span>
-<span class="nc" id="L60">    }</span>
+<span class="nc" id="L61">    public Reparacion(Reparacion r) {</span>
+<span class="nc" id="L62">        this.id = r.id;</span>
+<span class="nc" id="L63">        this.fecha = r.fecha;</span>
+<span class="nc" id="L64">        this.descripcion = r.descripcion;</span>
+<span class="nc" id="L65">    }</span>
 /**
  * Cierre del constructor de Objeto Reparacion
  */    
@@ -66,7 +71,7 @@ public class Reparacion {
  */
     @Override
     public String toString() {
-<span class="nc" id="L69">        return &quot;Reparacion{&quot; + &quot;id=&quot; + id + &quot;, fecha=&quot; + fecha + &quot;, descripcion=&quot; + descripcion + '}';</span>
+<span class="nc" id="L74">        return &quot;Reparacion{&quot; + &quot;id=&quot; + id + &quot;, fecha=&quot; + fecha + &quot;, descripcion=&quot; + descripcion + '}';</span>
     }
     
 }
