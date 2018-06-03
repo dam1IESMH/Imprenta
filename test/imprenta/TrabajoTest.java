@@ -71,11 +71,11 @@ public class TrabajoTest {
      * Test of getRelieve method, of class Trabajo.
      */
     @Test
-    public void testGetRelieve() {
-        System.out.println("getRelieve");
-        Trabajo instance = new Trabajo();
-        String expResult = "";
-        String result = instance.getRelieve();
+   public void testValidarTipoRelieve() {
+        System.out.println("validarTipoRelieve");
+        String relieve = "";
+        boolean expResult = false;
+        boolean result = Validaciones.validarTipoRelieve(relieve);
         assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
