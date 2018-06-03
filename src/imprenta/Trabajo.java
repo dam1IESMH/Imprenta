@@ -10,11 +10,14 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 /**
- *
+ * La clase {@code Trabajo} es una clase padre de la que heredan (@code Rotulo),
+ * (@code Poster) y (@code Libro).
+ * Trabajo tiene un atributo enumerado (@code tipoRelieve), un entero (@code id),
+ * los atribuos Calendar (@code fechaSolicitud), (@code fechaImpresion),
+ * (@code fechaRecogida) y los booleanos (@code valido) y (@code impreso).
+ * 
  * @author Jose Daniel Buenaga
  */
 public class Trabajo implements Serializable {
@@ -38,18 +41,19 @@ public class Trabajo implements Serializable {
     }
 
     /**
-     * Constructor vacio
+     * Inicializa un objeto {@code Rotulo} con sus variables sin inicializar.
      */
     public Trabajo() {
     }
 
     /**
-     * Constructor para la clase Trabajo con todos los parámetros
+     * Inicializa un objeto {@code Trabajo} que inicializa sus variables con los
+     * parámetros pasados como argumento.
      *
-     * @param fechaSolicitud
-     * @param tipoRelieve
-     * @param fechaImpresion
-     * @param fechaRecogida
+     * @param fechaSolicitud (@code Calendar)
+     * @param tipoRelieve (@code enum)
+     * @param fechaImpresion (@code Calendar)
+     * @param fechaRecogida (@code Calendar)
      */
     public Trabajo(Calendar fechaSolicitud, String tipoRelieve, Calendar fechaImpresion, Calendar fechaRecogida) {
         this.id = auto_incrementado;
@@ -64,7 +68,7 @@ public class Trabajo implements Serializable {
         this.fechaImpresion = fechaImpresion;
         this.fechaRecogida = fechaRecogida;
         mods = new ArrayList<>();
-    }//Cierre del constructor
+    }
 
     /**
      * Inicializa un objeto {@code Trabajo} cuyas variables copia de otro objeto
@@ -78,7 +82,7 @@ public class Trabajo implements Serializable {
         this.Relieve = t.Relieve;
         this.fechaImpresion = t.fechaImpresion;
         this.fechaRecogida = t.fechaRecogida;
-    }//Cierre del constructor
+    }
 
     public int getId() {
         return id;
@@ -165,5 +169,5 @@ public class Trabajo implements Serializable {
         return "Trabajo{" + "id=" + id + ", fechaSolicitud=" + fechaSolicitud + ", tipoRelieve=" + Relieve + ", fechaImpresion=" + fechaImpresion + ", fechaRecogida=" + fechaRecogida + '}';
     }
 
-}//Cierre de la clase
+}
 
