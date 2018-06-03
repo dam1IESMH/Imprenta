@@ -24,7 +24,7 @@ public class Maquina {
             volumen, //validar
             capacidadMax; //validar
     private String ubicacion,
-            tipoImpresion, //enum?
+            tipoImpresion,
             modoImpresion;
     private Calendar fechaCompra;
 
