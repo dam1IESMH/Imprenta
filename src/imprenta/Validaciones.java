@@ -40,6 +40,16 @@ public class Validaciones {
     public static boolean validarNombre(String nombre) {
         return nombre.matches("[a-zA-ZñÑáéíóúÁÉÍÓÚäëïöüÄËÏÖÜçÇ\\s]{2,25}");
     }
+    
+    /**
+     * Método para validar la descripción de una reparación
+     *
+     * @param nombre
+     * @return
+     */
+    public static boolean validarDescripcion(String nombre) {
+        return nombre.matches("[a-zA-ZñÑáéíóúÁÉÍÓÚäëïöüÄËÏÖÜçÇ\\s]{2,150}");
+    }
 
     /**
      * Método para validar un entero
@@ -49,7 +59,7 @@ public class Validaciones {
      */
     public static boolean validarEntero(int numero) {
         boolean correcto = false;
-        if ((numero < 1000) && (numero > 0)) {
+        if ((numero <= 1000) && (numero >= 0)) {
             correcto = true;
         }
         return correcto;
@@ -63,7 +73,7 @@ public class Validaciones {
      */
     public static boolean validarDimensiones(int numero) {
         boolean correcto = false;
-        if ((numero < 100) && (numero > 0)) {
+        if ((numero <= 100) && (numero >= 0)) {
             correcto = true;
         }
         return correcto;
@@ -77,7 +87,7 @@ public class Validaciones {
      */
     public static boolean validarVolumen(int numero) {
         boolean correcto = false;
-        if ((numero < 100) && (numero > 0)) {
+        if ((numero <= 100) && (numero >= 0)) {
             correcto = true;
         }
         return correcto;
@@ -91,7 +101,7 @@ public class Validaciones {
      */
     public static boolean validarCapacidadMaxima(int numero) {
         boolean correcto = false;
-        if ((numero < 100) && (numero > 0)) {
+        if ((numero <= 400) && (numero >= 0)) {
             correcto = true;
         }
         return correcto;

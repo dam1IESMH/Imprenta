@@ -41,7 +41,9 @@ public class Reparacion {
     public Reparacion(int id, Calendar fecha, String descripcion) {
         this.id = id;
         this.fecha = fecha;
+        if(Validaciones.validarDescripcion(descripcion)){
         this.descripcion = descripcion;
+        }
     }
 /**
  * Cierre del constructor de parametros
