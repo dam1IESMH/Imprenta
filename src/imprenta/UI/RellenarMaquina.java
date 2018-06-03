@@ -5,6 +5,9 @@
  */
 package imprenta.UI;
 
+import imprenta.Maquina;
+import imprenta.Trabajo;
+import java.util.Iterator;
 import javax.swing.ImageIcon;
 
 /**
@@ -16,7 +19,7 @@ public class RellenarMaquina extends javax.swing.JDialog {
     /**
      * Creates new form Refill
      */
-    public RellenarMaquina(java.awt.Frame parent, boolean modal) {
+    public RellenarMaquina(java.awt.Frame parent, boolean modal, Maquina m) {
         super(parent, modal);
         initComponents();
         setIconImage(new ImageIcon("assets/icons/invert_colors_black_18x18.png").getImage());
@@ -51,6 +54,11 @@ public class RellenarMaquina extends javax.swing.JDialog {
         jLabel1.setText("Operario que rellena la impresora:");
 
         btnAceptar.setText("Encargar relleno");
+        btnAceptar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAceptarActionPerformed(evt);
+            }
+        });
 
         btnCancelar.setText("Cancelar");
         btnCancelar.addActionListener(new java.awt.event.ActionListener() {
@@ -135,7 +143,7 @@ public class RellenarMaquina extends javax.swing.JDialog {
     }// </editor-fold>//GEN-END:initComponents
 
     private void cbOperaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbOperaActionPerformed
-        if(cbOpera.getSelectedIndex() == cbOpera.getItemCount()-1) {
+        if (cbOpera.getSelectedIndex() == cbOpera.getItemCount() - 1) {
             cbOpera.setVisible(false);
             pnlOtro.setVisible(true);
         }
@@ -154,6 +162,14 @@ public class RellenarMaquina extends javax.swing.JDialog {
     private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarActionPerformed
         dispose();
     }//GEN-LAST:event_btnCancelarActionPerformed
+
+    private void btnAceptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAceptarActionPerformed
+        Datos.maquinas.remove(m);
+        m.rellenar();
+        Datos.maquinas.add(m);
+        Datos.guardarMaquinas();
+        dispose();
+    }//GEN-LAST:event_btnAceptarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -186,7 +202,7 @@ public class RellenarMaquina extends javax.swing.JDialog {
         /* Create and display the dialog */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                RellenarMaquina dialog = new RellenarMaquina(new javax.swing.JFrame(), true);
+                RellenarMaquina dialog = new RellenarMaquina(new javax.swing.JFrame(), true, m);
                 dialog.addWindowListener(new java.awt.event.WindowAdapter() {
                     @Override
                     public void windowClosing(java.awt.event.WindowEvent e) {
@@ -198,6 +214,7 @@ public class RellenarMaquina extends javax.swing.JDialog {
         });
     }
 
+    private static Maquina m;
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAceptar;
     private javax.swing.JButton btnCancelar;

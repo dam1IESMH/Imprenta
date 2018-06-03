@@ -114,6 +114,10 @@ public class Maquina implements Serializable {
         return arreglos;
     }
 
+    public static void setAuto_increment(int auto_increment) {
+        Maquina.auto_increment = auto_increment;
+    }
+
     /**
      * Devuelve la información de la fecha y hora de compra de la máquina con el
      * formato:
