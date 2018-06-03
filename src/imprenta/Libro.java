@@ -10,7 +10,10 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 /**
- *
+ * La clase {@code Libro} es una clase que hereda de (@code Trabajo). 
+ * El rotulo tiene los atributos heredados de Trabajo y además contiene el
+ * atributo enumerado (@code Tapas) y el entero (@code numeroPaginas); 
+ * 
  * @author Jose Daniel Buenaga
  */
 public class Libro extends Trabajo {
@@ -22,21 +25,22 @@ public class Libro extends Trabajo {
     private Tapas colorTapas;
 
     /**
-     * Constructor vacio
+     * Inicializa un objeto {@code Libro} con sus variables sin inicializar.
      *
      */
     public Libro() {
-    }//Cierre del constructor
+    }
 
     /**
-     * Constructor para la clase Trabajo con todos los parámetros
+     * Inicializa un objeto {@code Libro} que inicializa sus variables con los
+     * parámetros pasados como argumento.
      *
-     * @param numeroPaginas
-     * @param colorTapas
-     * @param fechaSolicitud
-     * @param tipoRelieve
-     * @param fechaImpresion
-     * @param fechaRecogida
+     * @param numeroPaginas (@code int)
+     * @param colorTapas (@code enum)
+     * @param fechaSolicitud (@code Calendar)
+     * @param tipoRelieve (@code enum)
+     * @param fechaImpresion (@code Calendar)
+     * @param fechaRecogida (@code Calendar)
      */
     public Libro(int numeroPaginas, String colorTapas, Calendar fechaSolicitud, String tipoRelieve, Calendar fechaImpresion, Calendar fechaRecogida) {
         super(fechaSolicitud, tipoRelieve, fechaImpresion, fechaRecogida);
@@ -48,7 +52,7 @@ public class Libro extends Trabajo {
         } catch (InvalidSurfaceException ex) {
             Logger.getLogger(Trabajo.class.getName()).log(Level.SEVERE, null, ex);
         }
-    }//Cierre del constructor
+    }
 
     /**
      * Inicializa un objeto {@code Libro} cuyas variables copia de otro objeto
@@ -60,11 +64,11 @@ public class Libro extends Trabajo {
         super(l);
         this.numeroPaginas = l.numeroPaginas;
         this.colorTapas = l.colorTapas;
-    }//Cierre del constructor
+    }
 
     @Override
     public String toString() {
         return super.toString() + "Libro{" + "numeroPaginas=" + numeroPaginas + ", colorTapas=" + colorTapas + '}';
     }
 
-}//Cierre de la clase
+}

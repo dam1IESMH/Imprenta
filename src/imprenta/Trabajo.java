@@ -11,7 +11,12 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 /**
- *
+  * La clase {@code Trabajo} es una clase padre de la que heredan (Rotulo,
+  * Poster y Libro). El trabajo tiene el atributo enum {@code tipoRelieve};
+ * el atributo entero (@code id); los Calendar {@code fechaSolicitud},
+ * {@code fechaImpresion}, {@code fechaRecogida}; y un boolean
+ * {@code valido}.
+ * 
  * @author Jose Daniel Buenaga
  */
 public class Trabajo implements Serializable {
@@ -38,18 +43,19 @@ public class Trabajo implements Serializable {
     }
 
     /**
-     * Constructor vacio
+     * Inicializa un objeto {@code Trabajo} con sus variables sin inicializar.
      */
     public Trabajo() {
     }
 
     /**
-     * Constructor para la clase Trabajo con todos los parámetros
+     * Inicializa un objeto {@code Trabajo} que inicializa sus variables con los
+     * parámetros pasados como argumento.
      *
-     * @param fechaSolicitud
-     * @param tipoRelieve
-     * @param fechaImpresion
-     * @param fechaRecogida
+     * @param fechaSolicitud (@code Calendar)
+     * @param tipoRelieve (@code enum)
+     * @param fechaImpresion (@code Calendar)
+     * @param fechaRecogida (@code Calendar)
      */
     public Trabajo(Calendar fechaSolicitud, String tipoRelieve, Calendar fechaImpresion, Calendar fechaRecogida) {
         try {
@@ -61,7 +67,7 @@ public class Trabajo implements Serializable {
         } catch (InvalidSurfaceException ex) {
             Logger.getLogger(Trabajo.class.getName()).log(Level.SEVERE, null, ex);
         }
-    }//Cierre del constructor
+    }
 
     /**
      * Inicializa un objeto {@code Trabajo} cuyas variables copia de otro objeto
@@ -75,12 +81,20 @@ public class Trabajo implements Serializable {
         this.Relieve = t.Relieve;
         this.fechaImpresion = t.fechaImpresion;
         this.fechaRecogida = t.fechaRecogida;
-    }//Cierre del constructor
+    }
 
+    /**
+     * Este método se utiliza para cambiar a apto un trabajo.
+     *
+     */
     public void valido() {
         this.valido = true;
     }
 
+    /**
+     * Este método se utiliza para poner que una impresión se ha llevado a cabo.
+     *
+     */
     public void imprimir() {
         this.impreso = true;
     }
@@ -90,5 +104,5 @@ public class Trabajo implements Serializable {
         return "Trabajo{" + "id=" + id + ", fechaSolicitud=" + fechaSolicitud + ", tipoRelieve=" + Relieve + ", fechaImpresion=" + fechaImpresion + ", fechaRecogida=" + fechaRecogida + '}';
     }
 
-}//Cierre de la clase
+}
 
