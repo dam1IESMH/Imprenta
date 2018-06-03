@@ -154,7 +154,7 @@ public class Validaciones {
      * Método para validar el color de las tapas de los libros
      *
      * @param colorTapas
-     * @return
+     * @return 
      */
     public static boolean validarColorTapas(String colorTapas) {
 

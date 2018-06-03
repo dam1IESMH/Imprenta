@@ -38,7 +38,7 @@ public class OImpresion extends Operario{
  */
 /**
  * Abertura del constructor de Objeto OImpresion extendido de Operario
- * @param oi 
+ * @param o 
  */ 
 
     public OImpresion(Operario o) {

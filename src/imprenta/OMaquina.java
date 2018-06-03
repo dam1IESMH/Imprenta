@@ -37,8 +37,8 @@ public class OMaquina extends Operario{
  * Cierre del constructor de parametros extendido de Operario
  */
 /**
- * Abertura del constructor de Objeto OMaquina extendido de Operario
- * @param om 
+ * Abertura del constructor de Objeto OMaquina extendido de Operario 
+     * @param o
  */    
     public OMaquina(Operario o) {
         super(o);
