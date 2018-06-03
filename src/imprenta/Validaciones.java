@@ -114,7 +114,7 @@ public class Validaciones {
      */
     public static boolean validarNIF(String nif) {
         boolean correcto;
-        Pattern pattern = Pattern.compile("(\\d{1,8})([TRWAGMYFPDXBNJZSQVHLCKEtrwagmyfpdxbnjzsqvhlcke])");
+        Pattern pattern = Pattern.compile("(\\d{8,8})([TRWAGMYFPDXBNJZSQVHLCKEtrwagmyfpdxbnjzsqvhlcke])");
         Matcher matcher = pattern.matcher(nif);
         if (matcher.matches()) {
             String letra = matcher.group(2);
