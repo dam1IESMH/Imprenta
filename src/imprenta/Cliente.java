@@ -16,8 +16,8 @@ import java.io.Serializable;
  */
 public class Cliente implements Serializable {
 
-    private String nombre; //validar
-    private String telefono; //validar
+    private String nombre; 
+    private String telefono; 
 
     /**
      * Inicializa un objeto {@code Cliente} con sus variables sin inicializar.
@@ -33,8 +33,12 @@ public class Cliente implements Serializable {
      * @param telefono {@code String}
      */
     public Cliente(String nombre, String telefono) {
+        if(Validaciones.validarNombre(nombre)){
         this.nombre = nombre;
-        this.telefono = telefono;
+        }
+        if(Validaciones.validarTlf(telefono)){
+            this.telefono = telefono;
+        }
     }
 
     /**

@@ -14,7 +14,7 @@ import java.util.logging.Logger;
  *
  * @author Jose Daniel Buenaga
  */
-public class Trabajo implements Serializable{
+public class Trabajo implements Serializable {
 
     enum tipoRelieve {
         FLEXOGRAFIA, TIPOGRAFIA, LITOGRAFIA
@@ -26,9 +26,9 @@ public class Trabajo implements Serializable{
     protected Calendar fechaRecogida;
     protected boolean valido;
     protected boolean impreso;
-    
-    protected static int auto_incrementado=0;
-    
+
+    protected static int auto_incrementado = 0;
+
     {
         auto_incrementado++;
     }
@@ -41,11 +41,11 @@ public class Trabajo implements Serializable{
 
     /**
      * Constructor para la clase Trabajo con todos los parámetros
-     * 
+     *
      * @param fechaSolicitud
      * @param tipoRelieve
      * @param fechaImpresion
-     * @param fechaRecogida 
+     * @param fechaRecogida
      */
     public Trabajo(Calendar fechaSolicitud, String tipoRelieve, Calendar fechaImpresion, Calendar fechaRecogida) {
         try {
@@ -62,10 +62,9 @@ public class Trabajo implements Serializable{
     /**
      * Inicializa un objeto {@code Trabajo} cuyas variables copia de otro objeto
      * Trabajo pasado como argumento
-     * 
-     * @param t {@code Trabajo} 
+     *
+     * @param t {@code Trabajo}
      */
-    
     public Trabajo(Trabajo t) {
         this.id = t.id;
         this.fechaSolicitud = t.fechaSolicitud;

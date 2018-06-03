@@ -13,7 +13,7 @@ import java.util.Calendar;
  */
 public class Poster extends Trabajo {
 
-    private int alto; 
+    private int alto;
     private int ancho;
     private int numeroCopias;
 
@@ -25,28 +25,31 @@ public class Poster extends Trabajo {
 
     /**
      * Constructor para la clase Trabajo con todos los parámetros
-     * 
+     *
      * @param alto
      * @param ancho
      * @param numeroCopias
-     * @param id
      * @param fechaSolicitud
      * @param tipoRelieve
      * @param fechaImpresion
-     * @param fechaRecogida 
+     * @param fechaRecogida
      */
     public Poster(int alto, int ancho, int numeroCopias, Calendar fechaSolicitud, String tipoRelieve, Calendar fechaImpresion, Calendar fechaRecogida) {
         super(fechaSolicitud, tipoRelieve, fechaImpresion, fechaRecogida);
-        this.alto = Validaciones.validarDimensiones(alto);
-        this.ancho = Validaciones.validarDimensiones(ancho);
-        this.numeroCopias = Validaciones.validarEntero(numeroCopias);
+        if ((Validaciones.validarDimensiones(alto)) && (Validaciones.validarDimensiones(ancho))) {
+            this.alto = alto;
+            this.ancho = ancho;
+        }
+        if (Validaciones.validarEntero(numeroCopias)) {
+            this.numeroCopias = numeroCopias;
+        }
     }//Cierre del constructor
-    
+
     /**
      * Inicializa un objeto {@code Poster} cuyas variables copia de otro objeto
      * Poster pasado como argumento
-     * 
-     * @param p {@code Poster} 
+     *
+     * @param p {@code Poster}
      */
     public Poster(Poster p) {
         super(p);

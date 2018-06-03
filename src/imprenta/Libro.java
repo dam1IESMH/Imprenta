@@ -15,33 +15,37 @@ import java.util.logging.Logger;
  */
 public class Libro extends Trabajo {
 
-    enum Tapas {ROJO,VERDE,AZUL,AMARILLO,BLANCO,NEGRO,MARRON, NARANJA
+    enum Tapas {
+        ROJO, VERDE, AZUL, AMARILLO, BLANCO, NEGRO, MARRON, NARANJA
     }
     private int numeroPaginas;
-    private Tapas colorTapas; 
+    private Tapas colorTapas;
 
-    /**Constructor vacio
-     * 
+    /**
+     * Constructor vacio
+     *
      */
     public Libro() {
     }//Cierre del constructor
 
     /**
      * Constructor para la clase Trabajo con todos los parámetros
-     * 
+     *
      * @param numeroPaginas
      * @param colorTapas
      * @param fechaSolicitud
      * @param tipoRelieve
      * @param fechaImpresion
-     * @param fechaRecogida 
+     * @param fechaRecogida
      */
     public Libro(int numeroPaginas, String colorTapas, Calendar fechaSolicitud, String tipoRelieve, Calendar fechaImpresion, Calendar fechaRecogida) {
         super(fechaSolicitud, tipoRelieve, fechaImpresion, fechaRecogida);
-        try{
-        this.numeroPaginas = Validaciones.validarEntero(numeroPaginas);
-        this.colorTapas = Validaciones.validarColorTapas(colorTapas);
-        } catch(InvalidSurfaceException ex) {
+        try {
+            if (Validaciones.validarEntero(numeroPaginas)) {
+                this.numeroPaginas = numeroPaginas;
+            }
+            this.colorTapas = Validaciones.validarColorTapas(colorTapas);
+        } catch (InvalidSurfaceException ex) {
             Logger.getLogger(Trabajo.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//Cierre del constructor
@@ -49,8 +53,8 @@ public class Libro extends Trabajo {
     /**
      * Inicializa un objeto {@code Libro} cuyas variables copia de otro objeto
      * Libro pasado como argumento
-     * 
-     * @param l {@code Libro} 
+     *
+     * @param l {@code Libro}
      */
     public Libro(Libro l) {
         super(l);
