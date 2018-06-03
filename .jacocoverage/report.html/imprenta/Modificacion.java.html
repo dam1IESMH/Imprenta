@@ -5,7 +5,9 @@
  */
 package imprenta;
 
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.GregorianCalendar;
 
 /**
  * La clase {@code Modificacion} maneja la información relacionada con las posibles
@@ -21,30 +23,38 @@ public class Modificacion {
             fechaAprobacion;
     private String descripcion;
     private boolean aprobadoCliente;
-
+    
+    private OImpresion operario;
+<span class="nc" id="L28">    private static int auto_increment = 0;</span>
+    
+    {
+<span class="nc" id="L31">        auto_increment++;</span>
+    }
+    
     /**
      * Inicializa un objeto {@code Modificacion} con sus variables sin inicializar.
      */
-<span class="fc" id="L28">    public Modificacion() {</span>
-<span class="fc" id="L29">    }</span>
+<span class="nc" id="L37">    public Modificacion() {</span>
+<span class="nc" id="L38">    }</span>
 
     /**
      * Inicializa un objeto {@code Modificacion} que inicializa sus variables con los
      * parámetros pasados como argumento.
      *
-     * @param id {@code int}
      * @param fecha {@code Calendar}
      * @param descripcion {@code String}
      * @param aprobadoCliente {@code boolean}
      * @param fechaAprobacion {@code Calendar}
+     * @param operario {@code OImpresion}
      */
-<span class="nc" id="L41">    public Modificacion(int id, Calendar fecha, String descripcion, boolean aprobadoCliente, Calendar fechaAprobacion) {</span>
-<span class="nc" id="L42">        this.id = id;</span>
-<span class="nc" id="L43">        this.fecha = fecha;</span>
-<span class="nc" id="L44">        this.descripcion = descripcion;</span>
-<span class="nc" id="L45">        this.aprobadoCliente = aprobadoCliente;</span>
-<span class="nc" id="L46">        this.fechaAprobacion = fechaAprobacion;</span>
-<span class="nc" id="L47">    }</span>
+<span class="nc" id="L50">    public Modificacion(Calendar fecha, String descripcion, boolean aprobadoCliente, Calendar fechaAprobacion, OImpresion operario) {</span>
+<span class="nc" id="L51">        this.id = auto_increment;</span>
+<span class="nc" id="L52">        this.fecha = fecha;</span>
+<span class="nc" id="L53">        this.descripcion = descripcion;</span>
+<span class="nc" id="L54">        this.aprobadoCliente = aprobadoCliente;</span>
+<span class="nc" id="L55">        this.fechaAprobacion = fechaAprobacion;</span>
+<span class="nc" id="L56">        this.operario = operario;</span>
+<span class="nc" id="L57">    }</span>
 
     /**
      * Inicializa un objeto {@code Modificacion} cuyas variables copia de otro objeto
@@ -52,17 +62,57 @@ public class Modificacion {
      *
      * @param m {@code Modificacion}
      */
-<span class="nc" id="L55">    public Modificacion(Modificacion m) {</span>
-<span class="nc" id="L56">        this.id = m.id;</span>
-<span class="nc" id="L57">        this.fecha = m.fecha;</span>
-<span class="nc" id="L58">        this.descripcion = m.descripcion;</span>
-<span class="nc" id="L59">        this.aprobadoCliente = m.aprobadoCliente;</span>
-<span class="nc" id="L60">        this.fechaAprobacion = m.fechaAprobacion;</span>
-<span class="nc" id="L61">    }</span>
+<span class="nc" id="L65">    public Modificacion(Modificacion m) {</span>
+<span class="nc" id="L66">        this.id = auto_increment;</span>
+<span class="nc" id="L67">        this.fecha = m.fecha;</span>
+<span class="nc" id="L68">        this.descripcion = m.descripcion;</span>
+<span class="nc" id="L69">        this.aprobadoCliente = m.aprobadoCliente;</span>
+<span class="nc" id="L70">        this.fechaAprobacion = m.fechaAprobacion;</span>
+<span class="nc" id="L71">        this.operario = m.operario;</span>
+<span class="nc" id="L72">    }</span>
 
+    public int getId() {
+<span class="nc" id="L75">        return id;</span>
+    }
+
+    public Calendar getFecha() {
+<span class="nc" id="L79">        return fecha;</span>
+    }
+
+    public Calendar getFechaAprobacion() {
+<span class="nc" id="L83">        return fechaAprobacion;</span>
+    }
+
+    public String getDescripcion() {
+<span class="nc" id="L87">        return descripcion;</span>
+    }
+
+    public boolean isAprobadoCliente() {
+<span class="nc" id="L91">        return aprobadoCliente;</span>
+    }
+
+    public OImpresion getOperario() {
+<span class="nc" id="L95">        return operario;</span>
+    }
+
+    public void aprobar() {
+<span class="nc" id="L99">        aprobadoCliente = true;</span>
+<span class="nc" id="L100">        fechaAprobacion = new GregorianCalendar();</span>
+<span class="nc" id="L101">    }</span>
+    
+    public String printFecha() {
+<span class="nc" id="L104">        SimpleDateFormat sdf = new SimpleDateFormat(&quot;dd/MM/AAAA HH:mm:ss&quot;);</span>
+<span class="nc" id="L105">        return sdf.format(fecha);</span>
+    }
+    
+    public String printFechaAprobacion() {
+<span class="nc" id="L109">        SimpleDateFormat sdf = new SimpleDateFormat(&quot;dd/MM/AAAA HH:mm:ss&quot;);</span>
+<span class="nc" id="L110">        return sdf.format(fechaAprobacion);</span>
+    }
+    
     @Override
     public String toString() {
-<span class="fc" id="L65">        return &quot;Modificacion{&quot; + &quot;id=&quot; + id + &quot;, fecha=&quot; + fecha + &quot;, fechaAprobacion=&quot; + fechaAprobacion + &quot;, descripcion=&quot; + descripcion + &quot;, aprobadoCliente=&quot; + aprobadoCliente + '}';</span>
+<span class="nc" id="L115">        return &quot;Modificacion{&quot; + &quot;id=&quot; + id + &quot;, fecha=&quot; + fecha + &quot;, fechaAprobacion=&quot; + fechaAprobacion + &quot;, descripcion=&quot; + descripcion + &quot;, aprobadoCliente=&quot; + aprobadoCliente + '}';</span>
     }
     
 }

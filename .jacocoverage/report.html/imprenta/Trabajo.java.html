@@ -5,13 +5,105 @@
  */
 package imprenta;
 
+import java.io.Serializable;
+import java.util.Calendar;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
- *
- * @author usuario
+  * La clase {@code Trabajo} es una clase padre de la que heredan (Rotulo,
+  * Poster y Libro). El trabajo tiene el atributo enum {@code tipoRelieve};
+ * el atributo entero (@code id); los Calendar {@code fechaSolicitud},
+ * {@code fechaImpresion}, {@code fechaRecogida}; y un boolean
+ * {@code valido}.
+ * 
+ * @author Jose Daniel Buenaga
  */
-<span class="nc" id="L13">public class Trabajo {</span>
-    
+public class Trabajo implements Serializable {
+
+<span class="nc" id="L24">    enum tipoRelieve {</span>
+<span class="nc" id="L25">        FLEXOGRAFIA, TIPOGRAFIA, LITOGRAFIA</span>
+    }
+    protected int id;
+    protected Calendar fechaSolicitud;
+    protected tipoRelieve Relieve;
+    protected Calendar fechaImpresion;
+    protected Calendar fechaRecogida;
+    protected boolean valido;
+    protected boolean impreso;
+
+<span class="nc" id="L35">    protected static int auto_incrementado = 0;</span>
+
+    {
+<span class="nc" id="L38">        auto_incrementado++;</span>
+    }
+
+    {
+<span class="nc" id="L42">        fechaSolicitud.setLenient(false);</span>
+    }
+
+    /**
+     * Inicializa un objeto {@code Trabajo} con sus variables sin inicializar.
+     */
+<span class="nc" id="L48">    public Trabajo() {</span>
+<span class="nc" id="L49">    }</span>
+
+    /**
+     * Inicializa un objeto {@code Trabajo} que inicializa sus variables con los
+     * parámetros pasados como argumento.
+     *
+     * @param fechaSolicitud (@code Calendar)
+     * @param tipoRelieve (@code enum)
+     * @param fechaImpresion (@code Calendar)
+     * @param fechaRecogida (@code Calendar)
+     */
+<span class="nc" id="L60">    public Trabajo(Calendar fechaSolicitud, String tipoRelieve, Calendar fechaImpresion, Calendar fechaRecogida) {</span>
+        try {
+<span class="nc" id="L62">            this.id = auto_incrementado;</span>
+<span class="nc" id="L63">            this.fechaSolicitud = fechaSolicitud;</span>
+<span class="nc" id="L64">            this.Relieve = Validaciones.validarTipoRelieve(tipoRelieve);</span>
+<span class="nc" id="L65">            this.fechaImpresion = fechaImpresion;</span>
+<span class="nc" id="L66">            this.fechaRecogida = fechaRecogida;</span>
+<span class="nc" id="L67">        } catch (InvalidSurfaceException ex) {</span>
+<span class="nc" id="L68">            Logger.getLogger(Trabajo.class.getName()).log(Level.SEVERE, null, ex);</span>
+<span class="nc" id="L69">        }</span>
+<span class="nc" id="L70">    }</span>
+
+    /**
+     * Inicializa un objeto {@code Trabajo} cuyas variables copia de otro objeto
+     * Trabajo pasado como argumento
+     *
+     * @param t {@code Trabajo}
+     */
+<span class="nc" id="L78">    public Trabajo(Trabajo t) {</span>
+<span class="nc" id="L79">        this.id = t.id;</span>
+<span class="nc" id="L80">        this.fechaSolicitud = t.fechaSolicitud;</span>
+<span class="nc" id="L81">        this.Relieve = t.Relieve;</span>
+<span class="nc" id="L82">        this.fechaImpresion = t.fechaImpresion;</span>
+<span class="nc" id="L83">        this.fechaRecogida = t.fechaRecogida;</span>
+<span class="nc" id="L84">    }</span>
+
+    /**
+     * Este método se utiliza para cambiar a apto un trabajo.
+     *
+     */
+    public void valido() {
+<span class="nc" id="L91">        this.valido = true;</span>
+<span class="nc" id="L92">    }</span>
+
+    /**
+     * Este método se utiliza para poner que una impresión se ha llevado a cabo.
+     *
+     */
+    public void imprimir() {
+<span class="nc" id="L99">        this.impreso = true;</span>
+<span class="nc" id="L100">    }</span>
+
+    @Override
+    public String toString() {
+<span class="nc" id="L104">        return &quot;Trabajo{&quot; + &quot;id=&quot; + id + &quot;, fechaSolicitud=&quot; + fechaSolicitud + &quot;, tipoRelieve=&quot; + Relieve + &quot;, fechaImpresion=&quot; + fechaImpresion + &quot;, fechaRecogida=&quot; + fechaRecogida + '}';</span>
+    }
 
 }
+
 </pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.6.201602180812</span></div></body></html>

@@ -5,13 +5,57 @@
  */
 package imprenta;
 
+import java.util.Calendar;
 
 /**
- *
- * @author usuario
+ * La clase {@code Rotulo} es una clase que hereda de (@code Trabajo). 
+ * El rotulo tiene los atributos heredados de Trabajo y además contiene el 
+ * atributo String (@code centroComercial).
+ * 
+ * @author Jose Daniel Buenaga
  */
-<span class="nc" id="L13">public class Rotulo extends Trabajo{</span>
-    
+public class Rotulo extends Trabajo {
+
+    private String centroComercial;
+
+    /**
+     * Inicializa un objeto {@code Rotulo} con sus variables sin inicializar.
+     */
+<span class="nc" id="L24">    public Rotulo() {</span>
+<span class="nc" id="L25">    }</span>
+
+    /**
+     * Inicializa un objeto {@code Rotulo} que inicializa sus variables con los
+     * parámetros pasados como argumento.
+     *
+     * @param centroComercial (@code String)
+     * @param fechaSolicitud (@code Calendar)
+     * @param tipoRelieve (@code enum)
+     * @param fechaImpresion (@code Calendar)
+     * @param fechaRecogida (@code Calendar)
+     */
+    public Rotulo(String centroComercial, Calendar fechaSolicitud, String tipoRelieve, Calendar fechaImpresion, Calendar fechaRecogida) {
+<span class="nc" id="L38">        super(fechaSolicitud, tipoRelieve, fechaImpresion, fechaRecogida);</span>
+<span class="nc bnc" id="L39" title="All 2 branches missed.">        if (Validaciones.validarNombre(centroComercial)) {</span>
+<span class="nc" id="L40">            this.centroComercial = centroComercial;</span>
+        }
+<span class="nc" id="L42">    }</span>
+
+    /**
+     * Inicializa un objeto {@code Rotulo} cuyas variables copia de otro objeto
+     * Rotulo pasado como argumento
+     *
+     * @param r {@code Rotulo}
+     */
+    public Rotulo(Rotulo r) {
+<span class="nc" id="L51">        super(r);</span>
+<span class="nc" id="L52">        this.centroComercial = r.centroComercial;</span>
+<span class="nc" id="L53">    }</span>
+
+    @Override
+    public String toString() {
+<span class="nc" id="L57">        return super.toString() + &quot;Rotulo{&quot; + &quot;centroComercial=&quot; + centroComercial + '}';</span>
+    }
 
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.6.201602180812</span></div></body></html>

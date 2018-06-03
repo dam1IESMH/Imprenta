@@ -6,20 +6,18 @@
 package imprenta;
 
 import java.util.Calendar;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 /**
- * La clase {@code Libro} es una clase que hereda de (@code Trabajo). 
- * El rotulo tiene los atributos heredados de Trabajo y además contiene el
- * atributo enumerado (@code Tapas) y el entero (@code numeroPaginas); 
- * 
+ * La clase {@code Libro} es una clase que hereda de (@code Trabajo). El rotulo
+ * tiene los atributos heredados de Trabajo y además contiene el atributo
+ * enumerado (@code Tapas) y el entero (@code numeroPaginas);
+ *
  * @author Jose Daniel Buenaga
  */
 public class Libro extends Trabajo {
 
     enum Tapas {
-        ROJO, VERDE, AZUL, AMARILLO, BLANCO, NEGRO, MARRON, NARANJA
+        ROJO, VERDE, AZUL, BLANCO, NEGRO, MARRON
     }
     private int numeroPaginas;
     private Tapas colorTapas;
@@ -36,18 +34,30 @@ public class Libro extends Trabajo {
      * parámetros pasados como argumento.
      *
      * @param numeroPaginas (@code int)
-     * @param colorTapas (@code enum)
+     * @param Tapas (@code String)
      * @param fechaSolicitud (@code Calendar)
      * @param tipoRelieve (@code enum)
      * @param fechaImpresion (@code Calendar)
      * @param fechaRecogida (@code Calendar)
      */
-    public Libro(int numeroPaginas, String colorTapas, Calendar fechaSolicitud, String tipoRelieve, Calendar fechaImpresion, Calendar fechaRecogida) {
+    public Libro(int numeroPaginas, String Tapas, Calendar fechaSolicitud, String tipoRelieve, Calendar fechaImpresion, Calendar fechaRecogida) {
         super(fechaSolicitud, tipoRelieve, fechaImpresion, fechaRecogida);
         if (Validaciones.validarEntero(numeroPaginas)) {
             this.numeroPaginas = numeroPaginas;
         }
-//            this.colorTapas = Validaciones.validarColorTapas(colorTapas);
+        if (Tapas.equalsIgnoreCase("ROJO")) {
+            colorTapas = colorTapas.ROJO;
+        } else if (Tapas.equalsIgnoreCase("VERDE")) {
+            colorTapas = colorTapas.VERDE;
+        } else if (Tapas.equalsIgnoreCase("AZUL")) {
+            colorTapas = colorTapas.AZUL;
+        } else if (Tapas.equalsIgnoreCase("BLANCO")) {
+            colorTapas = colorTapas.BLANCO;
+        } else if (Tapas.equalsIgnoreCase("NEGRO")) {
+            colorTapas = colorTapas.NEGRO;
+        } else if (Tapas.equalsIgnoreCase("MARRON")) {
+            colorTapas = colorTapas.MARRON;
+        }
     }
 
     /**

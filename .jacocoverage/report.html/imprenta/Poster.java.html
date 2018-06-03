@@ -5,13 +5,67 @@
  */
 package imprenta;
 
+import java.util.Calendar;
 
 /**
- *
- * @author usuario
+ * La clase {@code Poster} es una clase que hereda de (@code Trabajo). 
+ * El rotulo tiene los atributos heredados de Trabajo y además contiene los
+ * atributos enteros (@code alto), (@code ancho), (@code numeroCopias).
+ * 
+ * @author Jose Daniel Buenaga
  */
-<span class="nc" id="L13">public class Poster extends Trabajo{</span>
-    
+public class Poster extends Trabajo {
+
+    private int alto;
+    private int ancho;
+    private int numeroCopias;
+
+    /**
+     * Inicializa un objeto {@code Poster} con sus variables sin inicializar.
+     */
+<span class="nc" id="L26">    public Poster() {</span>
+<span class="nc" id="L27">    }</span>
+
+    /**
+     * Inicializa un objeto {@code Poster} que inicializa sus variables con los
+     * parámetros pasados como argumento.
+     *
+     * @param alto (@code int)
+     * @param ancho (@code int)
+     * @param numeroCopias (@code int)
+     * @param fechaSolicitud (@code Calendar)
+     * @param tipoRelieve (@code enum)
+     * @param fechaImpresion (@code Calendar)
+     * @param fechaRecogida (@code Calendar)
+     */
+    public Poster(int alto, int ancho, int numeroCopias, Calendar fechaSolicitud, String tipoRelieve, Calendar fechaImpresion, Calendar fechaRecogida) {
+<span class="nc" id="L42">        super(fechaSolicitud, tipoRelieve, fechaImpresion, fechaRecogida);</span>
+<span class="nc bnc" id="L43" title="All 4 branches missed.">        if ((Validaciones.validarDimensiones(alto)) &amp;&amp; (Validaciones.validarDimensiones(ancho))) {</span>
+<span class="nc" id="L44">            this.alto = alto;</span>
+<span class="nc" id="L45">            this.ancho = ancho;</span>
+        }
+<span class="nc bnc" id="L47" title="All 2 branches missed.">        if (Validaciones.validarEntero(numeroCopias)) {</span>
+<span class="nc" id="L48">            this.numeroCopias = numeroCopias;</span>
+        }
+<span class="nc" id="L50">    }</span>
+
+    /**
+     * Inicializa un objeto {@code Poster} cuyas variables copia de otro objeto
+     * Poster pasado como argumento
+     *
+     * @param p {@code Poster}
+     */
+    public Poster(Poster p) {
+<span class="nc" id="L59">        super(p);</span>
+<span class="nc" id="L60">        this.alto = p.alto;</span>
+<span class="nc" id="L61">        this.ancho = p.ancho;</span>
+<span class="nc" id="L62">        this.numeroCopias = p.numeroCopias;</span>
+<span class="nc" id="L63">    }</span>
+
+    @Override
+    public String toString() {
+<span class="nc" id="L67">        return super.toString() + &quot;Poster{&quot; + &quot;alto=&quot; + alto + &quot;, ancho=&quot; + ancho + &quot;, numeroCopias=&quot; + numeroCopias + '}';</span>
+    }
 
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.6.201602180812</span></div></body></html>

@@ -5,11 +5,69 @@
  */
 package imprenta;
 
+import java.util.Calendar;
+
 /**
  *
  * @author usuario
  */
-<span class="nc" id="L12">public class Reparacion {</span>
+public class Reparacion {
+    
+/**
+ * Atributos de Reparacion
+ */
+    
+    private int id;
+    private Calendar fecha;
+    private String descripcion;
+    
+<span class="nc" id="L24">    private static int auto_incrementado=0;</span>
+    
+    {
+<span class="nc" id="L27">        auto_incrementado++;</span>
+    }
+
+<span class="nc" id="L30">    public Reparacion() {</span>
+        
+<span class="nc" id="L32">    }</span>
+    
+    
+/**
+ * Abertura del constructor de parametros
+ * @param id
+ * @param fecha
+ * @param descripcion
+ */ 
+<span class="nc" id="L41">    public Reparacion(int id, Calendar fecha, String descripcion) {</span>
+<span class="nc" id="L42">        this.id = auto_incrementado;</span>
+<span class="nc" id="L43">        this.fecha = fecha;</span>
+<span class="nc bnc" id="L44" title="All 2 branches missed.">        if(Validaciones.validarDescripcion(descripcion)){</span>
+<span class="nc" id="L45">        this.descripcion = descripcion;</span>
+        }
+<span class="nc" id="L47">    }</span>
+/**
+ * Cierre del constructor vacio
+ */  
+  
+/**
+ * Abertura de constructor de Objeto Reparacion
+ * @param r 
+ */    
+<span class="nc" id="L56">    public Reparacion(Reparacion r) {</span>
+<span class="nc" id="L57">        this.id = r.id;</span>
+<span class="nc" id="L58">        this.fecha = r.fecha;</span>
+<span class="nc" id="L59">        this.descripcion = r.descripcion;</span>
+<span class="nc" id="L60">    }</span>
+/**
+ * Cierre del constructor de Objeto Reparacion
+ */    
+/**
+ * Inicio del to String 
+ */
+    @Override
+    public String toString() {
+<span class="nc" id="L69">        return &quot;Reparacion{&quot; + &quot;id=&quot; + id + &quot;, fecha=&quot; + fecha + &quot;, descripcion=&quot; + descripcion + '}';</span>
+    }
     
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.6.201602180812</span></div></body></html>

@@ -9,7 +9,41 @@ package imprenta;
  *
  * @author usuario
  */
-<span class="nc" id="L12">public class OImpresion extends Operario{</span>
-    
+public class OImpresion extends Operario{
+/**
+ * Abertura de constructor vacio
+ */
+    public OImpresion() {
+<span class="nc" id="L17">        super();</span>
+<span class="nc" id="L18">    }</span>
+/**
+ * Cierre del constructor vacio extendido de Operario
+ */
+/**
+ * Abertura del constructor de parametros extendido en Operario
+ * @param NIF
+ * @param nombre
+ * @param apellidos
+ * @param telefono
+ * @param direccion
+ * @param senior 
+ */  
+    public OImpresion(String NIF, String nombre, String apellidos, String telefono, String direccion, boolean senior) {
+<span class="nc" id="L32">        super(NIF, nombre, apellidos, telefono, direccion, senior);</span>
+<span class="nc" id="L33">    }</span>
+/**
+ * Cierre del constructor de parametros extendido de Operario
+ */
+/**
+ * Abertura del constructor de Objeto OImpresion extendido de Operario
+ * @param oi 
+ */ 
+
+    public OImpresion(Operario o) {
+<span class="fc" id="L43">        super(o);</span>
+<span class="fc" id="L44">    }</span>
+/**
+ * Cierre del constructor de Objeto OImpresion extendido de Operario
+ */    
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.6.201602180812</span></div></body></html>
