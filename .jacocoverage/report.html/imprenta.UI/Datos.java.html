@@ -1,0 +1,238 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="es"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../.resources/report.css" type="text/css"/><link rel="shortcut icon" href="../.resources/report.gif" type="image/gif"/><title>Datos.java</title><link rel="stylesheet" href="../.resources/prettify.css" type="text/css"/><script type="text/javascript" src="../.resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../.sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">JaCoCoverage analysis of project &quot;Imprenta&quot; (powered by JaCoCo from EclEmma)</a> &gt; <a href="index.source.html" class="el_package">imprenta.UI</a> &gt; <span class="el_source">Datos.java</span></div><h1>Datos.java</h1><pre class="source lang-java linenums">/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package imprenta.UI;
+
+import imprenta.*;
+import java.io.EOFException;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
+import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
+/**
+ *
+ * @author Sergio Amor Gutiérrez
+ */
+<span class="nc" id="L25">public class Datos {</span>
+
+<span class="fc" id="L27">    static ArrayList&lt;Cliente&gt; clientes = new ArrayList&lt;&gt;();</span>
+<span class="fc" id="L28">    static ArrayList&lt;Operario&gt; operarios = new ArrayList&lt;&gt;();</span>
+<span class="fc" id="L29">    static ArrayList&lt;Trabajo&gt; trabajos = new ArrayList&lt;&gt;();</span>
+<span class="fc" id="L30">    static ArrayList&lt;Modificacion&gt; modificaciones = new ArrayList&lt;&gt;();</span>
+<span class="fc" id="L31">    static ArrayList&lt;Maquina&gt; maquinas = new ArrayList&lt;&gt;();</span>
+    static Operario opActual;
+    static Cliente cliActual;
+
+<span class="fc" id="L35">    static File storedOperarios = new File(&quot;operarios.dat&quot;),</span>
+<span class="fc" id="L36">            storedClientes = new File(&quot;clientes.dat&quot;),</span>
+<span class="fc" id="L37">            storedTrabajos = new File(&quot;trabajos.dat&quot;),</span>
+<span class="fc" id="L38">            storedMaquinas = new File(&quot;maquinas.dat&quot;);</span>
+
+    static void cargarOperarios() {
+<span class="fc" id="L41">        ObjectInputStream ois = null;</span>
+        try {
+<span class="fc" id="L43">            ois = new ObjectInputStream(new FileInputStream(storedOperarios));</span>
+<span class="fc" id="L44">            operarios.clear();</span>
+            while (true) {
+<span class="fc" id="L46">                operarios.add((Operario) ois.readObject());</span>
+            }
+<span class="fc" id="L48">        } catch (EOFException eof) {</span>
+            
+<span class="nc" id="L50">        } catch (FileNotFoundException ex) {</span>
+<span class="nc" id="L51">            Logger.getLogger(Datos.class.getName()).log(Level.SEVERE, null, ex);</span>
+<span class="nc" id="L52">        } catch (IOException | ClassNotFoundException ex) {</span>
+<span class="nc" id="L53">            Logger.getLogger(Datos.class.getName()).log(Level.SEVERE, null, ex);</span>
+        } finally {
+<span class="nc" id="L55">            try {</span>
+<span class="pc bpc" id="L56" title="7 of 8 branches missed.">                if (ois != null) {</span>
+<span class="pc" id="L57">                    ois.close();</span>
+                }
+<span class="nc" id="L59">            } catch (IOException ex) {</span>
+<span class="nc" id="L60">                Logger.getLogger(Datos.class.getName()).log(Level.SEVERE, null, ex);</span>
+<span class="pc" id="L61">            }</span>
+<span class="nc" id="L62">        }</span>
+<span class="fc" id="L63">    }</span>
+    
+    static void cargarClientes() {
+<span class="fc" id="L66">        ObjectInputStream ois = null;</span>
+        try {
+<span class="fc" id="L68">            ois = new ObjectInputStream(new FileInputStream(storedClientes));</span>
+<span class="fc" id="L69">            clientes.clear();</span>
+            while (true) {
+<span class="fc" id="L71">                clientes.add((Cliente) ois.readObject());</span>
+            }
+<span class="fc" id="L73">        } catch (EOFException eof) {</span>
+            
+<span class="nc" id="L75">        } catch (FileNotFoundException ex) {</span>
+<span class="nc" id="L76">            Logger.getLogger(Datos.class.getName()).log(Level.SEVERE, null, ex);</span>
+<span class="nc" id="L77">        } catch (IOException | ClassNotFoundException ex) {</span>
+<span class="nc" id="L78">            Logger.getLogger(Datos.class.getName()).log(Level.SEVERE, null, ex);</span>
+        } finally {
+<span class="nc" id="L80">            try {</span>
+<span class="pc bpc" id="L81" title="7 of 8 branches missed.">                if (ois != null) {</span>
+<span class="pc" id="L82">                    ois.close();</span>
+                }
+<span class="nc" id="L84">            } catch (IOException ex) {</span>
+<span class="nc" id="L85">                Logger.getLogger(Datos.class.getName()).log(Level.SEVERE, null, ex);</span>
+<span class="pc" id="L86">            }</span>
+<span class="nc" id="L87">        }</span>
+<span class="fc" id="L88">    }</span>
+    
+    static void cargarTrabajos() {
+<span class="fc" id="L91">        ObjectInputStream ois = null;</span>
+<span class="fc" id="L92">        int maxAuto = 0;</span>
+        try {
+<span class="fc" id="L94">            ois = new ObjectInputStream(new FileInputStream(storedTrabajos));</span>
+<span class="fc" id="L95">            trabajos.clear();</span>
+            while (true) {
+<span class="fc" id="L97">                Trabajo t = (Trabajo) ois.readObject();</span>
+<span class="fc" id="L98">                trabajos.add(t);</span>
+<span class="pc bpc" id="L99" title="1 of 2 branches missed.">                if (t.getId()&gt;maxAuto) {</span>
+<span class="fc" id="L100">                    maxAuto = t.getId();</span>
+                }
+<span class="fc" id="L102">            }</span>
+<span class="fc" id="L103">        } catch (EOFException eof) {</span>
+<span class="fc" id="L104">            Trabajo.setAuto_incrementado(maxAuto);</span>
+<span class="nc" id="L105">        } catch (FileNotFoundException ex) {</span>
+<span class="nc" id="L106">            Logger.getLogger(Datos.class.getName()).log(Level.SEVERE, null, ex);</span>
+<span class="nc" id="L107">        } catch (IOException | ClassNotFoundException ex) {</span>
+<span class="nc" id="L108">            Logger.getLogger(Datos.class.getName()).log(Level.SEVERE, null, ex);</span>
+        } finally {
+<span class="nc" id="L110">            try {</span>
+<span class="pc bpc" id="L111" title="7 of 8 branches missed.">                if (ois != null) {</span>
+<span class="pc" id="L112">                    ois.close();</span>
+                }
+<span class="nc" id="L114">            } catch (IOException ex) {</span>
+<span class="nc" id="L115">                Logger.getLogger(Datos.class.getName()).log(Level.SEVERE, null, ex);</span>
+<span class="pc" id="L116">            }</span>
+<span class="nc" id="L117">        }</span>
+<span class="fc" id="L118">    }</span>
+    
+    static void cargarMaquinas() {
+<span class="fc" id="L121">        ObjectInputStream ois = null;</span>
+<span class="fc" id="L122">        int maxAuto = 0;</span>
+        try {
+<span class="fc" id="L124">            ois = new ObjectInputStream(new FileInputStream(storedMaquinas));</span>
+<span class="fc" id="L125">            maquinas.clear();</span>
+            while (true) {
+<span class="fc" id="L127">                Maquina m = (Maquina) ois.readObject();</span>
+<span class="fc" id="L128">                maquinas.add(m);</span>
+<span class="pc bpc" id="L129" title="1 of 2 branches missed.">                if (m.getId()&gt;maxAuto) {</span>
+<span class="fc" id="L130">                    maxAuto = m.getId();</span>
+                }
+<span class="fc" id="L132">            }</span>
+<span class="fc" id="L133">        } catch (EOFException eof) {</span>
+<span class="fc" id="L134">            Maquina.setAuto_increment(maxAuto);</span>
+<span class="nc" id="L135">        } catch (FileNotFoundException ex) {</span>
+<span class="nc" id="L136">            Logger.getLogger(Datos.class.getName()).log(Level.SEVERE, null, ex);</span>
+<span class="nc" id="L137">        } catch (IOException | ClassNotFoundException ex) {</span>
+<span class="nc" id="L138">            Logger.getLogger(Datos.class.getName()).log(Level.SEVERE, null, ex);</span>
+        } finally {
+<span class="nc" id="L140">            try {</span>
+<span class="pc bpc" id="L141" title="7 of 8 branches missed.">                if (ois != null) {</span>
+<span class="pc" id="L142">                    ois.close();</span>
+                }
+<span class="nc" id="L144">            } catch (IOException ex) {</span>
+<span class="nc" id="L145">                Logger.getLogger(Datos.class.getName()).log(Level.SEVERE, null, ex);</span>
+<span class="pc" id="L146">            }</span>
+<span class="nc" id="L147">        }</span>
+<span class="fc" id="L148">    }</span>
+
+    static void guardarOperarios() {
+<span class="nc" id="L151">        ObjectOutputStream oos = null;</span>
+        try {
+<span class="nc" id="L153">            oos = new ObjectOutputStream(new FileOutputStream(storedOperarios));</span>
+<span class="nc bnc" id="L154" title="All 2 branches missed.">            for (Operario o : operarios) {</span>
+<span class="nc" id="L155">                oos.writeObject(o);</span>
+<span class="nc" id="L156">            }</span>
+<span class="nc" id="L157">        } catch (FileNotFoundException ex) {</span>
+<span class="nc" id="L158">            Logger.getLogger(Datos.class.getName()).log(Level.SEVERE, null, ex);</span>
+<span class="nc" id="L159">        } catch (IOException ex) {</span>
+<span class="nc" id="L160">            Logger.getLogger(Datos.class.getName()).log(Level.SEVERE, null, ex);</span>
+        } finally {
+<span class="nc" id="L162">            try {</span>
+<span class="nc bnc" id="L163" title="All 8 branches missed.">                if (oos != null) {</span>
+<span class="nc" id="L164">                    oos.close();</span>
+                }
+<span class="nc" id="L166">            } catch (IOException ex) {</span>
+<span class="nc" id="L167">                Logger.getLogger(Datos.class.getName()).log(Level.SEVERE, null, ex);</span>
+<span class="nc" id="L168">            }</span>
+<span class="nc" id="L169">        }</span>
+<span class="nc" id="L170">    }</span>
+    
+    static void guardarClientes() {
+<span class="fc" id="L173">        ObjectOutputStream oos = null;</span>
+        try {
+<span class="fc" id="L175">            oos = new ObjectOutputStream(new FileOutputStream(storedClientes));</span>
+<span class="fc bfc" id="L176" title="All 2 branches covered.">            for (Cliente c : clientes) {</span>
+<span class="fc" id="L177">                oos.writeObject(c);</span>
+<span class="fc" id="L178">            }</span>
+<span class="nc" id="L179">        } catch (FileNotFoundException ex) {</span>
+<span class="nc" id="L180">            Logger.getLogger(Datos.class.getName()).log(Level.SEVERE, null, ex);</span>
+<span class="nc" id="L181">        } catch (IOException ex) {</span>
+<span class="nc" id="L182">            Logger.getLogger(Datos.class.getName()).log(Level.SEVERE, null, ex);</span>
+        } finally {
+<span class="nc" id="L184">            try {</span>
+<span class="pc bpc" id="L185" title="7 of 8 branches missed.">                if (oos != null) {</span>
+<span class="pc" id="L186">                    oos.close();</span>
+                }
+<span class="nc" id="L188">            } catch (IOException ex) {</span>
+<span class="nc" id="L189">                Logger.getLogger(Datos.class.getName()).log(Level.SEVERE, null, ex);</span>
+<span class="pc" id="L190">            }</span>
+<span class="nc" id="L191">        }</span>
+<span class="fc" id="L192">    }</span>
+    
+    static void guardarTrabajos() {
+<span class="fc" id="L195">        ObjectOutputStream oos = null;</span>
+        try {
+<span class="fc" id="L197">            oos = new ObjectOutputStream(new FileOutputStream(storedTrabajos));</span>
+<span class="fc bfc" id="L198" title="All 2 branches covered.">            for (Trabajo t : trabajos) {</span>
+<span class="fc" id="L199">                oos.writeObject(t);</span>
+<span class="fc" id="L200">            }</span>
+<span class="nc" id="L201">        } catch (FileNotFoundException ex) {</span>
+<span class="nc" id="L202">            Logger.getLogger(Datos.class.getName()).log(Level.SEVERE, null, ex);</span>
+<span class="nc" id="L203">        } catch (IOException ex) {</span>
+<span class="nc" id="L204">            Logger.getLogger(Datos.class.getName()).log(Level.SEVERE, null, ex);</span>
+        } finally {
+<span class="nc" id="L206">            try {</span>
+<span class="pc bpc" id="L207" title="7 of 8 branches missed.">                if (oos != null) {</span>
+<span class="pc" id="L208">                    oos.close();</span>
+                }
+<span class="nc" id="L210">            } catch (IOException ex) {</span>
+<span class="nc" id="L211">                Logger.getLogger(Datos.class.getName()).log(Level.SEVERE, null, ex);</span>
+<span class="pc" id="L212">            }</span>
+<span class="nc" id="L213">        }</span>
+<span class="fc" id="L214">    }</span>
+    
+    static void guardarMaquinas() {
+<span class="fc" id="L217">        ObjectOutputStream oos = null;</span>
+        try {
+<span class="fc" id="L219">            oos = new ObjectOutputStream(new FileOutputStream(storedMaquinas));</span>
+<span class="fc bfc" id="L220" title="All 2 branches covered.">            for (Maquina m: maquinas) {</span>
+<span class="fc" id="L221">                oos.writeObject(m);</span>
+<span class="fc" id="L222">            }</span>
+<span class="nc" id="L223">        } catch (FileNotFoundException ex) {</span>
+<span class="nc" id="L224">            Logger.getLogger(Datos.class.getName()).log(Level.SEVERE, null, ex);</span>
+<span class="nc" id="L225">        } catch (IOException ex) {</span>
+<span class="nc" id="L226">            Logger.getLogger(Datos.class.getName()).log(Level.SEVERE, null, ex);</span>
+        } finally {
+<span class="nc" id="L228">            try {</span>
+<span class="pc bpc" id="L229" title="7 of 8 branches missed.">                if (oos != null) {</span>
+<span class="pc" id="L230">                    oos.close();</span>
+                }
+<span class="nc" id="L232">            } catch (IOException ex) {</span>
+<span class="nc" id="L233">                Logger.getLogger(Datos.class.getName()).log(Level.SEVERE, null, ex);</span>
+<span class="pc" id="L234">            }</span>
+<span class="nc" id="L235">        }</span>
+<span class="fc" id="L236">    }</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.6.201602180812</span></div></body></html>
