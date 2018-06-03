@@ -5,13 +5,71 @@
  */
 package imprenta;
 
+import java.util.Calendar;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
- *
- * @author usuario
+ * La clase {@code Libro} es una clase que hereda de (@code Trabajo). 
+ * El rotulo tiene los atributos heredados de Trabajo y además contiene el
+ * atributo enumerado (@code Tapas) y el entero (@code numeroPaginas); 
+ * 
+ * @author Jose Daniel Buenaga
  */
-<span class="nc" id="L13">public class Libro extends Trabajo{</span>
-    
-    
+public class Libro extends Trabajo {
+
+<span class="nc" id="L21">    enum Tapas {</span>
+<span class="nc" id="L22">        ROJO, VERDE, AZUL, AMARILLO, BLANCO, NEGRO, MARRON, NARANJA</span>
+    }
+    private int numeroPaginas;
+    private Tapas colorTapas;
+
+    /**
+     * Inicializa un objeto {@code Libro} con sus variables sin inicializar.
+     *
+     */
+<span class="nc" id="L31">    public Libro() {</span>
+<span class="nc" id="L32">    }</span>
+
+    /**
+     * Inicializa un objeto {@code Libro} que inicializa sus variables con los
+     * parámetros pasados como argumento.
+     *
+     * @param numeroPaginas (@code int)
+     * @param colorTapas (@code enum)
+     * @param fechaSolicitud (@code Calendar)
+     * @param tipoRelieve (@code enum)
+     * @param fechaImpresion (@code Calendar)
+     * @param fechaRecogida (@code Calendar)
+     */
+    public Libro(int numeroPaginas, String colorTapas, Calendar fechaSolicitud, String tipoRelieve, Calendar fechaImpresion, Calendar fechaRecogida) {
+<span class="nc" id="L46">        super(fechaSolicitud, tipoRelieve, fechaImpresion, fechaRecogida);</span>
+        try {
+<span class="nc bnc" id="L48" title="All 2 branches missed.">            if (Validaciones.validarEntero(numeroPaginas)) {</span>
+<span class="nc" id="L49">                this.numeroPaginas = numeroPaginas;</span>
+            }
+<span class="nc" id="L51">            this.colorTapas = Validaciones.validarColorTapas(colorTapas);</span>
+<span class="nc" id="L52">        } catch (InvalidSurfaceException ex) {</span>
+<span class="nc" id="L53">            Logger.getLogger(Trabajo.class.getName()).log(Level.SEVERE, null, ex);</span>
+<span class="nc" id="L54">        }</span>
+<span class="nc" id="L55">    }</span>
+
+    /**
+     * Inicializa un objeto {@code Libro} cuyas variables copia de otro objeto
+     * Libro pasado como argumento
+     *
+     * @param l {@code Libro}
+     */
+    public Libro(Libro l) {
+<span class="nc" id="L64">        super(l);</span>
+<span class="nc" id="L65">        this.numeroPaginas = l.numeroPaginas;</span>
+<span class="nc" id="L66">        this.colorTapas = l.colorTapas;</span>
+<span class="nc" id="L67">    }</span>
+
+    @Override
+    public String toString() {
+<span class="nc" id="L71">        return super.toString() + &quot;Libro{&quot; + &quot;numeroPaginas=&quot; + numeroPaginas + &quot;, colorTapas=&quot; + colorTapas + '}';</span>
+    }
+
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.6.201602180812</span></div></body></html>

@@ -5,6 +5,9 @@
  */
 package imprenta;
 
+import java.io.Serializable;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Calendar;
 
 /**
@@ -16,7 +19,7 @@ import java.util.Calendar;
  *
  * @author SirLoveWalter
  */
-public class Maquina {
+public class Maquina implements Serializable {
 
     private int id,
             volumen,
@@ -26,17 +29,23 @@ public class Maquina {
             modoImpresion;
     private Calendar fechaCompra;
 
+<span class="nc" id="L32">    private static int auto_increment = 0;</span>
+    private ArrayList&lt;Reparacion&gt; arreglos;
+
+    {
+<span class="nc" id="L36">        auto_increment++;</span>
+    }
+
     /**
      * Inicializa un objeto {@code Maquina} con sus variables sin inicializar.
      */
-<span class="fc" id="L32">    public Maquina() {</span>
-<span class="fc" id="L33">    }</span>
+<span class="nc" id="L42">    public Maquina() {</span>
+<span class="nc" id="L43">    }</span>
 
     /**
      * Inicializa un objeto {@code Maquina} que inicializa sus variables con los
      * parámetros pasados como argumento.
      *
-     * @param id {@code int}
      * @param volumen {@code int}
      * @param capacidadMax {@code int}
      * @param ubicacion {@code String}
@@ -44,15 +53,16 @@ public class Maquina {
      * @param modoImpresion {@code String}
      * @param fechaCompra {@code Calendar}
      */
-<span class="nc" id="L47">    public Maquina(int id, int volumen, int capacidadMax, String ubicacion, String tipoImpresion, String modoImpresion, Calendar fechaCompra) {</span>
-<span class="nc" id="L48">        this.id = id;</span>
-<span class="nc" id="L49">        this.volumen = volumen;</span>
-<span class="nc" id="L50">        this.capacidadMax = capacidadMax;</span>
-<span class="nc" id="L51">        this.ubicacion = ubicacion;</span>
-<span class="nc" id="L52">        this.tipoImpresion = tipoImpresion;</span>
-<span class="nc" id="L53">        this.modoImpresion = modoImpresion;</span>
-<span class="nc" id="L54">        this.fechaCompra = fechaCompra;</span>
-<span class="nc" id="L55">    }</span>
+<span class="nc" id="L56">    public Maquina(int volumen, int capacidadMax, String ubicacion, String tipoImpresion, String modoImpresion, Calendar fechaCompra) {</span>
+<span class="nc" id="L57">        this.id = auto_increment;</span>
+<span class="nc" id="L58">        this.volumen = volumen;</span>
+<span class="nc" id="L59">        this.capacidadMax = capacidadMax;</span>
+<span class="nc" id="L60">        this.ubicacion = ubicacion;</span>
+<span class="nc" id="L61">        this.tipoImpresion = tipoImpresion;</span>
+<span class="nc" id="L62">        this.modoImpresion = modoImpresion;</span>
+<span class="nc" id="L63">        this.fechaCompra = fechaCompra;</span>
+<span class="nc" id="L64">        arreglos = new ArrayList&lt;&gt;();</span>
+<span class="nc" id="L65">    }</span>
 
     /**
      * Inicializa un objeto {@code Maquina} cuyas variables copia de otro objeto
@@ -60,19 +70,95 @@ public class Maquina {
      *
      * @param m {@code Maquina}
      */
-<span class="nc" id="L63">    public Maquina(Maquina m) {</span>
-<span class="nc" id="L64">        this.id = m.id;</span>
-<span class="nc" id="L65">        this.volumen = m.volumen;</span>
-<span class="nc" id="L66">        this.capacidadMax = m.capacidadMax;</span>
-<span class="nc" id="L67">        this.ubicacion = m.ubicacion;</span>
-<span class="nc" id="L68">        this.tipoImpresion = m.tipoImpresion;</span>
-<span class="nc" id="L69">        this.modoImpresion = m.modoImpresion;</span>
-<span class="nc" id="L70">        this.fechaCompra = m.fechaCompra;</span>
-<span class="nc" id="L71">    }</span>
+<span class="nc" id="L73">    public Maquina(Maquina m) {</span>
+<span class="nc" id="L74">        this.id = auto_increment;</span>
+<span class="nc" id="L75">        this.volumen = m.volumen;</span>
+<span class="nc" id="L76">        this.capacidadMax = m.capacidadMax;</span>
+<span class="nc" id="L77">        this.ubicacion = m.ubicacion;</span>
+<span class="nc" id="L78">        this.tipoImpresion = m.tipoImpresion;</span>
+<span class="nc" id="L79">        this.modoImpresion = m.modoImpresion;</span>
+<span class="nc" id="L80">        this.fechaCompra = m.fechaCompra;</span>
+<span class="nc" id="L81">        arreglos = new ArrayList&lt;&gt;();</span>
+<span class="nc" id="L82">    }</span>
+
+    public int getVolumen() {
+<span class="nc" id="L85">        return volumen;</span>
+    }
+
+    public int getId() {
+<span class="nc" id="L89">        return id;</span>
+    }
+
+    public int getCapacidadMax() {
+<span class="nc" id="L93">        return capacidadMax;</span>
+    }
+
+    public String getUbicacion() {
+<span class="nc" id="L97">        return ubicacion;</span>
+    }
+
+    public String getTipoImpresion() {
+<span class="nc" id="L101">        return tipoImpresion;</span>
+    }
+
+    public String getModoImpresion() {
+<span class="nc" id="L105">        return modoImpresion;</span>
+    }
+
+    public Calendar getFechaCompra() {
+<span class="nc" id="L109">        return fechaCompra;</span>
+    }
+
+    public ArrayList&lt;Reparacion&gt; getArreglos() {
+<span class="nc" id="L113">        return arreglos;</span>
+    }
+
+    /**
+     * Devuelve la información de la fecha y hora de compra de la máquina con el
+     * formato:
+     * &lt;p style=&quot;margin-left: 50px&quot;&gt;dd/MM/AAAA HH:mm:ss&lt;/p&gt;
+     *
+     * @return fechaCompra - {@code String}
+     */
+    public String printFechaCompra() {
+<span class="nc" id="L124">        SimpleDateFormat sdf = new SimpleDateFormat(&quot;dd/MM/AAAA HH:mm:ss&quot;);</span>
+<span class="nc" id="L125">        return sdf.format(fechaCompra);</span>
+    }
+
+    /**
+     * Registra un objeto {@code Reparacion} en la lista de reparaciones de esta
+     * máquina con la fecha actual y la descripción del problema pasada como
+     * argumento.
+     *
+     * @param descripcion {@code String}
+     */
+    public void reparar(String descripcion) {
+<span class="nc" id="L136">        arreglos.add(new Reparacion( /*      arreglos.size(),</span>
+                new GregorianCalendar(),
+                desc                        */));
+<span class="nc" id="L139">    }</span>
+
+    /**
+     * Actualiza el volumen actual de la máquina a su capacidad máxima,
+     * simulando el relleno de sus cartuchos de tinta.
+     */
+    public void rellenar() {
+<span class="nc" id="L146">        volumen = capacidadMax;</span>
+<span class="nc" id="L147">    }</span>
+
+    public void imprimirTrabajo(Trabajo t) {
+<span class="nc bnc" id="L150" title="All 2 branches missed.">        if (t instanceof Poster) {</span>
+<span class="nc" id="L151">            volumen -= 3;</span>
+<span class="nc bnc" id="L152" title="All 2 branches missed.">        } else if (t instanceof Libro) {</span>
+<span class="nc" id="L153">            volumen -= 10;</span>
+        } else {
+<span class="nc" id="L155">            volumen -= 25;</span>
+        }
+<span class="nc" id="L157">    }</span>
 
     @Override
     public String toString() {
-<span class="fc" id="L75">        return &quot;Maquina{&quot; + &quot;id=&quot; + id + &quot;, volumen=&quot; + volumen + &quot;, capacidadMax=&quot; + capacidadMax + &quot;, ubicacion=&quot; + ubicacion + &quot;, tipoImpresion=&quot; + tipoImpresion + &quot;, modoImpresion=&quot; + modoImpresion + &quot;, fechaCompra=&quot; + fechaCompra + '}';</span>
+<span class="nc" id="L161">        return &quot;Maquina{&quot; + &quot;id=&quot; + id + &quot;, volumen=&quot; + volumen + &quot;, capacidadMax=&quot; + capacidadMax + &quot;, ubicacion=&quot; + ubicacion + &quot;, tipoImpresion=&quot; + tipoImpresion + &quot;, modoImpresion=&quot; + modoImpresion + &quot;, fechaCompra=&quot; + fechaCompra + '}';</span>
     }
 
 }

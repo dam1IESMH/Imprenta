@@ -9,7 +9,55 @@ package imprenta;
  *
  * @author usuario
  */
-<span class="nc" id="L12">public class OMaquina extends Operario{</span>
+public class OMaquina extends Operario{
+/**
+ * Abertura del constructor vacio extendido de Operario
+ */    
+    public OMaquina() {
+<span class="nc" id="L17">        super();</span>
+<span class="nc" id="L18">    }</span>
+/**
+ *  Cierre del constructor vacio extendido de Operario
+ */
+/**
+ * Abertura del constructor de parametros extendido de Operario
+ * @param NIF
+ * @param nombre
+ * @param apellidos
+ * @param telefono
+ * @param direccion
+ * @param senior 
+ */    
+    public OMaquina(String NIF, String nombre, String apellidos, String telefono, String direccion, boolean senior) {
+<span class="nc" id="L32">        super(NIF, nombre, apellidos, telefono, direccion, senior);</span>
+<span class="nc" id="L33">    }</span>
+/**
+ * Cierre del constructor de parametros extendido de Operario
+ */
+/**
+ * Abertura del constructor de Objeto OMaquina extendido de Operario
+ * @param om 
+ */    
+    public OMaquina(Operario o) {
+<span class="nc" id="L42">        super(o);</span>
+<span class="nc" id="L43">    }</span>
+/**
+ * Cierre del constructor de Objeto OMaquina extendido de Operario
+ */
+/**
+ *  Metodo que realiza el relleno de las maquinas
+ * @param m
+ * @return 
+ */  
     
+//    public static boolean rellenarMaquina(Maquina m){
+//        boolean rellenar;  //Atributo auxiliar
+//       if(m.getVolumen=0){  //if que realiza la pregunta del volumen de tinta
+//            rellenar=true;
+//        }else{
+//            rellenar=false;
+//        }
+//        return rellenar;  //Devuelve si es necesario o no rellenar la tinta
+//    }
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.6.201602180812</span></div></body></html>

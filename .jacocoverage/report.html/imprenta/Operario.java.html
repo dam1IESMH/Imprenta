@@ -5,11 +5,115 @@
  */
 package imprenta;
 
+import java.io.Serializable;
+
 /**
  *
  * @author usuario
  */
-<span class="nc" id="L12">public class Operario {</span>
-    
+public class Operario implements Serializable {
+
+    /**
+     * Atributos de Operario
+     */
+    protected String NIF;
+    protected String nombre;
+    protected String apellidos;
+    protected String telefono;
+    protected String direccion;
+    protected boolean senior;
+
+    /**
+     * Abertura del constructor vacio
+     */
+<span class="nc" id="L29">    public Operario() {</span>
+<span class="nc" id="L30">    }</span>
+
+    /**
+     * Cierre del constructor vacio
+     */
+    /**
+     * Abertura del constructor de parametros
+     *
+     * @param NIF
+     * @param nombre
+     * @param apellidos
+     * @param telefono
+     * @param direccion
+     * @param senior
+     */
+<span class="fc" id="L45">    public Operario(String NIF, String nombre, String apellidos, String telefono, String direccion, boolean senior) {</span>
+<span class="pc bpc" id="L46" title="1 of 2 branches missed.">        if (Validaciones.validarNIF(NIF)) {</span>
+<span class="fc" id="L47">            this.NIF = NIF;</span>
+        }
+<span class="pc bpc" id="L49" title="1 of 2 branches missed.">        if (Validaciones.validarNombre(nombre)) {</span>
+<span class="fc" id="L50">            this.nombre = nombre;</span>
+        }
+<span class="pc bpc" id="L52" title="1 of 2 branches missed.">        if (Validaciones.validarNombre(apellidos)) {</span>
+<span class="fc" id="L53">            this.apellidos = apellidos;</span>
+        }
+<span class="pc bpc" id="L55" title="1 of 2 branches missed.">        if (Validaciones.validarTlf(telefono)) {</span>
+<span class="fc" id="L56">            this.telefono = telefono;</span>
+        }
+<span class="pc bpc" id="L58" title="1 of 2 branches missed.">        if (Validaciones.validarDireccion(direccion)) {</span>
+<span class="fc" id="L59">            this.direccion = direccion;</span>
+        }
+<span class="fc" id="L61">        this.senior = senior;</span>
+<span class="fc" id="L62">    }</span>
+
+    /**
+     * Cierre del constructor de parametros
+     */
+    /**
+     * Abertura del constructor de Objeto Operario
+     *
+     * @param o
+     */
+
+<span class="fc" id="L73">    public Operario(Operario o) {</span>
+<span class="fc" id="L74">        this.NIF = o.NIF;</span>
+<span class="fc" id="L75">        this.nombre = o.nombre;</span>
+<span class="fc" id="L76">        this.apellidos = o.apellidos;</span>
+<span class="fc" id="L77">        this.telefono = o.telefono;</span>
+<span class="fc" id="L78">        this.direccion = o.direccion;</span>
+<span class="fc" id="L79">        this.senior = o.senior;</span>
+<span class="fc" id="L80">    }</span>
+
+    /**
+     * Cierre del constructor de Objeto Operario
+     */
+
+    public String getNIF() {
+<span class="fc" id="L87">        return NIF;</span>
+    }
+
+    public String getNombre() {
+<span class="fc" id="L91">        return nombre;</span>
+    }
+
+    public String getApellidos() {
+<span class="fc" id="L95">        return apellidos;</span>
+    }
+
+    public String getTelefono() {
+<span class="nc" id="L99">        return telefono;</span>
+    }
+
+    public String getDireccion() {
+<span class="nc" id="L103">        return direccion;</span>
+    }
+
+    public boolean isSenior() {
+<span class="nc" id="L107">        return senior;</span>
+    }
+
+    /**
+     * Inicio del to String
+     */
+    @Override
+    public String toString() {
+<span class="nc" id="L115">        return &quot;Operario{&quot; + &quot;NIF=&quot; + NIF + &quot;, nombre=&quot; + nombre + &quot;, apellidos=&quot; + apellidos + &quot;, telefono=&quot; + telefono + &quot;, direccion=&quot; + direccion + &quot;, senior=&quot; + senior + '}';</span>
+    }
+
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.6.201602180812</span></div></body></html>
