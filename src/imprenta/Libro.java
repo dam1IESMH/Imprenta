@@ -6,7 +6,8 @@
 package imprenta;
 
 import java.util.Calendar;
-import java.util.Date;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -14,8 +15,10 @@ import java.util.Date;
  */
 public class Libro extends Trabajo {
 
+    enum Tapas {ROJO,VERDE,AZUL,AMARILLO,BLANCO,NEGRO,MARRON, NARANJA
+    }
     private int numeroPaginas;
-    private String colorTapas;
+    private Tapas colorTapas; 
 
     /**Constructor vacio
      * 
@@ -28,16 +31,19 @@ public class Libro extends Trabajo {
      * 
      * @param numeroPaginas
      * @param colorTapas
-     * @param id
      * @param fechaSolicitud
      * @param tipoRelieve
      * @param fechaImpresion
      * @param fechaRecogida 
      */
-    public Libro(int numeroPaginas, String colorTapas, int id, Calendar fechaSolicitud, String tipoRelieve, Calendar fechaImpresion, Calendar fechaRecogida) {
-        super(id, fechaSolicitud, tipoRelieve, fechaImpresion, fechaRecogida);
-        this.numeroPaginas = numeroPaginas;
-        this.colorTapas = colorTapas;
+    public Libro(int numeroPaginas, String colorTapas, Calendar fechaSolicitud, String tipoRelieve, Calendar fechaImpresion, Calendar fechaRecogida) {
+        super(fechaSolicitud, tipoRelieve, fechaImpresion, fechaRecogida);
+        try{
+        this.numeroPaginas = Validaciones.validarEntero(numeroPaginas);
+        this.colorTapas = Validaciones.validarColorTapas(colorTapas);
+        } catch(InvalidSurfaceException ex) {
+            Logger.getLogger(Trabajo.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//Cierre del constructor
 
     /**

@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="es"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../.resources/report.css" type="text/css"/><link rel="shortcut icon" href="../.resources/report.gif" type="image/gif"/><title>Maquina.java</title><link rel="stylesheet" href="../.resources/prettify.css" type="text/css"/><script type="text/javascript" src="../.resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../.sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">JaCoCoverage analysis of project &quot;Imprenta&quot; (powered by JaCoCo from EclEmma)</a> &gt; <a href="index.source.html" class="el_package">imprenta</a> &gt; <span class="el_source">Maquina.java</span></div><h1>Maquina.java</h1><pre class="source lang-java linenums">/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package imprenta;
+
+import java.util.Calendar;
+
+/**
+ * La clase {@code Maquina} representa a una maquina, como impresoras o cintas,
+ * en una imprenta. La máquina tiene los atributos enteros {@code id},
+ * {@code volumen} y {@code capacidadMax}; los String {@code ubicacion},
+ * {@code tipoImpresion}, {@code modoImpresion}; y el Calendar
+ * {@code fechaCompra}.
+ *
+ * @author SirLoveWalter
+ */
+public class Maquina {
+
+    private int id,
+            volumen,
+            capacidadMax;
+    private String ubicacion,
+            tipoImpresion,
+            modoImpresion;
+    private Calendar fechaCompra;
+
+    /**
+     * Inicializa un objeto {@code Maquina} con sus variables sin inicializar.
+     */
+<span class="fc" id="L32">    public Maquina() {</span>
+<span class="fc" id="L33">    }</span>
+
+    /**
+     * Inicializa un objeto {@code Maquina} que inicializa sus variables con los
+     * parámetros pasados como argumento.
+     *
+     * @param id {@code int}
+     * @param volumen {@code int}
+     * @param capacidadMax {@code int}
+     * @param ubicacion {@code String}
+     * @param tipoImpresion {@code String}
+     * @param modoImpresion {@code String}
+     * @param fechaCompra {@code Calendar}
+     */
+<span class="nc" id="L47">    public Maquina(int id, int volumen, int capacidadMax, String ubicacion, String tipoImpresion, String modoImpresion, Calendar fechaCompra) {</span>
+<span class="nc" id="L48">        this.id = id;</span>
+<span class="nc" id="L49">        this.volumen = volumen;</span>
+<span class="nc" id="L50">        this.capacidadMax = capacidadMax;</span>
+<span class="nc" id="L51">        this.ubicacion = ubicacion;</span>
+<span class="nc" id="L52">        this.tipoImpresion = tipoImpresion;</span>
+<span class="nc" id="L53">        this.modoImpresion = modoImpresion;</span>
+<span class="nc" id="L54">        this.fechaCompra = fechaCompra;</span>
+<span class="nc" id="L55">    }</span>
+
+    /**
+     * Inicializa un objeto {@code Maquina} cuyas variables copia de otro objeto
+     * Maquina pasado como argumento.
+     *
+     * @param m {@code Maquina}
+     */
+<span class="nc" id="L63">    public Maquina(Maquina m) {</span>
+<span class="nc" id="L64">        this.id = m.id;</span>
+<span class="nc" id="L65">        this.volumen = m.volumen;</span>
+<span class="nc" id="L66">        this.capacidadMax = m.capacidadMax;</span>
+<span class="nc" id="L67">        this.ubicacion = m.ubicacion;</span>
+<span class="nc" id="L68">        this.tipoImpresion = m.tipoImpresion;</span>
+<span class="nc" id="L69">        this.modoImpresion = m.modoImpresion;</span>
+<span class="nc" id="L70">        this.fechaCompra = m.fechaCompra;</span>
+<span class="nc" id="L71">    }</span>
+
+    @Override
+    public String toString() {
+<span class="fc" id="L75">        return &quot;Maquina{&quot; + &quot;id=&quot; + id + &quot;, volumen=&quot; + volumen + &quot;, capacidadMax=&quot; + capacidadMax + &quot;, ubicacion=&quot; + ubicacion + &quot;, tipoImpresion=&quot; + tipoImpresion + &quot;, modoImpresion=&quot; + modoImpresion + &quot;, fechaCompra=&quot; + fechaCompra + '}';</span>
+    }
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.6.201602180812</span></div></body></html>
