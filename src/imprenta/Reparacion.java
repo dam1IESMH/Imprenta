@@ -20,17 +20,17 @@ public class Reparacion {
     private int id;
     private Calendar fecha;
     private String descripcion;
-/**
- * Abertura de constructor vacio  
- * 
- */   
     
+    private static int auto_incrementado=0;
+    
+    {
+        auto_incrementado++;
+    }
+
     public Reparacion() {
         
     }
-/**
- * Cierre del constructor vacio
- */  
+    
     
 /**
  * Abertura del constructor de parametros
@@ -39,16 +39,16 @@ public class Reparacion {
  * @param descripcion
  */ 
     public Reparacion(int id, Calendar fecha, String descripcion) {
-        this.id = id;
+        this.id = auto_incrementado;
         this.fecha = fecha;
         if(Validaciones.validarDescripcion(descripcion)){
         this.descripcion = descripcion;
         }
     }
 /**
- * Cierre del constructor de parametros
- *
- */    
+ * Cierre del constructor vacio
+ */  
+  
 /**
  * Abertura de constructor de Objeto Reparacion
  * @param r 
