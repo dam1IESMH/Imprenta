@@ -33,10 +33,6 @@ public class Trabajo implements Serializable{
         auto_incrementado++;
     }
 
-    {
-        fechaSolicitud.setLenient(false);
-    }
-
     /**
      * Constructor vacio
      */

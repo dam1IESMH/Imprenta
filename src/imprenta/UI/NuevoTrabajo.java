@@ -8,7 +8,6 @@ package imprenta.UI;
 import imprenta.Libro;
 import imprenta.Poster;
 import imprenta.Rotulo;
-import imprenta.Trabajo;
 import java.util.GregorianCalendar;
 
 /**
@@ -23,6 +22,7 @@ public class NuevoTrabajo extends javax.swing.JDialog {
     public NuevoTrabajo(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
+        setVisible(true);
     }
 
     /**

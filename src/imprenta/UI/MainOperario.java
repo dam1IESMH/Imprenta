@@ -59,7 +59,7 @@ public class MainOperario extends javax.swing.JFrame {
         jTable1 = new javax.swing.JTable();
         btnReparar = new javax.swing.JButton();
         btnRellenar = new javax.swing.JButton();
-        jButton1 = new javax.swing.JButton();
+        btnNuevoTrabajo = new javax.swing.JButton();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jMenu2 = new javax.swing.JMenu();
@@ -272,7 +272,12 @@ public class MainOperario extends javax.swing.JFrame {
 
         tabOperaciones.addTab("Operaciones sobre máquinas", pnlMaquinas);
 
-        jButton1.setText("Registrar trabajo");
+        btnNuevoTrabajo.setText("Registrar trabajo");
+        btnNuevoTrabajo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnNuevoTrabajoActionPerformed(evt);
+            }
+        });
 
         jMenu1.setText("Archivo");
         jMenuBar1.add(jMenu1);
@@ -299,7 +304,7 @@ public class MainOperario extends javax.swing.JFrame {
             .addComponent(tabOperaciones)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 273, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnNuevoTrabajo, javax.swing.GroupLayout.PREFERRED_SIZE, 273, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(186, 186, 186))
         );
         layout.setVerticalGroup(
@@ -307,7 +312,7 @@ public class MainOperario extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addComponent(tabOperaciones)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jButton1)
+                .addComponent(btnNuevoTrabajo)
                 .addContainerGap())
         );
 
@@ -329,6 +334,10 @@ public class MainOperario extends javax.swing.JFrame {
     private void mnAboutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnAboutActionPerformed
         new About(this, false).setVisible(true);
     }//GEN-LAST:event_mnAboutActionPerformed
+
+    private void btnNuevoTrabajoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNuevoTrabajoActionPerformed
+        new NuevoTrabajo(this, true);
+    }//GEN-LAST:event_btnNuevoTrabajoActionPerformed
 
     public JFrame getThis() {
         return (JFrame) this;
@@ -371,9 +380,9 @@ public class MainOperario extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnNuevoTrabajo;
     private javax.swing.JButton btnRellenar;
     private javax.swing.JButton btnReparar;
-    private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
     private javax.swing.JButton jButton6;
