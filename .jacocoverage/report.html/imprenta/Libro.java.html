@@ -6,8 +6,7 @@
 package imprenta;
 
 import java.util.Calendar;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+
 
 /**
  * La clase {@code Libro} es una clase que hereda de (@code Trabajo). 
@@ -18,8 +17,8 @@ import java.util.logging.Logger;
  */
 public class Libro extends Trabajo {
 
-<span class="nc" id="L21">    enum Tapas {</span>
-<span class="nc" id="L22">        ROJO, VERDE, AZUL, AMARILLO, BLANCO, NEGRO, MARRON, NARANJA</span>
+<span class="nc" id="L20">    enum Tapas {</span>
+<span class="nc" id="L21">        ROJO, VERDE, AZUL, BLANCO, NEGRO, MARRON</span>
     }
     private int numeroPaginas;
     private Tapas colorTapas;
@@ -28,31 +27,39 @@ public class Libro extends Trabajo {
      * Inicializa un objeto {@code Libro} con sus variables sin inicializar.
      *
      */
-<span class="nc" id="L31">    public Libro() {</span>
-<span class="nc" id="L32">    }</span>
+<span class="nc" id="L30">    public Libro() {</span>
+<span class="nc" id="L31">    }</span>
 
     /**
      * Inicializa un objeto {@code Libro} que inicializa sus variables con los
      * parámetros pasados como argumento.
      *
      * @param numeroPaginas (@code int)
-     * @param colorTapas (@code enum)
+     * @param Tapas (@code String)
      * @param fechaSolicitud (@code Calendar)
      * @param tipoRelieve (@code enum)
      * @param fechaImpresion (@code Calendar)
      * @param fechaRecogida (@code Calendar)
      */
-    public Libro(int numeroPaginas, String colorTapas, Calendar fechaSolicitud, String tipoRelieve, Calendar fechaImpresion, Calendar fechaRecogida) {
-<span class="nc" id="L46">        super(fechaSolicitud, tipoRelieve, fechaImpresion, fechaRecogida);</span>
-        try {
-<span class="nc bnc" id="L48" title="All 2 branches missed.">            if (Validaciones.validarEntero(numeroPaginas)) {</span>
-<span class="nc" id="L49">                this.numeroPaginas = numeroPaginas;</span>
-            }
-<span class="nc" id="L51">            this.colorTapas = Validaciones.validarColorTapas(colorTapas);</span>
-<span class="nc" id="L52">        } catch (InvalidSurfaceException ex) {</span>
-<span class="nc" id="L53">            Logger.getLogger(Trabajo.class.getName()).log(Level.SEVERE, null, ex);</span>
-<span class="nc" id="L54">        }</span>
-<span class="nc" id="L55">    }</span>
+    public Libro(int numeroPaginas, String Tapas, Calendar fechaSolicitud, String tipoRelieve, Calendar fechaImpresion, Calendar fechaRecogida) {
+<span class="nc" id="L45">        super(fechaSolicitud, tipoRelieve, fechaImpresion, fechaRecogida);</span>
+<span class="nc bnc" id="L46" title="All 2 branches missed.">        if (Validaciones.validarEntero(numeroPaginas)) {</span>
+<span class="nc" id="L47">            this.numeroPaginas = numeroPaginas;</span>
+        }
+<span class="nc bnc" id="L49" title="All 2 branches missed.">        if (Tapas.equalsIgnoreCase(&quot;ROJO&quot;)) {</span>
+<span class="nc" id="L50">            colorTapas = colorTapas.ROJO;</span>
+<span class="nc bnc" id="L51" title="All 2 branches missed.">        } else if (Tapas.equalsIgnoreCase(&quot;VERDE&quot;)) {</span>
+<span class="nc" id="L52">            colorTapas = colorTapas.VERDE;</span>
+<span class="nc bnc" id="L53" title="All 2 branches missed.">        } else if (Tapas.equalsIgnoreCase(&quot;AZUL&quot;)) {</span>
+<span class="nc" id="L54">            colorTapas = colorTapas.AZUL;</span>
+<span class="nc bnc" id="L55" title="All 2 branches missed.">        } else if (Tapas.equalsIgnoreCase(&quot;BLANCO&quot;)) {</span>
+<span class="nc" id="L56">            colorTapas = colorTapas.BLANCO;</span>
+<span class="nc bnc" id="L57" title="All 2 branches missed.">        } else if (Tapas.equalsIgnoreCase(&quot;NEGRO&quot;)) {</span>
+<span class="nc" id="L58">            colorTapas = colorTapas.NEGRO;</span>
+<span class="nc bnc" id="L59" title="All 2 branches missed.">        }else if (Tapas.equalsIgnoreCase(&quot;MARRON&quot;)) {</span>
+<span class="nc" id="L60">            colorTapas = colorTapas.MARRON;</span>
+    }
+<span class="nc" id="L62">    }</span>
 
     /**
      * Inicializa un objeto {@code Libro} cuyas variables copia de otro objeto
@@ -61,14 +68,14 @@ public class Libro extends Trabajo {
      * @param l {@code Libro}
      */
     public Libro(Libro l) {
-<span class="nc" id="L64">        super(l);</span>
-<span class="nc" id="L65">        this.numeroPaginas = l.numeroPaginas;</span>
-<span class="nc" id="L66">        this.colorTapas = l.colorTapas;</span>
-<span class="nc" id="L67">    }</span>
+<span class="nc" id="L71">        super(l);</span>
+<span class="nc" id="L72">        this.numeroPaginas = l.numeroPaginas;</span>
+<span class="nc" id="L73">        this.colorTapas = l.colorTapas;</span>
+<span class="nc" id="L74">    }</span>
 
     @Override
     public String toString() {
-<span class="nc" id="L71">        return super.toString() + &quot;Libro{&quot; + &quot;numeroPaginas=&quot; + numeroPaginas + &quot;, colorTapas=&quot; + colorTapas + '}';</span>
+<span class="nc" id="L78">        return super.toString() + &quot;Libro{&quot; + &quot;numeroPaginas=&quot; + numeroPaginas + &quot;, colorTapas=&quot; + colorTapas + '}';</span>
     }
 
 }

@@ -6,16 +6,18 @@
 package imprenta;
 
 /**
- *
- * @author usuario
+ * La clase {@code OImpresion} es una clase que hereda de (@code Operario). 
+ * El OImpresion tiene los atributos heredados de Operario
+ * 
+ * @author  Mario Perez Urbaneja
  */
 public class OImpresion extends Operario{
 /**
  * Abertura de constructor vacio
  */
     public OImpresion() {
-<span class="nc" id="L17">        super();</span>
-<span class="nc" id="L18">    }</span>
+<span class="nc" id="L19">        super();</span>
+<span class="nc" id="L20">    }</span>
 /**
  * Cierre del constructor vacio extendido de Operario
  */
@@ -29,8 +31,8 @@ public class OImpresion extends Operario{
  * @param senior 
  */  
     public OImpresion(String NIF, String nombre, String apellidos, String telefono, String direccion, boolean senior) {
-<span class="nc" id="L32">        super(NIF, nombre, apellidos, telefono, direccion, senior);</span>
-<span class="nc" id="L33">    }</span>
+<span class="nc" id="L34">        super(NIF, nombre, apellidos, telefono, direccion, senior);</span>
+<span class="nc" id="L35">    }</span>
 /**
  * Cierre del constructor de parametros extendido de Operario
  */
@@ -40,8 +42,8 @@ public class OImpresion extends Operario{
  */ 
 
     public OImpresion(Operario o) {
-<span class="fc" id="L43">        super(o);</span>
-<span class="fc" id="L44">    }</span>
+<span class="nc" id="L45">        super(o);</span>
+<span class="nc" id="L46">    }</span>
 /**
  * Cierre del constructor de Objeto OImpresion extendido de Operario
  */    

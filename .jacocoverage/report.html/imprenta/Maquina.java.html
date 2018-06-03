@@ -17,7 +17,7 @@ import java.util.Calendar;
  * {@code tipoImpresion}, {@code modoImpresion}; y el Calendar
  * {@code fechaCompra}.
  *
- * @author SirLoveWalter
+ * @author Sergio Amor Gutiérrez
  */
 public class Maquina implements Serializable {
 
@@ -29,7 +29,7 @@ public class Maquina implements Serializable {
             modoImpresion;
     private Calendar fechaCompra;
 
-<span class="nc" id="L32">    private static int auto_increment = 0;</span>
+<span class="fc" id="L32">    private static int auto_increment = 0;</span>
     private ArrayList&lt;Reparacion&gt; arreglos;
 
     {
@@ -82,35 +82,36 @@ public class Maquina implements Serializable {
 <span class="nc" id="L82">    }</span>
 
     public int getVolumen() {
-<span class="nc" id="L85">        return volumen;</span>
+<span class="fc" id="L85">        return volumen;</span>
     }
 
     public int getId() {
-<span class="nc" id="L89">        return id;</span>
+<span class="fc" id="L89">        return id;</span>
     }
 
     public int getCapacidadMax() {
-<span class="nc" id="L93">        return capacidadMax;</span>
+<span class="fc" id="L93">        return capacidadMax;</span>
     }
 
     public String getUbicacion() {
-<span class="nc" id="L97">        return ubicacion;</span>
+<span class="fc" id="L97">        return ubicacion;</span>
     }
 
     public String getTipoImpresion() {
-<span class="nc" id="L101">        return tipoImpresion;</span>
+<span class="fc" id="L101">        return tipoImpresion;</span>
     }
 
     public String getModoImpresion() {
-<span class="nc" id="L105">        return modoImpresion;</span>
+<span class="fc" id="L105">        return modoImpresion;</span>
     }
 
-    public Calendar getFechaCompra() {
-<span class="nc" id="L109">        return fechaCompra;</span>
+    public String getFechaCompra() {
+<span class="fc" id="L109">        SimpleDateFormat sdf = new SimpleDateFormat(&quot;dd/MM/yyyy&quot;);</span>
+<span class="fc" id="L110">        return sdf.format(fechaCompra.getTime());</span>
     }
 
     public ArrayList&lt;Reparacion&gt; getArreglos() {
-<span class="nc" id="L113">        return arreglos;</span>
+<span class="nc" id="L114">        return arreglos;</span>
     }
 
     /**
@@ -121,8 +122,8 @@ public class Maquina implements Serializable {
      * @return fechaCompra - {@code String}
      */
     public String printFechaCompra() {
-<span class="nc" id="L124">        SimpleDateFormat sdf = new SimpleDateFormat(&quot;dd/MM/AAAA HH:mm:ss&quot;);</span>
-<span class="nc" id="L125">        return sdf.format(fechaCompra);</span>
+<span class="nc" id="L125">        SimpleDateFormat sdf = new SimpleDateFormat(&quot;dd/MM/AAAA HH:mm:ss&quot;);</span>
+<span class="nc" id="L126">        return sdf.format(fechaCompra);</span>
     }
 
     /**
@@ -133,32 +134,32 @@ public class Maquina implements Serializable {
      * @param descripcion {@code String}
      */
     public void reparar(String descripcion) {
-<span class="nc" id="L136">        arreglos.add(new Reparacion( /*      arreglos.size(),</span>
+<span class="nc" id="L137">        arreglos.add(new Reparacion( /*      arreglos.size(),</span>
                 new GregorianCalendar(),
                 desc                        */));
-<span class="nc" id="L139">    }</span>
+<span class="nc" id="L140">    }</span>
 
     /**
      * Actualiza el volumen actual de la máquina a su capacidad máxima,
      * simulando el relleno de sus cartuchos de tinta.
      */
     public void rellenar() {
-<span class="nc" id="L146">        volumen = capacidadMax;</span>
-<span class="nc" id="L147">    }</span>
+<span class="nc" id="L147">        volumen = capacidadMax;</span>
+<span class="nc" id="L148">    }</span>
 
     public void imprimirTrabajo(Trabajo t) {
-<span class="nc bnc" id="L150" title="All 2 branches missed.">        if (t instanceof Poster) {</span>
-<span class="nc" id="L151">            volumen -= 3;</span>
-<span class="nc bnc" id="L152" title="All 2 branches missed.">        } else if (t instanceof Libro) {</span>
-<span class="nc" id="L153">            volumen -= 10;</span>
+<span class="nc bnc" id="L151" title="All 2 branches missed.">        if (t instanceof Poster) {</span>
+<span class="nc" id="L152">            volumen -= 3;</span>
+<span class="nc bnc" id="L153" title="All 2 branches missed.">        } else if (t instanceof Libro) {</span>
+<span class="nc" id="L154">            volumen -= 10;</span>
         } else {
-<span class="nc" id="L155">            volumen -= 25;</span>
+<span class="nc" id="L156">            volumen -= 25;</span>
         }
-<span class="nc" id="L157">    }</span>
+<span class="nc" id="L158">    }</span>
 
     @Override
     public String toString() {
-<span class="nc" id="L161">        return &quot;Maquina{&quot; + &quot;id=&quot; + id + &quot;, volumen=&quot; + volumen + &quot;, capacidadMax=&quot; + capacidadMax + &quot;, ubicacion=&quot; + ubicacion + &quot;, tipoImpresion=&quot; + tipoImpresion + &quot;, modoImpresion=&quot; + modoImpresion + &quot;, fechaCompra=&quot; + fechaCompra + '}';</span>
+<span class="nc" id="L162">        return &quot;Maquina{&quot; + &quot;id=&quot; + id + &quot;, volumen=&quot; + volumen + &quot;, capacidadMax=&quot; + capacidadMax + &quot;, ubicacion=&quot; + ubicacion + &quot;, tipoImpresion=&quot; + tipoImpresion + &quot;, modoImpresion=&quot; + modoImpresion + &quot;, fechaCompra=&quot; + fechaCompra + '}';</span>
     }
 
 }

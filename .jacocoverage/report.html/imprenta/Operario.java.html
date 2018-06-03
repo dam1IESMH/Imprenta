@@ -8,8 +8,13 @@ package imprenta;
 import java.io.Serializable;
 
 /**
- *
- * @author usuario
+ * La clase {@code Operario} representa a los operarios de impresion o maquina,
+ * en una imprenta. Las reparaciones tiene los atributos String {@code NIF}, 
+ * {@code nombre}, {@code apellidos}, {@code telefono}, {@code direccion}; 
+ * y el boolean
+ * {@code senior}.
+ * 
+ * @author  Mario Perez Urbaneja
  */
 public class Operario implements Serializable {
 
@@ -26,8 +31,8 @@ public class Operario implements Serializable {
     /**
      * Abertura del constructor vacio
      */
-<span class="nc" id="L29">    public Operario() {</span>
-<span class="nc" id="L30">    }</span>
+<span class="nc" id="L34">    public Operario() {</span>
+<span class="nc" id="L35">    }</span>
 
     /**
      * Cierre del constructor vacio
@@ -42,24 +47,24 @@ public class Operario implements Serializable {
      * @param direccion
      * @param senior
      */
-<span class="fc" id="L45">    public Operario(String NIF, String nombre, String apellidos, String telefono, String direccion, boolean senior) {</span>
-<span class="pc bpc" id="L46" title="1 of 2 branches missed.">        if (Validaciones.validarNIF(NIF)) {</span>
-<span class="fc" id="L47">            this.NIF = NIF;</span>
+<span class="nc" id="L50">    public Operario(String NIF, String nombre, String apellidos, String telefono, String direccion, boolean senior) {</span>
+<span class="nc bnc" id="L51" title="All 2 branches missed.">        if (Validaciones.validarNIF(NIF)) {</span>
+<span class="nc" id="L52">            this.NIF = NIF;</span>
         }
-<span class="pc bpc" id="L49" title="1 of 2 branches missed.">        if (Validaciones.validarNombre(nombre)) {</span>
-<span class="fc" id="L50">            this.nombre = nombre;</span>
+<span class="nc bnc" id="L54" title="All 2 branches missed.">        if (Validaciones.validarNombre(nombre)) {</span>
+<span class="nc" id="L55">            this.nombre = nombre;</span>
         }
-<span class="pc bpc" id="L52" title="1 of 2 branches missed.">        if (Validaciones.validarNombre(apellidos)) {</span>
-<span class="fc" id="L53">            this.apellidos = apellidos;</span>
+<span class="nc bnc" id="L57" title="All 2 branches missed.">        if (Validaciones.validarNombre(apellidos)) {</span>
+<span class="nc" id="L58">            this.apellidos = apellidos;</span>
         }
-<span class="pc bpc" id="L55" title="1 of 2 branches missed.">        if (Validaciones.validarTlf(telefono)) {</span>
-<span class="fc" id="L56">            this.telefono = telefono;</span>
+<span class="nc bnc" id="L60" title="All 2 branches missed.">        if (Validaciones.validarTlf(telefono)) {</span>
+<span class="nc" id="L61">            this.telefono = telefono;</span>
         }
-<span class="pc bpc" id="L58" title="1 of 2 branches missed.">        if (Validaciones.validarDireccion(direccion)) {</span>
-<span class="fc" id="L59">            this.direccion = direccion;</span>
+<span class="nc bnc" id="L63" title="All 2 branches missed.">        if (Validaciones.validarDireccion(direccion)) {</span>
+<span class="nc" id="L64">            this.direccion = direccion;</span>
         }
-<span class="fc" id="L61">        this.senior = senior;</span>
-<span class="fc" id="L62">    }</span>
+<span class="nc" id="L66">        this.senior = senior;</span>
+<span class="nc" id="L67">    }</span>
 
     /**
      * Cierre del constructor de parametros
@@ -70,41 +75,41 @@ public class Operario implements Serializable {
      * @param o
      */
 
-<span class="fc" id="L73">    public Operario(Operario o) {</span>
-<span class="fc" id="L74">        this.NIF = o.NIF;</span>
-<span class="fc" id="L75">        this.nombre = o.nombre;</span>
-<span class="fc" id="L76">        this.apellidos = o.apellidos;</span>
-<span class="fc" id="L77">        this.telefono = o.telefono;</span>
-<span class="fc" id="L78">        this.direccion = o.direccion;</span>
-<span class="fc" id="L79">        this.senior = o.senior;</span>
-<span class="fc" id="L80">    }</span>
+<span class="nc" id="L78">    public Operario(Operario o) {</span>
+<span class="nc" id="L79">        this.NIF = o.NIF;</span>
+<span class="nc" id="L80">        this.nombre = o.nombre;</span>
+<span class="nc" id="L81">        this.apellidos = o.apellidos;</span>
+<span class="nc" id="L82">        this.telefono = o.telefono;</span>
+<span class="nc" id="L83">        this.direccion = o.direccion;</span>
+<span class="nc" id="L84">        this.senior = o.senior;</span>
+<span class="nc" id="L85">    }</span>
 
     /**
      * Cierre del constructor de Objeto Operario
      */
 
     public String getNIF() {
-<span class="fc" id="L87">        return NIF;</span>
+<span class="fc" id="L92">        return NIF;</span>
     }
 
     public String getNombre() {
-<span class="fc" id="L91">        return nombre;</span>
+<span class="fc" id="L96">        return nombre;</span>
     }
 
     public String getApellidos() {
-<span class="fc" id="L95">        return apellidos;</span>
+<span class="fc" id="L100">        return apellidos;</span>
     }
 
     public String getTelefono() {
-<span class="nc" id="L99">        return telefono;</span>
+<span class="nc" id="L104">        return telefono;</span>
     }
 
     public String getDireccion() {
-<span class="nc" id="L103">        return direccion;</span>
+<span class="nc" id="L108">        return direccion;</span>
     }
 
     public boolean isSenior() {
-<span class="nc" id="L107">        return senior;</span>
+<span class="nc" id="L112">        return senior;</span>
     }
 
     /**
@@ -112,7 +117,7 @@ public class Operario implements Serializable {
      */
     @Override
     public String toString() {
-<span class="nc" id="L115">        return &quot;Operario{&quot; + &quot;NIF=&quot; + NIF + &quot;, nombre=&quot; + nombre + &quot;, apellidos=&quot; + apellidos + &quot;, telefono=&quot; + telefono + &quot;, direccion=&quot; + direccion + &quot;, senior=&quot; + senior + '}';</span>
+<span class="nc" id="L120">        return &quot;Operario{&quot; + &quot;NIF=&quot; + NIF + &quot;, nombre=&quot; + nombre + &quot;, apellidos=&quot; + apellidos + &quot;, telefono=&quot; + telefono + &quot;, direccion=&quot; + direccion + &quot;, senior=&quot; + senior + '}';</span>
     }
 
 }

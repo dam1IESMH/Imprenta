@@ -9,7 +9,7 @@ import javax.swing.ImageIcon;
 
 /**
  *
- * @author Sergio
+ * @author Sergio Amor Gutiérrez
  */
 public class RellenarMaquina extends javax.swing.JDialog {
 
@@ -17,12 +17,12 @@ public class RellenarMaquina extends javax.swing.JDialog {
      * Creates new form Refill
      */
     public RellenarMaquina(java.awt.Frame parent, boolean modal) {
-<span class="nc" id="L20">        super(parent, modal);</span>
-<span class="nc" id="L21">        initComponents();</span>
-<span class="nc" id="L22">        setIconImage(new ImageIcon(&quot;assets/icons/invert_colors_black_18x18.png&quot;).getImage());</span>
-<span class="nc" id="L23">        pnlOtro.setVisible(false);</span>
-<span class="nc" id="L24">        setLocationRelativeTo(null);</span>
-<span class="nc" id="L25">    }</span>
+<span class="fc" id="L20">        super(parent, modal);</span>
+<span class="fc" id="L21">        initComponents();</span>
+<span class="fc" id="L22">        setIconImage(new ImageIcon(&quot;assets/icons/invert_colors_black_18x18.png&quot;).getImage());</span>
+<span class="fc" id="L23">        pnlOtro.setVisible(false);</span>
+<span class="fc" id="L24">        setLocationRelativeTo(null);</span>
+<span class="fc" id="L25">    }</span>
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -33,113 +33,113 @@ public class RellenarMaquina extends javax.swing.JDialog {
     // &lt;editor-fold defaultstate=&quot;collapsed&quot; desc=&quot;Generated Code&quot;&gt;//GEN-BEGIN:initComponents
     private void initComponents() {
 
-<span class="nc" id="L36">        jTextField2 = new javax.swing.JTextField();</span>
-<span class="nc" id="L37">        jLabel1 = new javax.swing.JLabel();</span>
-<span class="nc" id="L38">        btnAceptar = new javax.swing.JButton();</span>
-<span class="nc" id="L39">        btnCancelar = new javax.swing.JButton();</span>
-<span class="nc" id="L40">        pnlElegirOpera = new javax.swing.JPanel();</span>
-<span class="nc" id="L41">        cbOpera = new javax.swing.JComboBox&lt;&gt;();</span>
-<span class="nc" id="L42">        pnlOtro = new javax.swing.JPanel();</span>
-<span class="nc" id="L43">        txtOtro = new javax.swing.JTextField();</span>
-<span class="nc" id="L44">        btnLista = new javax.swing.JButton();</span>
+<span class="fc" id="L36">        jTextField2 = new javax.swing.JTextField();</span>
+<span class="fc" id="L37">        jLabel1 = new javax.swing.JLabel();</span>
+<span class="fc" id="L38">        btnAceptar = new javax.swing.JButton();</span>
+<span class="fc" id="L39">        btnCancelar = new javax.swing.JButton();</span>
+<span class="fc" id="L40">        pnlElegirOpera = new javax.swing.JPanel();</span>
+<span class="fc" id="L41">        cbOpera = new javax.swing.JComboBox&lt;&gt;();</span>
+<span class="fc" id="L42">        pnlOtro = new javax.swing.JPanel();</span>
+<span class="fc" id="L43">        txtOtro = new javax.swing.JTextField();</span>
+<span class="fc" id="L44">        btnLista = new javax.swing.JButton();</span>
 
-<span class="nc" id="L46">        jTextField2.setText(&quot;jTextField2&quot;);</span>
+<span class="fc" id="L46">        jTextField2.setText(&quot;jTextField2&quot;);</span>
 
-<span class="nc" id="L48">        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);</span>
-<span class="nc" id="L49">        setTitle(&quot;Rellenar impresora N&quot;);</span>
+<span class="fc" id="L48">        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);</span>
+<span class="fc" id="L49">        setTitle(&quot;Rellenar impresora N&quot;);</span>
 
-<span class="nc" id="L51">        jLabel1.setText(&quot;Operario que rellena la impresora:&quot;);</span>
+<span class="fc" id="L51">        jLabel1.setText(&quot;Operario que rellena la impresora:&quot;);</span>
 
-<span class="nc" id="L53">        btnAceptar.setText(&quot;Encargar relleno&quot;);</span>
+<span class="fc" id="L53">        btnAceptar.setText(&quot;Encargar relleno&quot;);</span>
 
-<span class="nc" id="L55">        btnCancelar.setText(&quot;Cancelar&quot;);</span>
-<span class="nc" id="L56">        btnCancelar.addActionListener(new java.awt.event.ActionListener() {</span>
+<span class="fc" id="L55">        btnCancelar.setText(&quot;Cancelar&quot;);</span>
+<span class="fc" id="L56">        btnCancelar.addActionListener(new java.awt.event.ActionListener() {</span>
             public void actionPerformed(java.awt.event.ActionEvent evt) {
 <span class="nc" id="L58">                btnCancelarActionPerformed(evt);</span>
 <span class="nc" id="L59">            }</span>
         });
 
-<span class="nc" id="L62">        pnlElegirOpera.setLayout(new java.awt.CardLayout());</span>
+<span class="fc" id="L62">        pnlElegirOpera.setLayout(new java.awt.CardLayout());</span>
 
-<span class="nc" id="L64">        cbOpera.setModel(new javax.swing.DefaultComboBoxModel&lt;&gt;(new String[] { &quot;Op1&quot;, &quot;Op2&quot;, &quot;Op3&quot;, &quot;Otro...&quot; }));</span>
-<span class="nc" id="L65">        cbOpera.addActionListener(new java.awt.event.ActionListener() {</span>
+<span class="fc" id="L64">        cbOpera.setModel(new javax.swing.DefaultComboBoxModel&lt;&gt;(new String[] { &quot;Op1&quot;, &quot;Op2&quot;, &quot;Op3&quot;, &quot;Otro...&quot; }));</span>
+<span class="fc" id="L65">        cbOpera.addActionListener(new java.awt.event.ActionListener() {</span>
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-<span class="nc" id="L67">                cbOperaActionPerformed(evt);</span>
-<span class="nc" id="L68">            }</span>
+<span class="fc" id="L67">                cbOperaActionPerformed(evt);</span>
+<span class="fc" id="L68">            }</span>
         });
-<span class="nc" id="L70">        pnlElegirOpera.add(cbOpera, &quot;card2&quot;);</span>
+<span class="fc" id="L70">        pnlElegirOpera.add(cbOpera, &quot;card2&quot;);</span>
 
-<span class="nc" id="L72">        txtOtro.setText(&quot;Otro...&quot;);</span>
-<span class="nc" id="L73">        txtOtro.addActionListener(new java.awt.event.ActionListener() {</span>
+<span class="fc" id="L72">        txtOtro.setText(&quot;Otro...&quot;);</span>
+<span class="fc" id="L73">        txtOtro.addActionListener(new java.awt.event.ActionListener() {</span>
             public void actionPerformed(java.awt.event.ActionEvent evt) {
 <span class="nc" id="L75">                txtOtroActionPerformed(evt);</span>
 <span class="nc" id="L76">            }</span>
         });
 
-<span class="nc" id="L79">        btnLista.setIcon(new javax.swing.ImageIcon(&quot;C:\\Users\\Sergio\\OneDrive\\DAM1\\Entornos de desarrollo\\Proyecto\\Imprenta\\assets\\icons\\list_black_18x18.png&quot;)); // NOI18N</span>
-<span class="nc" id="L80">        btnLista.addActionListener(new java.awt.event.ActionListener() {</span>
+<span class="fc" id="L79">        btnLista.setIcon(new javax.swing.ImageIcon(&quot;C:\\Users\\Sergio\\OneDrive\\DAM1\\Entornos de desarrollo\\Proyecto\\Imprenta\\assets\\icons\\list_black_18x18.png&quot;)); // NOI18N</span>
+<span class="fc" id="L80">        btnLista.addActionListener(new java.awt.event.ActionListener() {</span>
             public void actionPerformed(java.awt.event.ActionEvent evt) {
 <span class="nc" id="L82">                btnListaActionPerformed(evt);</span>
 <span class="nc" id="L83">            }</span>
         });
 
-<span class="nc" id="L86">        javax.swing.GroupLayout pnlOtroLayout = new javax.swing.GroupLayout(pnlOtro);</span>
-<span class="nc" id="L87">        pnlOtro.setLayout(pnlOtroLayout);</span>
-<span class="nc" id="L88">        pnlOtroLayout.setHorizontalGroup(</span>
-<span class="nc" id="L89">            pnlOtroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)</span>
-<span class="nc" id="L90">            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlOtroLayout.createSequentialGroup()</span>
-<span class="nc" id="L91">                .addComponent(btnLista, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)</span>
-<span class="nc" id="L92">                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)</span>
-<span class="nc" id="L93">                .addComponent(txtOtro))</span>
+<span class="fc" id="L86">        javax.swing.GroupLayout pnlOtroLayout = new javax.swing.GroupLayout(pnlOtro);</span>
+<span class="fc" id="L87">        pnlOtro.setLayout(pnlOtroLayout);</span>
+<span class="fc" id="L88">        pnlOtroLayout.setHorizontalGroup(</span>
+<span class="fc" id="L89">            pnlOtroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)</span>
+<span class="fc" id="L90">            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlOtroLayout.createSequentialGroup()</span>
+<span class="fc" id="L91">                .addComponent(btnLista, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)</span>
+<span class="fc" id="L92">                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)</span>
+<span class="fc" id="L93">                .addComponent(txtOtro))</span>
         );
-<span class="nc" id="L95">        pnlOtroLayout.setVerticalGroup(</span>
-<span class="nc" id="L96">            pnlOtroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)</span>
-<span class="nc" id="L97">            .addComponent(txtOtro, javax.swing.GroupLayout.DEFAULT_SIZE, 24, Short.MAX_VALUE)</span>
-<span class="nc" id="L98">            .addComponent(btnLista, javax.swing.GroupLayout.PREFERRED_SIZE, 24, Short.MAX_VALUE)</span>
-        );
-
-<span class="nc" id="L101">        pnlElegirOpera.add(pnlOtro, &quot;card3&quot;);</span>
-
-<span class="nc" id="L103">        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());</span>
-<span class="nc" id="L104">        getContentPane().setLayout(layout);</span>
-<span class="nc" id="L105">        layout.setHorizontalGroup(</span>
-<span class="nc" id="L106">            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)</span>
-<span class="nc" id="L107">            .addGroup(layout.createSequentialGroup()</span>
-<span class="nc" id="L108">                .addContainerGap()</span>
-<span class="nc" id="L109">                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)</span>
-<span class="nc" id="L110">                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()</span>
-<span class="nc" id="L111">                        .addComponent(btnCancelar)</span>
-<span class="nc" id="L112">                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 60, Short.MAX_VALUE)</span>
-<span class="nc" id="L113">                        .addComponent(btnAceptar))</span>
-<span class="nc" id="L114">                    .addComponent(pnlElegirOpera, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)</span>
-<span class="nc" id="L115">                    .addGroup(layout.createSequentialGroup()</span>
-<span class="nc" id="L116">                        .addComponent(jLabel1)</span>
-<span class="nc" id="L117">                        .addGap(0, 0, Short.MAX_VALUE)))</span>
-<span class="nc" id="L118">                .addContainerGap())</span>
-        );
-<span class="nc" id="L120">        layout.setVerticalGroup(</span>
-<span class="nc" id="L121">            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)</span>
-<span class="nc" id="L122">            .addGroup(layout.createSequentialGroup()</span>
-<span class="nc" id="L123">                .addContainerGap()</span>
-<span class="nc" id="L124">                .addComponent(jLabel1)</span>
-<span class="nc" id="L125">                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)</span>
-<span class="nc" id="L126">                .addComponent(pnlElegirOpera, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)</span>
-<span class="nc" id="L127">                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 12, Short.MAX_VALUE)</span>
-<span class="nc" id="L128">                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)</span>
-<span class="nc" id="L129">                    .addComponent(btnAceptar)</span>
-<span class="nc" id="L130">                    .addComponent(btnCancelar))</span>
-<span class="nc" id="L131">                .addContainerGap())</span>
+<span class="fc" id="L95">        pnlOtroLayout.setVerticalGroup(</span>
+<span class="fc" id="L96">            pnlOtroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)</span>
+<span class="fc" id="L97">            .addComponent(txtOtro, javax.swing.GroupLayout.DEFAULT_SIZE, 24, Short.MAX_VALUE)</span>
+<span class="fc" id="L98">            .addComponent(btnLista, javax.swing.GroupLayout.PREFERRED_SIZE, 24, Short.MAX_VALUE)</span>
         );
 
-<span class="nc" id="L134">        pack();</span>
-<span class="nc" id="L135">    }// &lt;/editor-fold&gt;//GEN-END:initComponents</span>
+<span class="fc" id="L101">        pnlElegirOpera.add(pnlOtro, &quot;card3&quot;);</span>
+
+<span class="fc" id="L103">        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());</span>
+<span class="fc" id="L104">        getContentPane().setLayout(layout);</span>
+<span class="fc" id="L105">        layout.setHorizontalGroup(</span>
+<span class="fc" id="L106">            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)</span>
+<span class="fc" id="L107">            .addGroup(layout.createSequentialGroup()</span>
+<span class="fc" id="L108">                .addContainerGap()</span>
+<span class="fc" id="L109">                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)</span>
+<span class="fc" id="L110">                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()</span>
+<span class="fc" id="L111">                        .addComponent(btnCancelar)</span>
+<span class="fc" id="L112">                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 60, Short.MAX_VALUE)</span>
+<span class="fc" id="L113">                        .addComponent(btnAceptar))</span>
+<span class="fc" id="L114">                    .addComponent(pnlElegirOpera, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)</span>
+<span class="fc" id="L115">                    .addGroup(layout.createSequentialGroup()</span>
+<span class="fc" id="L116">                        .addComponent(jLabel1)</span>
+<span class="fc" id="L117">                        .addGap(0, 0, Short.MAX_VALUE)))</span>
+<span class="fc" id="L118">                .addContainerGap())</span>
+        );
+<span class="fc" id="L120">        layout.setVerticalGroup(</span>
+<span class="fc" id="L121">            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)</span>
+<span class="fc" id="L122">            .addGroup(layout.createSequentialGroup()</span>
+<span class="fc" id="L123">                .addContainerGap()</span>
+<span class="fc" id="L124">                .addComponent(jLabel1)</span>
+<span class="fc" id="L125">                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)</span>
+<span class="fc" id="L126">                .addComponent(pnlElegirOpera, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)</span>
+<span class="fc" id="L127">                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 12, Short.MAX_VALUE)</span>
+<span class="fc" id="L128">                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)</span>
+<span class="fc" id="L129">                    .addComponent(btnAceptar)</span>
+<span class="fc" id="L130">                    .addComponent(btnCancelar))</span>
+<span class="fc" id="L131">                .addContainerGap())</span>
+        );
+
+<span class="fc" id="L134">        pack();</span>
+<span class="fc" id="L135">    }// &lt;/editor-fold&gt;//GEN-END:initComponents</span>
 
     private void cbOperaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbOperaActionPerformed
-<span class="nc bnc" id="L138" title="All 2 branches missed.">        if(cbOpera.getSelectedIndex() == cbOpera.getItemCount()-1) {</span>
+<span class="pc bpc" id="L138" title="1 of 2 branches missed.">        if(cbOpera.getSelectedIndex() == cbOpera.getItemCount()-1) {</span>
 <span class="nc" id="L139">            cbOpera.setVisible(false);</span>
 <span class="nc" id="L140">            pnlOtro.setVisible(true);</span>
         }
-<span class="nc" id="L142">    }//GEN-LAST:event_cbOperaActionPerformed</span>
+<span class="fc" id="L142">    }//GEN-LAST:event_cbOperaActionPerformed</span>
 
     private void txtOtroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtOtroActionPerformed
         // TODO add your handling code here:

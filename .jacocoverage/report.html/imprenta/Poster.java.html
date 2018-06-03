@@ -39,15 +39,15 @@ public class Poster extends Trabajo {
      * @param fechaRecogida (@code Calendar)
      */
     public Poster(int alto, int ancho, int numeroCopias, Calendar fechaSolicitud, String tipoRelieve, Calendar fechaImpresion, Calendar fechaRecogida) {
-<span class="nc" id="L42">        super(fechaSolicitud, tipoRelieve, fechaImpresion, fechaRecogida);</span>
-<span class="nc bnc" id="L43" title="All 4 branches missed.">        if ((Validaciones.validarDimensiones(alto)) &amp;&amp; (Validaciones.validarDimensiones(ancho))) {</span>
+<span class="fc" id="L42">        super(fechaSolicitud, tipoRelieve, fechaImpresion, fechaRecogida);</span>
+<span class="pc bpc" id="L43" title="3 of 4 branches missed.">        if ((Validaciones.validarDimensiones(alto)) &amp;&amp; (Validaciones.validarDimensiones(ancho))) {</span>
 <span class="nc" id="L44">            this.alto = alto;</span>
 <span class="nc" id="L45">            this.ancho = ancho;</span>
         }
-<span class="nc bnc" id="L47" title="All 2 branches missed.">        if (Validaciones.validarEntero(numeroCopias)) {</span>
-<span class="nc" id="L48">            this.numeroCopias = numeroCopias;</span>
+<span class="pc bpc" id="L47" title="1 of 2 branches missed.">        if (Validaciones.validarEntero(numeroCopias)) {</span>
+<span class="fc" id="L48">            this.numeroCopias = numeroCopias;</span>
         }
-<span class="nc" id="L50">    }</span>
+<span class="fc" id="L50">    }</span>
 
     /**
      * Inicializa un objeto {@code Poster} cuyas variables copia de otro objeto

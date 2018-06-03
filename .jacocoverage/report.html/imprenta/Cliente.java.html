@@ -12,7 +12,7 @@ import java.io.Serializable;
  * en una imprenta. El cliente se define por su {@code nombre} y
  * {@code telefono}.
  *
- * @author SirLoveWalter
+ * @author Sergio Amor Gutiérrez
  */
 public class Cliente implements Serializable {
 
@@ -32,14 +32,14 @@ public class Cliente implements Serializable {
      * @param nombre {@code String}
      * @param telefono {@code String}
      */
-<span class="fc" id="L35">    public Cliente(String nombre, String telefono) {</span>
-<span class="pc bpc" id="L36" title="1 of 2 branches missed.">        if(Validaciones.validarNombre(nombre)){</span>
-<span class="fc" id="L37">        this.nombre = nombre;</span>
+<span class="nc" id="L35">    public Cliente(String nombre, String telefono) {</span>
+<span class="nc bnc" id="L36" title="All 2 branches missed.">        if(Validaciones.validarNombre(nombre)){</span>
+<span class="nc" id="L37">        this.nombre = nombre;</span>
         }
-<span class="pc bpc" id="L39" title="1 of 2 branches missed.">        if(Validaciones.validarTlf(telefono)){</span>
-<span class="fc" id="L40">            this.telefono = telefono;</span>
+<span class="nc bnc" id="L39" title="All 2 branches missed.">        if(Validaciones.validarTlf(telefono)){</span>
+<span class="nc" id="L40">            this.telefono = telefono;</span>
         }
-<span class="fc" id="L42">    }</span>
+<span class="nc" id="L42">    }</span>
 
     /**
      * Inicializa un objeto {@code Cliente} cuyas variables copia de otro objeto
