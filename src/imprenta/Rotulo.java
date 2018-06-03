@@ -23,23 +23,25 @@ public class Rotulo extends Trabajo {
 
     /**
      * Constructor para la clase Trabajo con todos los parámetros
-     * 
+     *
      * @param centroComercial
      * @param fechaSolicitud
      * @param tipoRelieve
      * @param fechaImpresion
-     * @param fechaRecogida 
+     * @param fechaRecogida
      */
     public Rotulo(String centroComercial, Calendar fechaSolicitud, String tipoRelieve, Calendar fechaImpresion, Calendar fechaRecogida) {
         super(fechaSolicitud, tipoRelieve, fechaImpresion, fechaRecogida);
-        this.centroComercial = centroComercial;
+        if (Validaciones.validarNombre(centroComercial)) {
+            this.centroComercial = centroComercial;
+        }
     }//Cierre del constructor
-    
+
     /**
      * Inicializa un objeto {@code Rotulo} cuyas variables copia de otro objeto
      * Rotulo pasado como argumento
-     * 
-     * @param r {@code Rotulo} 
+     *
+     * @param r {@code Rotulo}
      */
     public Rotulo(Rotulo r) {
         super(r);

@@ -8,7 +8,6 @@ package imprenta;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-
 /**
  *
  * @author José Daniel Buenaga, Sergio Amor, Mario Pérez
@@ -23,7 +22,7 @@ public class Validaciones {
      * @throws InvalidSurfaceException
      */
     public static Trabajo.tipoRelieve validarTipoRelieve(String relieve) throws InvalidSurfaceException {
-        boolean correcto=false;
+        boolean correcto = false;
         for (Trabajo.tipoRelieve tr : Trabajo.tipoRelieve.values()) {
             if (relieve.equals(tr.toString())) {
                 return Trabajo.tipoRelieve.valueOf(relieve.toUpperCase());
@@ -31,12 +30,12 @@ public class Validaciones {
         }
         throw new InvalidSurfaceException();
     }//Cierre del método
-    
+
     /**
-     * Método para validar el nombre del centro comercial 
-     * 
+     * Método para validar el nombre del centro comercial
+     *
      * @param nombre
-     * @return 
+     * @return
      */
     public static boolean validarNombre(String nombre) {
         return nombre.matches("[a-zA-ZñÑáéíóúÁÉÍÓÚäëïöüÄËÏÖÜçÇ\\s]{2,25}");
@@ -44,65 +43,65 @@ public class Validaciones {
 
     /**
      * Método para validar un entero
-     * 
+     *
      * @param numero
-     * @return 
+     * @return
      */
     public static boolean validarEntero(int numero) {
-        boolean correcto=false;
+        boolean correcto = false;
         if ((numero < 1000) && (numero > 0)) {
-            correcto=true;
+            correcto = true;
         }
         return correcto;
     }
-    
+
     /**
      * Método para validar las dimensiones de un poster
-     * 
+     *
      * @param numero
-     * @return 
+     * @return
      */
     public static boolean validarDimensiones(int numero) {
-        boolean correcto=false;
+        boolean correcto = false;
         if ((numero < 100) && (numero > 0)) {
-            correcto=true;
+            correcto = true;
         }
         return correcto;
     }
-    
+
     /**
      * Método para validar las dimensiones de un poster
-     * 
+     *
      * @param numero
-     * @return 
+     * @return
      */
     public static boolean validarVolumen(int numero) {
-        boolean correcto=false;
+        boolean correcto = false;
         if ((numero < 100) && (numero > 0)) {
-            correcto=true;
+            correcto = true;
         }
         return correcto;
     }
-    
+
     /**
      * Método para validar las dimensiones de un poster
-     * 
+     *
      * @param numero
-     * @return 
+     * @return
      */
     public static boolean validarCapacidadMaxima(int numero) {
-        boolean correcto=false;
+        boolean correcto = false;
         if ((numero < 100) && (numero > 0)) {
-            correcto=true;
+            correcto = true;
         }
         return correcto;
     }
-    
+
     /**
      * Método para validar un NIF
-     * 
+     *
      * @param nif
-     * @return 
+     * @return
      */
     public static boolean validarNIF(String nif) {
         boolean correcto = false;
@@ -124,32 +123,32 @@ public class Validaciones {
         }
         return correcto;
     }
-    
+
     /**
      * Método para validar un teléfono
-     * 
+     *
      * @param tlf
-     * @return 
+     * @return
      */
     public static boolean validarTlf(String tlf) {
         return tlf.matches("[679][0-9]{8,8}");
     }
-    
+
     /**
-     * Método para validar una dirección 
-     * 
+     * Método para validar una dirección
+     *
      * @param direc
-     * @return 
+     * @return
      */
     public static boolean validarDireccion(String direc) {
         return direc.matches("C/[a-zA-ZñÑáéíóúÁÉÍÓÚäëïöüÄËÏÖÜçÇ\\s]{2,15} ?([nN][?º][0-9]{1,4})"
                 + " [a-zA-ZñÑáéíóúÁÉÍÓÚäëïöüÄËÏÖÜçÇ\\s]{2,15}, [a-zA-ZñÑáéíóúÁÉÍÓÚäëïöüÄËÏÖÜçÇ\\s]{2,15}");
     }
-    
+
     /**
      * Método para validar el color de las tapas de los libros
      *
-     * @param colorTapas 
+     * @param colorTapas
      * @return
      * @throws InvalidSurfaceException
      */
