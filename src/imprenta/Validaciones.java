@@ -86,7 +86,7 @@ public class Validaciones {
      */
     public static boolean validarVolumen(int numero) {
         boolean correcto = false;
-        if ((numero <= 100) && (numero >= 0)) {
+        if ((numero <= 400) && (numero >= 0)) {
             correcto = true;
         }
         return correcto;

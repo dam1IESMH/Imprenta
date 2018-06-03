@@ -109,6 +109,7 @@ public class NuevaModificacion extends javax.swing.JDialog {
                 null,
                 (OImpresion) Datos.opActual
         ));
+        ModificacionesTrabajo.t.setMods(ModificacionesTrabajo.mods);
         dispose();
     }//GEN-LAST:event_btnAnadirModActionPerformed
 

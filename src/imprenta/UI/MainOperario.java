@@ -170,6 +170,11 @@ public class MainOperario extends javax.swing.JFrame {
 
         btnImprimir.setText("Imprimir");
         btnImprimir.setEnabled(false);
+        btnImprimir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnImprimirActionPerformed(evt);
+            }
+        });
 
         jLabel1.setFont(new java.awt.Font("Dialog", 1, 12)); // NOI18N
         jLabel1.setText("Nombre del trabajo");
@@ -333,7 +338,14 @@ public class MainOperario extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnRellenarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRellenarActionPerformed
-        new RellenarMaquina(this, true).setVisible(true);
+        for (Iterator<Maquina> it = Datos.maquinas.iterator(); it.hasNext();) {
+            Maquina next = it.next();
+            if (next.getId() == (int) tblMaquinas.getValueAt(tblMaquinas.getSelectedRow(), 0)) {
+                next.rellenar();
+            }
+        }
+        Datos.guardarMaquinas();
+        cargarTablaMaquinas();
     }//GEN-LAST:event_btnRellenarActionPerformed
 
     private void btnRepararActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRepararActionPerformed
@@ -341,7 +353,7 @@ public class MainOperario extends javax.swing.JFrame {
     }//GEN-LAST:event_btnRepararActionPerformed
 
     private void btnModsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModsActionPerformed
-        new ModificacionesTrabajo(copiarTrabajoFila(tblTrabajos.getSelectedRow())).setVisible(true);
+        new ModificacionesTrabajo(copiarTrabajoFila(tblTrabajos.getSelectedRow()));
     }//GEN-LAST:event_btnModsActionPerformed
 
     private void mnAboutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnAboutActionPerformed
@@ -370,18 +382,40 @@ public class MainOperario extends javax.swing.JFrame {
         cargarTablaTrabajos();
     }//GEN-LAST:event_btnValidarActionPerformed
 
+    private void btnImprimirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnImprimirActionPerformed
+        for (Iterator<Trabajo> it = Datos.trabajos.iterator(); it.hasNext();) {
+            Trabajo next = it.next();
+            if (next.getId() == (int) tblTrabajos.getValueAt(tblTrabajos.getSelectedRow(), 0)) {
+                next.imprimir();
+            }
+        }
+        Datos.guardarTrabajos();
+        cargarTablaTrabajos();
+    }//GEN-LAST:event_btnImprimirActionPerformed
+
     private void habilitarOpciones() {
-        btnImprimir.setEnabled(true);
         btnMods.setEnabled(true);
         btnValidar.setEnabled(true);
+        if ((boolean) tblTrabajos.getValueAt(tblTrabajos.getSelectedRow(), 5)) {
+            btnImprimir.setEnabled(true);
+            btnValidar.setEnabled(false);
+        }
+        if (tblTrabajos.getValueAt(tblTrabajos.getSelectedRow(), 3) != null) {
+            btnImprimir.setEnabled(false);
+        }
     }
 
     private void cargarTablaTrabajos() {
         Datos.cargarTrabajos();
-        DefaultTableModel tm = (DefaultTableModel) tblTrabajos.getModel();
-        for (int i = 0; i < tm.getRowCount(); i++) {
-            tm.removeRow(i);
-        }
+        DefaultTableModel tm = new DefaultTableModel();
+        tm.setColumnIdentifiers(new String[] {
+            "ID",
+            "Tipo relieve",
+            "Fecha solicitud",
+            "Fecha impresión",
+            "Fecha recogida",
+            "Listo"
+        });
         for (Trabajo t : Datos.trabajos) {
             tm.addRow(new Object[]{
                 t.getId(),
@@ -397,10 +431,16 @@ public class MainOperario extends javax.swing.JFrame {
 
     private void cargarTablaMaquinas() {
         Datos.cargarMaquinas();
-        DefaultTableModel tm = (DefaultTableModel) tblMaquinas.getModel();
-        for (int i = 0; i < tm.getRowCount(); i++) {
-            tm.removeRow(i);
-        }
+        DefaultTableModel tm = new DefaultTableModel();
+        tm.setColumnIdentifiers(new String[] {
+            "ID",
+            "Ubicación",
+            "Compra",
+            "Tipo impresión",
+            "Modo impresión",
+            "Volumen",
+            "Capacidad"
+        });
         for (Maquina m : Datos.maquinas) {
             tm.addRow(new Object[]{
                 m.getId(),
@@ -417,8 +457,17 @@ public class MainOperario extends javax.swing.JFrame {
 
     private Trabajo copiarTrabajoFila(int row) {
         for (Trabajo t : Datos.trabajos) {
-            if (t.getId()==(int)tblTrabajos.getValueAt(row, 0)) {
+            if (t.getId() == (int) tblTrabajos.getValueAt(row, 0)) {
                 return t;
+            }
+        }
+        return null;
+    }
+
+    private Maquina copiarMaquinaFila(int row) {
+        for (Maquina m : Datos.maquinas) {
+            if (m.getId() == (int) tblMaquinas.getValueAt(row, 0)) {
+                return m;
             }
         }
         return null;

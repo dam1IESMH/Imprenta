@@ -32,12 +32,7 @@ public class SignIn extends javax.swing.JFrame {
         lblPistaHuella.setVisible(false);
         setLocationRelativeTo(null);
         Datos.cargarOperarios();
-//        Datos.maquinas.add(new Maquina(100, 250, "S12", "Litografía", "UNKNOWN", new GregorianCalendar(2018, 03, 10)));
-//        Datos.maquinas.add(new Maquina(20, 250, "S13", "Flexografía", "UNKNOWN", new GregorianCalendar(2018, 03, 10)));
-//        Datos.maquinas.add(new Maquina(75, 250, "S14", "Flexografía", "UNKNOWN", new GregorianCalendar(2018, 03, 10)));
-//        Datos.maquinas.add(new Maquina(220, 250, "S15", "Litografía", "UNKNOWN", new GregorianCalendar(2018, 03, 10)));
-//        Datos.maquinas.add(new Maquina(190, 250, "S16", "Tipografía", "UNKNOWN", new GregorianCalendar(2018, 03, 10)));
-//        Datos.guardarMaquinas();
+        Datos.cargarClientes();
     }
 
     /**
@@ -70,7 +65,6 @@ public class SignIn extends javax.swing.JFrame {
         lblHuella = new javax.swing.JLabel();
         lblPistaHuella = new javax.swing.JLabel();
         lblNifIncorrecto = new javax.swing.JLabel();
-        jToggleButton1 = new javax.swing.JToggleButton();
         lblNuevoOperario = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -228,13 +222,6 @@ public class SignIn extends javax.swing.JFrame {
         lblNifIncorrecto.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
         lblNifIncorrecto.setText("El NIF introducido no es válido.");
 
-        jToggleButton1.setText("entrar");
-        jToggleButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jToggleButton1ActionPerformed(evt);
-            }
-        });
-
         lblNuevoOperario.setFont(lblNuevoOperario.getFont());
         lblNuevoOperario.setForeground(new java.awt.Color(0, 102, 102));
         lblNuevoOperario.setText("Soy un nuevo operario");
@@ -276,8 +263,7 @@ public class SignIn extends javax.swing.JFrame {
                             .addComponent(lblPistaHuella, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addGroup(pnlOperarioLayout.createSequentialGroup()
                                 .addComponent(btnOperaAtras)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jToggleButton1)))))
+                                .addGap(0, 0, Short.MAX_VALUE)))))
                 .addContainerGap())
             .addGroup(pnlOperarioLayout.createSequentialGroup()
                 .addGap(105, 105, 105)
@@ -288,9 +274,7 @@ public class SignIn extends javax.swing.JFrame {
             pnlOperarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlOperarioLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(pnlOperarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnOperaAtras)
-                    .addComponent(jToggleButton1))
+                .addComponent(btnOperaAtras)
                 .addGap(19, 19, 19)
                 .addComponent(jLabel6)
                 .addGap(42, 42, 42)
@@ -335,10 +319,6 @@ public class SignIn extends javax.swing.JFrame {
         lblPistaHuella.setForeground(Color.black);
         pnlHome.setVisible(true);
     }//GEN-LAST:event_btnOperaAtrasActionPerformed
-
-    private void jToggleButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton1ActionPerformed
-        entrar(2);
-    }//GEN-LAST:event_jToggleButton1ActionPerformed
 
     private void txtOperaNifKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtOperaNifKeyPressed
         if (lblHuella.isEnabled()) {
@@ -505,7 +485,6 @@ public class SignIn extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JSeparator jSeparator1;
-    private javax.swing.JToggleButton jToggleButton1;
     private javax.swing.JLabel lblHuella;
     private javax.swing.JLabel lblNifIncorrecto;
     private javax.swing.JLabel lblNuevoCliente;

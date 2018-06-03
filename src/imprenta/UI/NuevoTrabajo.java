@@ -59,6 +59,7 @@ public class NuevoTrabajo extends javax.swing.JDialog {
         setTitle("Nuevo trabajo");
 
         cbTipoTrabajo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Rótulo", "Póster", "Libro" }));
+        cbTipoTrabajo.setSelectedIndex(1);
         cbTipoTrabajo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cbTipoTrabajoActionPerformed(evt);

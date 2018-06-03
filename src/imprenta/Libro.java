@@ -7,12 +7,11 @@ package imprenta;
 
 import java.util.Calendar;
 
-
 /**
- * La clase {@code Libro} es una clase que hereda de (@code Trabajo). 
- * El rotulo tiene los atributos heredados de Trabajo y además contiene el
- * atributo enumerado (@code Tapas) y el entero (@code numeroPaginas); 
- * 
+ * La clase {@code Libro} es una clase que hereda de (@code Trabajo). El rotulo
+ * tiene los atributos heredados de Trabajo y además contiene el atributo
+ * enumerado (@code Tapas) y el entero (@code numeroPaginas);
+ *
  * @author Jose Daniel Buenaga
  */
 public class Libro extends Trabajo {
@@ -56,9 +55,9 @@ public class Libro extends Trabajo {
             colorTapas = colorTapas.BLANCO;
         } else if (Tapas.equalsIgnoreCase("NEGRO")) {
             colorTapas = colorTapas.NEGRO;
-        }else if (Tapas.equalsIgnoreCase("MARRON")) {
+        } else if (Tapas.equalsIgnoreCase("MARRON")) {
             colorTapas = colorTapas.MARRON;
-    }
+        }
     }
 
     /**

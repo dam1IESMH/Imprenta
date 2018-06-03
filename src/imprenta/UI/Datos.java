@@ -89,14 +89,19 @@ public class Datos {
     
     static void cargarTrabajos() {
         ObjectInputStream ois = null;
+        int maxAuto = 0;
         try {
             ois = new ObjectInputStream(new FileInputStream(storedTrabajos));
             trabajos.clear();
             while (true) {
-                trabajos.add((Trabajo) ois.readObject());
+                Trabajo t = (Trabajo) ois.readObject();
+                trabajos.add(t);
+                if (t.getId()>maxAuto) {
+                    maxAuto = t.getId();
+                }
             }
         } catch (EOFException eof) {
-            
+            Trabajo.setAuto_incrementado(maxAuto);
         } catch (FileNotFoundException ex) {
             Logger.getLogger(Datos.class.getName()).log(Level.SEVERE, null, ex);
         } catch (IOException | ClassNotFoundException ex) {
@@ -114,14 +119,19 @@ public class Datos {
     
     static void cargarMaquinas() {
         ObjectInputStream ois = null;
+        int maxAuto = 0;
         try {
             ois = new ObjectInputStream(new FileInputStream(storedMaquinas));
             maquinas.clear();
             while (true) {
-                maquinas.add((Maquina) ois.readObject());
+                Maquina m = (Maquina) ois.readObject();
+                maquinas.add(m);
+                if (m.getId()>maxAuto) {
+                    maxAuto = m.getId();
+                }
             }
         } catch (EOFException eof) {
-            
+            Maquina.setAuto_increment(maxAuto);
         } catch (FileNotFoundException ex) {
             Logger.getLogger(Datos.class.getName()).log(Level.SEVERE, null, ex);
         } catch (IOException | ClassNotFoundException ex) {

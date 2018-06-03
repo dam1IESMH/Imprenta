@@ -25,7 +25,7 @@ public class ModificacionesTrabajo extends javax.swing.JFrame {
         setIconImage(new ImageIcon("assets/icons/edit_black_18x18.png").getImage());
         setTitle("Mods. trabajo " + t.getId());
         setLocationRelativeTo(null);
-
+        setVisible(true);
     }
 
     /**
@@ -135,14 +135,13 @@ public class ModificacionesTrabajo extends javax.swing.JFrame {
 
     private void btnAnadirModActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAnadirModActionPerformed
         new NuevaModificacion(this, true).setVisible(true);
+        Datos.trabajos.remove(t);
+        Datos.trabajos.add(t);
     }//GEN-LAST:event_btnAnadirModActionPerformed
 
     private void cargarLista() {
-        if (t.getMods() == null) {
             mods = new ArrayList<>();
-        } else {
-            mods = t.getMods();
-        }
+            mods.addAll(t.getMods());
         DefaultListModel lm = new DefaultListModel();
         for (Modificacion m : mods) {
             lm.addElement("Modificación " + m.getId());

@@ -9,6 +9,9 @@ import java.io.Serializable;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.GregorianCalendar;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -144,12 +147,17 @@ public class Trabajo implements Serializable {
         this.impreso = impreso;
     }
 
+    public static void setAuto_incrementado(int auto_incrementado) {
+        Trabajo.auto_incrementado = auto_incrementado;
+    }
+
     public void validar() {
         this.valido = true;
     }
 
     public void imprimir() {
         this.impreso = true;
+        this.fechaImpresion = new GregorianCalendar();
     }
 
     @Override

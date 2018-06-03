@@ -122,6 +122,7 @@ public class NuevoCliente extends javax.swing.JDialog {
 
     private void btnRegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrarActionPerformed
         Datos.clientes.add(new Cliente(txtNombre.getText(), txtTelf.getText()));
+        Datos.guardarClientes();
         dispose();
     }//GEN-LAST:event_btnRegistrarActionPerformed
 
