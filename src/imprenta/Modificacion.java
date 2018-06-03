@@ -14,7 +14,7 @@ import java.util.GregorianCalendar;
  * modificaciones en un Trabajo que pudieran realizarse y que deben ser aprobadas
  * por un Cliente.
  *
- * @author SirLoveWalter
+ * @author Sergio Amor Gutiérrez
  */
 public class Modificacion {
 

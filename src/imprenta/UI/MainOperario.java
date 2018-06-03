@@ -7,13 +7,14 @@ package imprenta.UI;
 
 import imprenta.Maquina;
 import imprenta.Trabajo;
+import java.util.Iterator;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.table.DefaultTableModel;
 
 /**
  *
- * @author DAM101
+ * @author Sergio Amor Gutiérrez
  */
 public class MainOperario extends javax.swing.JFrame {
 
@@ -55,9 +56,9 @@ public class MainOperario extends javax.swing.JFrame {
         jCheckBox4 = new javax.swing.JCheckBox();
         jCheckBox5 = new javax.swing.JCheckBox();
         jCheckBox6 = new javax.swing.JCheckBox();
-        jButton4 = new javax.swing.JButton();
-        jButton5 = new javax.swing.JButton();
-        jButton6 = new javax.swing.JButton();
+        btnMods = new javax.swing.JButton();
+        btnValidar = new javax.swing.JButton();
+        btnImprimir = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         pnlMaquinas = new javax.swing.JPanel();
@@ -88,6 +89,11 @@ public class MainOperario extends javax.swing.JFrame {
 
             public Class getColumnClass(int columnIndex) {
                 return types [columnIndex];
+            }
+        });
+        tblTrabajos.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tblTrabajosMouseClicked(evt);
             }
         });
         jScrollPane2.setViewportView(tblTrabajos);
@@ -146,16 +152,24 @@ public class MainOperario extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        jButton4.setText("Modificaciones");
-        jButton4.addActionListener(new java.awt.event.ActionListener() {
+        btnMods.setText("Modificaciones");
+        btnMods.setEnabled(false);
+        btnMods.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton4ActionPerformed(evt);
+                btnModsActionPerformed(evt);
             }
         });
 
-        jButton5.setText("Validar");
+        btnValidar.setText("Validar");
+        btnValidar.setEnabled(false);
+        btnValidar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnValidarActionPerformed(evt);
+            }
+        });
 
-        jButton6.setText("Imprimir");
+        btnImprimir.setText("Imprimir");
+        btnImprimir.setEnabled(false);
 
         jLabel1.setFont(new java.awt.Font("Dialog", 1, 12)); // NOI18N
         jLabel1.setText("Nombre del trabajo");
@@ -177,11 +191,11 @@ public class MainOperario extends javax.swing.JFrame {
                             .addComponent(jLabel1)
                             .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 251, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(pnlImpresionLayout.createSequentialGroup()
-                                .addComponent(jButton4)
+                                .addComponent(btnMods)
                                 .addGap(18, 18, 18)
-                                .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addComponent(btnValidar, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 33, Short.MAX_VALUE)
-                        .addComponent(jButton6)))
+                        .addComponent(btnImprimir)))
                 .addContainerGap())
         );
         pnlImpresionLayout.setVerticalGroup(
@@ -199,11 +213,11 @@ public class MainOperario extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(pnlImpresionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(btnImprimir, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 16, Short.MAX_VALUE)
                         .addGroup(pnlImpresionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jButton4)
-                            .addComponent(jButton5))))
+                            .addComponent(btnMods)
+                            .addComponent(btnValidar))))
                 .addContainerGap())
         );
 
@@ -326,18 +340,41 @@ public class MainOperario extends javax.swing.JFrame {
         new RepararMaquina(this, true).setVisible(true);
     }//GEN-LAST:event_btnRepararActionPerformed
 
-    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
-        new ModificacionesTrabajo().setVisible(true);
-    }//GEN-LAST:event_jButton4ActionPerformed
+    private void btnModsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModsActionPerformed
+        new ModificacionesTrabajo(copiarTrabajoFila(tblTrabajos.getSelectedRow())).setVisible(true);
+    }//GEN-LAST:event_btnModsActionPerformed
 
     private void mnAboutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnAboutActionPerformed
-        new About(this, false).setVisible(true);
+
     }//GEN-LAST:event_mnAboutActionPerformed
 
     private void btnNuevoTrabajoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNuevoTrabajoActionPerformed
         new NuevoTrabajo(this, true);
         cargarTablaTrabajos();
     }//GEN-LAST:event_btnNuevoTrabajoActionPerformed
+
+    private void tblTrabajosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblTrabajosMouseClicked
+        if (tblTrabajos.getSelectedRow() != -1) {
+            habilitarOpciones();
+        }
+    }//GEN-LAST:event_tblTrabajosMouseClicked
+
+    private void btnValidarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnValidarActionPerformed
+        for (Iterator<Trabajo> it = Datos.trabajos.iterator(); it.hasNext();) {
+            Trabajo next = it.next();
+            if (next.getId() == (int) tblTrabajos.getValueAt(tblTrabajos.getSelectedRow(), 0)) {
+                next.setValido(true);
+            }
+        }
+        Datos.guardarTrabajos();
+        cargarTablaTrabajos();
+    }//GEN-LAST:event_btnValidarActionPerformed
+
+    private void habilitarOpciones() {
+        btnImprimir.setEnabled(true);
+        btnMods.setEnabled(true);
+        btnValidar.setEnabled(true);
+    }
 
     private void cargarTablaTrabajos() {
         Datos.cargarTrabajos();
@@ -346,7 +383,7 @@ public class MainOperario extends javax.swing.JFrame {
             tm.removeRow(i);
         }
         for (Trabajo t : Datos.trabajos) {
-            tm.addRow(new Object[] {
+            tm.addRow(new Object[]{
                 t.getId(),
                 t.getRelieve(),
                 t.getFechaSolicitud(),
@@ -357,7 +394,7 @@ public class MainOperario extends javax.swing.JFrame {
         }
         tblTrabajos.setModel(tm);
     }
-    
+
     private void cargarTablaMaquinas() {
         Datos.cargarMaquinas();
         DefaultTableModel tm = (DefaultTableModel) tblMaquinas.getModel();
@@ -365,7 +402,7 @@ public class MainOperario extends javax.swing.JFrame {
             tm.removeRow(i);
         }
         for (Maquina m : Datos.maquinas) {
-            tm.addRow(new Object[] {
+            tm.addRow(new Object[]{
                 m.getId(),
                 m.getUbicacion(),
                 m.getFechaCompra(),
@@ -376,6 +413,15 @@ public class MainOperario extends javax.swing.JFrame {
             });
         }
         tblMaquinas.setModel(tm);
+    }
+
+    private Trabajo copiarTrabajoFila(int row) {
+        for (Trabajo t : Datos.trabajos) {
+            if (t.getId()==(int)tblTrabajos.getValueAt(row, 0)) {
+                return t;
+            }
+        }
+        return null;
     }
 
     public JFrame getThis() {
@@ -419,12 +465,12 @@ public class MainOperario extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnImprimir;
+    private javax.swing.JButton btnMods;
     private javax.swing.JButton btnNuevoTrabajo;
     private javax.swing.JButton btnRellenar;
     private javax.swing.JButton btnReparar;
-    private javax.swing.JButton jButton4;
-    private javax.swing.JButton jButton5;
-    private javax.swing.JButton jButton6;
+    private javax.swing.JButton btnValidar;
     private javax.swing.JCheckBox jCheckBox1;
     private javax.swing.JCheckBox jCheckBox2;
     private javax.swing.JCheckBox jCheckBox3;

@@ -17,7 +17,7 @@ import java.util.Calendar;
  * {@code tipoImpresion}, {@code modoImpresion}; y el Calendar
  * {@code fechaCompra}.
  *
- * @author SirLoveWalter
+ * @author Sergio Amor Gutiérrez
  */
 public class Maquina implements Serializable {
 

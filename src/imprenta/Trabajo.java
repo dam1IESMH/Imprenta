@@ -7,6 +7,7 @@ package imprenta;
 
 import java.io.Serializable;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -17,7 +18,7 @@ import java.util.logging.Logger;
  */
 public class Trabajo implements Serializable {
 
-    enum tipoRelieve {
+    protected enum tipoRelieve {
         FLEXOGRAFIA, TIPOGRAFIA, LITOGRAFIA
     }
     protected int id;
@@ -28,6 +29,7 @@ public class Trabajo implements Serializable {
     protected boolean valido;
     protected boolean impreso;
 
+    ArrayList<Modificacion> mods;
     protected static int auto_incrementado = 0;
 
     {
@@ -49,15 +51,18 @@ public class Trabajo implements Serializable {
      * @param fechaRecogida
      */
     public Trabajo(Calendar fechaSolicitud, String tipoRelieve, Calendar fechaImpresion, Calendar fechaRecogida) {
-        try {
-            this.id = auto_incrementado;
-            this.fechaSolicitud = fechaSolicitud;
-            this.Relieve = Validaciones.validarTipoRelieve(tipoRelieve);
-            this.fechaImpresion = fechaImpresion;
-            this.fechaRecogida = fechaRecogida;
-        } catch (InvalidSurfaceException ex) {
-            Logger.getLogger(Trabajo.class.getName()).log(Level.SEVERE, null, ex);
+        this.id = auto_incrementado;
+        this.fechaSolicitud = fechaSolicitud;
+        if (tipoRelieve.equalsIgnoreCase("FLEXOGRAFIA")) {
+            Relieve = Relieve.FLEXOGRAFIA;
+        } else if (tipoRelieve.equalsIgnoreCase("TIPOGRAFIA")) {
+            Relieve = Relieve.TIPOGRAFIA;
+        } else if (tipoRelieve.equalsIgnoreCase("LITOGRAFIA")) {
+            Relieve = Relieve.LITOGRAFIA;
         }
+        this.fechaImpresion = fechaImpresion;
+        this.fechaRecogida = fechaRecogida;
+        mods = new ArrayList<>();
     }//Cierre del constructor
 
     /**
@@ -115,6 +120,30 @@ public class Trabajo implements Serializable {
 
     public boolean isImpreso() {
         return impreso;
+    }
+
+    public ArrayList<Modificacion> getMods() {
+        return mods;
+    }
+
+    public void setMods(ArrayList<Modificacion> mods) {
+        this.mods = mods;
+    }
+
+    public void setFechaImpresion(Calendar fechaImpresion) {
+        this.fechaImpresion = fechaImpresion;
+    }
+
+    public void setFechaRecogida(Calendar fechaRecogida) {
+        this.fechaRecogida = fechaRecogida;
+    }
+
+    public void setValido(boolean valido) {
+        this.valido = valido;
+    }
+
+    public void setImpreso(boolean impreso) {
+        this.impreso = impreso;
     }
 
     public void validar() {

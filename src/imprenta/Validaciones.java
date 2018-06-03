@@ -19,16 +19,15 @@ public class Validaciones {
      *
      * @param relieve
      * @return
-     * @throws InvalidSurfaceException
      */
-    public static Trabajo.tipoRelieve validarTipoRelieve(String relieve) throws InvalidSurfaceException {
+    public static boolean validarTipoRelieve(String relieve) {
         boolean correcto = false;
         for (Trabajo.tipoRelieve tr : Trabajo.tipoRelieve.values()) {
             if (relieve.equals(tr.toString())) {
-                return Trabajo.tipoRelieve.valueOf(relieve.toUpperCase());
+                return true;
             }
         }
-        throw new InvalidSurfaceException();
+        return false;
     }//Cierre del método
 
     /**
@@ -156,15 +155,14 @@ public class Validaciones {
      *
      * @param colorTapas
      * @return
-     * @throws InvalidSurfaceException
      */
-    public static Libro.Tapas validarColorTapas(String colorTapas) throws InvalidSurfaceException {
+    public static boolean validarColorTapas(String colorTapas) {
 
         for (Libro.Tapas t : Libro.Tapas.values()) {
-            if (colorTapas.equals(Libro.Tapas.values().toString())) {
-                return Libro.Tapas.valueOf(colorTapas.toUpperCase());
+            if (colorTapas.equals(t.toString())) {
+                return true;
             }
         }
-        throw new InvalidSurfaceException();
+        return false;
     }//Cierre del método
 }

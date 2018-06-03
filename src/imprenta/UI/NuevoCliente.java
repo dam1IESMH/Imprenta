@@ -9,7 +9,7 @@ import imprenta.*;
 
 /**
  *
- * @author Sergio
+ * @author Sergio Amor Gutiérrez
  */
 public class NuevoCliente extends javax.swing.JDialog {
 

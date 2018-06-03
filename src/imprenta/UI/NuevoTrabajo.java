@@ -12,7 +12,7 @@ import java.util.GregorianCalendar;
 
 /**
  *
- * @author Sergio
+ * @author Sergio Amor Gutiérrez
  */
 public class NuevoTrabajo extends javax.swing.JDialog {
 
@@ -65,7 +65,7 @@ public class NuevoTrabajo extends javax.swing.JDialog {
             }
         });
 
-        cbRelieve.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Flexografía", "Litografía", "Tipografía" }));
+        cbRelieve.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Flexografia", "Litografia", "Tipografia" }));
 
         jSeparator1.setOrientation(javax.swing.SwingConstants.VERTICAL);
 

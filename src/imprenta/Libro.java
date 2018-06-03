@@ -44,14 +44,10 @@ public class Libro extends Trabajo {
      */
     public Libro(int numeroPaginas, String colorTapas, Calendar fechaSolicitud, String tipoRelieve, Calendar fechaImpresion, Calendar fechaRecogida) {
         super(fechaSolicitud, tipoRelieve, fechaImpresion, fechaRecogida);
-        try {
-            if (Validaciones.validarEntero(numeroPaginas)) {
-                this.numeroPaginas = numeroPaginas;
-            }
-            this.colorTapas = Validaciones.validarColorTapas(colorTapas);
-        } catch (InvalidSurfaceException ex) {
-            Logger.getLogger(Trabajo.class.getName()).log(Level.SEVERE, null, ex);
+        if (Validaciones.validarEntero(numeroPaginas)) {
+            this.numeroPaginas = numeroPaginas;
         }
+//            this.colorTapas = Validaciones.validarColorTapas(colorTapas);
     }
 
     /**
