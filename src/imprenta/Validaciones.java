@@ -19,16 +19,15 @@ public class Validaciones {
      *
      * @param relieve
      * @return
-     * @throws InvalidSurfaceException
      */
-    public static Trabajo.tipoRelieve validarTipoRelieve(String relieve) throws InvalidSurfaceException {
+    public static boolean validarTipoRelieve(String relieve) {
         boolean correcto = false;
         for (Trabajo.tipoRelieve tr : Trabajo.tipoRelieve.values()) {
             if (relieve.equals(tr.toString())) {
-                return Trabajo.tipoRelieve.valueOf(relieve.toUpperCase());
+                return true;
             }
         }
-        throw new InvalidSurfaceException();
+        return false;
     }//Cierre del método
 
     /**
@@ -114,7 +113,7 @@ public class Validaciones {
      * @return
      */
     public static boolean validarNIF(String nif) {
-        boolean correcto = false;
+        boolean correcto;
         Pattern pattern = Pattern.compile("(\\d{1,8})([TRWAGMYFPDXBNJZSQVHLCKEtrwagmyfpdxbnjzsqvhlcke])");
         Matcher matcher = pattern.matcher(nif);
         if (matcher.matches()) {
@@ -123,11 +122,7 @@ public class Validaciones {
             int index = Integer.parseInt(matcher.group(1));
             index = index % 23;
             String reference = letras.substring(index, index + 1);
-            if (reference.equalsIgnoreCase(letra)) {
-                correcto = true;
-            } else {
-                correcto = false;
-            }
+            correcto = reference.equalsIgnoreCase(letra);
         } else {
             correcto = false;
         }
@@ -160,15 +155,14 @@ public class Validaciones {
      *
      * @param colorTapas
      * @return
-     * @throws InvalidSurfaceException
      */
-    public static Libro.Tapas validarColorTapas(String colorTapas) throws InvalidSurfaceException {
+    public static boolean validarColorTapas(String colorTapas) {
 
         for (Libro.Tapas t : Libro.Tapas.values()) {
-            if (colorTapas.equals(Libro.Tapas.values().toString())) {
-                return Libro.Tapas.valueOf(colorTapas.toUpperCase());
+            if (colorTapas.equals(t.toString())) {
+                return true;
             }
         }
-        throw new InvalidSurfaceException();
+        return false;
     }//Cierre del método
 }

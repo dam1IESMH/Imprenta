@@ -8,8 +8,13 @@ package imprenta;
 import java.util.Calendar;
 
 /**
- *
- * @author usuario
+ * La clase {@code Reparacion} representa a las reparaciones realizadas a las maquinas,
+ * en una imprenta. Las reparaciones tiene el atributos enteros {@code id}; 
+ * el String {@code direccion}; 
+ * y el Calendar
+ * {@code fecha}.
+ * 
+ * @author Mario Perez Urbaneja
  */
 public class Reparacion {
     

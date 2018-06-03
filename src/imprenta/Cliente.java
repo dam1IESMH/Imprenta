@@ -12,7 +12,7 @@ import java.io.Serializable;
  * en una imprenta. El cliente se define por su {@code nombre} y
  * {@code telefono}.
  *
- * @author SirLoveWalter
+ * @author Sergio Amor Gutiérrez
  */
 public class Cliente implements Serializable {
 

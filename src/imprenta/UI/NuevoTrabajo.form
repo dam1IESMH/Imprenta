@@ -79,6 +79,9 @@
           </StringArray>
         </Property>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cbTipoTrabajoActionPerformed"/>
+      </Events>
       <AuxValues>
         <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
       </AuxValues>
@@ -87,9 +90,9 @@
       <Properties>
         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
           <StringArray count="3">
-            <StringItem index="0" value="Flexograf&#xed;a"/>
-            <StringItem index="1" value="Litograf&#xed;a"/>
-            <StringItem index="2" value="Tipograf&#xed;a"/>
+            <StringItem index="0" value="Flexografia"/>
+            <StringItem index="1" value="Litografia"/>
+            <StringItem index="2" value="Tipografia"/>
           </StringArray>
         </Property>
       </Properties>

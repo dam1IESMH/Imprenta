@@ -5,21 +5,27 @@
  */
 package imprenta.UI;
 
+import imprenta.*;
+import java.util.ArrayList;
+import javax.swing.DefaultListModel;
 import javax.swing.ImageIcon;
 
 /**
  *
- * @author Sergio
+ * @author Sergio Amor Gutiérrez
  */
 public class ModificacionesTrabajo extends javax.swing.JFrame {
 
     /**
      * Creates new form PrintMods
      */
-    public ModificacionesTrabajo() {
+    public ModificacionesTrabajo(Trabajo t) {
         initComponents();
+        ModificacionesTrabajo.t = t;
         setIconImage(new ImageIcon("assets/icons/edit_black_18x18.png").getImage());
+        setTitle("Mods. trabajo " + t.getId());
         setLocationRelativeTo(null);
+
     }
 
     /**
@@ -32,47 +38,47 @@ public class ModificacionesTrabajo extends javax.swing.JFrame {
     private void initComponents() {
 
         jScrollPane1 = new javax.swing.JScrollPane();
-        jList1 = new javax.swing.JList<>();
-        jButton1 = new javax.swing.JButton();
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
+        lstMods = new javax.swing.JList<>();
+        btnAnadirMod = new javax.swing.JButton();
+        lblId = new javax.swing.JLabel();
+        lblFecha = new javax.swing.JLabel();
+        lblDescripcion = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
+        lblAprobado = new javax.swing.JLabel();
+        lblFechaAprobacion = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Mods. trabajo N");
         setBounds(new java.awt.Rectangle(0, 0, 414, 333));
 
-        jList1.setModel(new javax.swing.AbstractListModel<String>() {
-            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
+        lstMods.setModel(new javax.swing.AbstractListModel<String>() {
+            String[] strings = { "Mod 1", "Mod 2", "Mod 3" };
             public int getSize() { return strings.length; }
             public String getElementAt(int i) { return strings[i]; }
         });
-        jScrollPane1.setViewportView(jList1);
+        jScrollPane1.setViewportView(lstMods);
 
-        jButton1.setText("Añadir modificación");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        btnAnadirMod.setText("Añadir modificación");
+        btnAnadirMod.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                btnAnadirModActionPerformed(evt);
             }
         });
 
-        jLabel1.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
-        jLabel1.setText("ID: ");
+        lblId.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        lblId.setText("ID: ");
 
-        jLabel2.setFont(new java.awt.Font("Dialog", 2, 12)); // NOI18N
-        jLabel2.setText("Fecha");
+        lblFecha.setFont(new java.awt.Font("Dialog", 2, 12)); // NOI18N
+        lblFecha.setText("Fecha");
 
-        jLabel3.setText("Descripción");
-        jLabel3.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        lblDescripcion.setText("Descripción");
+        lblDescripcion.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
         jLabel4.setText("Aprobado por cliente:");
 
-        jLabel5.setText("SI / NO / PENDIENTE");
+        lblAprobado.setText("SI / NO / PENDIENTE");
 
-        jLabel6.setText("Fecha aprobación");
+        lblFechaAprobacion.setText("Fecha aprobación");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -82,23 +88,23 @@ public class ModificacionesTrabajo extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jScrollPane1)
-                    .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, 159, Short.MAX_VALUE))
+                    .addComponent(btnAnadirMod, javax.swing.GroupLayout.DEFAULT_SIZE, 159, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel2))
+                            .addComponent(lblId, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lblFecha))
                         .addGap(0, 0, Short.MAX_VALUE))
-                    .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(lblDescripcion, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGap(0, 144, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                                 .addComponent(jLabel4)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jLabel5))
-                            .addComponent(jLabel6, javax.swing.GroupLayout.Alignment.TRAILING))))
+                                .addComponent(lblAprobado))
+                            .addComponent(lblFechaAprobacion, javax.swing.GroupLayout.Alignment.TRAILING))))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -108,28 +114,41 @@ public class ModificacionesTrabajo extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jScrollPane1)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel1)
+                        .addComponent(lblId)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jLabel2)
+                        .addComponent(lblFecha)
                         .addGap(18, 18, 18)
-                        .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(lblDescripcion, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 67, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel4)
-                            .addComponent(jLabel5))))
+                            .addComponent(lblAprobado))))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jButton1)
-                    .addComponent(jLabel6))
+                    .addComponent(btnAnadirMod)
+                    .addComponent(lblFechaAprobacion))
                 .addContainerGap())
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void btnAnadirModActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAnadirModActionPerformed
         new NuevaModificacion(this, true).setVisible(true);
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_btnAnadirModActionPerformed
+
+    private void cargarLista() {
+        if (t.getMods() == null) {
+            mods = new ArrayList<>();
+        } else {
+            mods = t.getMods();
+        }
+        DefaultListModel lm = new DefaultListModel();
+        for (Modificacion m : mods) {
+            lm.addElement("Modificación " + m.getId());
+        }
+        lstMods.setModel(lm);
+    }
 
     /**
      * @param args the command line arguments
@@ -162,20 +181,22 @@ public class ModificacionesTrabajo extends javax.swing.JFrame {
         /* Create and display the dialog */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new ModificacionesTrabajo().setVisible(true);
+                new ModificacionesTrabajo(t).setVisible(true);
             }
         });
     }
 
+    static Trabajo t;
+    static ArrayList<Modificacion> mods;
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
+    private javax.swing.JButton btnAnadirMod;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
-    private javax.swing.JList<String> jList1;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JLabel lblAprobado;
+    private javax.swing.JLabel lblDescripcion;
+    private javax.swing.JLabel lblFecha;
+    private javax.swing.JLabel lblFechaAprobacion;
+    private javax.swing.JLabel lblId;
+    private javax.swing.JList<String> lstMods;
     // End of variables declaration//GEN-END:variables
 }

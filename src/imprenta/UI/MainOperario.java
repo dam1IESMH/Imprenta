@@ -5,12 +5,16 @@
  */
 package imprenta.UI;
 
+import imprenta.Maquina;
+import imprenta.Trabajo;
+import java.util.Iterator;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
- * @author DAM101
+ * @author Sergio Amor Gutiérrez
  */
 public class MainOperario extends javax.swing.JFrame {
 
@@ -21,12 +25,15 @@ public class MainOperario extends javax.swing.JFrame {
      */
     public MainOperario(int tipoOperario) {
         initComponents();
+        setVisible(true);
         setIconImage(new ImageIcon("assets/icons/format_paint_black_18x18.png").getImage());
-        if (tipoOperario != 2) {
-            tabOperaciones.removeTabAt(tipoOperario);
-        }
+//        if (tipoOperario != 2) {
+//            tabOperaciones.removeTabAt(tipoOperario);
+//        }
         setLocationRelativeTo(null);
         setTitle("Rodillo - " + Datos.opActual.getNombre() + " " + Datos.opActual.getApellidos());
+        cargarTablaMaquinas();
+        cargarTablaTrabajos();
     }
 
     /**
@@ -41,7 +48,7 @@ public class MainOperario extends javax.swing.JFrame {
         tabOperaciones = new javax.swing.JTabbedPane();
         pnlImpresion = new javax.swing.JPanel();
         jScrollPane2 = new javax.swing.JScrollPane();
-        jTable2 = new javax.swing.JTable();
+        tblTrabajos = new javax.swing.JTable();
         jPanel3 = new javax.swing.JPanel();
         jCheckBox1 = new javax.swing.JCheckBox();
         jCheckBox2 = new javax.swing.JCheckBox();
@@ -49,17 +56,17 @@ public class MainOperario extends javax.swing.JFrame {
         jCheckBox4 = new javax.swing.JCheckBox();
         jCheckBox5 = new javax.swing.JCheckBox();
         jCheckBox6 = new javax.swing.JCheckBox();
-        jButton4 = new javax.swing.JButton();
-        jButton5 = new javax.swing.JButton();
-        jButton6 = new javax.swing.JButton();
+        btnMods = new javax.swing.JButton();
+        btnValidar = new javax.swing.JButton();
+        btnImprimir = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         pnlMaquinas = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        tblMaquinas = new javax.swing.JTable();
         btnReparar = new javax.swing.JButton();
         btnRellenar = new javax.swing.JButton();
-        jButton1 = new javax.swing.JButton();
+        btnNuevoTrabajo = new javax.swing.JButton();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jMenu2 = new javax.swing.JMenu();
@@ -68,12 +75,9 @@ public class MainOperario extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Rodillo - NOMBRE OPERARIO");
 
-        jTable2.setModel(new javax.swing.table.DefaultTableModel(
+        tblTrabajos.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null}
+
             },
             new String [] {
                 "ID", "Tipo relieve", "Fecha solicitud", "Fecha impresión", "Fecha recogida", "Listo"
@@ -87,11 +91,16 @@ public class MainOperario extends javax.swing.JFrame {
                 return types [columnIndex];
             }
         });
-        jScrollPane2.setViewportView(jTable2);
-        if (jTable2.getColumnModel().getColumnCount() > 0) {
-            jTable2.getColumnModel().getColumn(0).setPreferredWidth(40);
-            jTable2.getColumnModel().getColumn(5).setPreferredWidth(40);
-            jTable2.getColumnModel().getColumn(5).setMaxWidth(50);
+        tblTrabajos.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tblTrabajosMouseClicked(evt);
+            }
+        });
+        jScrollPane2.setViewportView(tblTrabajos);
+        if (tblTrabajos.getColumnModel().getColumnCount() > 0) {
+            tblTrabajos.getColumnModel().getColumn(0).setPreferredWidth(40);
+            tblTrabajos.getColumnModel().getColumn(5).setPreferredWidth(40);
+            tblTrabajos.getColumnModel().getColumn(5).setMaxWidth(50);
         }
 
         jPanel3.setBorder(javax.swing.BorderFactory.createTitledBorder("Filtrar"));
@@ -143,16 +152,24 @@ public class MainOperario extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        jButton4.setText("Modificaciones");
-        jButton4.addActionListener(new java.awt.event.ActionListener() {
+        btnMods.setText("Modificaciones");
+        btnMods.setEnabled(false);
+        btnMods.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton4ActionPerformed(evt);
+                btnModsActionPerformed(evt);
             }
         });
 
-        jButton5.setText("Validar");
+        btnValidar.setText("Validar");
+        btnValidar.setEnabled(false);
+        btnValidar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnValidarActionPerformed(evt);
+            }
+        });
 
-        jButton6.setText("Imprimir");
+        btnImprimir.setText("Imprimir");
+        btnImprimir.setEnabled(false);
 
         jLabel1.setFont(new java.awt.Font("Dialog", 1, 12)); // NOI18N
         jLabel1.setText("Nombre del trabajo");
@@ -174,11 +191,11 @@ public class MainOperario extends javax.swing.JFrame {
                             .addComponent(jLabel1)
                             .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 251, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(pnlImpresionLayout.createSequentialGroup()
-                                .addComponent(jButton4)
+                                .addComponent(btnMods)
                                 .addGap(18, 18, 18)
-                                .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addComponent(btnValidar, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 33, Short.MAX_VALUE)
-                        .addComponent(jButton6)))
+                        .addComponent(btnImprimir)))
                 .addContainerGap())
         );
         pnlImpresionLayout.setVerticalGroup(
@@ -196,36 +213,33 @@ public class MainOperario extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(pnlImpresionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(btnImprimir, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 16, Short.MAX_VALUE)
                         .addGroup(pnlImpresionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jButton4)
-                            .addComponent(jButton5))))
+                            .addComponent(btnMods)
+                            .addComponent(btnValidar))))
                 .addContainerGap())
         );
 
         tabOperaciones.addTab("Operaciones de impresión", pnlImpresion);
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        tblMaquinas.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null}
+
             },
             new String [] {
-                "ID", "Ubicación", "Compra", "Tipo impresión", "Modo impresión", "Volumen", "Capacidad", "Nivel tinta"
+                "ID", "Ubicación", "Compra", "Tipo impresión", "Modo impresión", "Volumen", "Capacidad"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.Integer.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.Float.class, java.lang.Float.class, java.lang.Integer.class
+                java.lang.Integer.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.Float.class, java.lang.Float.class
             };
 
             public Class getColumnClass(int columnIndex) {
                 return types [columnIndex];
             }
         });
-        jScrollPane1.setViewportView(jTable1);
+        jScrollPane1.setViewportView(tblMaquinas);
 
         btnReparar.setText("Reparar");
         btnReparar.addActionListener(new java.awt.event.ActionListener() {
@@ -248,15 +262,14 @@ public class MainOperario extends javax.swing.JFrame {
             .addGroup(pnlMaquinasLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(pnlMaquinasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(pnlMaquinasLayout.createSequentialGroup()
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 631, Short.MAX_VALUE)
-                        .addContainerGap())
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 631, Short.MAX_VALUE)
                     .addGroup(pnlMaquinasLayout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
                         .addComponent(btnRellenar, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(47, 47, 47)
+                        .addGap(45, 45, 45)
                         .addComponent(btnReparar, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(187, 187, 187))))
+                        .addGap(174, 174, 174)))
+                .addContainerGap())
         );
         pnlMaquinasLayout.setVerticalGroup(
             pnlMaquinasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -272,7 +285,12 @@ public class MainOperario extends javax.swing.JFrame {
 
         tabOperaciones.addTab("Operaciones sobre máquinas", pnlMaquinas);
 
-        jButton1.setText("Registrar trabajo");
+        btnNuevoTrabajo.setText("Registrar trabajo");
+        btnNuevoTrabajo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnNuevoTrabajoActionPerformed(evt);
+            }
+        });
 
         jMenu1.setText("Archivo");
         jMenuBar1.add(jMenu1);
@@ -299,7 +317,7 @@ public class MainOperario extends javax.swing.JFrame {
             .addComponent(tabOperaciones)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 273, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnNuevoTrabajo, javax.swing.GroupLayout.PREFERRED_SIZE, 273, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(186, 186, 186))
         );
         layout.setVerticalGroup(
@@ -307,7 +325,7 @@ public class MainOperario extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addComponent(tabOperaciones)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jButton1)
+                .addComponent(btnNuevoTrabajo)
                 .addContainerGap())
         );
 
@@ -322,13 +340,89 @@ public class MainOperario extends javax.swing.JFrame {
         new RepararMaquina(this, true).setVisible(true);
     }//GEN-LAST:event_btnRepararActionPerformed
 
-    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
-        new ModificacionesTrabajo().setVisible(true);
-    }//GEN-LAST:event_jButton4ActionPerformed
+    private void btnModsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModsActionPerformed
+        new ModificacionesTrabajo(copiarTrabajoFila(tblTrabajos.getSelectedRow())).setVisible(true);
+    }//GEN-LAST:event_btnModsActionPerformed
 
     private void mnAboutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnAboutActionPerformed
-        new About(this, false).setVisible(true);
+
     }//GEN-LAST:event_mnAboutActionPerformed
+
+    private void btnNuevoTrabajoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNuevoTrabajoActionPerformed
+        new NuevoTrabajo(this, true);
+        cargarTablaTrabajos();
+    }//GEN-LAST:event_btnNuevoTrabajoActionPerformed
+
+    private void tblTrabajosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblTrabajosMouseClicked
+        if (tblTrabajos.getSelectedRow() != -1) {
+            habilitarOpciones();
+        }
+    }//GEN-LAST:event_tblTrabajosMouseClicked
+
+    private void btnValidarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnValidarActionPerformed
+        for (Iterator<Trabajo> it = Datos.trabajos.iterator(); it.hasNext();) {
+            Trabajo next = it.next();
+            if (next.getId() == (int) tblTrabajos.getValueAt(tblTrabajos.getSelectedRow(), 0)) {
+                next.setValido(true);
+            }
+        }
+        Datos.guardarTrabajos();
+        cargarTablaTrabajos();
+    }//GEN-LAST:event_btnValidarActionPerformed
+
+    private void habilitarOpciones() {
+        btnImprimir.setEnabled(true);
+        btnMods.setEnabled(true);
+        btnValidar.setEnabled(true);
+    }
+
+    private void cargarTablaTrabajos() {
+        Datos.cargarTrabajos();
+        DefaultTableModel tm = (DefaultTableModel) tblTrabajos.getModel();
+        for (int i = 0; i < tm.getRowCount(); i++) {
+            tm.removeRow(i);
+        }
+        for (Trabajo t : Datos.trabajos) {
+            tm.addRow(new Object[]{
+                t.getId(),
+                t.getRelieve(),
+                t.getFechaSolicitud(),
+                t.getFechaImpresion(),
+                t.getFechaRecogida(),
+                t.isValido()
+            });
+        }
+        tblTrabajos.setModel(tm);
+    }
+
+    private void cargarTablaMaquinas() {
+        Datos.cargarMaquinas();
+        DefaultTableModel tm = (DefaultTableModel) tblMaquinas.getModel();
+        for (int i = 0; i < tm.getRowCount(); i++) {
+            tm.removeRow(i);
+        }
+        for (Maquina m : Datos.maquinas) {
+            tm.addRow(new Object[]{
+                m.getId(),
+                m.getUbicacion(),
+                m.getFechaCompra(),
+                m.getTipoImpresion(),
+                m.getModoImpresion(),
+                m.getVolumen(),
+                m.getCapacidadMax()
+            });
+        }
+        tblMaquinas.setModel(tm);
+    }
+
+    private Trabajo copiarTrabajoFila(int row) {
+        for (Trabajo t : Datos.trabajos) {
+            if (t.getId()==(int)tblTrabajos.getValueAt(row, 0)) {
+                return t;
+            }
+        }
+        return null;
+    }
 
     public JFrame getThis() {
         return (JFrame) this;
@@ -371,12 +465,12 @@ public class MainOperario extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnImprimir;
+    private javax.swing.JButton btnMods;
+    private javax.swing.JButton btnNuevoTrabajo;
     private javax.swing.JButton btnRellenar;
     private javax.swing.JButton btnReparar;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton4;
-    private javax.swing.JButton jButton5;
-    private javax.swing.JButton jButton6;
+    private javax.swing.JButton btnValidar;
     private javax.swing.JCheckBox jCheckBox1;
     private javax.swing.JCheckBox jCheckBox2;
     private javax.swing.JCheckBox jCheckBox3;
@@ -391,11 +485,11 @@ public class MainOperario extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel3;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JTable jTable1;
-    private javax.swing.JTable jTable2;
     private javax.swing.JMenuItem mnAbout;
     private javax.swing.JPanel pnlImpresion;
     private javax.swing.JPanel pnlMaquinas;
     private javax.swing.JTabbedPane tabOperaciones;
+    private javax.swing.JTable tblMaquinas;
+    private javax.swing.JTable tblTrabajos;
     // End of variables declaration//GEN-END:variables
 }

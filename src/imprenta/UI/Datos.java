@@ -20,7 +20,7 @@ import java.util.logging.Logger;
 
 /**
  *
- * @author Sergio
+ * @author Sergio Amor Gutiérrez
  */
 public class Datos {
 

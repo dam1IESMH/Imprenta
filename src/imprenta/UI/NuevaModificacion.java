@@ -5,11 +5,13 @@
  */
 package imprenta.UI;
 
-import javax.swing.ImageIcon;
+import imprenta.Modificacion;
+import imprenta.OImpresion;
+import java.util.GregorianCalendar;
 
 /**
  *
- * @author Sergio
+ * @author Sergio Amor Gutiérrez
  */
 public class NuevaModificacion extends javax.swing.JDialog {
 
@@ -33,25 +35,30 @@ public class NuevaModificacion extends javax.swing.JDialog {
 
         jLabel1 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTextArea1 = new javax.swing.JTextArea();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        txtarDescripcion = new javax.swing.JTextArea();
+        btnAnadirMod = new javax.swing.JButton();
+        btnCancelar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Modificación N");
 
         jLabel1.setText("Descripción de los cambios:");
 
-        jTextArea1.setColumns(20);
-        jTextArea1.setRows(5);
-        jScrollPane1.setViewportView(jTextArea1);
+        txtarDescripcion.setColumns(20);
+        txtarDescripcion.setRows(5);
+        jScrollPane1.setViewportView(txtarDescripcion);
 
-        jButton1.setText("Añadir modificación");
-
-        jButton2.setText("Cancelar");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        btnAnadirMod.setText("Añadir modificación");
+        btnAnadirMod.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                btnAnadirModActionPerformed(evt);
+            }
+        });
+
+        btnCancelar.setText("Cancelar");
+        btnCancelar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCancelarActionPerformed(evt);
             }
         });
 
@@ -68,9 +75,9 @@ public class NuevaModificacion extends javax.swing.JDialog {
                         .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGap(0, 178, Short.MAX_VALUE)
-                        .addComponent(jButton2)
+                        .addComponent(btnCancelar)
                         .addGap(18, 18, 18)
-                        .addComponent(jButton1)))
+                        .addComponent(btnAnadirMod)))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -82,17 +89,28 @@ public class NuevaModificacion extends javax.swing.JDialog {
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 14, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1)
-                    .addComponent(jButton2))
+                    .addComponent(btnAnadirMod)
+                    .addComponent(btnCancelar))
                 .addContainerGap())
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarActionPerformed
         dispose();
-    }//GEN-LAST:event_jButton2ActionPerformed
+    }//GEN-LAST:event_btnCancelarActionPerformed
+
+    private void btnAnadirModActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAnadirModActionPerformed
+        ModificacionesTrabajo.mods.add(new Modificacion(
+                new GregorianCalendar(),
+                txtarDescripcion.getText(),
+                false,
+                null,
+                (OImpresion) Datos.opActual
+        ));
+        dispose();
+    }//GEN-LAST:event_btnAnadirModActionPerformed
 
     /**
      * @param args the command line arguments
@@ -138,10 +156,10 @@ public class NuevaModificacion extends javax.swing.JDialog {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
+    private javax.swing.JButton btnAnadirMod;
+    private javax.swing.JButton btnCancelar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextArea jTextArea1;
+    private javax.swing.JTextArea txtarDescripcion;
     // End of variables declaration//GEN-END:variables
 }

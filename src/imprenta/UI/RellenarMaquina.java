@@ -9,7 +9,7 @@ import javax.swing.ImageIcon;
 
 /**
  *
- * @author Sergio
+ * @author Sergio Amor Gutiérrez
  */
 public class RellenarMaquina extends javax.swing.JDialog {
 

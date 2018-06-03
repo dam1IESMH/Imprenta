@@ -14,7 +14,7 @@ import javax.swing.JOptionPane;
 
 /**
  *
- * @author DAM101
+ * @author Sergio Amor Gutiérrez
  */
 public class SignIn extends javax.swing.JFrame {
 
@@ -32,6 +32,12 @@ public class SignIn extends javax.swing.JFrame {
         lblPistaHuella.setVisible(false);
         setLocationRelativeTo(null);
         Datos.cargarOperarios();
+//        Datos.maquinas.add(new Maquina(100, 250, "S12", "Litografía", "UNKNOWN", new GregorianCalendar(2018, 03, 10)));
+//        Datos.maquinas.add(new Maquina(20, 250, "S13", "Flexografía", "UNKNOWN", new GregorianCalendar(2018, 03, 10)));
+//        Datos.maquinas.add(new Maquina(75, 250, "S14", "Flexografía", "UNKNOWN", new GregorianCalendar(2018, 03, 10)));
+//        Datos.maquinas.add(new Maquina(220, 250, "S15", "Litografía", "UNKNOWN", new GregorianCalendar(2018, 03, 10)));
+//        Datos.maquinas.add(new Maquina(190, 250, "S16", "Tipografía", "UNKNOWN", new GregorianCalendar(2018, 03, 10)));
+//        Datos.guardarMaquinas();
     }
 
     /**
@@ -447,7 +453,7 @@ public class SignIn extends javax.swing.JFrame {
     }
 
     private void entrar(int tipo) {
-        new MainOperario(tipo).setVisible(true);
+        new MainOperario(tipo);
         this.dispose();
     }
 

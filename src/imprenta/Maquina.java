@@ -17,7 +17,7 @@ import java.util.Calendar;
  * {@code tipoImpresion}, {@code modoImpresion}; y el Calendar
  * {@code fechaCompra}.
  *
- * @author SirLoveWalter
+ * @author Sergio Amor Gutiérrez
  */
 public class Maquina implements Serializable {
 
@@ -105,8 +105,9 @@ public class Maquina implements Serializable {
         return modoImpresion;
     }
 
-    public Calendar getFechaCompra() {
-        return fechaCompra;
+    public String getFechaCompra() {
+        SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+        return sdf.format(fechaCompra.getTime());
     }
 
     public ArrayList<Reparacion> getArreglos() {

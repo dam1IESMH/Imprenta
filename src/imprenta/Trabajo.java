@@ -6,22 +6,19 @@
 package imprenta;
 
 import java.io.Serializable;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
 /**
-  * La clase {@code Trabajo} es una clase padre de la que heredan (Rotulo,
-  * Poster y Libro). El trabajo tiene el atributo enum {@code tipoRelieve};
- * el atributo entero (@code id); los Calendar {@code fechaSolicitud},
- * {@code fechaImpresion}, {@code fechaRecogida}; y un boolean
- * {@code valido}.
- * 
+ *
  * @author Jose Daniel Buenaga
  */
 public class Trabajo implements Serializable {
 
-    enum tipoRelieve {
+    protected enum tipoRelieve {
         FLEXOGRAFIA, TIPOGRAFIA, LITOGRAFIA
     }
     protected int id;
@@ -32,42 +29,41 @@ public class Trabajo implements Serializable {
     protected boolean valido;
     protected boolean impreso;
 
+    ArrayList<Modificacion> mods;
     protected static int auto_incrementado = 0;
 
     {
         auto_incrementado++;
     }
 
-    {
-        fechaSolicitud.setLenient(false);
-    }
-
     /**
-     * Inicializa un objeto {@code Trabajo} con sus variables sin inicializar.
+     * Constructor vacio
      */
     public Trabajo() {
     }
 
     /**
-     * Inicializa un objeto {@code Trabajo} que inicializa sus variables con los
-     * parámetros pasados como argumento.
+     * Constructor para la clase Trabajo con todos los parámetros
      *
-     * @param fechaSolicitud (@code Calendar)
-     * @param tipoRelieve (@code enum)
-     * @param fechaImpresion (@code Calendar)
-     * @param fechaRecogida (@code Calendar)
+     * @param fechaSolicitud
+     * @param tipoRelieve
+     * @param fechaImpresion
+     * @param fechaRecogida
      */
     public Trabajo(Calendar fechaSolicitud, String tipoRelieve, Calendar fechaImpresion, Calendar fechaRecogida) {
-        try {
-            this.id = auto_incrementado;
-            this.fechaSolicitud = fechaSolicitud;
-            this.Relieve = Validaciones.validarTipoRelieve(tipoRelieve);
-            this.fechaImpresion = fechaImpresion;
-            this.fechaRecogida = fechaRecogida;
-        } catch (InvalidSurfaceException ex) {
-            Logger.getLogger(Trabajo.class.getName()).log(Level.SEVERE, null, ex);
+        this.id = auto_incrementado;
+        this.fechaSolicitud = fechaSolicitud;
+        if (tipoRelieve.equalsIgnoreCase("FLEXOGRAFIA")) {
+            Relieve = Relieve.FLEXOGRAFIA;
+        } else if (tipoRelieve.equalsIgnoreCase("TIPOGRAFIA")) {
+            Relieve = Relieve.TIPOGRAFIA;
+        } else if (tipoRelieve.equalsIgnoreCase("LITOGRAFIA")) {
+            Relieve = Relieve.LITOGRAFIA;
         }
-    }
+        this.fechaImpresion = fechaImpresion;
+        this.fechaRecogida = fechaRecogida;
+        mods = new ArrayList<>();
+    }//Cierre del constructor
 
     /**
      * Inicializa un objeto {@code Trabajo} cuyas variables copia de otro objeto
@@ -81,20 +77,79 @@ public class Trabajo implements Serializable {
         this.Relieve = t.Relieve;
         this.fechaImpresion = t.fechaImpresion;
         this.fechaRecogida = t.fechaRecogida;
+    }//Cierre del constructor
+
+    public int getId() {
+        return id;
     }
 
-    /**
-     * Este método se utiliza para cambiar a apto un trabajo.
-     *
-     */
-    public void valido() {
+    public String getFechaSolicitud() {
+        SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+        return sdf.format(fechaSolicitud.getTime());
+    }
+
+    public String getRelieve() {
+        if (Relieve != null) {
+            return Relieve.toString();
+        } else {
+            return null;
+        }
+    }
+
+    public String getFechaImpresion() {
+        if (fechaImpresion != null) {
+            SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+            return sdf.format(fechaImpresion.getTime());
+        } else {
+            return null;
+        }
+    }
+
+    public String getFechaRecogida() {
+        if (fechaRecogida != null) {
+            SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+            return sdf.format(fechaRecogida.getTime());
+        } else {
+            return null;
+        }
+    }
+
+    public boolean isValido() {
+        return valido;
+    }
+
+    public boolean isImpreso() {
+        return impreso;
+    }
+
+    public ArrayList<Modificacion> getMods() {
+        return mods;
+    }
+
+    public void setMods(ArrayList<Modificacion> mods) {
+        this.mods = mods;
+    }
+
+    public void setFechaImpresion(Calendar fechaImpresion) {
+        this.fechaImpresion = fechaImpresion;
+    }
+
+    public void setFechaRecogida(Calendar fechaRecogida) {
+        this.fechaRecogida = fechaRecogida;
+    }
+
+    public void setValido(boolean valido) {
+        this.valido = valido;
+    }
+
+    public void setImpreso(boolean impreso) {
+        this.impreso = impreso;
+    }
+
+    public void validar() {
         this.valido = true;
     }
 
-    /**
-     * Este método se utiliza para poner que una impresión se ha llevado a cabo.
-     *
-     */
     public void imprimir() {
         this.impreso = true;
     }
@@ -104,5 +159,5 @@ public class Trabajo implements Serializable {
         return "Trabajo{" + "id=" + id + ", fechaSolicitud=" + fechaSolicitud + ", tipoRelieve=" + Relieve + ", fechaImpresion=" + fechaImpresion + ", fechaRecogida=" + fechaRecogida + '}';
     }
 
-}
+}//Cierre de la clase
 
