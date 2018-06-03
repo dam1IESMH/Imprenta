@@ -338,7 +338,13 @@ public class MainOperario extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnRellenarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRellenarActionPerformed
-        new RellenarMaquina(this, true, copiarMaquinaFila(tblMaquinas.getSelectedRow())).setVisible(true);
+        for (Iterator<Maquina> it = Datos.maquinas.iterator(); it.hasNext();) {
+            Maquina next = it.next();
+            if (next.getId() == (int) tblMaquinas.getValueAt(tblMaquinas.getSelectedRow(), 0)) {
+                next.rellenar();
+            }
+        }
+        Datos.guardarMaquinas();
         cargarTablaMaquinas();
     }//GEN-LAST:event_btnRellenarActionPerformed
 
